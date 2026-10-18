@@ -426,8 +426,15 @@
 ;
 (() => {
   'use strict';
+  const mounted = new WeakMap();
+  function mount(root = document) {
+  if (mounted.has(root)) {
+    const controller = mounted.get(root);
+    window.AccelerationLab = controller;
+    return controller;
+  }
   const P = window.AccelerationPhysics;
-  const $ = id => document.getElementById(id);
+  const $ = id => root.getElementById(id);
   const presets = {
     accelerate: {x0: 0, v0: 2, a: 2, duration: 8},
     cruise: {x0: 0, v0: 6, a: 0, duration: 8},
@@ -485,7 +492,7 @@
     $('controlError').hidden = true;
     $('playPause').disabled = false;
     $('stepSimulation').disabled = false;
-    document.querySelectorAll('.preset-options [data-preset]').forEach(button => {
+    root.querySelectorAll('.preset-options [data-preset]').forEach(button => {
       const selected = button.dataset.preset === activePreset;
       button.classList.toggle('active', selected);
       button.setAttribute('aria-pressed', String(selected));
@@ -771,7 +778,7 @@
     number.addEventListener('change',numberChange);
     number.addEventListener('keydown',event => {if (event.key === 'Enter' && !event.isComposing) {event.preventDefault();numberChange();number.blur();}});
   });
-  document.querySelectorAll('.preset-options [data-preset]').forEach(button => button.addEventListener('click',() => choosePreset(button.dataset.preset)));
+  root.querySelectorAll('.preset-options [data-preset]').forEach(button => button.addEventListener('click',() => choosePreset(button.dataset.preset)));
   $('playPause').addEventListener('click',play);
   $('resetSimulation').addEventListener('click',() => {stop();time = 0;syncControls();render();});
   $('stepSimulation').addEventListener('click',() => setTime(time + 0.1));
@@ -799,6 +806,16 @@
     try {await navigator.clipboard.writeText(csvData);$('exportStatus').textContent = 'CSV text copied.';}
     catch (_) {$('csvText').focus();$('csvText').select();$('exportStatus').textContent = 'Text selected. Use your device’s Copy command.';}
   });
+  if (root.nodeType === 11 && root.host) {
+    root.addEventListener('click',event => {
+      const anchor = event.target.closest && event.target.closest('a[href^="#"]');
+      if (!anchor) return;
+      const target = $(anchor.getAttribute('href').slice(1));
+      if (!target) return;
+      event.preventDefault();
+      target.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',block:'start'});
+    });
+  }
   document.addEventListener('visibilitychange',() => {if (document.hidden && running) {stop();render();}});
   window.addEventListener('resize',scheduleDraw);
   if (typeof ResizeObserver === 'function') {
@@ -806,8 +823,18 @@
     [$('motionCanvas'),...graphInfo.map(info => $(info.id))].forEach(canvas => observer.observe(canvas));
   }
   learning = window.AccelerationLearning.mount({lessonTarget:$('lessonCards'),quizTarget:$('quizCard'),onPreset:key => choosePreset(key,true)});
-  window.AccelerationLab = Object.freeze({inspect:() => ({params:{...params},time,running,sample:P.sample(params,time),summary:P.summary(params),quiz:learning.inspect()})});
+  const controller = Object.freeze({
+    inspect:() => ({params:{...params},time,running,sample:P.sample(params,time),summary:P.summary(params),quiz:learning.inspect()}),
+    pause:() => {stop();render();},
+    redraw:scheduleDraw
+  });
+  mounted.set(root,controller);
+  window.AccelerationLab = controller;
   refreshParameters();
+  return controller;
+  }
+  window.AccelerationApp = Object.freeze({mount});
+  if (document.getElementById('motionCanvas')) mount();
 })();
 
 </script>

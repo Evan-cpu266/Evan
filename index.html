@@ -25,9 +25,12 @@
 
 .acceleration-link{display:inline-flex;align-items:center;gap:14px;margin-top:15px;min-height:44px;padding:11px 16px;border:1px solid #bdcfc1;border-radius:7px;background:#e9efe4;color:#45694e;font-size:12px;font-weight:600}.acceleration-link:hover{background:#dce9d4;border-color:#9db795}.acceleration-link .arrow-icon{width:15px;height:15px}@media(max-width:650px){.acceleration-link{font-size:12px;max-width:100%}}@media print{.acceleration-link{display:none}}
 
+.embedded-toolbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:59px;padding:10px max(20px,calc((100% - 1260px)/2));background:#f6f7f2f5;border-bottom:1px solid #dce3d8}.back-to-gravity{display:inline-flex;align-items:center;gap:9px;min-height:39px;padding:8px 12px;background:#e8efe2;border:1px solid #c6d7bd;border-radius:6px;color:#3f6650;font:600 12px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer}.back-to-gravity:hover{background:#dce9d2}.back-to-gravity svg{width:17px;height:17px;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.embedded-toolbar>span{font-size:8px;letter-spacing:1px;color:#6d8563}#embeddedAccelerationRoot{display:block;min-height:100vh}@media(max-width:650px){.embedded-toolbar{padding:9px 15px;gap:10px}.back-to-gravity{font-size:11px;padding:8px 10px}.embedded-toolbar>span{font-size:6px;letter-spacing:.6px;max-width:130px;text-align:right}}@media print{.embedded-toolbar{display:none}}
+
 </style>
 </head>
 <body>
+<div id="gravityView">
 <a class="skip-link" href="#lab">Skip to the experiments</a>
 <header class="site-header">
   <a class="brand" href="#home" aria-label="Orbit home"><span class="brand-symbol" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><ellipse cx="20" cy="20" rx="17" ry="8" transform="rotate(-35 20 20)"/><circle cx="20" cy="20" r="4"/><circle cx="32.8" cy="11.5" r="3" class="brand-moon"/></svg></span><span>orbit<span class="brand-period">.</span></span><small>A PHYSICS PLAYGROUND</small></a>
@@ -36,7 +39,7 @@
 </header>
 <main id="home">
   <section class="hero page-width" aria-labelledby="heroTitle">
-    <div class="hero-copy"><div class="eyebrow"><span class="tiny-orbit" aria-hidden="true"></span> BIG QUESTIONS. HANDS-ON ANSWERS.</div><h1 id="heroTitle">Make sense<br>of <em>motion.</em></h1><p>Why do things fall? What keeps a satellite up?<br class="desktop-break"> Change a number. Watch the universe respond.</p><div class="hero-actions"><a class="button dark" href="#lab">Explore the lab <span aria-hidden="true">↓</span></a><a class="text-link" href="#science">Start with the science <span aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 18 18" fill="none"><path d="M4 14 14 4M4 4h10v10"/></svg></span></a></div><a id="accelerationLink" class="button acceleration-link" href="constant-acceleration.html">Acceleration &amp; graphs <svg class="arrow-icon" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h12m-5-5 5 5-5 5"/></svg></a><div class="hero-note"><span class="overlapping-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Three experiments. Endless <strong>“what ifs.”</strong></span></div></div>
+    <div class="hero-copy"><div class="eyebrow"><span class="tiny-orbit" aria-hidden="true"></span> BIG QUESTIONS. HANDS-ON ANSWERS.</div><h1 id="heroTitle">Make sense<br>of <em>motion.</em></h1><p>Why do things fall? What keeps a satellite up?<br class="desktop-break"> Change a number. Watch the universe respond.</p><div class="hero-actions"><a class="button dark" href="#lab">Explore the lab <span aria-hidden="true">↓</span></a><a class="text-link" href="#science">Start with the science <span aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 18 18" fill="none"><path d="M4 14 14 4M4 4h10v10"/></svg></span></a></div><button id="accelerationLink" type="button" class="button acceleration-link" aria-controls="accelerationView" aria-expanded="false">Acceleration &amp; graphs <svg class="arrow-icon" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h12m-5-5 5 5-5 5"/></svg></button><div class="hero-note"><span class="overlapping-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Three experiments. Endless <strong>“what ifs.”</strong></span></div></div>
     <div class="hero-art" aria-hidden="true"><div class="art-grid"></div><span class="art-coordinate">FIG. 01 / THE PULL OF POSSIBILITY</span><svg class="orbit-illustration" viewBox="0 0 540 340" fill="none"><defs><radialGradient id="heroPlanet" cx=".32" cy=".28" r=".8"><stop stop-color="#d0f0cf"/><stop offset=".48" stop-color="#90cab4"/><stop offset="1" stop-color="#366d69"/></radialGradient><radialGradient id="heroGlow"><stop stop-color="#a4dfc0" stop-opacity=".16"/><stop offset="1" stop-color="#a4dfc0" stop-opacity="0"/></radialGradient></defs><circle cx="275" cy="165" r="150" fill="url(#heroGlow)"/><ellipse cx="273" cy="165" rx="211" ry="79" transform="rotate(-27 273 165)" stroke="#a8c8c4" stroke-opacity=".33" stroke-dasharray="3 7"/><ellipse cx="273" cy="165" rx="158" ry="133" transform="rotate(-27 273 165)" stroke="#a8c8c4" stroke-opacity=".12"/><path d="M110 197c65 45 211 6 294-68" stroke="#a7dccc" stroke-opacity=".45"/><circle cx="273" cy="165" r="84" fill="url(#heroPlanet)"/><path d="M240 89c-14 28 16 43 10 62-4 12-25 15-25 30 0 17 21 19 17 48m46-146c-18 29 5 36 22 37 13 1 23 9 21 20-2 17-31 21-25 43 5 17 30 16 30 35" stroke="#254f50" stroke-opacity=".13" stroke-width="17" stroke-linecap="round"/><path d="M85 94v11m-5-5h10m343 159v10m-5-5h10m-20-206v8m-4-4h8" stroke="#b2cecf" stroke-opacity=".6"/><circle cx="130" cy="269" r="2" fill="#b7d4d3" fill-opacity=".5"/><circle cx="371" cy="35" r="2" fill="#b7d4d3" fill-opacity=".6"/><circle cx="469" cy="145" r="1.5" fill="#b7d4d3" fill-opacity=".6"/><path d="m391 83-53 42m0 0 4-14m-4 14 15-2" stroke="#c9edd6" stroke-width="1.5"/><text x="397" y="77" fill="#d5e6de" font-family="monospace" font-size="11">gravity</text><g class="hero-satellite"><circle cx="114" cy="222" r="10" fill="#ffad88"/><circle cx="114" cy="222" r="18" stroke="#ffad88" stroke-opacity=".3"/></g><circle cx="273" cy="165" r="4" fill="#e0f6df"/><path d="M273 263v20m-5-5 5 5 5-5" stroke="#a8c5c1"/><text x="272" y="308" fill="#8ba9a8" font-family="monospace" text-anchor="middle" font-size="10">A LITTLE FORCE. A WORLD OF MOTION.</text></svg><div class="art-bottom"><span><i></i> Curiosity has no limits.</span><span>F = GMm / r²</span></div></div>
   </section>
   <div class="intro-rule page-width"><span>OBSERVE. ADJUST. UNDERSTAND.</span><span>Less memorizing. More discovering. <span aria-hidden="true">✦</span></span></div>
@@ -81,6 +84,64 @@
   <section class="closing-note page-width"><span aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 18 18" fill="none"><path d="M4 14 14 4M4 4h10v10"/></svg></span><p>The best way to understand a big idea?<br><strong>Play with it.</strong></p><a class="text-link" href="#lab">Back to the lab ↑</a></section>
 </main>
 <footer class="site-footer page-width"><a class="footer-brand" href="#home">orbit.</a><p>Small experiments. A bigger understanding.</p><span>Built for curiosity · Works offline</span></footer>
+</div>
+<section id="accelerationView" class="acceleration-view" aria-label="Constant acceleration and motion graphs" hidden>
+  <div class="embedded-toolbar"><button id="backToGravity" type="button" class="back-to-gravity"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16 10H4m5-5-5 5 5 5"/></svg>Motion &amp; gravity</button><span>ORBIT / ACCELERATION &amp; GRAPHS</span></div>
+  <div id="embeddedAccelerationRoot"></div>
+</section>
+<template id="accelerationTemplate">
+<style>
+:host{display:block;}
+:host{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#213a36;background:#f6f7f2;font-synthesis:none;--ink:#213a36;--muted:#74847b;--green:#246f60;--mint:#d8ead9;--border:#dce3d8;--paper:#fffefa;--blue:#5b83a0;--orange:#c88657}*{box-sizing:border-box}:host{scroll-behavior:smooth;scroll-padding-top:25px}:host{margin:0;font-size:14px;line-height:1.7}button,input,select,textarea{font:inherit}button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:default}a{color:inherit;text-decoration:none}h1,h2,h3,h4,p,figure{margin:0}button{color:inherit}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,canvas:focus-visible,summary:focus-visible,textarea:focus-visible{outline:2px solid #367b65;outline-offset:5px}button{transition:background .15s,transform .15s,border-color .15s}[hidden]{display:none!important}.page-width{width:min(1260px,calc(100% - 100px));margin-inline:auto}.sprite{width:0;height:0;position:absolute;overflow:hidden}.icon{width:19px;height:19px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.skip-link{position:fixed;left:15px;top:-80px;z-index:50;padding:12px;background:var(--ink);color:white}.skip-link:focus{top:15px}.site-header{height:104px;display:flex;align-items:center;justify-content:space-between;gap:25px;border-bottom:1px solid var(--border)}.brand{display:flex;gap:10px;align-items:center;flex-shrink:0}.brand>svg{width:32px;height:32px;stroke:var(--green);stroke-width:1.2}.brand>svg circle:last-child{fill:var(--green);stroke:#f6f7f2}.brand>span{font-size:30px;font-weight:650;letter-spacing:-1.3px}.brand>span>span{color:#6c946d}.brand>small{font-size:7px;letter-spacing:1.6px;color:var(--muted);padding-left:15px;margin-left:9px;border-left:1px solid var(--border);max-width:110px;line-height:1.7}.site-header nav{display:flex;gap:33px;font-size:11px;color:#5b7165}.site-header nav a:hover{color:var(--green)}.header-link{font-size:10px;font-weight:600;display:flex;align-items:center;gap:21px}.header-link span{font-size:21px;font-weight:400}.hero{display:grid;grid-template-columns:1fr 1.02fr;gap:70px;padding-block:70px 65px;align-items:center}.eyebrow{font-size:8px;letter-spacing:1.6px;font-weight:600;color:#75896f;line-height:1.8}.little-dot{width:6px;height:6px;display:inline-block;border-radius:50%;background:#82a378;flex:none}.hero .eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:21px}.hero h1{font-size:clamp(48px,5.6vw,78px);line-height:1.06;letter-spacing:-3.5px;font-weight:520}.hero h1 em,h2 em{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-2.5px;color:var(--green)}.hero-description{font-size:14px;color:#6e8074;line-height:1.9;margin:25px 0 27px}.button{display:inline-flex;align-items:center;justify-content:center;gap:15px;min-height:42px;padding:12px 19px;border:1px solid transparent;border-radius:7px;font-size:11px;font-weight:550;line-height:1.4}.button.dark{background:var(--ink);color:#f7fbf4}.button.dark:hover{background:#32564c}.button.mint{background:var(--mint);color:#2c5643;border-color:#c5dbc4}.button.mint:hover{background:#c6dfc7}.button.secondary{background:transparent;border-color:#cbd6c6;color:#526c56}.button.secondary:hover{background:#e9efdf}.button .icon{width:16px;height:16px}.button.dark .icon{margin-left:12px}.topic-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:30px}.topic-tags span{font-size:8px;color:#8b977e;padding-right:9px;margin-right:1px;border-right:1px solid #d7dfcf;line-height:1.3}.topic-tags span:last-child{border:0}.hero-diagram{background:#eef2e8;border:1px solid #dbe3d2;border-radius:15px;position:relative;transform:rotate(-1.3deg);overflow:hidden}.diagram-top{display:flex;justify-content:space-between;font-size:7px;letter-spacing:1.1px;color:#819175;padding:21px 22px 0;gap:10px}.diagram-top>span:first-child{display:flex;align-items:center;gap:7px}.diagram-top i{width:4px;height:4px;background:#819175;border-radius:50%}.hero-chart{width:100%;display:block;margin-top:6px;padding:0 8px}.diagram-bottom{display:grid;grid-template-columns:repeat(3,1fr);margin:0 22px;border-top:1px solid #d8e0cf;padding:19px 0 22px;gap:15px}.diagram-bottom>div{display:grid;grid-template-columns:24px 1fr;gap:0 6px}.diagram-bottom strong{font-family:Georgia,serif;font-style:italic;font-size:25px;font-weight:400;grid-row:1/3;line-height:1.2;color:#83977c}.diagram-bottom span{font-size:9px;font-weight:600;color:#526b53}.diagram-bottom small{font-size:7px;color:#8b977e}.section-divider{display:flex;justify-content:space-between;gap:20px;padding:21px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);font-size:7px;color:#8a9a80;letter-spacing:1.3px}.section-divider>span:last-child{font-size:9px;letter-spacing:0;color:#7c8979}.section-divider>span:last-child span{font-size:17px;margin-left:22px;line-height:0}.lab-section{padding-top:65px}.section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:32px}.section-heading .eyebrow{margin-bottom:13px}h2{font-size:41px;font-weight:500;line-height:1.15;letter-spacing:-1.4px}.section-heading>p{font-size:12px;color:var(--muted);line-height:1.9;padding-bottom:5px}.preset-bar{display:flex;align-items:center;gap:23px;padding:0 0 19px}.preset-bar>span{font-size:7px;letter-spacing:1.2px;color:#899981;flex:none}.preset-options{display:flex;gap:8px;flex-wrap:wrap}.preset-options button{display:flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:6px;background:none;color:#788b77;padding:9px 13px;font-size:10px;line-height:1.5}.preset-options button:hover{background:#e8eee1}.preset-options button.active{background:#e0ebda;border-color:#bdcfb2;color:#476844}.preset-mark{font-size:14px;line-height:1}.workbench{display:grid;grid-template-columns:280px minmax(0,1fr);background:var(--paper);border:1px solid var(--border);border-radius:13px;overflow:hidden;box-shadow:0 8px 20px #314d3114}.controls{background:#eff3e9;border-right:1px solid var(--border);padding:28px 25px 20px}.controls-title h3{font-size:18px;letter-spacing:-.5px;font-weight:550;margin-top:9px}.controls-title .eyebrow{font-size:6px;letter-spacing:1.25px}.controls-title>p:last-child{font-size:9px;color:#8a9780;line-height:1.9;margin-top:6px}.control-group{margin-top:22px}.control-label{display:flex;align-items:center;justify-content:space-between;gap:7px;margin-bottom:11px}.control-label>label{font-size:10px;font-weight:550}.control-label>label>span{font-family:Georgia,serif;font-style:italic;color:#93a38a;margin-left:3px;font-size:12px}.number-field{display:flex;align-items:center;gap:4px;border:1px solid #d8e0cf;border-radius:5px;padding:4px 6px;background:#f9fbf5;min-width:66px;justify-content:flex-end}.number-field input{font-size:12px;text-align:right;width:36px;min-width:0;border:0;background:none;color:#48663f;padding:0;appearance:textfield;line-height:1.6}.number-field input::-webkit-inner-spin-button,.number-field input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}.number-field input[aria-invalid=true]{color:#b55b46}.number-field span{font-size:8px;color:#8a9b7c}input[type=range]{display:block;appearance:none;-webkit-appearance:none;width:100%;height:4px;border-radius:3px;background:linear-gradient(to right,#85a77d var(--fill,50%),#dce4d2 var(--fill,50%));cursor:pointer;touch-action:pan-y;margin:9px 0;accent-color:#7e9f75}input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:#6e9168;box-shadow:0 0 0 3px #eff3e9;border:0}input[type=range]::-moz-range-thumb{width:13px;height:13px;border:0;border-radius:50%;background:#6e9168;box-shadow:0 0 0 3px #eff3e9}.range-limits{display:flex;justify-content:space-between;margin-top:10px;font-size:7px;color:#9aa58f}.model-note{display:flex;gap:9px;border-top:1px solid #dce4d3;padding-top:16px;margin-top:22px;color:#98a58d}.model-note>span{font-size:16px;color:#6f8d65}.model-note p{font-size:8px;line-height:1.8}.control-error{font-size:10px;color:#ad624c;margin-top:16px}.motion-panel{display:flex;flex-direction:column;min-width:0}.stage-header{display:flex;justify-content:space-between;gap:15px;padding:24px 27px 0;align-items:center;font-size:8px;color:#94a18b}.stage-header>div{display:flex;align-items:center;gap:7px;font-size:7px;letter-spacing:1.1px;color:#84977a}.stage-header .little-dot{width:4px;height:4px}.motion-scene{position:relative;padding:0 18px;flex:1;display:flex;flex-direction:column;justify-content:center;min-height:260px}.motion-scene canvas{width:100%;height:255px;display:block}.scene-note{display:flex;justify-content:space-between;gap:12px;font-size:7px;color:#a4ae9a;padding:0 11px 19px}.scene-note>span:first-child{font-size:6px;letter-spacing:.8px}.scene-note>span:first-child span{font-size:13px;margin-left:4px}.transport{display:flex;align-items:center;gap:8px;padding:14px 25px;border-block:1px solid #e5eadf;background:#f9faf5}.transport>.button{font-size:10px;min-height:35px;gap:8px;padding:9px 12px;flex:none}.transport>.button .icon{width:12px;height:12px;fill:currentColor;stroke:none}.icon-button{display:grid;place-items:center;background:none;border:0;width:31px;height:31px;color:#83937a;border-radius:5px;padding:6px;flex:none}.icon-button:hover{background:#e8eee1}.icon-button .icon{width:16px;height:16px}.timeline-control{flex:1;min-width:50px;display:flex;align-items:center;gap:11px;margin-left:7px}.timeline-control input{min-width:35px;flex:1;height:3px;margin:10px 0}.timeline-control input::-webkit-slider-thumb{width:9px;height:9px;box-shadow:0 0 0 2px #f9faf5}.timeline-control input::-moz-range-thumb{width:9px;height:9px;box-shadow:0 0 0 2px #f9faf5}.timeline-control output{font-size:8px;color:#819275;white-space:nowrap;min-width:76px;text-align:right;font-variant-numeric:tabular-nums}.rate-control{flex:none;margin-left:8px}.rate-control select{font-size:9px;color:#6e8563;border:0;border-radius:4px;background:#eaf0e3;padding:6px 4px}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:24px 27px;gap:16px}.metrics>div{border-right:1px solid #e3e8db}.metrics>div:last-child{border:0}.metrics>div>span{font-size:8px;color:#8b9a7e;display:flex;align-items:center;gap:7px}.metrics i{font-family:Georgia,serif;font-size:11px;color:#a0ab94}.metrics output{display:block;font-size:24px;line-height:1.4;margin-top:6px;font-weight:500;letter-spacing:-1px;font-variant-numeric:tabular-nums;color:#4d6f45}.metrics small{font-size:10px;color:#9da991;letter-spacing:0}.motion-insight{display:flex;align-items:center;gap:10px;padding:15px 27px 20px;font-size:9px;color:#8b997d}.motion-insight .icon{color:#7b9870;width:15px;height:15px;stroke-width:1.1}.graphs-heading{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;margin:37px 0 19px}.graphs-heading h3{font-size:18px;font-weight:500;letter-spacing:-.3px}.graphs-heading p{font-size:9px;color:#89977e;margin-top:5px}.graph-options{display:flex;gap:14px;font-size:8px;color:#819175;flex-shrink:0;padding-bottom:2px}.graph-options label{display:flex;align-items:center;gap:5px;cursor:pointer}.graph-options input{accent-color:#719267;width:12px;height:12px;margin:0}.graphs-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.graph-card{border:1px solid var(--border);border-radius:10px;background:var(--paper);min-width:0;overflow:hidden;padding:18px 17px 0}.graph-card figcaption{display:flex;align-items:center;gap:10px;margin-bottom:12px}.graph-number{font-family:monospace;font-size:10px;padding:5px 6px;border-radius:4px;line-height:1.4}.position-color{background:#e6eee0;color:#7b9670}.velocity-color{background:#e7edf0;color:#7793a6}.acceleration-color{background:#f4ece1;color:#bc9773}.graph-card h4{font-size:12px;font-weight:550;line-height:1.4}.graph-card figcaption>div>span{display:block;font-size:8px;color:#9aa68c;margin-top:4px}.graph-symbol{margin-left:auto;font-family:Georgia,serif;font-size:15px;font-style:italic;color:#a8b29c}.graph-card canvas{width:100%;height:190px;display:block;touch-action:pan-y;cursor:crosshair}.graph-reading{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:8px;border-top:1px solid #e8eddf;margin-top:12px;padding:14px 0}.reading-label{color:#97a38c;display:flex;align-items:center;gap:5px}.reading-label i,.graph-footnote i{width:4px;height:4px;border-radius:50%;display:inline-block;flex:none}.position-dot{background:#7e9e71}.velocity-dot{background:#81a1b5}.acceleration-dot{background:#c69b70}.graph-reading output{font-size:10px;font-weight:550;color:#6c8560;font-variant-numeric:tabular-nums;white-space:nowrap}.graph-footnote{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;color:#a2ae95;margin-top:14px;font-size:7px}.graph-footnote>span{display:flex;align-items:center;gap:5px;white-space:nowrap}.graph-footnote .positive-area{background:#97b9a4}.graph-footnote .negative-area{background:#d8ab92;margin-left:8px}.graph-footnote>p{max-width:470px;text-align:right;line-height:1.7}.journey-summary{display:flex;align-items:center;gap:18px;padding:23px 25px;background:#ebf0e4;border:1px solid #dce5d1;border-radius:9px;margin:27px 0 21px}.summary-symbol{color:#85a176;font-size:27px}.journey-summary .eyebrow{font-size:6px;letter-spacing:1.2px;margin-bottom:5px}.journey-summary>div>p:last-child{font-size:10px;color:#789069}.summary-pair{display:flex;gap:25px;flex-shrink:0;margin-left:auto}.summary-pair>span{font-size:7px;color:#99a68c}.summary-pair strong{display:block;font-size:16px;color:#617e52;font-weight:500;letter-spacing:-.5px;line-height:1.5}.data-disclosure{border:1px solid #dce3d4;border-radius:8px;color:#819474;background:#f4f6ee}.data-disclosure>summary{display:flex;justify-content:space-between;align-items:center;cursor:pointer;padding:15px 20px;font-size:10px;list-style:none;gap:20px}.data-disclosure>summary::-webkit-details-marker,.worked-example summary::-webkit-details-marker{display:none}.data-disclosure>summary>span:last-child{font-size:16px;color:#9eac91;line-height:1}.data-body{padding:0 20px 20px}.data-toolbar{display:flex;gap:20px;justify-content:space-between;align-items:center;padding-block:12px 20px}.data-toolbar p{font-size:9px;color:#929f86;line-height:1.9}.data-toolbar .button{font-size:9px;padding:9px 12px;min-height:34px;gap:7px}.data-toolbar .icon{width:13px;height:13px}.table-scroll{overflow-x:auto;border:1px solid #dce3d4;border-radius:6px}table{width:100%;border-collapse:collapse;text-align:left;white-space:nowrap;font-size:10px;font-variant-numeric:tabular-nums}th,td{padding:9px 14px;border-bottom:1px solid #e2e8d9}th{background:#e9eedf;color:#778d69;font-size:8px;font-weight:500}td{color:#8a9b7b}tbody tr:last-child td{border-bottom:0}.learn-section{padding-top:76px}.lesson-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.lesson-card{background:#f0f3ea;border:1px solid #dfe6d5;border-radius:10px;padding:26px 24px;min-width:0}.lesson-index{font-size:7px;letter-spacing:1.2px;color:#8e9e81;display:block;margin-bottom:16px}.lesson-card h3,.lesson-heading{font-size:21px;line-height:1.35;font-weight:500;letter-spacing:-.6px;margin-bottom:14px}.lesson-card p,.lesson-copy{font-size:11px;line-height:1.9;color:#849678}.equation{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:20px;line-height:1.6;color:#6c895c;border-block:1px solid #dce4d1;margin-block:18px 12px;padding-block:14px;letter-spacing:-.2px;overflow-wrap:anywhere}.lesson-note{font-size:9px!important;color:#93a185!important}.text-link{display:inline-flex;align-items:center;gap:17px;font-size:10px;font-weight:500;color:#648456}.lesson-card .text-link{margin-top:18px;border:0;background:none;padding:0}.lesson-card .text-link:hover{color:#315e36}.worked-example{border:1px solid #dfe6d5;border-radius:8px;margin-top:21px;background:#f0f3e9}.worked-example summary{padding:16px 21px;cursor:pointer;font-size:11px;color:#708965;list-style:none}.worked-example>div,.worked-steps{padding:0 21px 20px}.worked-example p,.worked-example li{font-size:11px;color:#849677;line-height:1.9}.worked-example .equation{font-size:18px}.preset-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.preset-links .text-link{background:transparent;border:1px solid #cedcc2;padding:8px 12px;border-radius:5px;font-size:9px}.practice-section{margin-top:76px;padding-top:53px;padding-bottom:55px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 1.2fr;gap:90px;align-items:center}.practice-copy .eyebrow{font-size:7px;margin-bottom:16px}.practice-copy>p:not(.eyebrow){font-size:12px;color:#8b9b7f;line-height:1.9;margin-top:21px}.practice-doodle{font-family:Georgia,serif;font-size:33px;color:#b0bea2;font-style:italic;display:flex;align-items:center;gap:24px;margin-top:26px}.practice-doodle>span{font-family:inherit;font-size:25px;color:#ced8c2}.practice-copy .practice-note{font-size:8px!important;color:#a7b39b!important;margin-top:18px!important}.quiz-card{background:var(--paper);border:1px solid #dce4d2;border-radius:12px;padding:30px}.quiz-progress{font-size:8px;letter-spacing:1.1px;color:#94a486;margin-bottom:21px}.quiz-card h3{font-size:18px;font-weight:500;line-height:1.6;letter-spacing:-.3px}.quiz-options{display:grid;gap:9px;margin-block:21px 17px}.quiz-option{display:flex;align-items:center;gap:12px;background:#f7f9f2;border:1px solid #dfe7d4;padding:11px 13px;border-radius:6px;text-align:left;color:#849876;width:100%;font-size:10px;line-height:1.7}.quiz-option:hover:not(:disabled){background:#e9efdf;border-color:#b8cba7}.quiz-option-letter{display:grid;place-items:center;border:1px solid #dce5d1;border-radius:4px;width:20px;height:21px;font-size:8px;color:#a0b092;flex:none}.quiz-option.is-correct{background:#e7f0df;border-color:#b8cf9d;color:#658644}.quiz-option.is-correct .quiz-option-letter{background:#d0e3b9;border-color:#c1d5ac;color:#63834c}.quiz-option.is-incorrect{background:#f9eee5;border-color:#e3c2aa;color:#ae7c5b}.quiz-option.is-selected{font-weight:550}.quiz-card [role=status]{font-size:10px;color:#93a185;line-height:1.9;min-height:38px}.quiz-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:19px}.quiz-actions button{font-size:10px;background:var(--ink);color:#f5f9ee;border:1px solid var(--ink);padding:10px 15px;border-radius:5px;min-height:37px}.quiz-actions button:disabled{background:#e3e9dc;border-color:#e3e9dc;color:#a9b39d}.quiz-summary{text-align:center;padding:15px 0}.quiz-score{font-family:Georgia,serif;font-size:54px;color:#739458;line-height:1.4;margin-block:20px}.quiz-summary p{font-size:12px;color:#8d9e80;margin-top:12px}.quiz-summary .quiz-actions{justify-content:center;margin-top:24px}.closing-note{display:flex;align-items:center;justify-content:space-between;gap:25px;padding-block:47px}.closing-note>.icon{width:39px;height:39px;stroke-width:.8;color:#a5b798}.closing-note p{font-size:12px;color:#95a489;flex:1;line-height:1.9}.closing-note strong{font-weight:500;color:#6d8a5f}.closing-note>.text-link{font-size:10px;color:#879e76}.site-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid var(--border);padding-block:25px 33px;color:#a5b198;font-size:7px}.footer-brand{font-size:24px;font-weight:550;letter-spacing:-1px;color:#8da480}.site-footer>span:last-child{font-size:7px}dialog{width:min(620px,calc(100% - 32px));padding:25px;border:1px solid #d6e2cd;border-radius:12px;background:var(--paper);color:var(--ink);max-height:85dvh;overflow:auto;box-shadow:0 20px 80px #20352538}dialog::backdrop{background:#183a3059}.export-header{display:flex;align-items:center;justify-content:space-between;gap:20px}.export-header h2{font-size:23px;letter-spacing:-.5px}.export-header .icon-button{font-size:25px}dialog>p{font-size:12px;color:#87977d;margin:15px 0}dialog>label{display:block;font-size:10px;color:#829777;margin-bottom:8px}dialog textarea{width:100%;resize:vertical;border:1px solid #d6e0cb;border-radius:6px;background:#f0f4e9;color:#658353;font-size:11px;line-height:1.7;padding:13px;font-family:monospace;white-space:pre}.export-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}.export-status{font-size:11px!important;min-height:20px;margin-bottom:0!important}.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:#e6efdd;padding:11px 19px;font-size:11px;border-radius:7px;box-shadow:0 4px 18px #2035252e;max-width:calc(100vw - 40px);text-align:center;z-index:60}.noscript-note{padding:18px;text-align:center;background:#edf2e5;font-size:12px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.lesson-content{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.lesson-content>.worked-example{grid-column:1/-1;padding:0}.worked-example .lesson-heading{margin:0;font-size:13px;letter-spacing:0}.lesson-definition{margin-top:18px}.lesson-subheading{font-size:11px;font-weight:550;color:#6a865d;line-height:1.7;margin-bottom:6px}.lesson-card .lesson-definition p{font-size:11px}.quiz-answer-marker{margin-left:auto;max-width:60px;flex:none;font-size:7px;line-height:1.5;color:inherit;opacity:.8;text-align:right}.quiz-hint{font-size:8px;color:#9eac90;max-width:135px;line-height:1.8}.quiz-actions{align-items:center;justify-content:space-between}.quiz-hint{order:-1}.quiz-summary>.button.primary{background:var(--ink);color:#f6faef;border-color:var(--ink);margin-top:20px}.quiz-review{text-align:left;padding-left:18px}.quiz-review li{font-size:11px;color:#839774;margin-block:15px}.quiz-review li p{font-size:10px}.quiz-card .quiz-feedback p{font-size:10px;color:inherit;line-height:1.9}.worked-step-list{padding-left:20px}.worked-step-list>li{margin-top:17px}.worked-example .worked-steps{padding-top:13px}.worked-example .equation{margin-top:10px}.worked-example .text-link{margin-top:14px}.quiz-feedback.is-correct{color:#66864e}.quiz-feedback.is-incorrect{color:#ae7c5b}.quiz-option-text{min-width:0;flex:1}.quiz-summary p.quiz-score{font-size:54px;line-height:1.4;color:#739458}.quiz-summary .quiz-feedback{min-height:0}
+@media(min-width:1500px){.hero{padding-block:82px 76px}.hero-diagram{margin-left:20px}.motion-scene canvas{height:290px}.graph-card canvas{height:210px}}
+@media(max-width:1100px){.page-width{width:calc(100% - 64px)}.hero{gap:35px;padding-block:54px}.hero h1{font-size:63px}.hero .eyebrow{font-size:6px;letter-spacing:1.2px}.hero-description{font-size:13px}.diagram-top{font-size:6px;padding-inline:17px;letter-spacing:.8px}.diagram-bottom{margin-inline:17px;gap:8px}.diagram-bottom strong{font-size:22px}.diagram-bottom>div{grid-template-columns:20px 1fr;column-gap:4px}.diagram-bottom small{font-size:6px}.brand>small{display:none}.site-header nav{gap:26px}.workbench{grid-template-columns:255px minmax(0,1fr)}.controls{padding:25px 22px 20px}.controls-title h3{font-size:17px}.transport{padding:13px 17px;gap:6px}.transport>.button{font-size:9px;padding:9px 10px;gap:6px}.transport>.icon-button{width:25px;padding:4px}.timeline-control{gap:7px;margin-left:0}.timeline-control output{font-size:7px;min-width:68px}.rate-control{margin-left:2px}.metrics{padding:22px 21px;gap:13px}.metrics output{font-size:22px}.metrics small{font-size:8px}.metrics>div>span{font-size:7px;gap:4px}.motion-insight{padding-inline:21px;font-size:8px}.stage-header{padding:22px 21px 0;font-size:7px}.motion-scene{padding-inline:11px}.motion-scene canvas{height:240px}.graph-options{font-size:7px;gap:10px}.graphs-grid{gap:13px}.graph-card{padding:16px 13px 0}.graph-card h4{font-size:11px}.graph-card figcaption{gap:7px}.graph-card figcaption>div>span{font-size:7px}.graph-symbol{font-size:14px}.graph-card canvas{height:175px}.graph-reading{font-size:7px;gap:5px;padding:12px 0}.graph-reading output{font-size:9px}.graph-number{font-size:8px}.summary-pair{gap:17px}.journey-summary{padding:21px;gap:13px}.journey-summary>div>p:last-child{font-size:9px}.lesson-card{padding:24px 21px}.lesson-card h3{font-size:19px}.lesson-card p{font-size:10px}.equation{font-size:18px}.practice-section{gap:55px}.quiz-card{padding:25px}.quiz-card h3{font-size:16px}}
+@media(max-width:850px){.page-width{width:calc(100% - 44px)}.site-header{height:83px}.brand>span{font-size:27px}.brand>svg{width:29px;height:29px}.site-header nav{gap:20px;font-size:10px}.header-link{font-size:9px;gap:12px}.hero{gap:27px;padding-block:48px}.hero h1{font-size:53px;letter-spacing:-2.5px}.hero-description{font-size:11px;margin-block:21px}.hero .button{font-size:10px;padding:11px 15px}.topic-tags{margin-top:23px;gap:5px}.topic-tags span{font-size:6px;padding-right:6px}.diagram-top{font-size:5px;padding:16px 13px 0}.diagram-bottom{margin-inline:13px;padding-block:14px 17px;gap:6px}.diagram-bottom strong{font-size:19px}.diagram-bottom span{font-size:7px}.diagram-bottom small{font-size:5px}.diagram-bottom>div{grid-template-columns:16px 1fr;gap:2px}.section-divider{font-size:6px;padding:17px 0;letter-spacing:1px}.section-divider>span:last-child{font-size:8px}.section-divider>span:last-child span{margin-left:10px}.lab-section{padding-top:48px}h2{font-size:35px}.section-heading>p{font-size:10px}.section-heading .eyebrow{font-size:7px}.preset-bar{gap:15px;align-items:flex-start}.preset-bar>span{font-size:6px;padding-top:10px}.preset-options{gap:6px}.preset-options button{font-size:8px;padding:8px 10px;gap:6px}.workbench{grid-template-columns:220px minmax(0,1fr)}.controls{padding:22px 18px 17px}.controls-title .eyebrow{font-size:5px;letter-spacing:1px}.controls-title h3{font-size:15px}.controls-title>p:last-child{font-size:8px}.control-group{margin-top:19px}.control-label>label{font-size:9px}.control-label>label>span{font-size:10px}.number-field{padding:3px 5px;min-width:59px}.number-field input{font-size:11px;width:30px}.number-field span{font-size:7px}.range-limits{font-size:6px}.stage-header{padding:21px 17px 0;font-size:6px;gap:6px}.stage-header>div{font-size:6px;letter-spacing:.6px;gap:5px}.motion-scene{min-height:240px;padding-inline:5px}.motion-scene canvas{height:230px}.scene-note{font-size:6px;padding-inline:9px;gap:6px}.scene-note>span:first-child{font-size:5px}.transport{flex-wrap:wrap;padding:11px 14px;gap:4px}.transport>.button{font-size:8px;min-height:32px;padding:9px 10px}.transport>.button .icon{width:10px;height:10px}.transport>.icon-button{width:23px;height:26px}.timeline-control{flex-basis:100%;order:2;min-width:0;margin-top:7px}.timeline-control output{font-size:7px}.rate-control{margin-left:auto}.metrics{padding:19px 16px;gap:10px}.metrics output{font-size:18px;letter-spacing:-.5px}.metrics small{font-size:7px}.metrics>div>span{font-size:6px;gap:3px}.metrics i{font-size:8px}.motion-insight{padding:11px 16px 17px;font-size:7px;gap:7px}.motion-insight .icon{width:13px;height:13px}.graphs-heading{align-items:flex-start;gap:15px}.graphs-heading h3{font-size:16px}.graphs-heading p{font-size:8px;max-width:350px}.graph-options{font-size:7px;gap:9px;flex-direction:column;padding-top:2px}.graph-options input{width:11px;height:11px}.graphs-grid{gap:10px}.graph-card{padding:14px 10px 0}.graph-card figcaption{gap:6px}.graph-card h4{font-size:9px}.graph-card figcaption>div>span{font-size:6px}.graph-number{font-size:7px;padding:4px 5px}.graph-symbol{font-size:12px}.graph-card canvas{height:165px}.graph-reading{font-size:6px;gap:4px;flex-wrap:wrap;padding:10px 0}.graph-reading output{font-size:8px;margin-left:auto}.graph-footnote{font-size:6px;gap:15px}.graph-footnote>p{max-width:350px}.journey-summary{padding:19px 17px;gap:11px}.journey-summary>div>p:last-child{font-size:8px}.summary-symbol{font-size:23px}.summary-pair{gap:15px}.summary-pair>span{font-size:6px}.summary-pair strong{font-size:14px}.journey-summary .eyebrow{font-size:5px}.lesson-grid{gap:14px}.lesson-card{padding:21px 17px}.lesson-index{font-size:6px;letter-spacing:1px}.lesson-card h3{font-size:18px}.lesson-card p{font-size:9px}.lesson-note{font-size:8px!important}.equation{font-size:17px}.lesson-card .text-link{font-size:8px}.learn-section{padding-top:57px}.practice-section{margin-top:57px;padding-block:40px;gap:35px;grid-template-columns:1fr 1.1fr}.practice-copy>p:not(.eyebrow){font-size:10px}.practice-copy .eyebrow{font-size:6px}.practice-doodle{font-size:28px;gap:17px}.quiz-card{padding:22px}.quiz-card h3{font-size:15px}.quiz-option{font-size:9px;padding:10px 11px;gap:9px}.quiz-card [role=status]{font-size:9px}.quiz-progress{font-size:7px}.quiz-actions button{font-size:9px}.site-footer{font-size:6px;gap:15px}.site-footer>span:last-child{font-size:6px}.footer-brand{font-size:22px}}
+@media(max-width:650px){.page-width{width:calc(100% - 36px)}.site-header{height:76px;gap:15px}.site-header nav{gap:18px;font-size:9px}.header-link{display:none}.brand{gap:8px}.brand>span{font-size:27px}.brand>svg{width:27px;height:27px}.hero{grid-template-columns:1fr;padding-block:40px 34px;gap:31px}.hero .eyebrow{font-size:6px;margin-bottom:17px;letter-spacing:1px}.hero h1{font-size:66px;letter-spacing:-3px}.hero-description{font-size:13px;line-height:1.9;margin:20px 0 22px}.hero .button{font-size:10px}.topic-tags span{font-size:7px;padding-right:9px}.topic-tags{margin-top:22px}.hero-diagram{transform:rotate(-.8deg);max-width:520px;width:100%;justify-self:center}.diagram-top{font-size:6px;padding:19px 18px 0}.diagram-bottom{margin-inline:18px;gap:13px;padding-block:16px 19px}.diagram-bottom strong{font-size:24px}.diagram-bottom>div{grid-template-columns:21px 1fr;gap:0 5px}.diagram-bottom span{font-size:9px}.diagram-bottom small{font-size:7px}.hero-chart{max-height:285px}.section-divider{font-size:6px;padding-block:17px}.section-divider>span:last-child{font-size:7px;max-width:140px;text-align:right}.section-divider>span:last-child span{display:none}.section-heading{display:block;margin-bottom:25px}.section-heading>p{font-size:10px;margin-top:17px;line-height:1.9}.section-heading .eyebrow{font-size:7px;margin-bottom:11px}h2{font-size:36px}.lab-section{padding-top:41px}.preset-bar{display:block;padding-bottom:17px}.preset-bar>span{display:block;font-size:6px;padding:0;margin-bottom:10px}.preset-options{display:grid;grid-template-columns:1fr 1fr;gap:7px}.preset-options button{font-size:9px;padding:10px 12px;gap:8px;justify-content:flex-start}.preset-mark{font-size:14px}.workbench{display:flex;flex-direction:column;border-radius:10px}.controls{order:2;border-right:0;border-top:1px solid var(--border);padding:22px 20px;display:grid;grid-template-columns:1fr 1fr;gap:0 20px}.controls-title{grid-column:1/-1;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:4px 12px}.controls-title .eyebrow{display:none}.controls-title h3{font-size:16px;margin:0}.controls-title>p:last-child{font-size:7px;margin:0}.controls-title br{display:none}.control-group{margin-top:20px}.control-label{margin-bottom:13px;gap:5px}.control-label>label{font-size:8px}.control-label>label>span{font-size:9px}.number-field{padding:2px 4px;min-width:57px;gap:3px}.number-field input{font-size:16px;width:28px;line-height:1.4}.number-field span{font-size:6px}.range-limits{font-size:6px}.controls input[type=range]{height:4px;margin-block:12px}.controls input[type=range]::-webkit-slider-thumb{width:16px;height:16px}.controls input[type=range]::-moz-range-thumb{width:16px;height:16px}.model-note{grid-column:1/-1;gap:9px;margin-top:20px;padding-top:13px}.model-note>span{font-size:14px}.model-note p{font-size:8px}.control-error{grid-column:1/-1}.stage-header{padding:20px 18px 0;font-size:7px}.stage-header>div{font-size:6px;letter-spacing:.8px}.motion-scene{min-height:240px;padding:0 6px}.motion-scene canvas{height:235px}.scene-note{font-size:6px;padding:0 11px 16px;line-height:1.5}.scene-note>span:first-child{font-size:5px}.transport{padding:12px 17px;gap:7px}.transport>.button{font-size:9px;padding:10px 13px;min-height:35px}.transport>.button .icon{width:12px;height:12px}.transport>.icon-button{width:28px;height:29px}.rate-control select{font-size:10px;padding:6px}.timeline-control{gap:12px;margin-top:10px}.timeline-control output{font-size:8px;min-width:76px}.timeline-control input{height:4px}.timeline-control input::-webkit-slider-thumb{width:13px;height:13px}.timeline-control input::-moz-range-thumb{width:13px;height:13px}.metrics{padding:21px 18px;gap:10px}.metrics output{font-size:20px}.metrics small{font-size:7px}.metrics>div>span{font-size:6px}.motion-insight{font-size:8px;padding:0 18px 19px;line-height:1.9}.graphs-heading{display:block;margin-top:29px;margin-bottom:18px}.graphs-heading h3{font-size:17px}.graphs-heading p{font-size:9px;max-width:none;margin-top:7px}.graph-options{flex-direction:row;gap:19px;margin-top:16px;font-size:9px}.graph-options input{width:13px;height:13px}.graphs-grid{grid-template-columns:1fr;gap:14px}.graph-card{padding:19px 18px 0}.graph-card h4{font-size:13px}.graph-card figcaption{gap:11px;margin-bottom:14px}.graph-card figcaption>div>span{font-size:8px}.graph-number{font-size:10px;padding:5px 7px}.graph-symbol{font-size:17px}.graph-card canvas{height:210px}.graph-reading{font-size:9px;flex-wrap:nowrap;padding:14px 0;gap:8px}.graph-reading output{font-size:11px}.graph-footnote{font-size:7px;flex-direction:column;gap:7px;margin-top:14px}.graph-footnote>p{max-width:none;text-align:left;line-height:1.8}.journey-summary{display:grid;grid-template-columns:22px 1fr;gap:12px;margin-top:22px;padding:20px}.journey-summary .eyebrow{font-size:6px}.journey-summary>div>p:last-child{font-size:10px;line-height:1.9}.summary-symbol{align-self:start;line-height:1.3}.summary-pair{grid-column:2;margin-left:0;gap:27px;padding-top:3px}.summary-pair>span{font-size:7px}.summary-pair strong{font-size:18px}.data-disclosure>summary{font-size:9px;padding:15px 16px}.data-body{padding-inline:14px}.data-toolbar{display:block;padding-top:5px}.data-toolbar p{font-size:8px;margin-bottom:13px}.data-toolbar .button{font-size:9px}.table-scroll{max-width:100%}th,td{padding:10px;font-size:9px}th{font-size:7px}.learn-section{padding-top:45px}.lesson-grid{grid-template-columns:1fr;gap:15px}.lesson-card{padding:25px 23px}.lesson-index{font-size:7px;margin-bottom:15px}.lesson-card h3{font-size:24px;line-height:1.35;margin-bottom:13px}.lesson-card p{font-size:12px;line-height:1.9}.equation{font-size:23px;padding-block:15px;margin-block:20px 13px}.lesson-note{font-size:10px!important}.lesson-card .text-link{font-size:10px}.worked-example{margin-top:15px}.worked-example summary{font-size:10px;padding:16px 18px}.worked-example>div,.worked-steps{padding-inline:18px}.worked-example p,.worked-example li{font-size:11px}.practice-section{display:block;margin-top:44px;padding-block:37px}.practice-copy .eyebrow{font-size:6px}.practice-copy>p:not(.eyebrow){font-size:11px;margin-top:17px}.practice-doodle{display:none}.practice-copy .practice-note{font-size:8px!important;margin-top:14px!important}.quiz-card{margin-top:26px;padding:24px 21px}.quiz-progress{font-size:8px}.quiz-card h3{font-size:18px}.quiz-options{margin-block:19px 16px;gap:9px}.quiz-option{font-size:11px;padding:12px;gap:11px;min-height:49px}.quiz-option-letter{width:22px;height:23px;font-size:9px}.quiz-card [role=status]{font-size:10px;line-height:1.9}.quiz-actions button{font-size:10px;min-height:41px;padding:11px 16px}.closing-note{flex-wrap:wrap;padding-block:33px;gap:20px}.closing-note>.icon{width:31px;height:31px}.closing-note p{font-size:11px}.closing-note>.text-link{margin-left:51px;font-size:9px}.site-footer{display:grid;grid-template-columns:auto 1fr;gap:5px 22px;padding-block:23px 27px;font-size:6px;align-items:start}.footer-brand{grid-row:1/3;font-size:25px;line-height:1.3}.site-footer>span:last-child{font-size:6px}dialog{padding:20px}dialog textarea{font-size:12px}.export-header h2{font-size:22px}.export-actions{gap:8px}.export-actions .button{font-size:10px;padding:11px 13px}}
+@media(max-width:360px){.page-width{width:calc(100% - 28px)}.site-header nav{gap:12px;font-size:8px}.hero h1{font-size:57px;letter-spacing:-2.5px}.hero-description{font-size:12px}.hero .eyebrow{font-size:5px;letter-spacing:.9px}.topic-tags span{font-size:6px;padding-right:7px}.diagram-top{font-size:5px;padding-inline:13px}.diagram-bottom{margin-inline:13px;gap:7px}.diagram-bottom span{font-size:8px}.diagram-bottom small{font-size:6px}.diagram-bottom strong{font-size:21px}.diagram-bottom>div{grid-template-columns:18px 1fr;gap:3px}.section-divider{font-size:5px;letter-spacing:.7px}.section-divider>span:last-child{font-size:6px;max-width:125px}.controls{padding-inline:15px;gap:0 15px}.control-label>label{font-size:7px}.control-label>label>span{font-size:8px}.number-field{min-width:53px}.number-field input{width:25px}.metrics{padding-inline:14px;gap:7px}.metrics output{font-size:17px}.metrics>div>span{font-size:5px}.metrics small{font-size:6px}.motion-insight{padding-inline:14px;font-size:7px}.stage-header{font-size:6px;padding-inline:14px}.stage-header>div{font-size:5px}.transport{padding-inline:14px}.graph-card{padding-inline:15px}.graph-card canvas{height:195px}.graph-reading{font-size:8px}.graph-reading output{font-size:10px}.graphs-heading h3{font-size:16px}.journey-summary{padding:17px}.summary-pair{gap:22px}.quiz-card{padding:22px 18px}.quiz-card h3{font-size:16px}.quiz-option{font-size:10px}.closing-note p{font-size:10px}h2{font-size:33px}}
+@media(max-width:850px){.lesson-content{gap:14px}.lesson-card .lesson-definition p{font-size:10px}.lesson-subheading{font-size:10px}}
+@media(max-width:650px){.lesson-content{grid-template-columns:1fr;gap:15px}.lesson-card .lesson-definition p{font-size:12px}.lesson-subheading{font-size:12px}.worked-example .lesson-heading{font-size:12px}.quiz-answer-marker{font-size:8px;max-width:65px}.quiz-hint{font-size:8px;max-width:130px}.quiz-card .quiz-feedback p{font-size:11px}.quiz-review li{font-size:12px}.quiz-review li p{font-size:11px}.control-label{display:block}.control-label>label{display:block;font-size:11px;line-height:1.7}.control-label>label>span{font-size:12px}.number-field{margin-top:7px;width:77px;min-height:29px;padding:4px 6px;gap:5px;justify-content:flex-start}.number-field input{flex:1;width:32px;min-width:0;text-align:left}.number-field span{font-size:8px}.controls-title>p:last-child{font-size:9px}.range-limits{font-size:8px}.stage-header{font-size:8px}.stage-header>div{font-size:7px}.scene-note{font-size:7px}.scene-note>span:first-child{font-size:6px}.metrics>div>span{font-size:8px}.metrics output{font-size:21px}.metrics small{font-size:8px}.motion-insight{font-size:10px}.graph-footnote{font-size:8px}.graph-options{font-size:10px}.preset-options button{font-size:10px;min-height:42px}.journey-summary .eyebrow{font-size:7px}.journey-summary>div>p:last-child{font-size:11px}.summary-pair>span{font-size:8px}.data-disclosure>summary{font-size:11px}.data-toolbar p{font-size:10px}}
+@media(max-width:360px){.metrics>div>span{font-size:7px}.metrics output{font-size:18px}.metrics small{font-size:7px}.stage-header{font-size:7px}.stage-header>div{font-size:6px}.scene-note{font-size:6px}.scene-note>span:first-child{font-size:5px}.preset-options button{font-size:9px}.quiz-answer-marker{font-size:7px;max-width:50px}}
+.header-arrow{width:14px;height:14px;transform:rotate(-45deg)}.preset-mark{display:inline-flex}.preset-mark .icon{width:13px;height:13px;stroke-width:1.3}.preset-mark.up .icon{transform:rotate(-35deg)}.preset-mark.down .icon{transform:rotate(35deg)}.summary-symbol .icon{width:26px;height:26px;stroke-width:1.1}.lesson-card p,.lesson-card .lesson-definition p{color:#66795e}.lesson-note{color:#778b6c!important}.graph-reading .reading-label{color:#75886a}.quiz-option{color:#687f59}.quiz-hint{color:#7d906e}.quiz-card .quiz-feedback{color:#728966}.worked-example summary{display:flex;justify-content:space-between;align-items:center;gap:20px}.worked-example summary:after{content:"+";font-size:20px;font-weight:400;line-height:1;color:#90a47e}.worked-example[open] summary:after{content:"−"}
+@media(max-width:650px){.metrics output small{display:block;font-size:9px;line-height:1.5;margin-top:3px}.metrics>div{padding-right:5px}.metrics output{white-space:nowrap;font-size:21px;letter-spacing:-.8px}.graph-card figcaption>div>span{color:#7f9273}.graph-options{color:#6d855f}}
+@media(max-width:360px){.metrics output{font-size:18px}.metrics output small{font-size:8px}}
+@media(prefers-reduced-motion:reduce){:host{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+</style>
+<a class="skip-link" href="#lab">Skip to the interactive lab</a>
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol><symbol id="play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z"/></symbol><symbol id="pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7ZM15 5h4v14h-4Z"/></symbol><symbol id="reset" viewBox="0 0 24 24"><path d="M5 9a8 8 0 1 1-1 7M5 3v6h6"/></symbol><symbol id="step" viewBox="0 0 24 24"><path d="m5 5 10 7-10 7ZM19 5v14"/></symbol><symbol id="download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></symbol><symbol id="spark" viewBox="0 0 24 24"><path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/></symbol></defs></svg>
+<header class="site-header page-width"><a class="brand" href="#home" aria-label="Orbit home"><svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><circle cx="18" cy="18" r="4"/><ellipse cx="18" cy="18" rx="16" ry="7" transform="rotate(-38 18 18)"/><circle cx="29" cy="9" r="2.8"/></svg><span>orbit<span>.</span></span><small>THE MOTION SERIES</small></a><nav aria-label="Main navigation"><a href="#lab">The lab</a><a href="#understand">Understand</a><a href="#practice">Practice</a></nav><a class="header-link" href="#lab">Let’s get moving <svg class="icon header-arrow" aria-hidden="true"><use href="#arrow"/></svg></a></header>
+<main id="home">
+  <section class="hero page-width" aria-labelledby="heroTitle"><div class="hero-copy"><p class="eyebrow"><span class="little-dot"></span> A LITTLE PHYSICS. A LOT OF POSSIBILITY.</p><h1 id="heroTitle">Motion,<br><em>made visible.</em></h1><p class="hero-description">A moving object tells a story.<br>Learn to read it in a line, a curve, and a graph.</p><a class="button dark" href="#lab">Explore the motion lab <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><div class="topic-tags"><span>Constant acceleration</span><span>Motion graphs</span><span>Learn by doing</span></div></div><div class="hero-diagram" aria-label="A position graph curves upward when velocity increases under positive constant acceleration"><div class="diagram-top"><span><i></i> ONE MOTION. THREE PERSPECTIVES.</span><span>FIG. 02</span></div><svg class="hero-chart" viewBox="0 0 500 300" fill="none" aria-hidden="true"><defs><pattern id="heroGrid" width="35" height="35" patternUnits="userSpaceOnUse"><path d="M35 0H0V35" stroke="#d8ded4" stroke-width=".7"/></pattern><linearGradient id="heroShade" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#7db4a3" stop-opacity=".18"/><stop offset="1" stop-color="#7db4a3" stop-opacity="0"/></linearGradient></defs><rect x="30" y="15" width="425" height="220" fill="url(#heroGrid)"/><path d="M51 230H451M55 235V24" stroke="#9da99b"/><path d="M55 225C170 223 286 175 420 45V230H55Z" fill="url(#heroShade)"/><path d="M55 225C170 223 286 175 420 45" stroke="#286f60" stroke-width="3" stroke-linecap="round"/><path d="M285 236V151" stroke="#a0b4a1" stroke-dasharray="4 5"/><circle cx="285" cy="151" r="7" fill="#e8ad82" stroke="#fafaf5" stroke-width="4"/><path d="m232 193 109-83" stroke="#db9870" stroke-width="1.5" stroke-dasharray="5 5"/><text x="72" y="48" fill="#617661" font-size="11" font-family="monospace">position, x</text><text x="397" y="257" fill="#617661" font-size="11" font-family="monospace">time, t</text><text x="316" y="173" fill="#77684f" font-size="11" font-family="monospace">slope = velocity</text><path d="m304 166-12-5m0 0 6-4m-6 4 2 6" stroke="#9b8669"/><text x="56" y="258" fill="#9ba593" font-size="10" font-family="monospace">0</text><g transform="translate(327 18)"><rect width="98" height="28" rx="14" fill="#e8eee2"/><text x="49" y="18" text-anchor="middle" fill="#66805d" font-size="10" font-family="monospace">a = constant</text></g></svg><div class="diagram-bottom"><div><strong>x</strong><span>Position</span><small>Where am I?</small></div><div><strong>v</strong><span>Velocity</span><small>How am I moving?</small></div><div><strong>a</strong><span>Acceleration</span><small>How is v changing?</small></div></div></div></section>
+  <div class="section-divider page-width"><span>CHANGE IT. SEE IT. UNDERSTAND IT.</span><span>Physics makes more sense when it moves. <span aria-hidden="true">✳</span></span></div>
+
+  <section id="lab" class="lab-section page-width" aria-labelledby="labTitle"><div class="section-heading"><div><p class="eyebrow">01 / YOUR INTERACTIVE LAB</p><h2 id="labTitle">One cart.<br><em>Endless “what ifs.”</em></h2></div><p>Change the starting conditions. Press play.<br>The motion and all three graphs stay in step.</p></div>
+    <div class="preset-bar"><span>TRY A STORY</span><div class="preset-options" role="group" aria-label="Motion presets"><button type="button" data-preset="accelerate" class="active" aria-pressed="true"><span class="preset-mark up" aria-hidden="true"><svg class="icon"><use href="#arrow"/></svg></span>Speeding up</button><button type="button" data-preset="cruise" aria-pressed="false"><span class="preset-mark" aria-hidden="true"><svg class="icon"><use href="#arrow"/></svg></span>Steady motion</button><button type="button" data-preset="brake" aria-pressed="false"><span class="preset-mark down" aria-hidden="true"><svg class="icon"><use href="#arrow"/></svg></span>Coming to rest</button><button type="button" data-preset="reverse" aria-pressed="false"><span class="preset-mark" aria-hidden="true"><svg class="icon"><use href="#reset"/></svg></span>Changing direction</button></div></div>
+    <div class="workbench"><aside class="controls" aria-labelledby="controlsTitle"><div class="controls-title"><p class="eyebrow">THE STARTING CONDITIONS</p><h3 id="controlsTitle">Make it your motion.</h3><p>Positive is to the right.<br>Negative is to the left.</p></div>
+      <div class="control-group"><div class="control-label"><label for="x0">Starting position <span>x₀</span></label><div class="number-field"><input id="x0Number" type="number" min="-50" max="50" step="1" value="0" aria-label="Starting position in metres"><span>m</span></div></div><input id="x0" type="range" min="-50" max="50" step="1" value="0"><div class="range-limits"><span>−50 m</span><span>50 m</span></div></div>
+      <div class="control-group"><div class="control-label"><label for="v0">Initial velocity <span>u</span></label><div class="number-field"><input id="v0Number" type="number" min="-20" max="20" step="1" value="2" aria-label="Initial velocity in metres per second"><span>m/s</span></div></div><input id="v0" type="range" min="-20" max="20" step="1" value="2"><div class="range-limits"><span>−20 m/s</span><span>20 m/s</span></div></div>
+      <div class="control-group"><div class="control-label"><label for="acceleration">Acceleration <span>a</span></label><div class="number-field"><input id="accelerationNumber" type="number" min="-6" max="6" step="0.5" value="2" aria-label="Acceleration in metres per second squared"><span>m/s²</span></div></div><input id="acceleration" type="range" min="-6" max="6" step="0.5" value="2"><div class="range-limits"><span>−6 m/s²</span><span>6 m/s²</span></div></div>
+      <div class="control-group"><div class="control-label"><label for="duration">Time to explore <span>T</span></label><div class="number-field"><input id="durationNumber" type="number" min="2" max="20" step="1" value="8" aria-label="Duration in seconds"><span>s</span></div></div><input id="duration" type="range" min="2" max="20" step="1" value="8"><div class="range-limits"><span>2 s</span><span>20 s</span></div></div>
+      <p id="controlError" class="control-error" role="alert" hidden></p><div class="model-note"><span aria-hidden="true">↔</span><p>One-dimensional motion with constant acceleration. No walls, friction, or collisions.</p></div>
+    </aside><div class="motion-panel"><div class="stage-header"><div><span class="little-dot"></span> THE MOTION TRACK</div><span id="simulationStatus" role="status">Ready when you are</span></div><div class="motion-scene"><canvas id="motionCanvas" width="1000" height="320" role="img" aria-label="Cart at 0 metres, moving right at 2 metres per second">Current position, velocity and acceleration are available in the measurements below.</canvas><div class="scene-note"><span>RIGHT IS POSITIVE <span aria-hidden="true">→</span></span><span>Track rescales to fit the full journey</span></div></div><div class="transport"><button id="playPause" class="button mint" type="button"><svg class="icon" aria-hidden="true"><use id="playGlyph" href="#play"/></svg><span id="playLabel">Play motion</span></button><button id="resetSimulation" type="button" class="icon-button" aria-label="Reset simulation" title="Reset time"><svg class="icon" aria-hidden="true"><use href="#reset"/></svg></button><button id="stepSimulation" type="button" class="icon-button" aria-label="Advance one step" title="Advance 0.1 seconds"><svg class="icon" aria-hidden="true"><use href="#step"/></svg></button><div class="timeline-control"><label for="timeline" class="sr-only">Simulation timeline</label><input id="timeline" type="range" min="0" max="1000" step="1" value="0"><output id="timeCaption" for="timeline">0.00 / 8.00 s</output></div><label class="rate-control"><span class="sr-only">Playback speed</span><select id="playbackRate"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label></div><div class="metrics" aria-label="Live measurements"><div><span>Position <i>x</i></span><output id="metricPosition">0.00 <small>m</small></output></div><div><span>Velocity <i>v</i></span><output id="metricVelocity">+2.00 <small>m/s</small></output></div><div><span>Acceleration <i>a</i></span><output id="metricAcceleration">+2.00 <small>m/s²</small></output></div><div><span>Displacement <i>Δx</i></span><output id="metricDisplacement">0.00 <small>m</small></output></div></div><div class="motion-insight"><svg class="icon" aria-hidden="true"><use href="#spark"/></svg><p id="motionInsight">Velocity and acceleration point the same way. The cart speeds up.</p></div></div></div>
+
+    <div class="graphs-heading"><div><h3>The same motion. Three different stories.</h3><p>Tap a graph or drag its cursor to explore a moment. Use arrow keys when a graph is focused.</p></div><div class="graph-options"><label><input id="showTangent" type="checkbox" checked> Position tangent</label><label><input id="showArea" type="checkbox" checked> Signed areas</label></div></div><div class="graphs-grid">
+      <figure class="graph-card"><figcaption><span class="graph-number position-color">01</span><div><h4>Position–time</h4><span>Where the cart is</span></div><span class="graph-symbol">x(t)</span></figcaption><canvas id="positionGraph" width="600" height="360" tabindex="0" role="img" aria-label="Position versus time graph. Arrow keys change the selected time."></canvas><div class="graph-reading"><span class="reading-label"><i class="position-dot"></i>Slope → velocity</span><output id="positionReading">+2.00 m/s</output></div></figure>
+      <figure class="graph-card"><figcaption><span class="graph-number velocity-color">02</span><div><h4>Velocity–time</h4><span>How its position changes</span></div><span class="graph-symbol">v(t)</span></figcaption><canvas id="velocityGraph" width="600" height="360" tabindex="0" role="img" aria-label="Velocity versus time graph. Signed area gives displacement. Arrow keys change time."></canvas><div class="graph-reading"><span class="reading-label"><i class="velocity-dot"></i>Area → displacement</span><output id="velocityReading">0.00 m</output></div></figure>
+      <figure class="graph-card"><figcaption><span class="graph-number acceleration-color">03</span><div><h4>Acceleration–time</h4><span>How its velocity changes</span></div><span class="graph-symbol">a(t)</span></figcaption><canvas id="accelerationGraph" width="600" height="360" tabindex="0" role="img" aria-label="Acceleration versus time graph. Signed area gives change in velocity. Arrow keys change time."></canvas><div class="graph-reading"><span class="reading-label"><i class="acceleration-dot"></i>Area → velocity change</span><output id="accelerationReading">0.00 m/s</output></div></figure>
+    </div><div class="graph-footnote"><span><i class="positive-area"></i>Positive area <i class="negative-area"></i>Negative area</span><p>Area below the time axis counts negatively. Arrows on the cart show direction; their lengths are illustrative.</p></div>
+    <div class="journey-summary"><span class="summary-symbol" aria-hidden="true"><svg class="icon"><path d="M5 3v9a5 5 0 0 0 5 5h9m-5-5 5 5-5 5"/></svg></span><div><p class="eyebrow">AT THE END OF THIS JOURNEY</p><p id="journeySummary">After 8 seconds, the cart is at 80 metres.</p></div><div class="summary-pair"><span>Displacement<strong id="totalDisplacement">+80 m</strong></span><span>Distance traveled<strong id="totalDistance">80 m</strong></span></div></div>
+    <details class="data-disclosure"><summary><span>Look closer: the numbers behind the graphs</span><span aria-hidden="true">＋</span></summary><div class="data-body"><div class="data-toolbar"><p>Measurements every second, including the final moment.<br>The CSV includes 121 evenly spaced samples.</p><button id="exportCsv" type="button" class="button secondary"><svg class="icon" aria-hidden="true"><use href="#download"/></svg>Export data CSV</button></div><div class="table-scroll"><table id="dataTable"><caption class="sr-only">Calculated motion data over the selected duration</caption><thead><tr><th scope="col">Time / s</th><th scope="col">Position / m</th><th scope="col">Velocity / m·s⁻¹</th><th scope="col">Acceleration / m·s⁻²</th><th scope="col">Displacement / m</th></tr></thead><tbody></tbody></table></div></div></details>
+  </section>
+
+  <section id="understand" class="learn-section page-width" aria-labelledby="learnTitle"><div class="section-heading"><div><p class="eyebrow">02 / CONNECT THE DOTS</p><h2 id="learnTitle">Less memorizing.<br><em>More understanding.</em></h2></div><p>Read the slope. Notice the area.<br>The equations start to tell the same story.</p></div><div id="lessonCards" class="lesson-content"></div></section>
+  <section id="practice" class="practice-section page-width" aria-labelledby="practiceTitle"><div class="practice-copy"><p class="eyebrow">03 / A QUICK CURIOSITY CHECK</p><h2 id="practiceTitle">Think you’ve<br><em>got the motion?</em></h2><p>Five questions. A few little “aha” moments.<br>See what you can read between the lines.</p><div class="practice-doodle" aria-hidden="true">x <span>→</span> v <span>→</span> a</div><p class="practice-note">No account. No timer. Just a little practice.</p></div><div id="quizCard" class="quiz-card"></div></section>
+  <section class="closing-note page-width"><svg class="icon" aria-hidden="true"><use href="#spark"/></svg><p>A graph is more than a line.<br><strong>It’s a story you can learn to read.</strong></p><a href="#lab" class="text-link">Try another “what if” <span aria-hidden="true">↑</span></a></section>
+</main>
+<footer class="site-footer page-width"><a class="footer-brand" href="#home">orbit.</a><span>Motion with constant acceleration · Graphs for constant acceleration</span><span>Made for curiosity. Works offline.</span></footer>
+<dialog id="exportDialog" aria-labelledby="exportTitle"><div class="export-header"><h2 id="exportTitle">Your motion data</h2><button id="closeExport" type="button" class="icon-button" aria-label="Close export">×</button></div><p>The CSV download is ready. If a download does not appear, copy the text below into a file ending in .csv.</p><label for="csvText">CSV data</label><textarea id="csvText" readonly rows="8" spellcheck="false"></textarea><div class="export-actions"><button id="copyCsv" type="button" class="button secondary">Copy CSV text</button><button id="downloadAgain" type="button" class="button dark">Download CSV</button></div><p id="exportStatus" class="export-status" role="status"></p></dialog>
+<div id="toast" class="toast" role="status" hidden></div>
+</template>
 <noscript><p class="noscript-note">Enable JavaScript to run the experiments. The science explanations above are available without it.</p></noscript>
 <script>
 (function (factory) {
@@ -587,10 +648,847 @@
     $('challengeFeedback').textContent = 'Go back to the lab, change a setting, and see if you can explain what happens. Every experiment is another chance to understand.';
     $('nextChallenge').textContent = 'Try the questions again';
   });
-  Object.defineProperty(window, 'MotionLab', {value: Object.freeze({inspect: () => ({mode: state.mode, world: state.world, running: state.running, elapsed: state.elapsed, params: {...state.params}, sample: {...sample()}, duration: duration()})}), writable: false});
+  Object.defineProperty(window, 'MotionLab', {value: Object.freeze({inspect: () => ({mode: state.mode, world: state.world, running: state.running, elapsed: state.elapsed, params: {...state.params}, sample: {...sample()}, duration: duration()}), pause: () => { pause(); updateReadings(); }, redraw: resize}), writable: false});
   updateSetup(); updateReadings(); renderQuestion(); resize();
   if (window.ResizeObserver) new ResizeObserver(resize).observe(canvas);
   else window.addEventListener('resize', resize);
+})();
+
+;
+(function (factory) {
+  'use strict';
+  const physics = factory();
+  if (typeof module === 'object' && module.exports) module.exports = physics;
+  if (typeof window !== 'undefined') window.AccelerationPhysics = physics;
+})(function () {
+  'use strict';
+
+  // One-dimensional, ideal constant acceleration. Right is positive.
+  // Position and distance are in metres, time in seconds, velocity in m/s,
+  // and acceleration in m/s². There are no boundaries or collisions.
+  function finite(name, value) {
+    if (typeof value !== 'number' || !Number.isFinite(value)) {
+      throw new RangeError(name + ' must be a finite number.');
+    }
+    return value;
+  }
+
+  function parameters(options) {
+    if (!options || typeof options !== 'object' || Array.isArray(options)) {
+      throw new RangeError('Supply motion parameters as an object.');
+    }
+    const {x0, v0, a, duration} = options;
+    finite('Initial position', x0);
+    finite('Initial velocity', v0);
+    finite('Acceleration', a);
+    finite('Duration', duration);
+    if (duration <= 0) throw new RangeError('Duration must be greater than zero.');
+    return {x0, v0, a, duration};
+  }
+
+  function representable(...values) {
+    if (!values.every(Number.isFinite)) {
+      throw new RangeError('These parameters exceed the supported numeric range.');
+    }
+  }
+
+  function turningTime(motion, endTime) {
+    if (motion.a === 0) return null;
+    const time = -motion.v0 / motion.a;
+    // Stopping exactly at the first or final instant is not an interior turn.
+    return time > 0 && time < endTime ? time : null;
+  }
+
+  function at(motion, time) {
+    const {x0, v0, a} = motion;
+    const deltaV = a * time;
+    const v = v0 + deltaV;
+    // The average-velocity form avoids prematurely overflowing t².
+    const displacement = (v0 + 0.5 * deltaV) * time;
+    const x = x0 + displacement;
+    const turn = turningTime(motion, time);
+    let distance = Math.abs(displacement);
+    if (turn !== null) {
+      const toTurn = 0.5 * v0 * turn;
+      distance = Math.abs(toTurn) + Math.abs(displacement - toTurn);
+    }
+    const speed = Math.abs(v);
+    representable(deltaV, v, displacement, x, distance, speed);
+    return {t: time, x, v, a, displacement, deltaV, speed, distance};
+  }
+
+  /** Instantaneous motion at t, clamped to the experiment's [0,duration]. */
+  function sample(options, time) {
+    const motion = parameters(options);
+    finite('Time', time);
+    return at(motion, Math.min(motion.duration, Math.max(0, time)));
+  }
+
+  /** Exact extrema, signed displacement and total distance for the full run. */
+  function summary(options) {
+    const motion = parameters(options);
+    const final = at(motion, motion.duration);
+    const turnTime = turningTime(motion, motion.duration);
+    const positions = [motion.x0, final.x];
+    if (turnTime !== null) positions.push(at(motion, turnTime).x);
+    return {
+      final,
+      turnTime,
+      positionMin: Math.min(...positions),
+      positionMax: Math.max(...positions),
+      displacement: final.displacement,
+      distance: final.distance
+    };
+  }
+
+  /** Equally spaced samples including both endpoints (121 by default). */
+  function series(options, count = 121) {
+    const motion = parameters(options);
+    if (!Number.isSafeInteger(count) || count < 2 || count > 1000001) {
+      throw new RangeError('Sample count must be an integer from 2 to 1000001.');
+    }
+    return Array.from({length: count}, (_, index) => at(motion, motion.duration * (index / (count - 1))));
+  }
+
+  return Object.freeze({sample, summary, series});
+});
+
+;
+/* Educational content for the constant-acceleration lab. No network or storage. */
+(function () {
+  'use strict';
+
+  const QUESTIONS = [
+    {
+      topic: 'Velocity under constant acceleration',
+      question: 'A cart starts at +3 m/s and accelerates at +2 m/s² for 4 s. What is its final velocity?',
+      answers: ['+5 m/s', '+8 m/s', '+11 m/s', '+14 m/s'],
+      correct: 2,
+      explanation: 'Use v = u + at: 3 + (2 × 4) = +11 m/s. The velocity increases by 2 m/s every second.'
+    },
+    {
+      topic: 'Signed area on a velocity–time graph',
+      question: 'A cart moves at +2 m/s for 3 s, then at −2 m/s for 3 s. What are its total displacement and distance?',
+      answers: ['Displacement 12 m; distance 12 m', 'Displacement 0 m; distance 12 m', 'Displacement 0 m; distance 0 m', 'Displacement −12 m; distance 12 m'],
+      correct: 1,
+      explanation: 'The signed areas are +6 m and −6 m, so displacement is 0 m. Distance adds their magnitudes: 6 + 6 = 12 m. Each segment has constant velocity; the change between segments is a separate event.'
+    },
+    {
+      topic: 'Slope on a position–time graph',
+      question: 'The slope of a position–time graph changes from −6 m/s to −2 m/s. Which description fits?',
+      answers: ['Moving in the positive direction and speeding up', 'Moving in the negative direction and speeding up', 'Moving in the negative direction and slowing down', 'At rest throughout'],
+      correct: 2,
+      explanation: 'Position–time slope is velocity. Both slopes are negative, so motion is in the negative direction. Speed falls from 6 m/s to 2 m/s, so the object slows down.'
+    },
+    {
+      topic: 'Area on an acceleration–time graph',
+      question: 'Acceleration is constant at −3 m/s² for 4 s. What does the signed area under the acceleration–time graph tell you?',
+      answers: ['The displacement is −12 m', 'The final velocity is always −12 m/s', 'The change in velocity is −12 m/s', 'The distance traveled is 12 m'],
+      correct: 2,
+      explanation: 'Acceleration × time is the change in velocity: Δv = (−3) × 4 = −12 m/s. To find final velocity, you must also know the initial velocity.'
+    },
+    {
+      topic: 'Turning points and the sign of acceleration',
+      question: 'A cart starts at +4 m/s with constant acceleration −2 m/s². What happens at t = 2 s?',
+      answers: ['It stops and remains at rest', 'It is instantaneously at rest, then moves in the negative direction', 'Its acceleration becomes zero', 'It keeps moving in the positive direction'],
+      correct: 1,
+      explanation: 'v = 4 − 2t is zero at 2 s, but acceleration is still −2 m/s². The cart reverses direction. After the turn, velocity and acceleration are both negative, so its speed increases.'
+    }
+  ];
+
+  function node(tag, className, text) {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    if (text !== undefined) element.textContent = text;
+    return element;
+  }
+
+  function paragraph(text, className) {
+    return node('p', className || 'lesson-copy', text);
+  }
+
+  function button(text, className, action) {
+    const element = node('button', className, text);
+    element.type = 'button';
+    if (action) element.addEventListener('click', action);
+    return element;
+  }
+
+  function card(index, title) {
+    const element = node('article', 'lesson-card');
+    element.append(node('span', 'lesson-index', index), node('h3', 'lesson-heading', title));
+    return element;
+  }
+
+  function definition(parent, title, text) {
+    const group = node('div', 'lesson-definition');
+    group.append(node('h4', 'lesson-subheading', title), paragraph(text));
+    parent.append(group);
+  }
+
+  function addPreset(parent, label, key, onPreset) {
+    if (typeof onPreset !== 'function') return;
+    parent.append(button(label, 'text-link', function () { onPreset(key); }));
+  }
+
+  function mountLessons(target, onPreset) {
+    const equations = card('01 / THE RULES', 'One acceleration. Three useful equations.');
+    equations.append(paragraph('Constant acceleration means velocity changes by the same amount in every equal time interval. Acceleration can be positive, negative, or zero.'));
+    equations.append(node('div', 'equation', 'a = Δv / Δt'));
+    equations.append(node('div', 'equation', 'v = u + at'));
+    equations.append(node('div', 'equation', 'x = x₀ + ut + ½at²'));
+    equations.append(node('div', 'equation', 'v² = u² + 2a(x − x₀)'));
+    equations.append(paragraph('u = initial velocity · v = final velocity · x₀ = initial position · x = position · t = elapsed time · a = acceleration.', 'lesson-note'));
+    equations.append(paragraph('These motion equations require constant acceleration over the interval. Squaring velocity removes its direction: use the motion or v = u + at to choose the correct sign of v.', 'lesson-note'));
+
+    const graphs = card('02 / READ THE GRAPHS', 'Slope tells a story. Area does, too.');
+    definition(graphs, 'Position–time: slope = velocity', 'A steeper slope means greater speed. An upward slope means positive velocity; a downward slope means negative velocity. A horizontal tangent means zero velocity at that instant.');
+    definition(graphs, 'Velocity–time: slope = acceleration', 'Constant acceleration gives a straight line. Its signed area over a time interval gives displacement. For distance, add the magnitudes of areas above and below zero.');
+    definition(graphs, 'Acceleration–time: area = change in velocity', 'Constant acceleration gives a horizontal line. The signed area is Δv, not final velocity: add it to the initial velocity.');
+    graphs.append(paragraph('With nonzero constant acceleration, position–time is curved, velocity–time is straight, and acceleration–time is horizontal. If a = 0, position–time is straight and velocity is constant.', 'lesson-note'));
+
+    const direction = card('03 / SIGNS & TURNS', 'Negative acceleration does not always mean slowing down.');
+    direction.append(paragraph('Velocity tells you the direction of motion. Acceleration tells you how velocity changes. When velocity and acceleration have the same sign, speed increases. With opposite signs, speed decreases until a possible turn.'));
+    direction.append(node('div', 'equation', 'v = 0 does not imply a = 0'));
+    direction.append(paragraph('At a turning point, velocity is zero for an instant. If constant acceleration is nonzero, the object continues accelerating and reverses direction. A velocity–time line crosses zero; a position–time curve reaches a peak or a trough.'));
+    direction.append(paragraph('Choose a positive direction first, then keep the same sign convention in every graph and calculation.', 'lesson-note'));
+    const presets = node('div', 'preset-links');
+    presets.setAttribute('aria-label', 'Try motion examples in the simulator');
+    addPreset(presets, 'Try steady motion', 'cruise', onPreset);
+    addPreset(presets, 'Try speeding up', 'accelerate', onPreset);
+    addPreset(presets, 'Try braking', 'brake', onPreset);
+    addPreset(presets, 'Try a direction change', 'reverse', onPreset);
+    if (presets.childElementCount) direction.append(presets);
+
+    const worked = node('details', 'lesson-card worked-example');
+    const summary = node('summary', 'lesson-heading', 'Work it through: 4 seconds of motion');
+    const example = node('div', 'worked-steps');
+    example.append(paragraph('A cart starts at x₀ = 0 m with u = +2 m/s and a = +2 m/s². Find its velocity and displacement after 4 s.'));
+    const steps = node('ol', 'worked-step-list');
+    const stepOne = node('li');
+    stepOne.append(node('strong', '', 'Final velocity'), node('div', 'equation', 'v = 2 + (2 × 4) = +10 m/s'));
+    const stepTwo = node('li');
+    stepTwo.append(node('strong', '', 'Displacement'), node('div', 'equation', 'Δx = (2 × 4) + ½ × 2 × 4² = +24 m'));
+    const stepThree = node('li');
+    stepThree.append(node('strong', '', 'Check with the velocity–time graph'), paragraph('The area is a rectangle plus a triangle: (2 × 4) + ½ × 4 × (10 − 2) = 8 + 16 = 24 m. Equivalently, average velocity is (2 + 10) / 2 = 6 m/s, so displacement is 6 × 4 = 24 m.'));
+    steps.append(stepOne, stepTwo, stepThree);
+    example.append(steps, paragraph('All velocities are positive here, so the distance traveled is also 24 m. The position–time curve grows steeper as velocity rises.', 'lesson-note'));
+    addPreset(example, 'Open this example in the simulator', 'accelerate', onPreset);
+    worked.append(summary, example);
+    target.replaceChildren(equations, graphs, direction, worked);
+  }
+
+  function mountQuiz(target) {
+    let index = 0;
+    let score = 0;
+    let selected = null;
+    let finished = false;
+    const responses = [];
+
+    function focusQuestion() {
+      const heading = target.querySelector('#quizQuestion');
+      if (heading) heading.focus({ preventScroll: true });
+    }
+
+    function restart() {
+      index = 0;
+      score = 0;
+      selected = null;
+      finished = false;
+      responses.length = 0;
+      renderQuestion();
+      focusQuestion();
+    }
+
+    function renderSummary() {
+      finished = true;
+      const summary = node('div', 'quiz-summary');
+      const progress = node('p', 'quiz-progress', 'QUIZ COMPLETE');
+      progress.id = 'quizProgress';
+      const heading = node('h3', '', score === QUESTIONS.length ? 'You’ve got the motion picture.' : 'Every answer is a chance to learn.');
+      heading.id = 'quizQuestion';
+      heading.tabIndex = -1;
+      const total = node('p', 'quiz-score', score + ' / ' + QUESTIONS.length);
+      total.setAttribute('aria-label', score + ' out of ' + QUESTIONS.length + ' correct');
+      const feedback = node('div', 'quiz-feedback');
+      feedback.id = 'quizFeedback';
+      feedback.setAttribute('role', 'status');
+      feedback.append(paragraph(score === QUESTIONS.length ? 'You connected the equations, graph slopes, signed areas, and turning points.' : 'Review these ideas, then try the quiz again. You can also explore them in the simulator.'));
+      const missed = QUESTIONS.filter(function (question, questionIndex) { return responses[questionIndex] !== question.correct; });
+      if (missed.length) {
+        const list = node('ul', 'quiz-review');
+        missed.forEach(function (question) {
+          const item = node('li');
+          item.append(node('strong', '', question.topic), paragraph(question.explanation));
+          list.append(item);
+        });
+        feedback.append(list);
+      }
+      const retry = button('Try again', 'button primary', restart);
+      retry.id = 'quizRestart';
+      summary.append(progress, heading, total, feedback, retry);
+      target.replaceChildren(summary);
+      focusQuestion();
+    }
+
+    function renderQuestion() {
+      const question = QUESTIONS[index];
+      const progress = node('p', 'quiz-progress', 'QUESTION ' + (index + 1) + ' OF ' + QUESTIONS.length);
+      progress.id = 'quizProgress';
+      const heading = node('h3', 'quiz-question', question.question);
+      heading.id = 'quizQuestion';
+      heading.tabIndex = -1;
+      const options = node('div', 'quiz-options');
+      options.setAttribute('role', 'group');
+      options.setAttribute('aria-labelledby', 'quizQuestion');
+      const feedback = node('div', 'quiz-feedback');
+      feedback.id = 'quizFeedback';
+      feedback.hidden = true;
+      feedback.setAttribute('role', 'status');
+      feedback.setAttribute('aria-live', 'polite');
+      const next = button(index === QUESTIONS.length - 1 ? 'See my score' : 'Next question', 'button primary', function () {
+        if (selected === null) return;
+        if (index === QUESTIONS.length - 1) {
+          renderSummary();
+        } else {
+          index += 1;
+          selected = null;
+          renderQuestion();
+          focusQuestion();
+        }
+      });
+      next.id = 'quizNext';
+      next.disabled = true;
+
+      function choose(answerIndex) {
+        if (selected !== null || finished) return;
+        selected = answerIndex;
+        responses[index] = answerIndex;
+        const correct = answerIndex === question.correct;
+        if (correct) score += 1;
+        Array.from(options.children).forEach(function (option, optionIndex) {
+          option.disabled = true;
+          option.setAttribute('aria-pressed', String(optionIndex === answerIndex));
+          if (optionIndex === question.correct) option.classList.add('is-correct');
+          if (optionIndex === answerIndex) option.classList.add('is-selected');
+          if (optionIndex === answerIndex && !correct) option.classList.add('is-incorrect');
+          if (optionIndex === question.correct || optionIndex === answerIndex) {
+            const markerText = optionIndex === question.correct ? 'Correct answer' : 'Your answer';
+            option.append(node('span', 'quiz-answer-marker', markerText));
+          }
+        });
+        feedback.classList.toggle('is-correct', correct);
+        feedback.classList.toggle('is-incorrect', !correct);
+        feedback.append(node('strong', '', correct ? 'That’s right.' : 'Take another look.'), paragraph(question.explanation));
+        feedback.hidden = false;
+        next.disabled = false;
+      }
+
+      question.answers.forEach(function (answer, answerIndex) {
+        const option = button('', 'quiz-option', function () { choose(answerIndex); });
+        option.dataset.answer = String(answerIndex);
+        option.setAttribute('aria-pressed', 'false');
+        const letter = node('span', 'quiz-option-letter', String.fromCharCode(65 + answerIndex));
+        letter.setAttribute('aria-hidden', 'true');
+        option.append(letter, node('span', 'quiz-option-text', answer));
+        option.setAttribute('aria-label', String.fromCharCode(65 + answerIndex) + '. ' + answer);
+        options.append(option);
+      });
+      const actions = node('div', 'quiz-actions');
+      actions.append(next, node('span', 'quiz-hint', 'Choose one answer to continue.'));
+      target.replaceChildren(progress, heading, options, feedback, actions);
+    }
+
+    renderQuestion();
+    return Object.freeze({
+      inspect: function () {
+        return { index: index, questionNumber: index + 1, selected: selected, answered: responses.length, score: score, total: QUESTIONS.length, finished: finished, responses: responses.slice() };
+      },
+      restart: restart
+    });
+  }
+
+  window.AccelerationLearning = Object.freeze({
+    mount: function (options) {
+      const settings = options || {};
+      if (!settings.lessonTarget || !settings.quizTarget) throw new TypeError('Learning content needs lessonTarget and quizTarget elements.');
+      mountLessons(settings.lessonTarget, settings.onPreset);
+      return mountQuiz(settings.quizTarget);
+    }
+  });
+}());
+
+;
+(() => {
+  'use strict';
+  const mounted = new WeakMap();
+  function mount(root = document) {
+  if (mounted.has(root)) {
+    const controller = mounted.get(root);
+    window.AccelerationLab = controller;
+    return controller;
+  }
+  const P = window.AccelerationPhysics;
+  const $ = id => root.getElementById(id);
+  const presets = {
+    accelerate: {x0: 0, v0: 2, a: 2, duration: 8},
+    cruise: {x0: 0, v0: 6, a: 0, duration: 8},
+    brake: {x0: 0, v0: 12, a: -2, duration: 6},
+    reverse: {x0: 0, v0: 10, a: -2, duration: 10}
+  };
+  const fields = [
+    {id: 'x0', key: 'x0', name: 'starting position'},
+    {id: 'v0', key: 'v0', name: 'initial velocity'},
+    {id: 'acceleration', key: 'a', name: 'acceleration'},
+    {id: 'duration', key: 'duration', name: 'duration'}
+  ];
+  let params = {...presets.accelerate};
+  let time = 0;
+  let running = false;
+  let lastFrame = null;
+  let frameId = null;
+  let drawQueued = false;
+  let total = P.summary(params);
+  let samples = P.series(params, 161);
+  let learning;
+  let activePreset = 'accelerate';
+  let csvData = '';
+  const colors = {ink: '#4a6350', muted: '#a0ad95', grid: '#e8eddf', position: '#759467', velocity: '#7696ac', acceleration: '#c29366', positive: '#8eb99e40', negative: '#d7a58a45', cursor: '#9fac92'};
+  const graphInfo = [
+    {id: 'positionGraph', key: 'x', color: colors.position, label: 'x / m', name: 'Position', unit: 'm'},
+    {id: 'velocityGraph', key: 'v', color: colors.velocity, label: 'v / m·s⁻¹', name: 'Velocity', unit: 'm/s'},
+    {id: 'accelerationGraph', key: 'a', color: colors.acceleration, label: 'a / m·s⁻²', name: 'Acceleration', unit: 'm/s²'}
+  ];
+  const nearZero = value => Math.abs(value) < 1e-9;
+  function fmt(value, digits = 2, signed = false) {
+    const clean = Math.abs(value) < 0.5 * Math.pow(10, -digits) ? 0 : value;
+    return (signed && clean > 0 ? '+' : '') + clean.toFixed(digits).replace('-', '−');
+  }
+  function brief(value, signed = false) {
+    const clean = nearZero(value) ? 0 : value;
+    return (signed && clean > 0 ? '+' : '') + String(Number(clean.toFixed(2))).replace('-', '−');
+  }
+  function metric(id, value, unit, signed = false) {
+    const small = document.createElement('small');
+    small.textContent = unit;
+    $(id).replaceChildren(document.createTextNode(fmt(value, 2, signed) + ' '), small);
+  }
+  function rangeFill(control) {
+    const value = (Number(control.value) - Number(control.min)) / (Number(control.max) - Number(control.min)) * 100;
+    control.style.setProperty('--fill', value + '%');
+  }
+  function syncControls() {
+    fields.forEach(({id, key}) => {
+      $(id).value = String(params[key]);
+      $(id + 'Number').value = String(params[key]);
+      $(id + 'Number').removeAttribute('aria-invalid');
+      rangeFill($(id));
+    });
+    $('controlError').hidden = true;
+    $('playPause').disabled = false;
+    $('stepSimulation').disabled = false;
+    root.querySelectorAll('.preset-options [data-preset]').forEach(button => {
+      const selected = button.dataset.preset === activePreset;
+      button.classList.toggle('active', selected);
+      button.setAttribute('aria-pressed', String(selected));
+    });
+  }
+  function stop() {
+    running = false;
+    lastFrame = null;
+    if (frameId !== null) cancelAnimationFrame(frameId);
+    frameId = null;
+  }
+  function refreshParameters() {
+    stop();
+    time = 0;
+    total = P.summary(params);
+    samples = P.series(params, 161);
+    syncControls();
+    renderTable();
+    renderSummary();
+    render();
+  }
+  function choosePreset(key, scroll = false) {
+    if (!Object.hasOwn(presets, key)) return;
+    params = {...presets[key]};
+    activePreset = key;
+    refreshParameters();
+    if (scroll) $('lab').scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start'});
+  }
+  function setTime(value) {
+    stop();
+    time = Math.max(0, Math.min(params.duration, value));
+    render();
+  }
+  function advanceFrame(stamp) {
+    if (!running) return;
+    if (lastFrame !== null) time = Math.min(params.duration, time + Math.min(0.1, (stamp - lastFrame) / 1000) * Number($('playbackRate').value));
+    lastFrame = stamp;
+    if (time >= params.duration) stop();
+    render();
+    if (running) frameId = requestAnimationFrame(advanceFrame);
+  }
+  function play() {
+    if (running) { stop(); render(); return; }
+    if (!$('controlError').hidden) return;
+    if (time >= params.duration - 1e-9) time = 0;
+    running = true;
+    lastFrame = null;
+    render();
+    frameId = requestAnimationFrame(advanceFrame);
+  }
+  function insight(sample) {
+    if (nearZero(sample.a)) return nearZero(sample.v) ? 'Zero velocity and zero acceleration: the cart stays at the same position.' : 'Zero acceleration: velocity stays constant. A straight position–time line shows steady motion.';
+    if (nearZero(sample.v)) {
+      if (time > 0 && time < params.duration) return 'Velocity is zero for an instant, but acceleration is not. This is the turning point.';
+      return time === 0 ? 'Starting from rest: acceleration sets the cart moving in its own direction.' : 'Velocity is zero at the final moment. If this acceleration continued, the cart would reverse.';
+    }
+    return sample.v * sample.a > 0 ? 'Velocity and acceleration point the same way. The cart speeds up.' : 'Velocity and acceleration point in opposite directions. The cart slows down.';
+  }
+  function render() {
+    const sample = P.sample(params, time);
+    metric('metricPosition', sample.x, 'm');
+    metric('metricVelocity', sample.v, 'm/s', true);
+    metric('metricAcceleration', sample.a, 'm/s²', true);
+    metric('metricDisplacement', sample.displacement, 'm', true);
+    $('positionReading').textContent = fmt(sample.v, 2, true) + ' m/s';
+    $('velocityReading').textContent = fmt(sample.displacement, 2, true) + ' m';
+    $('accelerationReading').textContent = fmt(sample.deltaV, 2, true) + ' m/s';
+    $('motionInsight').textContent = insight(sample);
+    $('timeline').value = String(time / params.duration * 1000);
+    rangeFill($('timeline'));
+    $('timeCaption').textContent = fmt(time) + ' / ' + fmt(params.duration) + ' s';
+    $('timeline').setAttribute('aria-valuetext', fmt(time) + ' seconds of ' + params.duration + ' seconds');
+    $('playLabel').textContent = running ? 'Pause motion' : time >= params.duration ? 'Replay motion' : 'Play motion';
+    $('playPause').setAttribute('aria-label', running ? 'Pause motion' : time >= params.duration ? 'Replay motion' : 'Play motion');
+    $('playGlyph').setAttribute('href', running ? '#pause' : '#play');
+    $('simulationStatus').textContent = running ? 'In motion · ' + fmt(time) + ' s' : time >= params.duration ? 'Journey complete' : time > 0 ? 'Paused · ' + fmt(time) + ' s' : 'Ready when you are';
+    $('motionCanvas').setAttribute('aria-label', 'At ' + fmt(time) + ' seconds: position ' + fmt(sample.x) + ' metres, velocity ' + fmt(sample.v) + ' metres per second, acceleration ' + fmt(sample.a) + ' metres per second squared.');
+    graphInfo.forEach(info => $(info.id).setAttribute('aria-label', info.name + ' versus time. Selected time ' + fmt(time) + ' seconds; ' + info.name.toLowerCase() + ' ' + fmt(sample[info.key]) + ' ' + info.unit + '. Left and right arrow keys change time; Home and End select endpoints.'));
+    drawAll();
+  }
+  function renderSummary() {
+    let text = 'After ' + params.duration + ' s, position is ' + brief(total.final.x) + ' m and velocity is ' + brief(total.final.v, true) + ' m/s.';
+    if (total.turnTime !== null) text += ' The cart reverses at ' + brief(total.turnTime) + ' s.';
+    $('journeySummary').textContent = text;
+    $('totalDisplacement').textContent = brief(total.displacement, true) + ' m';
+    $('totalDistance').textContent = brief(total.distance) + ' m';
+  }
+  function renderTable() {
+    const body = $('dataTable').tBodies[0];
+    body.replaceChildren();
+    const moments = [];
+    for (let t = 0; t <= params.duration; t += 1) moments.push(t);
+    if (moments.at(-1) !== params.duration) moments.push(params.duration);
+    moments.forEach(t => {
+      const sample = P.sample(params, t);
+      const row = document.createElement('tr');
+      [sample.t, sample.x, sample.v, sample.a, sample.displacement].forEach(value => {
+        const cell = document.createElement('td');
+        cell.textContent = fmt(value);
+        row.append(cell);
+      });
+      body.append(row);
+    });
+  }
+  function surface(canvas) {
+    const box = canvas.getBoundingClientRect();
+    const w = Math.max(1, box.width), h = Math.max(1, box.height);
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+    const pixelW = Math.round(w * ratio), pixelH = Math.round(h * ratio);
+    if (canvas.width !== pixelW || canvas.height !== pixelH) { canvas.width = pixelW; canvas.height = pixelH; }
+    const ctx = canvas.getContext('2d');
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    return {ctx, w, h};
+  }
+  function roundRect(ctx, x, y, width, height, radius) {
+    const r = Math.min(radius, width / 2, height / 2);
+    ctx.beginPath();ctx.moveTo(x + r, y);ctx.arcTo(x + width, y, x + width, y + height, r);ctx.arcTo(x + width, y + height, x, y + height, r);ctx.arcTo(x, y + height, x, y, r);ctx.arcTo(x, y, x + width, y, r);ctx.closePath();
+  }
+  function line(ctx, x1, y1, x2, y2, color, width = 1) {
+    ctx.strokeStyle = color;ctx.lineWidth = width;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
+  }
+  function arrow(ctx, x, y, length, color, label) {
+    if (nearZero(length)) return;
+    const sign = Math.sign(length), tip = x + length;
+    line(ctx,x,y,tip,y,color,1.5);
+    line(ctx,tip,y,tip - sign * 5,y - 4,color,1.5);
+    line(ctx,tip,y,tip - sign * 5,y + 4,color,1.5);
+    ctx.fillStyle = color;ctx.font = 'italic 12px Georgia';ctx.textAlign = 'center';ctx.fillText(label,x + length / 2,y - 8);
+  }
+  function niceStep(span, target = 4) {
+    const raw = span / target;
+    const power = Math.pow(10, Math.floor(Math.log10(raw)));
+    const fraction = raw / power;
+    return (fraction <= 1 ? 1 : fraction <= 2 ? 2 : fraction <= 5 ? 5 : 10) * power;
+  }
+  function drawMotion() {
+    const {ctx,w,h} = surface($('motionCanvas'));
+    const current = P.sample(params,time);
+    const span = Math.max(20,total.positionMax - total.positionMin);
+    const min = total.positionMin - span * 0.2;
+    const max = total.positionMax + span * 0.2;
+    const inset = w < 400 ? 36 : 43;
+    const mapX = value => inset + (value - min) / (max - min) * (w - inset * 2);
+    const ground = h * 0.65;
+    const worldStart = mapX(params.x0);
+    const currentX = mapX(current.x);
+    const step = niceStep(max - min, w < 400 ? 4 : 6);
+    ctx.font = '9px ui-monospace,monospace';ctx.textAlign = 'center';
+    for (let value = Math.ceil(min / step) * step; value <= max + 1e-8; value += step) {
+      const x = mapX(value);
+      line(ctx,x,36,x,ground + 7,'#edf0e7');
+      line(ctx,x,ground + 7,x,ground + 13,'#d4ddc9');
+      ctx.fillStyle = '#a4b097';ctx.fillText(brief(value),x,ground + 28);
+    }
+    line(ctx,17,ground + 7,w - 17,ground + 7,'#c5d2ba',1.2);
+    line(ctx,17,ground + 10,w - 17,ground + 10,'#edf1e6');
+    ctx.setLineDash([3,4]);line(ctx,worldStart,ground - 54,worldStart,ground + 6,'#cdd9c1');ctx.setLineDash([]);
+    ctx.fillStyle = '#a4b097';ctx.font = '7px ui-monospace,monospace';ctx.textAlign = 'center';
+    const startLabelX = Math.min(w - 42,Math.max(42,worldStart));
+    ctx.fillText('START',startLabelX,ground + 47);
+    ctx.fillText('x / m',w - 31,ground + 47);
+    // Hollow dots are positions at equal one-second intervals, not equal distances.
+    for (let tick = 0; tick <= params.duration; tick += 1) {
+      const x = mapX(P.sample(params,tick).x);
+      ctx.beginPath();ctx.arc(x,ground - 3,2.2,0,Math.PI * 2);
+      ctx.fillStyle = tick <= time ? '#9eb996' : '#e0e7d8';ctx.fill();
+    }
+    const carW = w < 400 ? 39 : 49, carH = w < 400 ? 19 : 23;
+    const carY = ground - carH - 8;
+    ctx.fillStyle = '#b8d2b1';ctx.strokeStyle = '#7e9f73';ctx.lineWidth = 1;
+    roundRect(ctx,currentX - carW / 2,carY,carW,carH,5);ctx.fill();ctx.stroke();
+    ctx.fillStyle = '#dfecd6';roundRect(ctx,currentX - carW * 0.24,carY + 4,carW * 0.48,carH * 0.3,2);ctx.fill();
+    [currentX - carW * 0.3,currentX + carW * 0.3].forEach(x => {ctx.beginPath();ctx.arc(x,ground - 6,5,0,Math.PI * 2);ctx.fillStyle = '#5f7758';ctx.fill();ctx.beginPath();ctx.arc(x,ground - 6,2,0,Math.PI * 2);ctx.fillStyle = '#dfead7';ctx.fill();});
+    const vectorLength = Math.min(58,w * 0.14);
+    arrow(ctx,currentX,carY - 23,nearZero(current.v) ? 0 : Math.sign(current.v) * vectorLength,colors.velocity,'v');
+    arrow(ctx,currentX,carY - 57,nearZero(current.a) ? 0 : Math.sign(current.a) * vectorLength * 0.74,colors.acceleration,'a');
+    ctx.font = '8px ui-monospace,monospace';ctx.fillStyle = '#a7b199';ctx.textAlign = 'left';ctx.fillText('● equal-time dots: 1 s apart',18,24);
+    ctx.textAlign = 'right';ctx.fillText('t = ' + fmt(time) + ' s',w - 18,24);
+  }
+  function graphRange(info) {
+    let values;
+    if (info.key === 'x') values = [total.positionMin,total.positionMax];
+    else if (info.key === 'v') values = [params.v0,total.final.v];
+    else values = [params.a];
+    let min = Math.min(0,...values), max = Math.max(0,...values);
+    let span = max - min;
+    if (span < 1) {min -= 1;max += 1;span = max - min;}
+    const step = niceStep(span * 1.24);
+    return {min: Math.floor((min - span * 0.1) / step) * step,max: Math.ceil((max + span * 0.1) / step) * step,step};
+  }
+  function drawGraph(info) {
+    const {ctx,w,h} = surface($(info.id));
+    const range = graphRange(info);
+    const left = w < 260 ? 36 : 43, right = w - 12, top = 23, bottom = h - 30;
+    const tx = t => left + t / params.duration * (right - left);
+    const vy = v => bottom - (v - range.min) / (range.max - range.min) * (bottom - top);
+    const zeroY = vy(0);
+    const current = P.sample(params,time);
+    ctx.font = '8px ui-monospace,monospace';ctx.textAlign = 'right';
+    for (let value = range.min; value <= range.max + range.step * 0.01; value += range.step) {
+      const y = vy(value);
+      line(ctx,left,y,right,y,nearZero(value) ? '#c9d5bf' : colors.grid,nearZero(value) ? 1.1 : .8);
+      ctx.fillStyle = '#a5b096';ctx.fillText(brief(value),left - 8,y + 3);
+    }
+    const timeStep = niceStep(params.duration);
+    const tickTimes = [];
+    for (let t = 0; t < params.duration - 1e-8; t += timeStep) tickTimes.push(t);
+    tickTimes.push(params.duration);
+    ctx.textAlign = 'center';
+    tickTimes.forEach(t => {const x = tx(t);line(ctx,x,top,x,bottom,colors.grid,.8);ctx.fillStyle = '#a5b096';ctx.fillText(brief(t),x,bottom + 16);});
+    line(ctx,left,top,left,bottom,'#d4ddca');
+    ctx.fillStyle = '#98a68a';ctx.textAlign = 'left';ctx.font = '8px ui-monospace,monospace';ctx.fillText(info.label,2,11);
+    ctx.textAlign = 'right';ctx.fillText('t / s',right,h - 2);
+    ctx.save();ctx.beginPath();ctx.rect(left,top,right - left,bottom - top);ctx.clip();
+    if ($('showArea').checked && info.key !== 'x' && time > 0) {
+      const breaks = [0];
+      const turn = params.a !== 0 ? -params.v0 / params.a : null;
+      if (info.key === 'v' && turn !== null && turn > 0 && turn < time) breaks.push(turn);
+      breaks.push(time);
+      for (let i = 1; i < breaks.length; i++) {
+        const start = breaks[i - 1], end = breaks[i];
+        const startY = P.sample(params,start)[info.key], endY = P.sample(params,end)[info.key];
+        ctx.beginPath();ctx.moveTo(tx(start),zeroY);ctx.lineTo(tx(start),vy(startY));ctx.lineTo(tx(end),vy(endY));ctx.lineTo(tx(end),zeroY);ctx.closePath();
+        const sign = P.sample(params,(start + end) / 2)[info.key];
+        ctx.fillStyle = sign >= 0 ? colors.positive : colors.negative;ctx.fill();
+      }
+    }
+    ctx.strokeStyle = info.color;ctx.lineWidth = 2;ctx.lineJoin = 'round';ctx.beginPath();
+    samples.forEach((point,index) => {if (index === 0) ctx.moveTo(tx(point.t),vy(point[info.key]));else ctx.lineTo(tx(point.t),vy(point[info.key]));});ctx.stroke();
+    if (info.key === 'x' && $('showTangent').checked) {
+      const start = Math.max(0,time - params.duration * .19), end = Math.min(params.duration,time + params.duration * .19);
+      ctx.setLineDash([4,4]);line(ctx,tx(start),vy(current.x + current.v * (start - time)),tx(end),vy(current.x + current.v * (end - time)),colors.acceleration,1.3);ctx.setLineDash([]);
+    }
+    ctx.setLineDash([3,4]);line(ctx,tx(time),top,tx(time),bottom,colors.cursor);ctx.setLineDash([]);
+    ctx.restore();
+    ctx.beginPath();ctx.arc(tx(time),vy(current[info.key]),4,0,Math.PI * 2);ctx.fillStyle = info.color;ctx.fill();ctx.strokeStyle = '#fffefa';ctx.lineWidth = 2;ctx.stroke();
+    const label = fmt(time) + ' s';
+    const labelWidth = ctx.measureText(label).width + 10;
+    const labelX = Math.max(left,Math.min(right - labelWidth,tx(time) - labelWidth / 2));
+    ctx.fillStyle = '#edf2e6';roundRect(ctx,labelX,top - 17,labelWidth,13,3);ctx.fill();ctx.fillStyle = '#819775';ctx.textAlign = 'center';ctx.font = '7px ui-monospace,monospace';ctx.fillText(label,labelX + labelWidth / 2,top - 8);
+  }
+  function drawAll() {drawMotion();graphInfo.forEach(drawGraph);}
+  function scheduleDraw() {
+    if (drawQueued) return;
+    drawQueued = true;
+    requestAnimationFrame(() => {drawQueued = false;drawAll();});
+  }
+  function graphTime(canvas, event) {
+    const box = canvas.getBoundingClientRect();
+    const left = box.width < 260 ? 36 : 43, right = box.width - 12;
+    return Math.max(0,Math.min(params.duration,(event.clientX - box.left - left) / (right - left) * params.duration));
+  }
+  function makeCsv() {
+    const number = value => nearZero(value) ? '0' : String(Number(value.toFixed(9)));
+    return ['Time (s),Position (m),Velocity (m/s),Acceleration (m/s^2),Displacement (m),Distance (m)',...P.series(params,121).map(point => [point.t,point.x,point.v,point.a,point.displacement,point.distance].map(number).join(','))].join('\r\n');
+  }
+  function downloadCsv() {
+    try {
+      const blob = new Blob(['\uFEFF' + csvData],{type:'text/csv;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');link.href = url;link.download = 'orbit-constant-acceleration.csv';document.body.append(link);link.click();link.remove();setTimeout(() => URL.revokeObjectURL(url),1000);
+      $('exportStatus').textContent = 'Download requested. The CSV text remains available in this dialog.';
+    } catch (_) {$('exportStatus').textContent = 'Downloads are unavailable here. Copy the CSV text instead.';}
+  }
+  fields.forEach(field => {
+    $(field.id).addEventListener('input',() => {
+      params[field.key] = Number($(field.id).value);
+      activePreset = '';
+      refreshParameters();
+    });
+    const number = $(field.id + 'Number');
+    function numberChange() {
+      const value = Number(number.value);
+      if (!number.value.trim() || !Number.isFinite(value) || !number.validity.valid) {
+        stop();number.setAttribute('aria-invalid','true');
+        $('controlError').textContent = 'Enter ' + field.name + ' between ' + number.min + ' and ' + number.max + ', in steps of ' + number.step + '.';
+        $('controlError').hidden = false;$('playPause').disabled = true;$('stepSimulation').disabled = true;render();return;
+      }
+      if (params[field.key] === value) { syncControls(); render(); return; }
+      params[field.key] = value;activePreset = '';refreshParameters();
+    }
+    number.addEventListener('change',numberChange);
+    number.addEventListener('keydown',event => {if (event.key === 'Enter' && !event.isComposing) {event.preventDefault();numberChange();number.blur();}});
+  });
+  root.querySelectorAll('.preset-options [data-preset]').forEach(button => button.addEventListener('click',() => choosePreset(button.dataset.preset)));
+  $('playPause').addEventListener('click',play);
+  $('resetSimulation').addEventListener('click',() => {stop();time = 0;syncControls();render();});
+  $('stepSimulation').addEventListener('click',() => setTime(time + 0.1));
+  $('timeline').addEventListener('input',() => setTime(Number($('timeline').value) / 1000 * params.duration));
+  ['showTangent','showArea'].forEach(id => $(id).addEventListener('change',drawAll));
+  graphInfo.forEach(info => {
+    const canvas = $(info.id);
+    let dragging = false;
+    canvas.addEventListener('pointerdown',event => {if (event.button !== 0) return;dragging = true;canvas.setPointerCapture(event.pointerId);setTime(graphTime(canvas,event));});
+    canvas.addEventListener('pointermove',event => {if (dragging) setTime(graphTime(canvas,event));});
+    canvas.addEventListener('pointerup',() => {dragging = false;});
+    canvas.addEventListener('pointercancel',() => {dragging = false;});
+    canvas.addEventListener('keydown',event => {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {event.preventDefault();setTime(time + (event.key === 'ArrowRight' ? 1 : -1) * params.duration / (event.shiftKey ? 10 : 100));}
+      else if (event.key === 'Home' || event.key === 'End') {event.preventDefault();setTime(event.key === 'Home' ? 0 : params.duration);}
+    });
+  });
+  $('exportCsv').addEventListener('click',() => {
+    csvData = makeCsv();$('csvText').value = csvData;$('exportStatus').textContent = '';
+    $('exportDialog').showModal();downloadCsv();
+  });
+  $('downloadAgain').addEventListener('click',downloadCsv);
+  $('closeExport').addEventListener('click',() => $('exportDialog').close());
+  $('copyCsv').addEventListener('click',async () => {
+    try {await navigator.clipboard.writeText(csvData);$('exportStatus').textContent = 'CSV text copied.';}
+    catch (_) {$('csvText').focus();$('csvText').select();$('exportStatus').textContent = 'Text selected. Use your device’s Copy command.';}
+  });
+  if (root.nodeType === 11 && root.host) {
+    root.addEventListener('click',event => {
+      const anchor = event.target.closest && event.target.closest('a[href^="#"]');
+      if (!anchor) return;
+      const target = $(anchor.getAttribute('href').slice(1));
+      if (!target) return;
+      event.preventDefault();
+      target.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',block:'start'});
+    });
+  }
+  document.addEventListener('visibilitychange',() => {if (document.hidden && running) {stop();render();}});
+  window.addEventListener('resize',scheduleDraw);
+  if (typeof ResizeObserver === 'function') {
+    const observer = new ResizeObserver(scheduleDraw);
+    [$('motionCanvas'),...graphInfo.map(info => $(info.id))].forEach(canvas => observer.observe(canvas));
+  }
+  learning = window.AccelerationLearning.mount({lessonTarget:$('lessonCards'),quizTarget:$('quizCard'),onPreset:key => choosePreset(key,true)});
+  const controller = Object.freeze({
+    inspect:() => ({params:{...params},time,running,sample:P.sample(params,time),summary:P.summary(params),quiz:learning.inspect()}),
+    pause:() => {stop();render();},
+    redraw:scheduleDraw
+  });
+  mounted.set(root,controller);
+  window.AccelerationLab = controller;
+  refreshParameters();
+  return controller;
+  }
+  window.AccelerationApp = Object.freeze({mount});
+  if (document.getElementById('motionCanvas')) mount();
+})();
+
+;
+/* Both labs share one document so previews never need to navigate elsewhere. */
+(() => {
+  'use strict';
+  const gravityView = document.getElementById('gravityView');
+  const accelerationView = document.getElementById('accelerationView');
+  const open = document.getElementById('accelerationLink');
+  const back = document.getElementById('backToGravity');
+  const template = document.getElementById('accelerationTemplate');
+  const host = document.getElementById('embeddedAccelerationRoot');
+  if (!gravityView || !accelerationView || !open || !back || !template || !host) return;
+  const gravityTitle = document.title;
+  let acceleration = null;
+  let root = null;
+  let gravityScroll = 0;
+
+  function scrollTo(top) {
+    const html = document.documentElement;
+    const behavior = html.style.scrollBehavior;
+    html.style.scrollBehavior = 'auto';
+    window.scrollTo(0, top);
+    html.style.scrollBehavior = behavior;
+  }
+
+  function showAcceleration() {
+    gravityScroll = window.scrollY;
+    window.MotionLab.pause();
+    gravityView.hidden = true;
+    accelerationView.hidden = false;
+    if (!acceleration) {
+      root = host.attachShadow({mode: 'open'});
+      root.append(template.content.cloneNode(true));
+      acceleration = window.AccelerationApp.mount(root);
+    }
+    document.title = 'Orbit — Constant Acceleration & Motion Graphs';
+    open.setAttribute('aria-expanded', 'true');
+    scrollTo(0);
+    acceleration.redraw();
+    const heading = root.getElementById('heroTitle');
+    if (heading) { heading.tabIndex = -1; heading.focus({preventScroll: true}); }
+  }
+
+  function showGravity() {
+    if (acceleration) acceleration.pause();
+    const dialog = root && root.getElementById('exportDialog');
+    if (dialog && dialog.open) dialog.close();
+    accelerationView.hidden = true;
+    gravityView.hidden = false;
+    document.title = gravityTitle;
+    open.setAttribute('aria-expanded', 'false');
+    window.MotionLab.redraw();
+    scrollTo(gravityScroll);
+    open.focus({preventScroll: true});
+  }
+
+  open.addEventListener('click', showAcceleration);
+  back.addEventListener('click', showGravity);
 })();
 
 </script>
