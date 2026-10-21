@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#222542">
+  <meta name="description" content="An interactive AP Chemistry simulator collection for Grade 12. Explore atoms, reactions, energy and equilibrium.">
+  <title>Orbit Chemistry — The Interactive Lab</title>
+  <style>
+:root{color-scheme:light;--ink:#222542;--muted:#6a6d80;--surface:#fff;--soft:#f0edf8;--line:#dedfe7;--paper:#f8f8f3;--accent:#785ab8;--lavender:#dcd0f5;--blue:#dce8f6;--peach:#f5dfcc;--mint:#dfece0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}button,input,select,textarea{font:inherit}button,a{touch-action:manipulation}button{cursor:pointer}a{color:inherit;text-decoration:none}button,a,input,select{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #8c73c4;outline-offset:4px}button:disabled{opacity:.45;cursor:not-allowed}[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip-link{position:fixed;left:16px;top:-80px;padding:12px 18px;background:var(--lavender);border-radius:8px;z-index:100;opacity:0;pointer-events:none}.skip-link:focus{top:12px;opacity:1;pointer-events:auto}
+.site-header{max-width:1440px;height:104px;margin:auto;padding:0 64px;display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px;font-size:35px;font-weight:800;letter-spacing:-1.8px;line-height:1}.brand>span:last-child{display:block}.brand small{display:block;font-size:8px;letter-spacing:2.3px;font-weight:700;margin-top:7px;color:#79718e}.brand-dot{color:#9879c7}.brand-symbol{height:34px;width:34px;position:relative;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center;transform:rotate(-32deg)}.brand-symbol:before{position:absolute;content:"";width:45px;height:14px;border:1.5px solid var(--ink);border-radius:50%}.brand-symbol i{width:10px;height:10px;display:block;background:var(--ink);border-radius:50%}.header-caption{font-size:9px;letter-spacing:1.8px;font-weight:700;color:#7c7a8e}.library-link{display:flex;align-items:center;gap:18px;font-size:12px;font-weight:650}.diagonal-arrow{display:inline-block;width:13px;height:13px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;position:relative}.diagonal-arrow:after{content:"";position:absolute;width:17px;height:1.5px;background:currentColor;top:5px;right:-2px;transform:rotate(-45deg)}main{max-width:1440px;margin:auto;padding:0 64px}.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:42px;align-items:center;padding:57px 0 53px}.eyebrow{font-size:10px;letter-spacing:1.6px;line-height:1.6;font-weight:700;margin:0 0 20px;display:flex;align-items:center;gap:9px}.status-dot{display:inline-block;width:7px;height:7px;flex-shrink:0;border-radius:50%;background:#a68ac9}.hero h1{font-size:clamp(56px,5.8vw,82px);font-weight:650;line-height:1.06;letter-spacing:-4.8px;margin:0 0 23px}.hero h1>span{font-family:Georgia,serif;font-style:italic;font-weight:400;position:relative;z-index:0}.hero h1>span:after{content:"";position:absolute;left:-4px;right:-8px;height:16px;background:#e3d8f5;bottom:7px;z-index:-1;transform:rotate(-2deg)}.hero-description{color:var(--muted);font-size:15px;line-height:1.85;max-width:420px;margin:0 0 25px}.hero-facts{display:flex;flex-wrap:wrap;gap:17px;font-size:10px;color:var(--muted)}.hero-facts>span{padding-right:17px;border-right:1px solid #d4d2dc}.hero-facts>span:last-child{border:0;padding-right:0}.hero-facts strong{font-weight:750;color:var(--ink);margin-right:4px}.school-line{font-size:10px;line-height:1.7;color:#858395;display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:25px 0 0}.school-line>span{color:#b7b2c3}.hero-art{height:368px;border:1px solid #e1dce9;border-radius:24px;position:relative;overflow:hidden;background:#f0ebf6}.hero-art>svg{position:absolute;width:100%;height:100%;inset:0;display:block}.art-grid{position:absolute;inset:0;background-image:linear-gradient(#d6d0e24f 1px,transparent 1px),linear-gradient(90deg,#d6d0e24f 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse,black,transparent 85%)}.art-kicker{position:absolute;top:19px;left:21px;font-size:7px;letter-spacing:1.5px;font-weight:650;color:#8c819e}.floating-formula{position:absolute;padding:11px 14px;background:#ffffffdf;border:1px solid #e1daec;box-shadow:0 5px 18px #3f31570a;border-radius:9px;font:italic 17px Georgia,serif;z-index:2;color:#6a5b7c}.formula-one{top:26%;left:7%;transform:rotate(-8deg)}.formula-two{bottom:17%;right:5%;font-size:15px;transform:rotate(6deg)}.art-label{position:absolute;bottom:17px;left:20px;display:flex;align-items:center;gap:7px;font-size:7px;letter-spacing:1.2px;font-weight:650;color:#8a7b9a}.art-label .status-dot{width:5px;height:5px}
+.collection-heading{padding:36px 0 25px;border-top:1px solid var(--line);display:flex;align-items:flex-end;justify-content:space-between;gap:24px}.collection-heading .eyebrow{color:#858092;margin:0 0 9px;font-size:9px}.collection-heading h2{font-size:29px;font-weight:650;letter-spacing:-1.1px;line-height:1.2;margin:0}.search-box{display:flex;align-items:center;gap:11px;border:1px solid #dedee5;background:#ffffff80;border-radius:10px;width:282px;padding:0 14px}.search-box input{padding:13px 0;border:0;background:transparent;min-width:0;width:100%;font-size:11px;color:var(--ink);outline:none}.search-box:focus-within{outline:2px solid #a48ac8;outline-offset:2px}.search-icon{width:12px;height:12px;border:1.5px solid #9b98ab;border-radius:50%;position:relative;flex-shrink:0}.search-icon:after{content:"";position:absolute;right:-4px;bottom:-3px;width:5px;height:1.5px;background:#9b98ab;transform:rotate(45deg)}.unit-filters{display:flex;flex-wrap:wrap;gap:6px;padding:0 0 17px;border-bottom:1px solid var(--line)}.unit-button{display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid transparent;background:transparent;color:var(--muted);border-radius:100px;font-size:11px;font-weight:600}.unit-button:hover{background:#efebf5}.unit-button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}.unit-count{font-size:9px;opacity:.6}.collection-meta{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0 19px;font-size:10px;color:#8a8798}.collection-meta p{margin:0}.collection-meta>span{text-align:right}.simulator-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;padding:0 0 65px}.simulator-card{min-width:0;display:flex;flex-direction:column;border-radius:15px;overflow:hidden;background:#fff;border:1px solid #e1e0e7;transition:transform .18s,border-color .18s,box-shadow .18s}.simulator-card:hover{transform:translateY(-3px);border-color:#bcb0d1;box-shadow:0 10px 24px #30274f09}.card-art{position:relative;height:170px;overflow:hidden;background:var(--art-bg,#eee9f5)}.card-art svg{display:block;height:100%;width:100%}.card-unit{position:absolute;left:16px;top:14px;color:var(--art-ink,#7f6b9a);font-size:8px;letter-spacing:1.3px;font-weight:700}.card-index{position:absolute;right:16px;top:14px;color:var(--art-ink,#7f6b9a);opacity:.55;font-size:9px;font-variant-numeric:tabular-nums}.art-caption{position:absolute;right:15px;bottom:12px;font:italic 13px Georgia,serif;color:var(--art-ink,#7f6b9a);opacity:.8;max-width:calc(100% - 30px);text-align:right}.card-content{display:flex;flex-direction:column;flex:1;padding:21px 21px 19px}.card-category{font-size:8px;text-transform:uppercase;letter-spacing:1.2px;font-weight:750;color:var(--art-ink,#7f6b9a);line-height:1.6;margin:0 0 9px}.card-content h3{font-size:18px;line-height:1.35;letter-spacing:-.5px;font-weight:650;margin:0 0 11px}.card-summary{color:var(--muted);font-size:12px;line-height:1.75;margin:0 0 22px;flex:1}.play-card-button{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;border:1px solid #e0dae9;border-radius:8px;background:#f5f1fa;padding:11px 13px;color:var(--ink);font-size:11px;font-weight:700;transition:background .15s}.play-card-button:hover{background:#e6dcf7;border-color:#d3c0ec}.play-icon{display:grid;place-items:center;background:var(--ink);height:23px;width:23px;border-radius:50%;flex-shrink:0}.play-icon:before{content:"";border-left:6px solid #e5d6fa;border-top:4px solid transparent;border-bottom:4px solid transparent;margin-left:2px}.empty-state{text-align:center;border:1px dashed #d5cedf;border-radius:15px;padding:52px 20px 64px;margin-bottom:55px}.empty-atom{display:block;font-size:50px;color:#b39cca;line-height:1}.empty-state h3{font-size:23px;font-weight:650;letter-spacing:-.6px;margin:15px 0 10px}.empty-state p{font-size:13px;line-height:1.7;color:var(--muted);margin-bottom:22px}.primary-button,.secondary-button{display:inline-flex;align-items:center;justify-content:center;gap:12px;border:1px solid #d8cce9;border-radius:9px;padding:12px 17px;background:#e5d9f6;color:var(--ink);font-size:12px;font-weight:650}.primary-button:hover,.secondary-button:hover{background:#dcd0ef}.secondary-button{background:#fff}.left-arrow,.right-arrow{display:inline-block;width:14px;height:1px;background:currentColor;position:relative;flex-shrink:0}.left-arrow:before,.right-arrow:before{content:"";position:absolute;height:5px;width:5px;border-left:1px solid currentColor;border-bottom:1px solid currentColor;left:0;top:-2px;transform:rotate(45deg)}.right-arrow:before{left:auto;right:0;transform:rotate(225deg)}
+.player-view{padding:28px 0 56px}.player-topline{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:35px}.back-button{display:flex;align-items:center;gap:12px;border:0;background:transparent;padding:9px 0;color:var(--muted);font-size:12px}.player-badge{display:flex;align-items:center;gap:8px;font-size:8px;letter-spacing:1.4px;font-weight:700;color:#92879f}.player-badge .status-dot{width:5px;height:5px}.player-intro{display:flex;gap:30px;align-items:center;justify-content:space-between;margin-bottom:27px}.player-copy{min-width:0}.player-intro .eyebrow{font-size:9px;color:#9680ad;margin-bottom:11px}.player-intro h1{font-size:clamp(31px,3.4vw,46px);line-height:1.12;font-weight:650;letter-spacing:-1.7px;margin:0 0 15px}.player-intro h1:focus{outline:none}.player-copy>p:last-child{max-width:650px;color:var(--muted);font-size:13px;line-height:1.8;margin:0}.formula-card{background:#eeE7f6;border:1px solid #ded3ec;border-radius:12px;min-width:196px;max-width:42%;padding:18px 23px;text-align:center}.formula-card>span{font-size:8px;font-weight:700;letter-spacing:1.5px;color:#9b84af}.formula-card>p{font:italic 23px Georgia,serif;color:#665078;margin:10px 0 0;overflow-wrap:anywhere;line-height:1.4}.chemistry-player{min-width:0;padding:25px;border:1px solid #e1dfe8;border-radius:16px;background:#fff;scroll-margin-top:20px}.chemistry-player svg{max-width:100%;display:block}.chemistry-player input,.chemistry-player select{max-width:100%}.player-navigation{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:25px}.player-navigation>span{font-size:10px;color:#95909f}.site-footer{max-width:1312px;width:calc(100% - 128px);margin:0 auto;padding:27px 0 32px;display:flex;gap:30px;align-items:center;border-top:1px solid var(--line);color:#96909f;font-size:10px}.footer-brand{color:var(--ink);font-weight:750;font-size:27px;line-height:1;letter-spacing:-1.5px;position:relative;display:block}.footer-brand>span{color:#a389c1}.footer-brand>small{display:block;font-size:6px;letter-spacing:1.5px;margin-top:5px;color:#9d8bb0}.site-footer>p{margin:0}.site-footer>span{margin-left:auto;font-size:8px;letter-spacing:1.4px}.noscript{margin:20px;padding:25px;background:#e5d9f6;border-radius:12px}
+@media(max-width:1100px){.site-header{padding:0 38px}.header-caption{font-size:8px;letter-spacing:1.2px}main{padding:0 38px}.hero{gap:30px;padding:45px 0}.hero h1{font-size:65px;letter-spacing:-3.8px}.hero-art{height:330px}.hero-facts{font-size:9px;gap:12px}.hero-facts>span{padding-right:12px}.hero-facts>span:last-child{display:none}.simulator-grid{gap:17px}.card-content{padding:18px}.card-content h3{font-size:17px}.card-summary{font-size:11px}.unit-button{padding:9px 12px;font-size:10px}.site-footer{width:calc(100% - 76px)}}
+@media(max-width:820px){.header-caption{display:none}.site-header{height:88px;padding:0 30px}main{padding:0 30px}.hero{gap:20px;grid-template-columns:1.05fr 1fr}.hero h1{font-size:54px;letter-spacing:-3.2px}.hero .eyebrow{font-size:8px;letter-spacing:1px}.hero-description{font-size:13px}.hero-art{height:300px}.floating-formula{font-size:14px;padding:8px 10px}.formula-two{font-size:12px;right:3%}.formula-one{left:3%}.art-kicker{font-size:5px;left:13px;top:13px}.art-label{font-size:5px;left:12px;bottom:12px}.school-line{font-size:8px;gap:6px}.hero-facts{gap:9px;font-size:8px}.hero-facts>span{padding-right:9px}.collection-heading{gap:20px}.collection-heading h2{font-size:25px}.search-box{width:240px}.search-box input{font-size:10px}.simulator-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.card-summary{font-size:12px}.unit-button{font-size:10px;padding:9px 12px}.site-footer{width:calc(100% - 60px)}.formula-card{min-width:165px;padding:16px}.formula-card>p{font-size:20px}.chemistry-player{padding:20px}}
+@media(max-width:600px){.site-header{padding:0 21px;height:80px}.brand{font-size:30px;gap:10px}.brand-symbol{width:29px;height:29px}.brand-symbol:before{width:39px;height:12px}.brand-symbol i{width:8px;height:8px}.brand small{font-size:6px;letter-spacing:1.8px;margin-top:6px}.library-link{font-size:10px;gap:12px}.diagonal-arrow{width:11px;height:11px}.diagonal-arrow:after{width:14px;top:4px;right:-1px}.hero{grid-template-columns:1fr;gap:27px;padding:35px 0 33px}.hero h1{font-size:62px;letter-spacing:-3.8px}.hero h1 br{display:none}.hero h1>span{white-space:nowrap}.hero .eyebrow{font-size:8px;margin-bottom:17px}.hero-description{font-size:13px;max-width:380px;line-height:1.8;margin-bottom:21px}.hero-facts{font-size:9px;gap:13px}.hero-facts>span{padding-right:13px}.hero-facts>span:last-child{display:block}.school-line{font-size:8px;margin-top:18px;gap:7px}.hero-art{height:260px;border-radius:18px}.art-kicker{font-size:6px;left:16px;top:15px}.floating-formula{font-size:16px}.formula-one{left:8%;top:25%}.formula-two{font-size:13px;right:5%;bottom:18%}.art-label{font-size:5.5px;left:15px;bottom:13px}main{padding:0 21px}.collection-heading{flex-direction:column;align-items:stretch;gap:21px;padding:27px 0 20px}.collection-heading .eyebrow{font-size:8px}.collection-heading h2{font-size:27px}.search-box{width:100%}.search-box input{font-size:11px;padding:12px 0}.unit-filters{gap:5px;padding-bottom:14px}.unit-button{padding:9px 11px;font-size:10px;gap:6px}.unit-count{font-size:8px}.collection-meta{padding:15px 0;font-size:9px;gap:12px}.collection-meta>span{max-width:175px;line-height:1.5}.simulator-grid{grid-template-columns:1fr;gap:18px;padding-bottom:39px}.card-art{height:170px}.card-content{padding:21px}.card-content h3{font-size:20px;line-height:1.3}.card-summary{font-size:12px}.play-card-button{font-size:12px;padding:11px 14px}.card-category{font-size:9px}.site-footer{width:calc(100% - 42px);padding:25px 0;gap:23px}.site-footer>span{display:none}.site-footer>p{font-size:9px}.footer-brand{font-size:25px}.player-view{padding-top:18px}.player-topline{margin-bottom:22px}.back-button{font-size:10px;gap:9px}.player-badge{font-size:7px;letter-spacing:1px}.player-intro{flex-direction:column;align-items:stretch;gap:18px;margin-bottom:20px}.player-intro h1{font-size:34px;letter-spacing:-1.3px;margin-bottom:12px}.player-intro .eyebrow{font-size:8px;letter-spacing:1px}.player-copy>p:last-child{font-size:12px;line-height:1.8}.formula-card{width:100%;max-width:100%;padding:13px 15px;display:flex;align-items:center;justify-content:space-between;gap:13px;text-align:right}.formula-card>span{font-size:7px;letter-spacing:1px;text-align:left;flex-shrink:0}.formula-card>p{font-size:20px;margin:0}.chemistry-player{padding:15px 12px;border-radius:12px}.player-navigation{gap:8px;flex-wrap:wrap}.player-navigation>span{width:100%;order:3;text-align:center;font-size:9px;margin-top:6px}.player-navigation button{font-size:10px;gap:9px;padding:11px 12px}.player-navigation .left-arrow,.player-navigation .right-arrow{width:10px}.empty-state{padding:35px 15px 45px}.empty-state h3{font-size:20px}.empty-state p{font-size:12px}}
+@media(max-width:360px){main,.site-header{padding-left:16px;padding-right:16px}.site-footer{width:calc(100% - 32px)}.hero h1{font-size:54px;letter-spacing:-3.1px}.hero-facts{font-size:8px;gap:10px}.hero-facts>span{padding-right:10px}.school-line{font-size:7.3px;gap:6px}.hero-art{height:238px}.art-label{font-size:5px}.floating-formula{font-size:14px;padding:8px 10px}.formula-two{font-size:12px}.unit-button{padding:8px 9px;font-size:9px}.collection-meta>span{max-width:145px}.collection-heading h2{font-size:25px}.player-badge{font-size:6px}.player-intro h1{font-size:31px}.formula-card>p{font-size:18px}.player-navigation button{padding:10px;font-size:9px}.chemistry-player{padding:13px 10px}.site-footer{gap:18px}}
+.hero-copy{min-width:0}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+</style>
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to the chemistry lab</a>
+  <div id="chemistryApp">
+    <header class="site-header">
+      <a href="#library" id="chemistryHome" class="brand" aria-label="Orbit Chemistry home"><span class="brand-symbol" aria-hidden="true"><i></i></span><span>orbit<span class="brand-dot">.</span><small>CHEMISTRY</small></span></a>
+      <span class="header-caption">A LITTLE CURIOSITY. A LOT OF CHEMISTRY.</span>
+      <a href="#library" id="chemistryLibrary" class="library-link">Explore the lab <span class="diagonal-arrow" aria-hidden="true"></span></a>
+    </header>
+    <main id="mainContent" tabindex="-1">
+      <section id="chemistryGallery" aria-labelledby="galleryTitle">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> THE INTERACTIVE AP CHEMISTRY LAB</p>
+            <h1 id="galleryTitle">Make chemistry<br> <span>happen.</span></h1>
+            <p class="hero-description">Big ideas, tiny particles. Change a variable, press play, and discover the chemistry you can’t usually see.</p>
+            <div class="hero-facts"><span><strong id="heroSimulatorCount">23</strong> interactive labs</span><span><strong id="heroUnitCount">9</strong> units to explore</span><span>Made for curious minds</span></div>
+            <p class="school-line">Northwest Bilingual School <span aria-hidden="true">·</span> Grade 12 <span aria-hidden="true">·</span> 2026–2027</p>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="art-grid"></div>
+            <span class="art-kicker">SMALL SCALE. BIG DISCOVERIES.</span>
+            <svg viewBox="0 0 520 358" focusable="false">
+              <defs><linearGradient id="heroLiquid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#cbbafa"/><stop offset="1" stop-color="#9c84e1"/></linearGradient></defs>
+              <ellipse cx="270" cy="294" rx="130" ry="14" fill="#28294b" opacity=".05"/>
+              <path d="M210 68H290M220 68V155L158 263Q150 281 170 281H330Q350 281 342 263L280 155V68" fill="#ffffff" fill-opacity=".55" stroke="#66618b" stroke-width="2.4" stroke-linejoin="round"/>
+              <path d="M205 190L165 263Q160 274 173 274H327Q340 274 335 263L294 190Q274 181 250 190Q226 198 205 190Z" fill="url(#heroLiquid)"/>
+              <path d="M224 72V158L171 254" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+              <g fill="#faf8ff" opacity=".85"><circle cx="215" cy="240" r="6"/><circle cx="275" cy="248" r="8"/><circle cx="252" cy="214" r="4"/><circle cx="300" cy="227" r="4"/><circle cx="233" cy="264" r="3"/></g>
+              <g fill="none" stroke="#8d7db2" stroke-width="1.5"><circle cx="251" cy="125" r="6"/><circle cx="235" cy="99" r="4"/><circle cx="262" cy="47" r="5"/></g>
+              <g fill="none" stroke="#db9b6d" stroke-width="3"><path d="M348 99L388 77L418 113M348 99L344 144"/></g>
+              <circle cx="348" cy="99" r="18" fill="#f0bf96"/><circle cx="388" cy="77" r="12" fill="#e0a779"/><circle cx="418" cy="113" r="15" fill="#f4d7bd"/><circle cx="344" cy="144" r="11" fill="#f4d7bd"/>
+              <g fill="none" stroke="#a5a5bf" stroke-width="1"><path d="M84 122H106M95 111V133M414 248H430M422 240V256"/><circle cx="131" cy="213" r="3"/><circle cx="387" cy="188" r="3"/></g>
+              <path d="M103 270C72 230 89 180 127 167" fill="none" stroke="#a6a0c4" stroke-dasharray="4 6"/>
+              <path d="M119 163L129 167L122 175" fill="none" stroke="#a6a0c4"/>
+            </svg>
+            <span class="floating-formula formula-one">PV = nRT</span><span class="floating-formula formula-two">ΔG = ΔH − TΔS</span>
+            <span class="art-label"><span class="status-dot"></span> YOUR NEXT DISCOVERY AWAITS</span>
+          </div>
+        </div>
+        <div class="collection-heading"><div><p class="eyebrow">EXPLORE THE COLLECTION</p><h2>Your chemistry playground.</h2></div><label class="search-box"><span class="search-icon" aria-hidden="true"></span><span class="sr-only">Search chemistry simulators</span><input type="search" id="chemistrySearch" placeholder="Search a topic or experiment…" autocomplete="off"></label></div>
+        <div class="unit-filters" id="chemistryFilters" role="group" aria-label="Filter simulators by chemistry unit"></div>
+        <div class="collection-meta"><p id="chemistryCount" aria-live="polite"></p><span id="chemistryUnitName">Nine units. Endless discoveries.</span></div>
+        <div id="chemistryGrid" class="simulator-grid"></div>
+        <div id="chemistryEmpty" class="empty-state" hidden><span class="empty-atom" aria-hidden="true">○</span><h3>No experiments found</h3><p>Try another topic or explore the whole collection.</p><button type="button" id="chemistryClearFilters" class="primary-button">Show all simulators</button></div>
+      </section>
+      <section id="chemistryView" class="player-view" aria-labelledby="chemistryTitle" hidden>
+        <div class="player-topline"><button id="backToChemistry" class="back-button" type="button"><span class="left-arrow" aria-hidden="true"></span> All simulators</button><span class="player-badge"><span class="status-dot" aria-hidden="true"></span> INSIDE THE LAB</span></div>
+        <div class="player-intro"><div class="player-copy"><p class="eyebrow" id="chemistryCategory"></p><h1 id="chemistryTitle" tabindex="-1"></h1><p id="chemistryDescription"></p></div><div class="formula-card"><span>THE BIG IDEA</span><p id="chemistryFormula"></p></div></div>
+        <div id="chemistryPlayer" class="chemistry-player"></div>
+        <nav class="player-navigation" aria-label="Browse chemistry simulators"><button id="previousSimulator" class="secondary-button" type="button"><span class="left-arrow" aria-hidden="true"></span> Previous simulator</button><span id="chemistryPosition"></span><button id="nextSimulator" class="secondary-button" type="button">Next simulator <span class="right-arrow" aria-hidden="true"></span></button></nav>
+      </section>
+    </main>
+    <footer class="site-footer"><a id="chemistryFooterHome" class="footer-brand" href="#library">orbit<span>.</span><small>CHEMISTRY</small></a><p>Explore a little. Understand a lot.</p><span>AP CHEMISTRY · 2026–2027</span></footer>
+  </div>
+  <noscript><p class="noscript">Enable JavaScript to use the chemistry simulators.</p></noscript>
+  <script>
+(function (root) {
+  'use strict';
+  const units = [
+    'Atomic Structure & Properties',
+    'Molecular & Ionic Structure',
+    'Intermolecular Forces & Properties',
+    'Chemical Reactions',
+    'Kinetics',
+    'Thermodynamics',
+    'Equilibrium',
+    'Acids & Bases',
+    'Electrochemistry'
+  ];
+  const topics = [
+    ['moles',1,'Moles & Molar Mass','Turn a measured mass into moles and particles. Explore how molar mass changes the amount of substance.','n = m / M'],
+    ['isotopes',1,'Isotopes & Mass Spectrometry','Change isotope abundances and see the mass spectrum and weighted atomic mass respond.','M̄ = Σ(fᵢMᵢ)'],
+    ['electrons',1,'Electron Configuration & Ions','Build atoms and ions, explore electron shells, and follow changes in their electron configurations.','electrons = Z − charge'],
+    ['pes',1,'Photoelectron Spectroscopy','Send photons into an atom and explore how electron subshells produce a photoelectron spectrum.','KE = hν − binding energy'],
+    ['trends',1,'Periodic Trends','Compare the first 18 elements through atomic size, ionization energy and electronegativity.','Structure shapes properties'],
+    ['geometry',2,'Molecular Geometry & Polarity','Rotate molecular models and compare VSEPR shapes, bond angles, lone pairs and polarity.','Electron groups → shape'],
+    ['lattice',2,'Ionic Attraction & Coulomb’s Law','Move opposite ions closer together and explore how charge and separation affect their attraction.','U = kq₁q₂ / r'],
+    ['imf',3,'Intermolecular Forces','Explore particle attractions and compare dispersion forces, dipole interactions and hydrogen bonding.','Attraction meets thermal motion'],
+    ['gas',3,'Ideal Gases & Particle Motion','Adjust a gas and watch its particles and piston. Connect pressure, volume, temperature and amount.','PV = nRT'],
+    ['solution',3,'Solutions, Solubility & Concentration','Dissolve a salt, explore saturation and see how the dissolved amount sets the solution concentration.','M = n / V'],
+    ['vapor',3,'Vapor Pressure','Change temperature and solvent composition to explore vapor pressure above an ideal solution.','P = Xsolvent P°'],
+    ['stoichiometry',4,'Stoichiometry & Limiting Reactants','Combine hydrogen and oxygen, identify the limiting reactant and explore theoretical and percent yield.','2H₂ + O₂ → 2H₂O'],
+    ['titration',4,'Strong Acid–Base Titration','Add base from a burette and follow the pH as the acid is neutralized and the equivalence point is reached.','H⁺ + OH⁻ → H₂O'],
+    ['kinetics',5,'Reaction Rates & Integrated Rate Laws','Watch reactants disappear over time and compare zero, first and second order concentration profiles.','Rate = k[A]ⁿ'],
+    ['arrhenius',5,'Activation Energy & Temperature','Change temperature and activation energy to explore the Arrhenius relationship and an energy barrier.','k = A e^(−Eₐ/RT)'],
+    ['calorimetry',6,'Heat Transfer & Calorimetry','Transfer heat into or out of a sample and follow its temperature and energy change.','q = mcΔT'],
+    ['gibbs',6,'Entropy & Gibbs Free Energy','Explore how enthalpy, entropy and temperature combine to determine the standard Gibbs energy change.','ΔG° = ΔH° − TΔS°'],
+    ['equilibrium',7,'Reversible Reactions & Equilibrium','Watch a reversible system approach equilibrium as the forward and reverse rates become equal.','Kc = [B] / [A]'],
+    ['gasEquilibrium',7,'Gas Equilibrium & Le Châtelier','Change temperature and compression in the N₂O₄ ⇌ 2NO₂ system and compare Kc and Kp.','Kp = Kc(RT)^Δn'],
+    ['acidbase',8,'Strong & Weak Acids and Bases','Compare ionization, pH and pOH for strong and weak monoprotic acids and bases.','pH = −log₁₀[H⁺]'],
+    ['buffer',8,'Buffers & Added Acid or Base','Adjust a conjugate acid–base pair and observe how it responds to added strong acid or base.','pH ≈ pKₐ + log₁₀([A⁻]/[HA])'],
+    ['galvanic',9,'Galvanic Cells & the Nernst Equation','Connect a zinc–copper cell, follow electron flow and explore how ion concentrations affect cell potential.','E = E° − (RT/nF) ln Q'],
+    ['electrolysis',9,'Electrolysis & Faraday’s Law','Pass charge through a copper-ion solution and watch metal plate onto the cathode.','m = ItMη / (nF)']
+  ];
+  root.ChemistryUnits = Object.freeze(units);
+  root.ChemistryCatalog = Object.freeze(topics.map(([model,unit,title,summary,formula]) => Object.freeze({
+    id:model,model,unit,title,summary,formula,category:units[unit-1],note:''
+  })));
+})(window);
+
+</script>
+  <script>
+/* Atomic structure and bonding models. All drawings use local SVG DOM nodes. */
+(function (root) {
+  'use strict';
+  const NA = 6.02214076e23, K = 8.9875517923e9, E = 1.602176634e-19;
+  const PI = Math.PI, clamp = (x,a,b) => Math.max(a,Math.min(b,x));
+  const bad = error => ({valid:false,error});
+  const ok = (values, data) => Object.assign({valid:true,values},data || {});
+  const v = (label,value,unit) => ({label,value,unit:unit || ''});
+  const finite = (o,key,min,max,integer) => o && typeof o[key] === 'number' && Number.isFinite(o[key]) && o[key] >= min && o[key] <= max && (!integer || Number.isInteger(o[key]));
+  const fmt = n => Number.isFinite(n) ? (Math.abs(n)>1e5 || (Math.abs(n)>0 && Math.abs(n)<.001) ? n.toExponential(3) : String(Number(n.toFixed(3)))) : '—';
+  const number = (key,label,unit,value,min,max,step) => ({key,label,unit,type:'number',value,min,max,step});
+  const select = (key,label,value,options) => ({key,label,type:'select',value,options:options.map(a=>({value:String(a[0]),label:a[1]}))});
+  const colors = {ink:'#23334e',muted:'#67778d',purple:'#8467bd',blue:'#497cb9',teal:'#348a83',coral:'#cc765e',soft:'#edf1f8',gold:'#c49b45'};
+  function heading(h,title,subtitle) { h.text(360,32,title,19,colors.ink,'middle'); if(subtitle)h.text(360,54,subtitle,12,colors.muted,'middle'); }
+  function dotAtom(h,x,y,label,fill,r) { h.circle(x,y,r || 21,fill);h.text(x,y+5,label,14,['#edf1f8','#c8d2e3'].includes(fill) ? colors.ink : '#ffffff','middle'); }
+  const elements = [
+    ['H','Hydrogen',31,13.5984,2.20],['He','Helium',28,24.5874,null],
+    ['Li','Lithium',128,5.3917,.98],['Be','Beryllium',96,9.3227,1.57],['B','Boron',84,8.2980,2.04],['C','Carbon',76,11.2603,2.55],['N','Nitrogen',71,14.5341,3.04],['O','Oxygen',66,13.6181,3.44],['F','Fluorine',57,17.4228,3.98],['Ne','Neon',58,21.5645,null],
+    ['Na','Sodium',166,5.1391,.93],['Mg','Magnesium',141,7.6462,1.31],['Al','Aluminium',121,5.9858,1.61],['Si','Silicon',111,8.1517,1.90],['P','Phosphorus',107,10.4867,2.19],['S','Sulfur',105,10.3600,2.58],['Cl','Chlorine',102,12.9676,3.16],['Ar','Argon',106,15.7596,null]
+  ];
+  const shellFill = count => {const occupancy=[];for(const cap of [2,8,8]){const n=Math.min(count,cap);if(n)occupancy.push(n);count-=n;}return occupancy;};
+  const superscripts = ['⁰','¹','²','³','⁴','⁵','⁶','⁷','⁸','⁹'];
+  function configuration(count) { const parts=[]; for(const [orb,cap]of [['1s',2],['2s',2],['2p',6],['3s',2],['3p',6]]){const n=Math.min(count,cap);if(n)parts.push(orb+String(n).split('').map(a=>superscripts[Number(a)]).join(''));count-=n;}return parts.join(' ') || 'No electrons'; }
+  const molecules = {
+    CO2:{label:'CO₂ · carbon dioxide',central:'C',ligand:'O',vectors:[[-1,0,0],[1,0,0]],geometry:'Linear',angle:'180°',polar:false,lonePairs:0,valence:16,bondOrder:2},
+    H2O:{label:'H₂O · water',central:'O',ligand:'H',vectors:[[-Math.sin(52.25*PI/180),-Math.cos(52.25*PI/180),0],[Math.sin(52.25*PI/180),-Math.cos(52.25*PI/180),0]],geometry:'Bent',angle:'104.5°',polar:true,lonePairs:2,valence:8,bondOrder:1},
+    BF3:{label:'BF₃ · boron trifluoride',central:'B',ligand:'F',vectors:[0,2*PI/3,4*PI/3].map(a=>[Math.cos(a),Math.sin(a),0]),geometry:'Trigonal planar',angle:'120°',polar:false,lonePairs:0,valence:24,bondOrder:1},
+    NH3:{label:'NH₃ · ammonia',central:'N',ligand:'H',vectors:[0,2*PI/3,4*PI/3].map(a=>[Math.cos(a),-.4008,Math.sin(a)]),geometry:'Trigonal pyramidal',angle:'about 107°',polar:true,lonePairs:1,valence:8,bondOrder:1},
+    CH4:{label:'CH₄ · methane',central:'C',ligand:'H',vectors:[[1,1,1],[1,-1,-1],[-1,1,-1],[-1,-1,1]],geometry:'Tetrahedral',angle:'109.5°',polar:false,lonePairs:0,valence:8,bondOrder:1},
+    PF5:{label:'PF₅ · phosphorus pentafluoride',central:'P',ligand:'F',vectors:[[0,1,0],[0,-1,0],...[0,2*PI/3,4*PI/3].map(a=>[Math.cos(a),0,Math.sin(a)])],geometry:'Trigonal bipyramidal',angle:'90°, 120°, 180°',polar:false,lonePairs:0,valence:40,bondOrder:1},
+    SF6:{label:'SF₆ · sulfur hexafluoride',central:'S',ligand:'F',vectors:[[1,0,0],[-1,0,0],[0,1,0],[0,-1,0],[0,0,1],[0,0,-1]],geometry:'Octahedral',angle:'90°, 180°',polar:false,lonePairs:0,valence:48,bondOrder:1}
+  };
+  const models = {
+    moles:{
+      title:'Moles & molar mass',duration:6,
+      note:'The animation adds material to the chosen final mass. Dots are representative entities; they are not a literal molecular count.',
+      fields:[number('mass','Final sample mass','g',18.015,0,1000,.001),number('molarMass','Molar mass','g mol⁻¹',18.015,.001,1000,.001)],
+      calculate(o){if(!finite(o,'mass',0,1000)||!finite(o,'molarMass',.001,1000))return bad('Use a mass from 0 to 1000 g and a positive molar mass from 0.001 to 1000 g mol⁻¹.');const moles=o.mass/o.molarMass,entities=moles*NA;return ok([v('Final amount',moles,'mol'),v('Final entities',entities),v('Molar mass',o.molarMass,'g mol⁻¹')],{moles,entities});},
+      sample(o,r,p){return {mass:o.mass*p,moles:r.moles*p,entities:r.entities*p,values:[v('Mass added',o.mass*p,'g'),v('Amount added',r.moles*p,'mol'),v('Entities added',r.entities*p)]};},
+      draw(svg,o,r,s,p,h){heading(h,'From mass to particles','n = m / M    ·    N = nNₐ');h.rect(180,91,360,216,'#ffffff',16);h.line(205,105,205,284,'#aab9cf',3);h.line(205,284,515,284,'#aab9cf',3);h.line(515,284,515,105,'#aab9cf',3);const target=r.moles===0?0:Math.min(48,Math.max(1,Math.round(r.moles*14)));for(let j=0;j<target;j++){const revealed=clamp(p*target-j,0,1),x=235+(j%8)*36,y=264-Math.floor(j/8)*28;if(revealed>0){const yy=y-(1-revealed)*125;h.circle(x,yy,8,colors.purple);h.circle(x-2,yy-2,2,'#d7caee');}}h.rect(235,305,250,33,colors.soft,8);h.text(360,327,fmt(s.mass)+' g',17,colors.ink,'middle');h.text(110,190,'sample',12,colors.muted,'middle');h.line(145,185,188,185,colors.muted,1);h.text(606,170,fmt(s.moles)+' mol',18,colors.purple,'middle');h.text(606,195,'of entities',12,colors.muted,'middle');h.text(360,79,'Representative particles in a mass sample',12,colors.muted,'middle');}
+    },
+    isotopes:{
+      title:'Isotopes & mass spectrometry',duration:6,
+      note:'This two-isotope chlorine model uses singly charged ions. Peak areas represent isotope abundance; the ion paths are illustrative.',
+      fields:[number('heavyPercent','³⁷Cl abundance','%',24.22,0,100,.01)],
+      calculate(o){if(!finite(o,'heavyPercent',0,100))return bad('Abundance must be between 0 and 100%.');const heavy=o.heavyPercent/100,light=1-heavy,average=34.96885268*light+36.96590260*heavy;return ok([v('Average atomic mass',average,'u'),v('³⁵Cl abundance',light*100,'%'),v('³⁷Cl abundance',heavy*100,'%')],{heavy,light,average});},
+      draw(svg,o,r,s,p,h){heading(h,'Separate the isotopes','Same element · different neutron counts');h.rect(55,78,280,230,colors.soft,16);h.text(195,102,'Representative ion beam',12,colors.muted,'middle');h.rect(73,134,43,65,colors.ink,7);h.text(94,224,'Cl⁺',15,colors.ink,'middle');h.path('M116 167 Q205 128 303 142',{fill:'none',stroke:colors.teal,'stroke-width':2,'stroke-dasharray':'5 5'});h.path('M116 167 Q205 220 303 247',{fill:'none',stroke:colors.purple,'stroke-width':2,'stroke-dasharray':'5 5'});for(let j=0;j<8;j++){const t=(p*2+j/8)%1,heavy=((j*0.6180339)%1)<r.heavy;if((heavy&&r.heavy===0)||(!heavy&&r.light===0))continue;const a=heavy?220:128,b=heavy?247:142,x=(1-t)*(1-t)*116+2*(1-t)*t*205+t*t*303,y=(1-t)*(1-t)*167+2*(1-t)*t*a+t*t*b;h.circle(x,y,5,heavy?colors.purple:colors.teal);}h.text(306,128,'³⁵Cl',13,colors.teal,'middle');h.text(306,270,'³⁷Cl',13,colors.purple,'middle');h.line(398,282,668,282,colors.muted,2);h.line(398,282,398,100,colors.muted,2);h.text(535,323,'m/z for singly charged ions',12,colors.muted,'middle');h.text(404,89,'Relative abundance',12,colors.muted);for(const [x,a,label,color]of [[477,r.light,'35',colors.teal],[599,r.heavy,'37',colors.purple]]){const height=160*a;h.rect(x-16,282-height,32,height,color,3);h.text(x,304,label,14,colors.ink,'middle');h.text(x,272-height,fmt(a*100)+'%',13,color,'middle');}h.text(535,347,'Weighted mean: '+fmt(r.average)+' u',16,colors.ink,'middle');}
+    },
+    electrons:{
+      title:'Electron configuration & ions',duration:6,
+      note:'For the first 18 elements. The moving dots are a shell diagram, not physical electron trajectories or a quantum-mechanical orbital picture.',
+      fields:[number('atomicNumber','Atomic number Z','',11,1,18,1),number('charge','Ionic charge','',0,-3,3,1)],
+      calculate(o){if(!finite(o,'atomicNumber',1,18,true)||!finite(o,'charge',-3,3,true))return bad('Use an integer atomic number from 1 to 18 and an integer charge from −3 to +3.');const electrons=o.atomicNumber-o.charge;if(electrons<0||electrons>18)return bad('This model supports ions with 0 to 18 electrons.');const shells=shellFill(electrons),neutral=shellFill(o.atomicNumber),element=elements[o.atomicNumber-1],valence=shells.length?shells[shells.length-1]:0;return ok([v('Protons',o.atomicNumber),v('Electrons',electrons),v('Outer-shell electrons',valence),v('Configuration',configuration(electrons))],{electrons,shells,valence,neutralValence:neutral[neutral.length-1],symbol:element[0],name:element[1],configuration:configuration(electrons)});},
+      draw(svg,o,r,s,p,h){heading(h,r.name+' '+(o.charge>0?'+'+o.charge:o.charge<0?String(o.charge):'· neutral'),'Electron count = atomic number − charge');const cx=293,cy=201;[53,88,122].forEach((radius,i)=>{if(i<r.shells.length)h.el('circle',{cx,cy,r:radius,fill:'none',stroke:'#c4cfe2','stroke-width':1.5});});r.shells.forEach((n,i)=>{for(let j=0;j<n;j++){const a=2*PI*(p*(i%2?-.6:1)+j/n),radius=[53,88,122][i];h.circle(cx+radius*Math.cos(a),cy+radius*Math.sin(a),5,colors.purple);}});dotAtom(h,cx,cy,r.symbol,colors.coral,28);h.text(cx,cy+47,o.atomicNumber+' protons',12,colors.muted,'middle');h.rect(470,113,207,174,'#ffffff',14);h.text(490,143,'GROUND STATE',11,colors.muted);r.configuration.split(' ').forEach((part,i)=>h.text(490+(i%3)*60,178+Math.floor(i/3)*30,part,20,colors.ink));h.text(490,259,'Shells: '+(r.shells.join(' · ')||'none'),14,colors.purple);h.text(360,342,'Illustrative shell model · positions are not to scale',12,colors.muted,'middle');}
+    },
+    pes:{
+      title:'Photoelectron spectroscopy',duration:6,
+      note:'Illustrative Ne and Na spectra with approximate atomic binding energies. Equal-width peak areas show subshell electron counts; this is not calibrated instrument data.',
+      fields:[select('element','Element','Ne',[['Ne','Neon'],['Na','Sodium']]),number('photonEnergy','Photon energy','eV',1250,1,2000,1)],
+      calculate(o){if(!o||!['Ne','Na'].includes(o.element)||!finite(o,'photonEnergy',1,2000))return bad('Choose Ne or Na and a photon energy from 1 to 2000 eV.');const peaks=(o.element==='Ne'?[['1s',870,2],['2s',48.5,2],['2p',21.6,6]]:[['1s',1071,2],['2s',63.5,2],['2p',30.7,6],['3s',5.14,1]]).map(([orbital,binding,count])=>({orbital,binding,count,accessible:o.photonEnergy>=binding,kinetic:Math.max(0,o.photonEnergy-binding)}));const accessible=peaks.filter(a=>a.accessible),minBinding=peaks[peaks.length-1].binding;return ok([v('Photon energy',o.photonEnergy,'eV'),v('Accessible electrons',accessible.reduce((n,a)=>n+a.count,0)),v('Fastest emitted e⁻ KE',accessible.length?Math.max(0,o.photonEnergy-minBinding):'No emission',accessible.length?'eV':'')],{peaks,minBinding,accessible:accessible.length});},
+      draw(svg,o,r,s,p,h){heading(h,'Photon in. Electron out.','KE = hν − binding energy');h.circle(94,114,26,colors.purple);h.text(94,120,o.element,16,'#ffffff','middle');h.path('M154 114 L195 114',{stroke:colors.gold,'stroke-width':2,fill:'none'});const photonX=190-(p*4%1)*96;h.circle(photonX,114,4,colors.gold);h.text(176,90,'hν',14,colors.gold,'middle');if(r.accessible){const t=p*4%1;h.circle(94-60*t,114+29*t,4,colors.teal);h.text(35,168,'e⁻',14,colors.teal);}h.text(470,91,'Relative intensity ∝ electrons in each subshell',12,colors.muted,'middle');h.line(264,280,670,280,colors.muted,2);h.line(264,280,264,115,colors.muted,2);for(const peak of r.peaks){const x=654-Math.log10(peak.binding)/Math.log10(1200)*363,y=280-peak.count*21;h.rect(x-10,y,20,peak.count*21,peak.accessible?colors.purple:'#dce2ed',2);h.text(x,y-10,peak.orbital,14,peak.accessible?colors.purple:colors.muted,'middle');h.text(x,301,fmt(peak.binding),11,colors.muted,'middle');}h.text(468,328,'← increasing binding energy / eV (log axis)',12,colors.muted,'middle');h.text(468,349,r.accessible?'Colored peaks can be ionized by this photon.':'Photon energy is below all ionization thresholds.',12,colors.ink,'middle');}
+    },
+    trends:{
+      title:'Periodic trends explorer',duration:6,
+      note:'Compare the first 18 elements. Radii are covalent radii, not a universal atomic-size definition; noble-gas radii are estimates. Data have real exceptions to simple trends.',
+      fields:[select('element','First element','3',elements.map((e,i)=>[i+1,e[0]+' · '+e[1]])),select('compare','Compare with','9',elements.map((e,i)=>[i+1,e[0]+' · '+e[1]])),select('property','Property','radius',[['radius','Covalent radius'],['ionization','First ionization energy'],['electronegativity','Pauling electronegativity']])],
+      calculate(o){const z=Number(o&&o.element),z2=Number(o&&o.compare);if(!Number.isInteger(z)||z<1||z>18||!Number.isInteger(z2)||z2<1||z2>18||!['radius','ionization','electronegativity'].includes(o.property))return bad('Choose two elements and a listed property.');const a=elements[z-1],b=elements[z2-1],idx={radius:2,ionization:3,electronegativity:4}[o.property],unit={radius:'pm',ionization:'kJ mol⁻¹',electronegativity:''}[o.property],convert=x=>x===null?'Not assigned':idx===3?x*96.48533212:x,av=convert(a[idx]),bv=convert(b[idx]);return ok([v(a[0]+' '+o.property,av,unit),v(b[0]+' '+o.property,bv,unit)],{a,b,first:av,second:bv,unit,property:o.property});},
+      draw(svg,o,r,s,p,h){heading(h,'Compare real elemental properties','Animation illustrates a comparison; elemental data do not change with time.');const values=[r.first,r.second],max=r.property==='radius'?180:r.property==='ionization'?2500:4;[r.a,r.b].forEach((element,i)=>{const x=230+i*280,value=values[i],radius=r.property==='radius'?element[2]*.5+6:35;const grow=.65+.35*Math.min(1,p*2);h.circle(x,175,radius*grow,i?colors.teal:colors.purple);h.el('circle',{cx:x,cy:175,r:radius*grow+12,fill:'none',stroke:i?'#a6d0ca':'#c2b0e0','stroke-width':1.5,'stroke-dasharray':'5 7',transform:'rotate('+p*360+' '+x+' 175)'});h.text(x,181,element[0],23,'#ffffff','middle');h.text(x,82,element[1],15,colors.ink,'middle');h.rect(x-90,270,180,14,'#e1e7f0',5);if(typeof value==='number')h.rect(x-90,270,180*clamp(value/max,0,1)*Math.min(1,p*2),14,i?colors.teal:colors.purple,5);h.text(x,315,(typeof value==='number'?fmt(value):value)+' '+r.unit,17,colors.ink,'middle');});h.text(360,348,r.property==='electronegativity'?'No Pauling value is assigned here to He, Ne or Ar.':r.property==='radius'?'Covalent radius is based on bonded atoms; size depends on its definition.':'First ionization energy is the energy to remove one electron from a gaseous atom.',12,colors.muted,'middle');}
+    },
+    geometry:{
+      title:'Molecular geometry & polarity',duration:8,
+      note:'Rotating ball-and-stick models show molecular geometry, bond angles and polarity. Dots show central-atom lone pairs only; the view is not a complete Lewis diagram.',
+      fields:[select('molecule','Molecule','H2O',Object.entries(molecules).map(([key,a])=>[key,a.label]))],
+      calculate(o){const m=o&&molecules[o.molecule];if(!m)return bad('Choose a molecule from the list.');return ok([v('Molecular geometry',m.geometry),v('Bond angles',m.angle),v('Molecular polarity',m.polar?'Polar':'Nonpolar'),v('Central lone pairs',m.lonePairs),v('Total valence electrons',m.valence)],{molecule:o.molecule,...m});},
+      draw(svg,o,r,s,p,h){heading(h,r.label,r.geometry+' · '+r.angle+' · '+(r.polar?'polar molecule':'nonpolar molecule'));const yaw=2*PI*p+.2,tilt=.27,project=(a,scale=107)=>{const norm=Math.hypot(...a)||1,x=a[0]/norm,y=a[1]/norm,z=a[2]/norm,rx=x*Math.cos(yaw)+z*Math.sin(yaw),rz=-x*Math.sin(yaw)+z*Math.cos(yaw),ry=y*Math.cos(tilt)-rz*Math.sin(tilt),depth=y*Math.sin(tilt)+rz*Math.cos(tilt),q=1/(1-depth*.12);return {x:360+rx*scale*q,y:201-ry*scale*q,z:depth};};const atomColors={H:'#c8d2e3',C:'#34415a',N:colors.blue,O:colors.coral,B:'#a578b8',F:colors.teal,P:colors.gold,S:'#bba441'};const points=r.vectors.map(a=>project(a));for(const point of points){const dx=point.x-360,dy=point.y-201,len=Math.hypot(dx,dy)||1,ox=-dy/len*3,oy=dx/len*3;if(r.bondOrder===2){h.line(360+ox,201+oy,point.x+ox,point.y+oy,'#8d9eb7',4);h.line(360-ox,201-oy,point.x-ox,point.y-oy,'#8d9eb7',4);}else h.line(360,201,point.x,point.y,'#8d9eb7',6);}for(const point of points.filter(a=>a.z<0).sort((a,b)=>a.z-b.z))dotAtom(h,point.x,point.y,r.ligand,atomColors[r.ligand],19*(1+point.z*.08));dotAtom(h,360,201,r.central,atomColors[r.central],28);for(const point of points.filter(a=>a.z>=0).sort((a,b)=>a.z-b.z))dotAtom(h,point.x,point.y,r.ligand,atomColors[r.ligand],19*(1+point.z*.08));for(let j=0;j<r.lonePairs;j++){const point=project([r.lonePairs===2?(j?-.7:.7):0,1,.15],48);h.circle(point.x-4,point.y,3,colors.purple);h.circle(point.x+4,point.y,3,colors.purple);}h.text(360,344,'Ball-and-stick view · central lone pairs shown as dots · not to scale',12,colors.muted,'middle');}
+    },
+    lattice:{
+      title:'Ion-pair attraction',duration:6,
+      note:'Externally guided approach of two opposite point charges. This is the Coulomb energy of one isolated ion pair, not the total lattice energy of a solid.',
+      fields:[number('positiveCharge','Cation charge magnitude','e',1,1,3,1),number('negativeCharge','Anion charge magnitude','e',1,1,3,1),number('separation','Final ion separation','pm',250,100,500,1)],
+      calculate(o){if(!finite(o,'positiveCharge',1,3,true)||!finite(o,'negativeCharge',1,3,true)||!finite(o,'separation',100,500))return bad('Use charge magnitudes 1, 2 or 3 and separation from 100 to 500 pm.');const distance=o.separation*1e-12,energy=-K*E*E*o.positiveCharge*o.negativeCharge/distance,force=K*E*E*o.positiveCharge*o.negativeCharge/(distance*distance);return ok([v('Final pair energy',energy*NA/1000,'kJ mol⁻¹ of pairs'),v('Final attraction',force*1e9,'nN'),v('Final separation',o.separation,'pm')],{energy,force});},
+      sample(o,r,p){const distancePm=o.separation+150*(1-p),distance=distancePm*1e-12,energy=-K*E*E*o.positiveCharge*o.negativeCharge/distance,force=K*E*E*o.positiveCharge*o.negativeCharge/distance**2;return {distancePm,energy,force,values:[v('Current separation',distancePm,'pm'),v('Current pair energy',energy*NA/1000,'kJ mol⁻¹ of pairs'),v('Current attraction',force*1e9,'nN')]};},
+      draw(svg,o,r,s,p,h){heading(h,'Closer ions attract more strongly','Epair = kq₁q₂ / r    ·    F = k|q₁q₂| / r²');const gap=s.distancePm*.56,x1=360-gap/2,x2=360+gap/2;dotAtom(h,x1,151,'+'+o.positiveCharge,colors.coral,25);dotAtom(h,x2,151,'−'+o.negativeCharge,colors.blue,25);h.line(x1-40,99,x1+10,99,colors.coral,3);h.path('M'+(x1+2)+' 93 L'+(x1+10)+' 99 L'+(x1+2)+' 105',{fill:'none',stroke:colors.coral,'stroke-width':3});h.line(x2+40,99,x2-10,99,colors.blue,3);h.path('M'+(x2-2)+' 93 L'+(x2-10)+' 99 L'+(x2-2)+' 105',{fill:'none',stroke:colors.blue,'stroke-width':3});h.line(x1,203,x2,203,colors.muted,1);h.line(x1,197,x1,209,colors.muted,1);h.line(x2,197,x2,209,colors.muted,1);h.text(360,227,fmt(s.distancePm)+' pm',16,colors.ink,'middle');h.rect(175,262,370,65,colors.soft,12);h.text(360,288,'Current energy per mole of ion pairs',12,colors.muted,'middle');h.text(360,314,fmt(s.energy*NA/1000)+' kJ mol⁻¹',21,colors.purple,'middle');h.text(360,349,'Attractive pair energy is negative relative to infinitely separated ions.',12,colors.muted,'middle');}
+    }
+  };
+  if(typeof module==='object'&&module.exports)module.exports=models;
+  if(root)Object.assign(root.ChemistryModels||(root.ChemistryModels={}),models);
+})(typeof window==='object'?window:null);
+
+</script>
+  <script>
+/* Orbit Chemistry: solution, gas, reaction and kinetic models. */
+(function (root) {
+  'use strict';
+  const R = 8.31446261815324, RL = 0.08205736608096, NA = 6.02214076e23;
+  const C = {ink:'#24334e',muted:'#647089',blue:'#5689c9',cyan:'#63bdcf',purple:'#9274c5',orange:'#dc9d55',red:'#cf747c',green:'#68a996',light:'#edf1f9'};
+  const finite = n => typeof n === 'number' && Number.isFinite(n);
+  const bounded = (n,a,b) => finite(n) && n >= a && n <= b;
+  const fail = error => ({valid:false,error});
+  const ok = data => Object.assign({valid:true},data);
+  const value = (label,n,unit) => ({label,value:n,unit:unit||''});
+  const field = (key,label,unit,n,min,max,step) => ({key,label,unit,type:'number',value:n,min,max,step:step===undefined?0.1:step});
+  const select = (key,label,n,options) => ({key,label,type:'select',value:n,options:options.map(x=>({value:String(x[0]),label:x[1]}))});
+  const clamp = (n,a,b) => Math.max(a,Math.min(b,n));
+  const fmt = n => !finite(n)?'—':n===0?'0':Math.abs(n)>=1e5||Math.abs(n)<.001?n.toExponential(2):String(Number(n.toFixed(3)));
+  const tri = n => {const x=((n%2)+2)%2;return x<=1?x:2-x;};
+  function linePath(points){return points.map((a,j)=>(j?'L':'M')+a[0]+','+a[1]).join(' ');}
+  function heading(h,title,caption){h.text(30,30,title,17,C.ink);if(caption)h.text(30,51,caption,11,C.muted);}
+  function bar(h,x,y,w,v,color){h.rect(x,y,w,12,'#e1e7f1',6);h.rect(x,y,Math.max(0,w*clamp(v,0,1)),12,color,6);}
+  function molecule(h,x,y,label,color,r){h.atom(x,y,label,color,r||16);}
+  const models = {};
+
+  models.gas = {
+    title:'Ideal gas piston',duration:6,
+    note:'An ideal gas is compressed isothermally from twice the selected final volume to that volume. Particles are representative; piston travel is illustrative. Pressure follows PV = nRT throughout.',
+    fields:[field('moles','Amount of gas','mol',.1,.001,1,.01),field('temperature','Temperature','K',300,150,800,10),field('volume','Final volume','L',5,.5,20,.5)],
+    calculate(i){
+      if(!i||!bounded(i.moles,.001,1)||!bounded(i.temperature,150,800)||!bounded(i.volume,.5,20))return fail('Use 0.001–1 mol, 150–800 K and 0.5–20 L.');
+      return ok({pressure:i.moles*RL*i.temperature/i.volume,initialVolume:2*i.volume,values:[value('Final pressure',i.moles*RL*i.temperature/i.volume,'atm'),value('Final volume',i.volume,'L'),value('Amount',i.moles,'mol')]});
+    },
+    sample(i,r,p){const volume=i.volume*(2-clamp(p,0,1));const pressure=i.moles*RL*i.temperature/volume;return {volume,pressure,values:[value('Current pressure',pressure,'atm'),value('Current volume',volume,'L'),value('Temperature',i.temperature,'K')]};},
+    draw(svg,i,r,s,p,h){
+      heading(h,'Isothermal compression','Fixed amount and temperature · ideal, non-interacting particles');
+      const left=55,top=82,height=210,width=360*(2-p)/2;
+      h.rect(left,top,360,height,'#f3f6fc',12);h.rect(left,top,width,height,'#e7f0fb',10);
+      h.line(left,top,left,top+height,C.ink,3);h.line(left,top+height,left+width,top+height,C.ink,3);h.line(left,top,left+width,top,C.ink,3);
+      h.rect(left+width-7,top,14,height,C.purple,4);h.line(left+width,187,460,187,C.purple,5);
+      const count=8+Math.round(i.moles*32),speed=Math.sqrt(i.temperature/300);
+      for(let j=0;j<count;j++){const x=left+14+tri(j*.618+p*speed*(1.8+j%3))*(width-28),y=top+14+tri(j*.372+p*speed*(1.5+j%4))*(height-28);h.circle(x,y,4,C.blue);}
+      h.text(510,104,'PRESSURE',11,C.muted);h.text(510,140,fmt(s.pressure)+' atm',26,C.ink);h.text(510,185,'V = '+fmt(s.volume)+' L',17,C.purple);h.text(510,213,'T = '+fmt(i.temperature)+' K',14,C.muted);h.text(510,242,'PV = nRT',20,C.ink);
+      h.text(55,325,'Piston width shows current volume relative to the starting volume.',11,C.muted);
+    }
+  };
+
+  models.imf = {
+    title:'Intermolecular attractions',duration:6,
+    note:'A qualitative molecular cartoon: attraction and thermal agitation compete. It does not predict a real substance’s phase or boiling point. Relative attraction strengths also depend on molecular size and polarizability. London dispersion forces occur in every species.',
+    fields:[select('kind','Dominant attraction','hydrogen',[['dispersion','London dispersion'],['dipole','Dipole–dipole'],['hydrogen','Hydrogen bonding']]),field('agitation','Thermal agitation','relative scale',35,0,100,1)],
+    calculate(i){
+      const names={dispersion:'London dispersion',dipole:'Dipole–dipole',hydrogen:'Hydrogen bonding'};
+      if(!i||!names[i.kind]||!bounded(i.agitation,0,100))return fail('Choose an attraction and agitation from 0 to 100.');
+      const descriptions={dispersion:'Temporary fluctuations in electron density.',dipole:'Attraction between permanent molecular dipoles.',hydrogen:'Attraction involving H bonded to N, O or F and a lone pair.'};
+      return ok({kind:i.kind,strength:{dispersion:1,dipole:2,hydrogen:3}[i.kind],values:[value('Attraction',names[i.kind]),value('Agitation',i.agitation,'/ 100'),value('Model','Qualitative')],description:descriptions[i.kind]});
+    },
+    draw(svg,i,r,s,p,h){
+      heading(h,r.values[0].value,'Schematic attractions between molecules, not chemical bonds within them');
+      const motion=(i.agitation/100),spread=.65+motion*.65;
+      const points=[];
+      for(let j=0;j<12;j++){const col=j%4,row=Math.floor(j/4);points.push([350+(col-1.5)*100*spread+Math.sin(p*2*Math.PI*(1+j%3)+j)*motion*20,187+(row-1)*66*spread+Math.cos(p*2*Math.PI*(1+j%2)+j)*motion*16]);}
+      if(i.agitation<75){for(let j=0;j<11;j++){if(j%4===3)continue;const a=points[j],b=points[j+1];h.el('line',{x1:a[0]+25,y1:a[1],x2:b[0]-25,y2:b[1],stroke:i.kind==='hydrogen'?C.purple:C.cyan,'stroke-width':2,'stroke-dasharray':'4 6',opacity:.7-motion*.5});}}
+      points.forEach(([x,y],j)=>{
+        if(i.kind==='hydrogen'){h.line(x,y,x-18,y+12,C.muted,2);h.line(x,y,x+18,y+12,C.muted,2);molecule(h,x-18,y+12,'H','#bec9dc',10);molecule(h,x+18,y+12,'H','#bec9dc',10);molecule(h,x,y,'O',C.red,14);}
+        else if(i.kind==='dipole'){h.line(x-15,y,x+15,y,C.muted,3);molecule(h,x-15,y,'δ+',C.orange,16);molecule(h,x+15,y,'δ−',C.blue,16);}
+        else{molecule(h,x,y,'',C.blue,18);h.el('ellipse',{cx:x+Math.sin(p*8+j)*7,cy:y,rx:26,ry:21,fill:C.cyan,opacity:.2});}
+      });
+      h.text(30,322,r.description,12,C.muted);h.text(30,344,'Attractions are schematic; thermal agitation is a relative control.',11,C.muted);
+    }
+  };
+
+  const solubilities={NaCl:{mass:58.44277,table:[35.7,36.0,36.6,37.3,38.4,39.8]},KNO3:{mass:101.1032,table:[13.3,31.6,63.9,110,169,246]}};
+  function solubility(salt,t){const a=solubilities[salt].table,n=Math.min(4,Math.floor(t/20));return a[n]+(a[n+1]-a[n])*(t-n*20)/20;}
+  models.solution = {
+    title:'Dissolving and concentration',duration:6,
+    note:'Solubility data are interpolated between tabulated points in g solute per 100 g water. Water is approximated as 1.00 kg/L. Molarity ignores the volume change on dissolving; mass ppm uses dissolved solute divided by total solution mass. Dissolving time is illustrative.',
+    fields:[select('salt','Solute','KNO3',[['NaCl','Sodium chloride (NaCl)'],['KNO3','Potassium nitrate (KNO₃)']]),field('mass','Solute added','g',60,0,200,1),field('water','Water volume','L',.1,.05,2,.05),field('temperature','Temperature','°C',20,0,100,5)],
+    calculate(i){
+      if(!i||!solubilities[i.salt]||!bounded(i.mass,0,200)||!bounded(i.water,.05,2)||!bounded(i.temperature,0,100))return fail('Use 0–200 g solute, 0.05–2 L water and 0–100 °C.');
+      const capacity=solubility(i.salt,i.temperature)*10*i.water,dissolved=Math.min(i.mass,capacity),excess=i.mass-dissolved,moles=dissolved/solubilities[i.salt].mass,molarity=moles/i.water,ppm=dissolved/(i.water*1000+dissolved)*1e6;
+      return ok({capacity,dissolved,excess,moles,molarity,ppm,solubility:solubility(i.salt,i.temperature),values:[value('Dissolved at equilibrium',dissolved,'g'),value('Undissolved',excess,'g'),value('Approx. molarity',molarity,'mol/L'),value('Solute (mass ppm)',ppm,'ppm')]});
+    },
+    sample(i,r,p){const dissolved=r.dissolved*p;return {dissolved,undissolved:i.mass-dissolved,molarity:dissolved/solubilities[i.salt].mass/i.water,ppm:dissolved/(i.water*1000+dissolved)*1e6,values:[value('Dissolved',dissolved,'g'),value('Solid remaining',i.mass-dissolved,'g'),value('Approx. molarity',dissolved/solubilities[i.salt].mass/i.water,'mol/L')]};},
+    draw(svg,i,r,s,p,h){
+      heading(h,'Dissolution and saturation','Representative ions in water · the animation does not model dissolution kinetics');
+      h.rect(75,105,300,185,'#e7f2fb',12);h.path('M75 75 V290 Q75 302 87 302 H363 Q375 302 375 290 V75',{fill:'none',stroke:'#9aaec5','stroke-width':3});
+      const count=r.dissolved>0?Math.max(0,Math.round(28*p)):0;
+      for(let j=0;j<count;j++){const x=94+tri(j*.413+p*.7)*(262),y=120+tri(j*.729+p*.45)*140;molecule(h,x,y,j%2?'+':'−',j%2?C.purple:C.orange,8);}
+      const solid=i.mass===0?0:Math.ceil(24*s.undissolved/i.mass);
+      for(let j=0;j<solid;j++)h.rect(102+(j%12)*21,279-Math.floor(j/12)*17,15,15,j%2?C.purple:C.orange,2);
+      h.text(430,100,i.salt==='NaCl'?'NaCl in water':'KNO₃ in water',21,C.ink);h.text(430,138,fmt(i.temperature)+' °C',17,C.muted);h.text(430,174,fmt(r.solubility)+' g / 100 g water',15,C.purple);
+      h.text(430,214,'Dissolved: '+fmt(s.dissolved)+' g',16,C.ink);h.text(430,244,'Solid: '+fmt(s.undissolved)+' g',16,C.ink);
+      h.text(430,282,p<1?'Approaching saturation':r.excess>0?'Saturated + excess solid':'All added solid dissolved',13,C.green);
+      h.text(75,333,'Ion icons represent many particles. Molarity uses a dilute-volume approximation.',11,C.muted);
+    }
+  };
+
+  models.vapor = {
+    title:'Vapor pressure',duration:6,
+    note:'Water vapor pressure uses the Antoine equation from 5 to 95 °C. For an ideal solution with a nonvolatile solute, Raoult’s law gives P = xwater P°water. The particle picture is qualitative and does not model equilibration times.',
+    fields:[field('temperature','Temperature','°C',40,5,95,1),field('fraction','Water mole fraction','',1,0,1,.05)],
+    calculate(i){
+      if(!i||!bounded(i.temperature,5,95)||!bounded(i.fraction,0,1))return fail('Use 5–95 °C and a water mole fraction from 0 to 1.');
+      const pure=10**(8.07131-1730.63/(233.426+i.temperature)),pressure=pure*i.fraction;
+      return ok({pure,pressure,atm:pressure/760,values:[value('Solution vapor pressure',pressure,'mmHg'),value('Pure-water vapor pressure',pure,'mmHg'),value('Solution vapor pressure',pressure/760,'atm')]});
+    },
+    draw(svg,i,r,s,p,h){
+      heading(h,'Water above an ideal solution','Vapor molecules and liquid are schematic; the pressures are calculated');
+      h.rect(70,80,300,222,'#f2f5fa',14);h.rect(70,222,300,80,'#d8eaf8',8);h.rect(70,75,300,12,'#9badc7',3);
+      for(let j=0;j<25;j++){const solute=j/25>=i.fraction;h.circle(88+(j%9)*32+Math.sin(p*7+j)*4,240+Math.floor(j/9)*22,5,solute?C.orange:C.blue);}
+      const count=Math.round(34*r.pressure/640);
+      for(let j=0;j<count;j++)h.circle(85+tri(j*.419+p*(.8+i.temperature/80))*270,99+tri(j*.619+p*(1+i.temperature/100))*105,4,C.blue);
+      h.text(425,103,'RAOULT’S LAW',11,C.muted);h.text(425,139,'P = xwater × P°water',21,C.ink);h.text(425,187,fmt(r.pressure)+' mmHg',25,C.purple);h.text(425,224,'xwater = '+fmt(i.fraction),16,C.muted);h.text(425,255,'Pure water: '+fmt(r.pure)+' mmHg',15,C.muted);
+      h.text(70,332,'Higher temperature increases vapor pressure; a nonvolatile solute lowers it.',11,C.muted);
+    }
+  };
+
+  models.stoichiometry = {
+    title:'Limiting reactants and yield',duration:6,
+    note:'The balanced reaction is 2 H₂ + O₂ → 2 H₂O. Each icon is a molar amount, not one molecule. The animation interpolates reaction extent; it is not a rate prediction. Percent yield describes recovered product after the reaction.',
+    fields:[field('hydrogen','Initial hydrogen','mol',6,0,12,1),field('oxygen','Initial oxygen','mol',2,0,12,1),field('yield','Product recovery / yield','%',100,0,100,1)],
+    calculate(i){
+      if(!i||!bounded(i.hydrogen,0,12)||!Number.isInteger(i.hydrogen)||!bounded(i.oxygen,0,12)||!Number.isInteger(i.oxygen)||i.hydrogen+i.oxygen===0||!bounded(i.yield,0,100))return fail('Use whole-number reactant amounts from 0 to 12 mol, at least one nonzero amount, and a yield from 0 to 100%.');
+      const extent=Math.min(i.hydrogen/2,i.oxygen),theoretical=2*extent,recovered=theoretical*i.yield/100,remainingHydrogen=i.hydrogen-2*extent,remainingOxygen=i.oxygen-extent;
+      const limiting=i.hydrogen/2<i.oxygen?'Hydrogen (H₂)':i.hydrogen/2>i.oxygen?'Oxygen (O₂)':'Neither: stoichiometric mixture';
+      return ok({extent,theoretical,recovered,remainingHydrogen,remainingOxygen,limiting,values:[value('Limiting reactant',limiting),value('Theoretical water',theoretical,'mol'),value('Recovered water',recovered,'mol'),value('Recovered water mass',recovered*18.01528,'g')]});
+    },
+    sample(i,r,p){const extent=r.extent*p;return {extent,hydrogen:i.hydrogen-2*extent,oxygen:i.oxygen-extent,water:2*extent,recovered:2*extent*i.yield/100,values:[value('Hydrogen remaining',i.hydrogen-2*extent,'mol'),value('Oxygen remaining',i.oxygen-extent,'mol'),value('Water formed',2*extent,'mol'),value('Recoverable water',2*extent*i.yield/100,'mol')]};},
+    draw(svg,i,r,s,p,h){
+      heading(h,'2 H₂ + O₂ → 2 H₂O','Molar amounts · reaction progress is illustrative');
+      h.rect(25,79,210,218,'#edf2fc',14);h.rect(255,79,210,218,'#fbf0ed',14);h.rect(485,79,210,218,'#edf6f2',14);
+      h.text(130,106,'H₂: '+fmt(s.hydrogen)+' mol',16,C.ink,'middle');h.text(360,106,'O₂: '+fmt(s.oxygen)+' mol',16,C.ink,'middle');h.text(590,106,'H₂O: '+fmt(s.water)+' mol',16,C.ink,'middle');
+      for(let j=0;j<12;j++){
+        const x=58+(j%4)*47,y=142+Math.floor(j/4)*55;
+        if(j<i.hydrogen){const op=clamp(s.hydrogen-j,0,1);if(op>0){const g=h.el('g',{opacity:op});h.el('line',{x1:x-7,y1:y,x2:x+7,y2:y,stroke:C.muted,'stroke-width':2},undefined,g);h.el('circle',{cx:x-7,cy:y,r:9,fill:C.blue},undefined,g);h.el('circle',{cx:x+7,cy:y,r:9,fill:C.blue},undefined,g);}}
+        if(j<i.oxygen){const op=clamp(s.oxygen-j,0,1);if(op>0){const g=h.el('g',{opacity:op});h.el('line',{x1:x+223,y1:y,x2:x+237,y2:y,stroke:C.muted,'stroke-width':2},undefined,g);h.el('circle',{cx:x+223,cy:y,r:10,fill:C.red},undefined,g);h.el('circle',{cx:x+237,cy:y,r:10,fill:C.red},undefined,g);}}
+        const waterPerIcon=r.theoretical>12?2:1,water=clamp(s.water/waterPerIcon-j,0,1);if(water>0){const g=h.el('g',{opacity:water});h.el('line',{x1:x+460,y1:y,x2:x+446,y2:y+12,stroke:C.muted,'stroke-width':2},undefined,g);h.el('line',{x1:x+460,y1:y,x2:x+474,y2:y+12,stroke:C.muted,'stroke-width':2},undefined,g);h.el('circle',{cx:x+446,cy:y+12,r:7,fill:C.blue},undefined,g);h.el('circle',{cx:x+474,cy:y+12,r:7,fill:C.blue},undefined,g);h.el('circle',{cx:x+460,cy:y,r:10,fill:C.red},undefined,g);}
+      }
+      h.text(30,325,'Limiting reactant: '+r.limiting,12,C.muted);h.text(30,346,'Recovered product = '+fmt(r.theoretical)+' mol × '+fmt(i.yield)+'% = '+fmt(r.recovered)+' mol.',12,C.green);
+    }
+  };
+
+  function titrationAt(i,added){
+    const acid=i.acid*i.acidVolume/1000,base=i.base*added/1000,total=(i.acidVolume+added)/1000,excess=(acid-base)/total,Kw=1e-14;
+    let hydrogen;if(excess>=0)hydrogen=(excess+Math.hypot(excess,2e-7))/2;else{const hydroxide=(-excess+Math.hypot(excess,2e-7))/2;hydrogen=Kw/hydroxide;}
+    const pH=-Math.log10(hydrogen);return {added,hydrogen,pH,pOH:14-pH,excess};
+  }
+  models.titration = {
+    title:'Strong acid–base titration',duration:6,
+    note:'HCl is titrated with NaOH at 25 °C. Volumes are additive and activities are approximated by concentrations. Water autoionization is included near equivalence. Bromothymol blue is represented schematically: yellow below pH 6, blue above pH 7.6.',
+    fields:[field('acid','HCl concentration','mol/L',.1,.01,1,.01),field('acidVolume','Initial HCl volume','mL',25,5,100,1),field('base','NaOH concentration','mol/L',.1,.01,1,.01),field('added','Target NaOH addition','mL',40,0,200,1)],
+    calculate(i){
+      if(!i||!bounded(i.acid,.01,1)||!bounded(i.acidVolume,5,100)||!bounded(i.base,.01,1)||!bounded(i.added,0,200))return fail('Use concentrations 0.01–1 mol/L, initial volume 5–100 mL and addition 0–200 mL.');
+      const end=titrationAt(i,i.added),equivalence=i.acid*i.acidVolume/i.base;
+      return ok({end,equivalence,values:[value('Target pH',end.pH),value('Equivalence volume',equivalence,'mL'),value('Equivalence pH',7,'at 25 °C')]});
+    },
+    sample(i,r,p){const s=titrationAt(i,i.added*p);s.values=[value('NaOH added',s.added,'mL'),value('Current pH',s.pH),value('Current pOH',s.pOH)];return s;},
+    draw(svg,i,r,s,p,h){
+      heading(h,'HCl + NaOH → NaCl + H₂O','Strong acid / strong base · 25 °C');
+      const color=s.pH<=6?'#e5c65f':s.pH>=7.6?'#6594cf':'#79bd8d';
+      h.rect(105,68,28,116,'#e7eef8',4);h.rect(109,75+(1-p)*20,20,70+p*15,'#bad6ef',2);h.line(119,184,119,213,C.muted,3);h.line(112,198,130,198,C.muted,3);
+      if(i.added>0&&p<1)h.circle(119,218+tri(p*12)*30,4,C.blue);
+      h.path('M88 222 L88 238 L50 294 Q47 307 61 309 H178 Q192 307 188 294 L150 238 V222',{fill:'#f4f7fa',stroke:'#97abc4','stroke-width':3});h.path('M70 271 H169 L183 296 Q185 303 175 304 H64 Q54 303 58 296 Z',{fill:color,opacity:.8});
+      for(let j=0;j<8;j++)h.circle(75+j*11+Math.sin(p*12+j)*3,290+Math.cos(p*12+j)*7,2,'#ffffff');
+      h.text(32,336,'Bromothymol blue · schematic color',10,C.muted);
+      const x0=280,y0=285,w=385,hh=190,maxV=Math.max(i.added,r.equivalence*1.5,1);h.line(x0,y0,x0+w,y0,C.muted,1);h.line(x0,y0,x0,y0-hh,C.muted,1);
+      const points=[];for(let j=0;j<=100;j++){const v=maxV*j/100,ph=titrationAt(i,v).pH;points.push([x0+w*j/100,y0-clamp(ph,0,14)/14*hh]);}h.path(linePath(points),{fill:'none',stroke:C.purple,'stroke-width':2.5});
+      const xx=x0+w*s.added/maxV,yy=y0-clamp(s.pH,0,14)/14*hh;h.circle(xx,yy,6,C.orange);h.el('line',{x1:x0,y1:y0-hh/2,x2:x0+w,y2:y0-hh/2,stroke:'#b4becd','stroke-dasharray':'4 5'});
+      h.text(x0-14,y0+4,'0',10,C.muted,'end');h.text(x0-14,y0-hh/2+4,'7',10,C.muted,'end');h.text(x0-14,y0-hh+4,'14',10,C.muted,'end');h.text(x0-10,y0-hh-15,'pH',11,C.muted,'end');h.text(x0+w,y0+25,fmt(maxV)+' mL added',11,C.muted,'end');h.text(x0,76,'Current pH '+fmt(s.pH),21,C.ink);h.text(x0,336,'Equivalence: '+fmt(r.equivalence)+' mL · current dose '+fmt(s.added)+' mL',12,C.muted);
+    }
+  };
+
+  function concentration(order,c,k,t){if(order==='0')return Math.max(0,c-k*t);if(order==='1')return c*Math.exp(-k*t);return c/(1+k*c*t);}
+  function kineticsAt(i,t){const c=concentration(String(i.order),i.initial,i.rate,t),rate=c<=0?0:i.rate*(String(i.order)==='0'?1:String(i.order)==='1'?c:c*c);return {time:t,concentration:c,rate};}
+  models.kinetics = {
+    title:'Rate laws and half-life',duration:6,
+    note:'Compare integrated rate laws for zero-, first- and second-order disappearance of A. Playback maps six seconds to the selected reaction time. The zero-order law is used only until the reactant is depleted. Particle counts represent concentration.',
+    fields:[select('order','Reaction order','1',[['0','Zero order'],['1','First order'],['2','Second order']]),field('initial','Initial concentration','mol/L',1,.01,10,.1),field('rate','Rate constant k','',.1,.001,2,.01),field('time','Reaction time shown','s',20,.1,120,1)],
+    calculate(i){
+      if(!i||!['0','1','2'].includes(String(i.order))||!bounded(i.initial,.01,10)||!bounded(i.rate,.001,2)||!bounded(i.time,.1,120))return fail('Choose order 0, 1 or 2, [A]₀ 0.01–10 M, k 0.001–2 and time 0.1–120 s.');
+      const order=String(i.order),halfLife=order==='0'?i.initial/(2*i.rate):order==='1'?Math.LN2/i.rate:1/(i.rate*i.initial),end=kineticsAt(i,i.time),units=order==='0'?'mol L⁻¹ s⁻¹':order==='1'?'s⁻¹':'L mol⁻¹ s⁻¹';
+      return ok({order,halfLife,end,units,values:[value('Final concentration',end.concentration,'mol/L'),value('Half-life',halfLife,'s'),value('k units',units)]});
+    },
+    sample(i,r,p){const s=kineticsAt(i,i.time*p);s.values=[value('Reaction time',s.time,'s'),value('[A]',s.concentration,'mol/L'),value('Rate of disappearance',s.rate,'mol L⁻¹ s⁻¹')];return s;},
+    draw(svg,i,r,s,p,h){
+      heading(h,['Zero-order: [A] = [A]₀ − kt','First-order: [A] = [A]₀e⁻ᵏᵗ','Second-order: 1/[A] = 1/[A]₀ + kt'][Number(r.order)],'Reactant concentration is tracked over the selected physical reaction time');
+      h.rect(35,80,210,220,'#edf2fb',14);
+      const remain=30*s.concentration/i.initial;
+      for(let j=0;j<30;j++){const alive=j<remain,x=54+tri(j*.443+p*(.35+j%3*.1))*172,y=101+tri(j*.619+p*.5)*177;h.circle(x,y,alive?6:4,alive?C.purple:'#c8d5e3');}
+      h.text(50,330,'Purple = A · pale = products',11,C.muted);
+      const x0=300,y0=287,w=365,hh=195;h.line(x0,y0,x0+w,y0,C.muted,1);h.line(x0,y0,x0,y0-hh,C.muted,1);
+      const pts=[];for(let j=0;j<=100;j++)pts.push([x0+w*j/100,y0-concentration(r.order,i.initial,i.rate,i.time*j/100)/i.initial*hh]);
+      h.path(linePath(pts),{fill:'none',stroke:C.purple,'stroke-width':3});h.circle(x0+w*p,y0-s.concentration/i.initial*hh,6,C.orange);h.text(x0-10,y0-hh+5,fmt(i.initial),10,C.muted,'end');h.text(x0-10,y0+5,'0',10,C.muted,'end');h.text(x0,y0-hh-16,'[A] (mol/L)',11,C.muted);h.text(x0+w,y0+25,fmt(i.time)+' s',11,C.muted,'end');h.text(x0,331,'t = '+fmt(s.time)+' s · [A] = '+fmt(s.concentration)+' M',13,C.ink);
+    }
+  };
+
+  models.arrhenius = {
+    title:'Activation energy and temperature',duration:6,
+    note:'The Arrhenius equation calculates a first-order rate constant. exp(−Ea/RT) is the Boltzmann weighting in this model, not the full three-dimensional Maxwell–Boltzmann high-energy fraction. The animated path is a reaction-coordinate illustration; its travel time is not a predicted reaction time.',
+    fields:[field('temperature','Temperature','K',300,200,1000,10),field('activation','Activation energy Ea','kJ/mol',50,0,150,1),field('prefactor','Pre-exponential factor A','s⁻¹',1e12,1,1e15,1e10)],
+    calculate(i){
+      if(!i||!bounded(i.temperature,200,1000)||!bounded(i.activation,0,150)||!bounded(i.prefactor,1,1e15))return fail('Use 200–1000 K, Ea 0–150 kJ/mol and A from 1 to 10¹⁵ s⁻¹.');
+      const factor=Math.exp(-i.activation*1000/(R*i.temperature)),rate=i.prefactor*factor;
+      return ok({factor,rate,thermal:R*i.temperature/1000,values:[value('Rate constant k',rate,'s⁻¹'),value('Boltzmann weighting',factor),value('RT',R*i.temperature/1000,'kJ/mol')]});
+    },
+    draw(svg,i,r,s,p,h){
+      heading(h,'k = A exp(−Ea / RT)','An activation barrier on a reaction-coordinate diagram');
+      const x0=55,y0=280,w=390,barrier=i.activation/150*150;
+      h.line(x0,y0,x0+w,y0,C.muted,1);h.line(x0,y0,x0,78,C.muted,1);h.text(60,72,'Energy',11,C.muted);h.text(245,316,'Reaction coordinate',11,C.muted,'middle');
+      const height=t=>245-barrier*Math.sin(Math.PI*t)**2,points=[];for(let j=0;j<=80;j++)points.push([70+j/80*350,height(j/80)]);
+      h.path(linePath(points),{fill:'none',stroke:C.purple,'stroke-width':3});h.circle(70+p*350,height(p),10,C.orange);
+      h.el('line',{x1:245,y1:245,x2:245,y2:245-barrier,stroke:C.orange,'stroke-width':2,'stroke-dasharray':'4 4'});h.text(260,Math.max(80,245-barrier/2),'Ea = '+fmt(i.activation)+' kJ/mol',12,C.muted);
+      h.text(485,108,'TEMPERATURE',11,C.muted);h.text(485,140,fmt(i.temperature)+' K',24,C.ink);h.text(485,192,'RATE CONSTANT',11,C.muted);h.text(485,223,fmt(r.rate)+' s⁻¹',22,C.purple);h.text(485,263,'Weighting: '+fmt(r.factor),13,C.muted);
+      h.text(30,343,'The dot follows the energy pathway; animation timing is illustrative.',11,C.muted);
+    }
+  };
+
+  if(typeof module==='object'&&module.exports)module.exports=models;
+  if(root)root.ChemistryModels=Object.assign(root.ChemistryModels||{},models);
+})(typeof window==='object'?window:null);
+
+</script>
+  <script>
+/* Orbit Chemistry: thermodynamics, equilibrium, acid-base and electrochemistry models. */
+(function (root) {
+  'use strict';
+  const R = 8.314462618, F = 96485.33212, KW = 1e-14;
+  const C = {ink:'#183449', muted:'#647586', blue:'#5c82ca', pale:'#e7eefb', orange:'#d7945e', green:'#50a58e', pink:'#b67ab1', line:'#cbd7df'};
+  const fmt = value => !Number.isFinite(value) ? '—' : (Math.abs(value) >= 1e5 || (Math.abs(value) > 0 && Math.abs(value) < .001)) ? value.toExponential(3) : Number(value.toFixed(4)).toLocaleString('en-US');
+  const field = (key,label,unit,value,min,max,step) => ({key,label,unit,type:'number',value,min,max,step});
+  const select = (key,label,value,options) => ({key,label,type:'select',value,options:options.map(x => ({value:x[0],label:x[1]}))});
+  const value = (label, v, unit) => ({label,value:v,unit:unit || ''});
+  const invalid = error => ({valid:false,error});
+  function check(o, spec) {
+    if (!o) return 'Enter a value in every field.';
+    for (const [key, low, high] of spec) {
+      if (typeof o[key] !== 'number' || !Number.isFinite(o[key]) || o[key] < low || o[key] > high) return key + ' must be between ' + low + ' and ' + high + '.';
+    }
+    return '';
+  }
+  function result(data, values) {
+    if (Object.values(data).some(x => typeof x === 'number' && !Number.isFinite(x))) return invalid('These values exceed the supported numerical range.');
+    return Object.assign({valid:true,values},data);
+  }
+  const circleParticles = (h, count, box, p, color, radius, seed) => {
+    for (let j=0;j<count;j++) {
+      const x=box.x+12+(Math.sin((j+1)*2.399+seed)*.5+.5)*(box.w-24);
+      const y=box.y+12+((j*.618+p*.33+Math.sin(j+seed)*.12)%1+1)%1*(box.h-24);
+      h.circle(x+Math.sin(p*6.283+j)*4,y,radius || 6,color);
+    }
+  };
+  function flask(h,x,y,w,height,fill) {
+    h.rect(x,y,w,height,fill || '#f1f5fa',16);
+    h.line(x,y,x,y+height,C.line,3); h.line(x+w,y,x+w,y+height,C.line,3); h.line(x,y+height,x+w,y+height,C.line,3);
+  }
+  function arrow(h,x1,y1,x2,y2,color) {
+    const dx=x2-x1,dy=y2-y1,angle=Math.atan2(dy,dx);
+    h.line(x1,y1,x2,y2,color,3);
+    h.line(x2,y2,x2-9*Math.cos(angle-.5),y2-9*Math.sin(angle-.5),color,3);
+    h.line(x2,y2,x2-9*Math.cos(angle+.5),y2-9*Math.sin(angle+.5),color,3);
+  }
+  const models = {};
+  models.calorimetry = {
+    title:'Heat transfer & calorimetry', duration:6,
+    note:'The system is liquid water. Positive q adds heat to the water; negative q removes it. Constant specific heat, no heat loss and no phase change are assumed. Keep both temperatures between 0 and 100 °C.',
+    fields:[field('mass','Water mass','g',100,1,1000,1),field('specificHeat','Specific heat','J/(g·K)',4.184,.1,10,.001),field('initialTemperature','Initial temperature','°C',20,0,100,1),field('heat','Heat added to water','J',5000,-50000,50000,100)],
+    calculate(o) {
+      const e=check(o,[['mass',1,1000],['specificHeat',.1,10],['initialTemperature',0,100],['heat',-50000,50000]]); if(e)return invalid(e);
+      const deltaTemperature=o.heat/(o.mass*o.specificHeat),finalTemperature=o.initialTemperature+deltaTemperature;
+      if(finalTemperature<0||finalTemperature>100)return invalid('This liquid-water model excludes phase changes. Adjust the heat so the final temperature is between 0 and 100 °C.');
+      return result({deltaTemperature,finalTemperature},[value('Final water temperature',finalTemperature,'°C'),value('Temperature change',deltaTemperature,'K'),value('Heat for water',o.heat,'J'),value('Water process',o.heat>0?'Endothermic':o.heat<0?'Exothermic':'No net heat')]);
+    },
+    sample(o,r,p) { const temperature=o.initialTemperature+r.deltaTemperature*p; return {temperature,heat:o.heat*p,values:[value('Water temperature now',temperature,'°C'),value('Heat transferred',o.heat*p,'J')]}; },
+    draw(svg,o,r,s,p,h) {
+      h.text(360,35,'Water is the system',19,C.ink,'middle');
+      flask(h,145,112,255,180,'#e3edf9');
+      circleParticles(h,28,{x:152,y:120,w:240,h:160},p*(.25+s.temperature/60),C.blue,6,1);
+      h.rect(460,83,42,206,'#e8edef',20);h.rect(472,98+(100-s.temperature)*1.62,18,s.temperature*1.62+15,C.orange,9);h.circle(481,287,23,C.orange);
+      [0,25,50,75,100].forEach(t=>{const y=275-t*1.62;h.line(506,y,515,y,C.muted,1);h.text(524,y+4,t+' °C',12,C.muted);});
+      h.text(270,92,fmt(s.temperature)+' °C',24,C.ink,'middle');
+      if(o.heat>0)arrow(h,62,209,128,209,C.orange);else if(o.heat<0)arrow(h,128,209,62,209,C.blue);
+      h.text(84,247,o.heat>0?'heat in':o.heat<0?'heat out':'no heat',12,C.muted,'middle');
+      h.text(360,337,'q = mcΔT   ·   Transferred '+fmt(s.heat)+' J',15,C.ink,'middle');
+    }
+  };
+  models.gibbs = {
+    title:'Entropy & Gibbs free energy',duration:6,
+    note:'ΔG° = ΔH° − TΔS° uses constant standard enthalpy and entropy at the chosen temperature. A negative ΔG° favours products under standard conditions; it does not determine reaction speed. The moving marker traces a reaction coordinate, not time.',
+    fields:[field('enthalpy','Standard enthalpy ΔH°','kJ/mol',-40,-200,200,1),field('entropy','Standard entropy ΔS°','J/(mol·K)',-80,-500,500,1),field('temperature','Temperature','K',298.15,100,1500,1)],
+    calculate(o) {
+      const e=check(o,[['enthalpy',-200,200],['entropy',-500,500],['temperature',100,1500]]);if(e)return invalid(e);
+      const entropyTerm=o.temperature*o.entropy/1000,deltaG=o.enthalpy-entropyTerm;
+      return result({entropyTerm,deltaG},[value('Standard Gibbs energy ΔG°',deltaG,'kJ/mol'),value('TΔS°',entropyTerm,'kJ/mol'),value('Standard forward direction',Math.abs(deltaG)<1e-9?'At equilibrium':deltaG<0?'Thermodynamically favoured':'Not thermodynamically favoured')]);
+    },
+    draw(svg,o,r,s,p,h) {
+      const scale=95/Math.max(1,Math.abs(r.deltaG)),startY=175,endY=startY-r.deltaG*scale;
+      h.text(360,33,'Standard-state energy comparison',19,C.ink,'middle');
+      h.line(72,65,72,285,C.line,2);h.line(72,285,654,285,C.line,2);
+      h.text(363,321,'Reaction coordinate (not a kinetic prediction)',13,C.muted,'middle');
+      h.text(34,177,'G°',17,C.muted,'middle');
+      h.line(125,startY,248,startY,C.blue,5);h.line(488,endY,615,endY,C.green,5);
+      h.path('M248 '+startY+' C330 '+startY+' 402 '+endY+' 488 '+endY,{fill:'none',stroke:C.pink,'stroke-width':3,'stroke-dasharray':'6 6'});
+      const u=p,blend=u*u*(3-2*u),x=248+240*u,y=startY+(endY-startY)*blend;h.circle(x,y,9,C.orange);
+      h.text(185,startY+29,'Reactants',13,C.muted,'middle');h.text(551,endY+29,'Products',13,C.muted,'middle');
+      arrow(h,653,startY,653,endY===startY?endY+.1:endY,C.pink);
+      h.text(360,68,'ΔG° = '+fmt(r.deltaG)+' kJ/mol',22,C.ink,'middle');
+      h.text(360,348,'No activation barrier or reaction rate is inferred from this diagram.',12,C.muted,'middle');
+    }
+  };
+  models.equilibrium = {
+    title:'Reversible reactions & equilibrium',duration:6,
+    note:'A ⇌ B follows elementary first-order forward and reverse rate laws in a closed, constant-volume system. The playback spans the selected model time. At equilibrium the forward and reverse rates are equal; molecules continue reacting.',
+    fields:[field('forwardRate','Forward rate constant','s⁻¹',.35,.001,5,.01),field('reverseRate','Reverse rate constant','s⁻¹',.15,.001,5,.01),field('initialA','Initial [A]','mol/L',1,0,5,.1),field('initialB','Initial [B]','mol/L',0,0,5,.1),field('time','Model duration','s',20,1,120,1)],
+    calculate(o) {
+      const e=check(o,[['forwardRate',.001,5],['reverseRate',.001,5],['initialA',0,5],['initialB',0,5],['time',1,120]]);if(e)return invalid(e);
+      const total=o.initialA+o.initialB;if(total<=0)return invalid('Add some A or B before starting the reversible reaction.');
+      const equilibriumA=o.reverseRate/(o.forwardRate+o.reverseRate)*total,equilibriumB=total-equilibriumA,Kc=o.forwardRate/o.reverseRate;
+      return result({total,equilibriumA,equilibriumB,Kc},[value('Equilibrium constant Kc',Kc),value('Equilibrium [A]',equilibriumA,'mol/L'),value('Equilibrium [B]',equilibriumB,'mol/L'),value('Equal equilibrium rates',o.forwardRate*equilibriumA,'mol/(L·s)')]);
+    },
+    sample(o,r,p) { const time=o.time*p,A=r.equilibriumA+(o.initialA-r.equilibriumA)*Math.exp(-(o.forwardRate+o.reverseRate)*time),B=r.total-A;return {time,A,B,forwardRate:o.forwardRate*A,reverseRate:o.reverseRate*B,values:[value('Model time',time,'s'),value('[A] now',A,'mol/L'),value('[B] now',B,'mol/L'),value('Forward rate',o.forwardRate*A,'mol/(L·s)'),value('Reverse rate',o.reverseRate*B,'mol/(L·s)')]}; },
+    draw(svg,o,r,s,p,h) {
+      h.text(360,34,'A  ⇌  B     ·     t = '+fmt(s.time)+' s',20,C.ink,'middle');
+      flask(h,38,75,335,220,'#eff3fa');
+      const nA=Math.round(36*s.A/r.total);
+      for(let j=0;j<36;j++){const x=64+(j%6)*53+Math.sin(p*6.283+j)*7,y=99+Math.floor(j/6)*33+Math.cos(p*6.283+j*2)*5;h.circle(x,y,9,j<nA?C.blue:C.orange);}
+      h.circle(75,325,6,C.blue);h.text(91,330,'A',13,C.muted);h.circle(155,325,6,C.orange);h.text(171,330,'B',13,C.muted);h.text(259,330,'Representative particles',11,C.muted,'middle');
+      const x0=424,y0=268,w=250,height=157,maxC=r.total;
+      h.line(x0,83,x0,y0,C.line,2);h.line(x0,y0,x0+w,y0,C.line,2);
+      ['A','B'].forEach((species,index)=>{let d='';for(let j=0;j<=50;j++){const point=models.equilibrium.sample(o,r,j/50),x=x0+w*j/50,y=y0-height*point[species]/maxC;d+=(j?' L':'M')+x+' '+y;}h.path(d,{fill:'none',stroke:index?C.orange:C.blue,'stroke-width':3});});
+      h.line(x0+w*p,90,x0+w*p,y0,C.pink,1);h.text(550,304,'Concentration versus model time',12,C.muted,'middle');
+      h.text(550,330,'Rates: '+fmt(s.forwardRate)+' / '+fmt(s.reverseRate),12,C.ink,'middle');
+    }
+  };
+  models.gasEquilibrium = {
+    title:'Le Châtelier’s principle & gas equilibrium',duration:6,
+    note:'For N₂O₄(g) ⇌ 2 NO₂(g), Kc is modelled from Kc = 0.100 at 298.15 K and constant ΔH° = +57.0 kJ/mol using van ’t Hoff’s equation. The vessel starts with pure N₂O₄. The colour change illustrates approach to equilibrium; no kinetic rate is predicted. Kp/Kc uses R = 0.082057 L·atm/(mol·K).',
+    fields:[field('initialConcentration','Initial N₂O₄ at reference volume','mol/L',.5,.01,3,.01),field('volumeRatio','Volume / reference volume','',1,.25,4,.05),field('temperature','Temperature','K',298.15,250,400,1)],
+    calculate(o) {
+      const e=check(o,[['initialConcentration',.01,3],['volumeRatio',.25,4],['temperature',250,400]]);if(e)return invalid(e);
+      const Kc=.1*Math.exp(-57000/R*(1/o.temperature-1/298.15)),concentration=o.initialConcentration/o.volumeRatio;
+      const extent=2*Kc*concentration/(Math.sqrt(Kc*Kc+16*Kc*concentration)+Kc),N2O4=concentration-extent,NO2=2*extent,Kp=Kc*.082057366*o.temperature;
+      return result({Kc,Kp,concentration,extent,N2O4,NO2,dissociationFraction:extent/concentration},[value('Kc at this temperature',Kc),value('Kp at this temperature',Kp),value('Equilibrium [N₂O₄]',N2O4,'mol/L'),value('Equilibrium [NO₂]',NO2,'mol/L'),value('N₂O₄ dissociated',extent/concentration*100,'%')]);
+    },
+    sample(o,r,p){const extent=r.extent*p;return {N2O4:r.concentration-extent,NO2:2*extent,dissociationFraction:extent/r.concentration,values:[value('[N₂O₄] in illustrated mixture',r.concentration-extent,'mol/L'),value('[NO₂] in illustrated mixture',2*extent,'mol/L')]};},
+    draw(svg,o,r,s,p,h){
+      h.text(360,33,'N₂O₄(g)  ⇌  2 NO₂(g)',21,C.ink,'middle');
+      const width=225+55*Math.log2(o.volumeRatio),x=282-width/2;
+      flask(h,x,79,width,219,'#f7eee9');
+      h.el('rect',{x:x+3,y:82,width:width-6,height:213,rx:14,fill:'#b76f48','fill-opacity':Math.min(.5,s.NO2/(s.NO2+s.N2O4)*.5)});
+      const split=Math.round(s.dissociationFraction*20);
+      for(let j=0;j<20;j++){
+        const xx=x+23+(j%5)*(width-46)/4+Math.sin(p*6.283+j)*3,yy=104+Math.floor(j/5)*53+Math.cos(p*6.283+j)*5;
+        if(j<split){h.circle(xx-9,yy-6,7,C.orange);h.circle(xx+9,yy+8,7,C.orange);}else{h.circle(xx-5,yy,7,C.blue);h.circle(xx+6,yy,7,C.blue);h.line(xx-4,yy,xx+5,yy,C.blue,3);}
+      }
+      h.text(282,328,'Volume × '+fmt(o.volumeRatio),14,C.muted,'middle');
+      h.text(528,117,fmt(o.temperature)+' K',25,C.ink,'middle');h.text(528,156,'Kc = '+fmt(r.Kc),18,C.ink,'middle');
+      h.circle(466,203,7,C.blue);h.circle(476,203,7,C.blue);h.text(499,209,'N₂O₄',14,C.muted);
+      h.circle(472,243,7,C.orange);h.text(499,249,'NO₂ (brown)',14,C.muted);
+      h.text(360,354,'Representative molecules · colour intensity is illustrative',11,C.muted,'middle');
+    }
+  };
+  function acidIon(concentration,constant){
+    let low=1e-16,high=concentration+1;
+    for(let i=0;i<160;i++){const mid=(low+high)/2,v=mid-KW/mid-concentration*constant/(constant+mid);if(v>0)high=mid;else low=mid;}
+    return (low+high)/2;
+  }
+  models.acidbase = {
+    title:'Strong & weak acids and bases',duration:6,
+    note:'A monoprotic acid or monobasic base at 25 °C is modelled with ideal concentrations and Kw = 1.00 × 10⁻¹⁴. Weak-solution pH uses mass balance and charge balance including water autoionisation. Particle counts and indicator-style colour are representative.',
+    fields:[select('kind','Solution type','weakAcid',[['strongAcid','Strong acid'],['weakAcid','Weak acid'],['strongBase','Strong base'],['weakBase','Weak base']]),field('concentration','Analytical concentration','mol/L',.1,1e-9,1,.001),field('constant','Ka for acid / Kb for base','',1.8e-5,1e-12,1,.00001)],
+    calculate(o){
+      if(!['strongAcid','weakAcid','strongBase','weakBase'].includes(o&&o.kind))return invalid('Choose a solution type.');
+      const e=check(o,[['concentration',1e-9,1],['constant',1e-12,1]]);if(e)return invalid(e);
+      const basic=o.kind.endsWith('Base'),weak=o.kind.startsWith('weak');
+      const dominant=weak?acidIon(o.concentration,o.constant):(o.concentration+Math.sqrt(o.concentration*o.concentration+4*KW))/2;
+      const hydrogen=basic?KW/dominant:dominant,hydroxide=KW/hydrogen,pH=-Math.log10(hydrogen),pOH=-Math.log10(hydroxide);
+      const dissociation=weak?o.constant/(o.constant+dominant):1;
+      return result({basic,weak,hydrogen,hydroxide,pH,pOH,dissociation},[value('pH',pH),value('pOH',pOH),value('[H₃O⁺]',hydrogen,'mol/L'),value('[OH⁻]',hydroxide,'mol/L'),value('Solute ionised',dissociation*100,'%')]);
+    },
+    draw(svg,o,r,s,p,h){
+      h.text(360,34,'Ionisation at equilibrium · 25 °C',19,C.ink,'middle');
+      const hue=Math.max(0,Math.min(280,r.pH*20)),color='hsl('+hue+' 55% 82%)';flask(h,74,94,360,212,color);
+      const free=Math.round(r.dissociation*28);
+      for(let j=0;j<28;j++){const xx=100+(j%7)*47+Math.sin(p*6.283+j)*5,yy=121+Math.floor(j/7)*49+Math.cos(p*6.283+j)*5;h.circle(xx,yy,8,j<free?C.orange:C.blue);if(j>=free)h.circle(xx+10,yy,4,C.pink);}
+      h.text(550,120,'pH '+fmt(r.pH),30,C.ink,'middle');h.text(550,160,r.basic?'Basic solution':'Acidic solution',16,C.muted,'middle');
+      h.circle(481,210,7,C.orange);h.text(500,215,'Ionised solute',13,C.muted);h.circle(481,246,7,C.blue);h.circle(490,246,4,C.pink);h.text(510,251,'Unionised solute',13,C.muted);
+      for(let j=0;j<14;j++)h.rect(84+j*40,326,40,9,'hsl('+(j*20)+' 55% 65%)',0);
+      const pointer=84+Math.max(0,Math.min(14,r.pH))/14*560;h.line(pointer,318,pointer,343,C.ink,3);
+      h.text(84,356,'0',11,C.muted,'middle');h.text(364,356,'7',11,C.muted,'middle');h.text(644,356,'14',11,C.muted,'middle');
+    }
+  };
+  models.buffer = {
+    title:'Buffers & added acid or base',duration:6,
+    note:'This HA/A⁻ buffer uses Henderson–Hasselbalch after quantitative neutralisation of added strong acid (+ mol) or strong base (− mol). Added volume is neglected. The approximation works best with appreciable concentrations and 0.1 ≤ [A⁻]/[HA] ≤ 10; it is not a full charge-balance solver.',
+    fields:[field('acidMoles','Initial weak acid HA','mol',.1,.001,1,.01),field('baseMoles','Initial conjugate base A⁻','mol',.1,.001,1,.01),field('volume','Buffer volume','L',1,.1,10,.1),field('pKa','Weak acid pKa','',4.76,1,13,.01),field('addition','Strong acid (+) / base (−)','mol',.025,-.5,.5,.005)],
+    calculate(o){
+      const e=check(o,[['acidMoles',.001,1],['baseMoles',.001,1],['volume',.1,10],['pKa',1,13],['addition',-.5,.5]]);if(e)return invalid(e);
+      const acid=o.acidMoles+o.addition,base=o.baseMoles-o.addition;
+      if(acid<=0||base<=0)return invalid('This addition exhausts a buffer component. Reduce it so both HA and A⁻ remain; Henderson–Hasselbalch no longer applies once either is exhausted.');
+      const ratio=base/acid,pH=o.pKa+Math.log10(ratio),useful=ratio>=.1&&ratio<=10;
+      return result({acid,base,ratio,pH,useful},[value('Final approximate pH',pH),value('Final [HA]',acid/o.volume,'mol/L'),value('Final [A⁻]',base/o.volume,'mol/L'),value('Ratio [A⁻]/[HA]',ratio),value('Usual useful ratio band',useful?'Within 0.1–10':'Outside 0.1–10')]);
+    },
+    sample(o,r,p){const acid=o.acidMoles+o.addition*p,base=o.baseMoles-o.addition*p,pH=o.pKa+Math.log10(base/acid);return{acid,base,pH,addition:o.addition*p,values:[value('Approximate pH now',pH),value('Strong acid (+) / base (−) added',o.addition*p,'mol')]};},
+    draw(svg,o,r,s,p,h){
+      h.text(360,34,'HA ⇌ H⁺ + A⁻',21,C.ink,'middle');flask(h,76,96,365,205,'#edf0fb');
+      const acidCount=Math.round(32*s.acid/(s.acid+s.base));
+      for(let j=0;j<32;j++){const x=103+(j%8)*42+Math.sin(p*6.283+j)*4,y=124+Math.floor(j/8)*48+Math.cos(p*6.283+j)*4;h.circle(x,y,8,j<acidCount?C.blue:C.orange);if(j<acidCount)h.circle(x+9,y-4,4,C.pink);}
+      h.text(558,124,'pH ≈ '+fmt(s.pH),25,C.ink,'middle');h.text(558,168,'pKa '+fmt(o.pKa),16,C.muted,'middle');
+      h.rect(481,203,153*s.acid/(s.acid+s.base),18,C.blue,8);h.rect(481,234,153*s.base/(s.acid+s.base),18,C.orange,8);h.text(643,217,'HA',12,C.muted);h.text(643,248,'A⁻',12,C.muted);
+      if(o.addition!==0){h.circle(258,67+(p*3%1)*31,5,o.addition>0?C.pink:C.green);h.text(258,70,o.addition>0?'H⁺ added':'OH⁻ added',13,C.muted,'middle');}
+      h.text(360,334,'HA '+fmt(s.acid)+' mol   ·   A⁻ '+fmt(s.base)+' mol',15,C.ink,'middle');
+    }
+  };
+  models.galvanic = {
+    title:'Galvanic cells & the Nernst equation',duration:6,
+    note:'Daniell cell: Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s), n = 2, E° = 1.10 V at 298.15 K. E = E° − RT/(nF) ln Q with ideal ion activities. Concentrations are fixed for this calculation; particle flow and electrode size changes are illustrative.',
+    fields:[field('zincConcentration','Zn²⁺ concentration','mol/L',1,1e-6,5,.01),field('copperConcentration','Cu²⁺ concentration','mol/L',1,1e-6,5,.01)],
+    calculate(o){const e=check(o,[['zincConcentration',1e-6,5],['copperConcentration',1e-6,5]]);if(e)return invalid(e);const quotient=o.zincConcentration/o.copperConcentration,potential=1.1-R*298.15/(2*F)*Math.log(quotient),deltaG=-2*F*potential/1000;return result({quotient,potential,deltaG},[value('Cell potential',potential,'V'),value('Reaction quotient Q',quotient),value('Reaction ΔG',deltaG,'kJ/mol'),value('Forward electron flow',potential>0?'Zn → Cu':potential<0?'Reverse direction favoured':'No net flow')]);},
+    draw(svg,o,r,s,p,h){
+      h.text(360,29,'Daniell cell · 298.15 K',20,C.ink,'middle');flask(h,67,151,239,153,'#eef1f6');flask(h,414,151,239,153,'#e3eefb');
+      h.rect(112,127,35-9*p,149,'#9da9b7',3);h.rect(568-7*p,127,33+7*p,149,'#c58f67',3);
+      h.path('M130 126 V72 H588 V126',{fill:'none',stroke:C.ink,'stroke-width':3});h.rect(305,48,110,48,'#f3eafa',12);h.text(360,78,fmt(r.potential)+' V',17,C.ink,'middle');
+      h.path('M257 190 V119 Q257 103 273 103 H447 Q463 103 463 119 V190',{fill:'none',stroke:'#aebbc9','stroke-width':14});h.text(360,128,'Salt bridge',11,C.muted,'middle');
+      const flow=r.potential>0?p:r.potential<0?1-p:0;if(Math.abs(r.potential)>1e-10){for(let j=0;j<5;j++){const x=144+((flow+j/5)%1)*431;h.circle(x,72,4,C.blue);}arrow(h,r.potential>0?196:502,52,r.potential>0?245:453,52,C.blue);}
+      circleParticles(h,12,{x:153,y:173,w:133,h:103},p,C.muted,5,2);circleParticles(h,12,{x:434,y:173,w:110,h:103},p,C.blue,5,3);
+      h.text(181,330,'Zn · anode (oxidation)',13,C.ink,'middle');h.text(539,330,'Cu · cathode (reduction)',13,C.ink,'middle');h.text(360,353,'Electrons through wire · ions through salt bridge',11,C.muted,'middle');
+    }
+  };
+  models.electrolysis = {
+    title:'Electrolysis & Faraday’s law',duration:6,
+    note:'Copper deposition at the cathode: Cu²⁺ + 2 e⁻ → Cu(s). Copper ions are in excess. The efficiency specifies the fraction of charge depositing copper; other electrode reactions and concentration changes are not modelled. Electrode sizes are illustrative.',
+    fields:[field('current','Current','A',2,0,10,.1),field('time','Electrolysis time','s',600,0,7200,10),field('efficiency','Copper deposition efficiency','%',100,0,100,1)],
+    calculate(o){const e=check(o,[['current',0,10],['time',0,7200],['efficiency',0,100]]);if(e)return invalid(e);const charge=o.current*o.time,electronMoles=charge/F,copperMoles=electronMoles/2*o.efficiency/100,mass=copperMoles*63.546;return result({charge,electronMoles,copperMoles,mass},[value('Copper deposited',mass,'g'),value('Copper deposited',copperMoles,'mol'),value('Total charge',charge,'C'),value('Electron transfer',electronMoles,'mol e⁻')]);},
+    sample(o,r,p){return {time:o.time*p,charge:r.charge*p,mass:r.mass*p,values:[value('Elapsed model time',o.time*p,'s'),value('Copper deposited now',r.mass*p,'g'),value('Charge passed',r.charge*p,'C')]};},
+    draw(svg,o,r,s,p,h){
+      h.text(360,29,'Cu²⁺ + 2 e⁻ → Cu(s)',21,C.ink,'middle');flask(h,112,152,496,152,'#e5effb');
+      h.rect(185,125,24,150,'#9da9b7',3);h.rect(506,125,24,150,'#9da9b7',3);
+      const thickness=r.mass>0?18*p:0;if(thickness)h.rect(506-thickness,139,thickness,136,'#c58f67',2);
+      h.path('M197 125 V75 H518 V125',{fill:'none',stroke:C.ink,'stroke-width':3});h.rect(294,49,128,48,'#f2eaf8',12);h.text(358,69,'DC power supply',11,C.muted,'middle');h.text(316,89,'+',17,C.ink);h.text(389,89,'−',18,C.ink);
+      if(r.charge>0){for(let j=0;j<4;j++){const x=428+((p+j/4)%1)*78;h.circle(x,75,4,C.blue);}}
+      for(let j=0;j<18;j++){const x=238+((j*37+115*p)%240),y=176+(j%4)*30+Math.sin(p*6.283+j)*4;h.circle(x,y,7,C.blue);}
+      h.text(197,329,'Anode (+)',13,C.ink,'middle');h.text(518,329,'Cathode (−)',13,C.ink,'middle');
+      h.text(358,121,'t = '+fmt(s.time)+' s',14,C.muted,'middle');h.text(359,353,'Deposited copper: '+fmt(s.mass)+' g  ·  Charge: '+fmt(s.charge)+' C',14,C.ink,'middle');
+    }
+  };
+  if(typeof module==='object' && module.exports)module.exports=models;
+  if(root)Object.assign(root.ChemistryModels||(root.ChemistryModels={}),models);
+})(typeof window==='object'?window:null);
+
+</script>
+  <script>
+/* Shared, offline experiment player. All diagrams use safe SVG DOM methods. */
+(function (root) {
+  'use strict';
+  const NS = 'http://www.w3.org/2000/svg';
+  const clamp = (n,a,b) => Math.max(a,Math.min(b,n));
+  const format = value => {
+    if (typeof value !== 'number') return String(value === undefined ? '—' : value);
+    if (!Number.isFinite(value)) return '—';
+    if (value === 0) return '0';
+    if (Math.abs(value) < .001 || Math.abs(value) >= 1e6) return value.toExponential(3);
+    return Number(value.toFixed(4)).toLocaleString('en-US');
+  };
+  const CSS = `.chem-experiment{color:#172a37;font-family:inherit;min-width:0}.chem-experiment *{box-sizing:border-box}.chem-experiment .ce-note{margin:0 0 20px;padding:15px 18px;background:#f0edf8;border:1px solid #e4dff0;border-radius:13px;font-size:13px;line-height:1.7;color:#5b5570}.chem-experiment .ce-layout{display:grid;grid-template-columns:minmax(190px,240px) minmax(0,1fr);gap:23px;align-items:start}.chem-experiment .ce-fields{display:grid;gap:15px}.chem-experiment .ce-field{display:grid;gap:7px;font-size:12px;font-weight:650;min-width:0}.chem-experiment .ce-input-wrap{display:flex;align-items:center;min-width:0;background:#fff;border:1px solid #d8dfe4;border-radius:10px;overflow:hidden}.chem-experiment input[type=number],.chem-experiment .ce-field select{width:100%;min-width:0;border:0;background:transparent;padding:12px 11px;font:inherit;font-size:14px;color:#172a37;border-radius:9px}.chem-experiment .ce-field select{border:1px solid #d8dfe4;background:#fff}.chem-experiment .ce-unit{padding:0 10px 0 0;color:#6a7781;font-size:11px;white-space:nowrap}.chem-experiment .ce-stage{min-width:0;overflow:hidden;border-radius:17px;border:1px solid #dce1e7;background:#f7f9fc}.chem-experiment svg{display:block;width:100%;height:auto;aspect-ratio:2/1;min-width:0}.chem-experiment .ce-readout{display:block;padding:13px 16px;border-top:1px solid #e0e5eb;font-size:12px;line-height:1.8;min-height:54px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}.chem-experiment .ce-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:20px 0 12px}.chem-experiment button,.chem-experiment .ce-speed select{font:inherit;color:inherit;border:1px solid #d8dfe4;border-radius:9px;padding:11px 15px;background:#fff;cursor:pointer;font-size:13px}.chem-experiment #coursePlaySimulation{min-width:130px;background:#343b8d;color:#fff;font-weight:700;border-color:#343b8d}.chem-experiment button:disabled{opacity:.45;cursor:not-allowed}.chem-experiment .ce-speed{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:12px;color:#6a7482}.chem-experiment .ce-speed select{padding:9px}.chem-experiment .ce-timeline{display:flex;align-items:center;gap:12px;color:#697582;font-size:11px}.chem-experiment .ce-timeline input{flex:1;min-width:0;width:100%;accent-color:#5b57a6}.chem-experiment #courseSimulationTime{white-space:nowrap;min-width:90px;text-align:right;font-variant-numeric:tabular-nums}.chem-experiment .ce-error{font-size:13px;line-height:1.6;color:#a52c49;margin:13px 0;min-height:21px}.chem-experiment .ce-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}.chem-experiment .ce-result{border-radius:12px;padding:16px;background:#eef2f8;min-width:0}.chem-experiment .ce-result small{display:block;color:#687585;font-size:11px;line-height:1.6;margin-bottom:6px}.chem-experiment .ce-result strong{font-size:17px;font-weight:650;line-height:1.6;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.chem-experiment .ce-result .ce-result-unit{font-size:11px;color:#687585;font-weight:500}.chem-experiment input:focus-visible,.chem-experiment select:focus-visible,.chem-experiment button:focus-visible{outline:3px solid #9b85df;outline-offset:3px}@media(max-width:760px){.chem-experiment .ce-layout{grid-template-columns:1fr;gap:17px}.chem-experiment .ce-fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.chem-experiment .ce-note{font-size:12px;padding:13px 14px}.chem-experiment svg{min-height:175px}.chem-experiment .ce-readout{font-size:11px;padding:11px 12px}.chem-experiment .ce-speed{margin-left:0}.chem-experiment .ce-results{grid-template-columns:repeat(2,minmax(0,1fr))}.chem-experiment .ce-result{padding:13px}.chem-experiment .ce-result strong{font-size:15px}}@media(max-width:360px){.chem-experiment .ce-field{font-size:11px}.chem-experiment input[type=number],.chem-experiment .ce-field select{padding:11px 8px;font-size:13px}.chem-experiment .ce-unit{font-size:9px;padding-right:7px}.chem-experiment .ce-timeline{gap:7px;font-size:10px}.chem-experiment button{font-size:12px;padding:11px 13px}}`;
+  function node(tag,attrs,text) {
+    const n=document.createElement(tag);
+    for(const [key,value] of Object.entries(attrs||{})) n.setAttribute(key,String(value));
+    if(text!==undefined)n.textContent=text;
+    return n;
+  }
+  function mount(host,type) {
+    const model=root.ChemistryModels && root.ChemistryModels[type];
+    if(!host || !model)throw new Error('Choose a supported chemistry simulator.');
+    let inputs=Object.fromEntries(model.fields.map(f=>[f.key,f.value]));
+    let elapsed=0, running=false, raf=0, last=0, rate=1, destroyed=false;
+    let currentResult={valid:false},currentSample={};
+    const wrapper=node('section',{'class':'chem-experiment','aria-label':model.title});
+    const style=node('style',{},CSS);wrapper.append(style);
+    if(model.note)wrapper.append(node('p',{'class':'ce-note'},model.note));
+    const layout=node('div',{'class':'ce-layout'}),fields=node('div',{'class':'ce-fields'}),stage=node('div',{'class':'ce-stage'});
+    const controls=new Map();
+    for(const field of model.fields){
+      const label=node('label',{'class':'ce-field','for':'chemInput-'+field.key});
+      label.append(node('span',{},field.label));
+      let input;
+      if(field.type==='select'){
+        input=node('select',{'id':'chemInput-'+field.key,'data-input':field.key});
+        for(const option of field.options||[]){
+          const choice=typeof option==='object'?option:{value:option,label:option};
+          input.append(node('option',{'value':choice.value},choice.label));
+        }
+        input.value=String(field.value);label.append(input);
+      }else{
+        const attrs={'id':'chemInput-'+field.key,'data-input':field.key,'type':'number','inputmode':'decimal'};
+        for(const key of ['min','max','step'])if(field[key]!==undefined)attrs[key]=field[key];
+        if(attrs.step===undefined)attrs.step='any';
+        input=node('input',attrs);input.value=String(field.value);
+        const wrap=node('span',{'class':'ce-input-wrap'});wrap.append(input);
+        if(field.unit)wrap.append(node('span',{'class':'ce-unit'},field.unit));
+        label.append(wrap);
+      }
+      controls.set(field.key,input);fields.append(label);
+    }
+    const svg=document.createElementNS(NS,'svg');
+    svg.setAttribute('id','courseSimulationScene');svg.setAttribute('viewBox','0 0 720 360');
+    svg.setAttribute('role','img');svg.setAttribute('aria-label',model.title+' animated model');
+    const readout=node('output',{'id':'courseSimulationMeasurements','class':'ce-readout','aria-live':'off'});
+    stage.append(svg,readout);layout.append(fields,stage);wrapper.append(layout);
+    const toolbar=node('div',{'class':'ce-controls'});
+    const playButton=node('button',{'id':'coursePlaySimulation','type':'button','aria-pressed':'false'},'Play simulator');
+    const resetButton=node('button',{'id':'courseResetSimulation','type':'button'},'Reset');
+    const speedLabel=node('label',{'class':'ce-speed','for':'courseSimulationRate'},'Playback speed');
+    const speed=node('select',{'id':'courseSimulationRate'});
+    for(const value of [.25,.5,1,2])speed.append(node('option',{'value':value},value+'×'));
+    speed.value='1';speedLabel.append(speed);toolbar.append(playButton,resetButton,speedLabel);wrapper.append(toolbar);
+    const timeline=node('div',{'class':'ce-timeline'});
+    const progress=node('input',{'type':'range','id':'courseSimulationProgress','min':0,'max':1000,'step':1,'value':0,'aria-label':'Simulation playback timeline'});
+    const clock=node('output',{'id':'courseSimulationTime'},'0 / 6 s');
+    timeline.append(node('label',{'for':'courseSimulationProgress'},'Playback'),progress,clock);wrapper.append(timeline);
+    const error=node('div',{'class':'ce-error','role':'status','id':'courseSimulationError'});
+    const results=node('div',{'class':'ce-results','id':'courseSimulationResults'});
+    wrapper.append(error,results);host.replaceChildren(wrapper);
+    const h={
+      el(tag,attrs,text,parent){const n=document.createElementNS(NS,tag);for(const [k,v]of Object.entries(attrs||{}))n.setAttribute(k,String(v));if(text!==undefined)n.textContent=String(text);(parent||svg).append(n);return n;},
+      line(x1,y1,x2,y2,color,width){return h.el('line',{x1,y1,x2,y2,stroke:color||'#b7c4d1','stroke-width':width===undefined?2:width,'stroke-linecap':'round'});},
+      rect(x,y,width,height,fill,r){return h.el('rect',{x,y,width:Math.max(0,width),height:Math.max(0,height),fill:fill||'#e9edf6',rx:r===undefined?8:r});},
+      circle(cx,cy,r,fill){return h.el('circle',{cx,cy,r:Math.max(0,r),fill:fill||'#7a74bd'});},
+      text(x,y,text,size,color,anchor){return h.el('text',{x,y,'font-family':'system-ui,sans-serif','font-size':size||14,fill:color||'#566575','text-anchor':anchor||'start'},text);},
+      path(d,attrs){return h.el('path',Object.assign({d,fill:'none',stroke:'#9a99bf','stroke-width':2},attrs||{}));},
+      atom(x,y,label,color,r){h.circle(x,y,r===undefined?18:r,color||'#7a74bd');return h.text(x,y+5,label,14,'#fff','middle');},
+      format
+    };
+    function duration(){let d=typeof model.duration==='function'?model.duration(inputs):model.duration;return Number.isFinite(d)&&d>0?clamp(d,.1,120):6;}
+    function evaluate(){
+      for(const field of model.fields)if(field.type!=='select'&&!Number.isFinite(inputs[field.key]))return {valid:false,error:'Enter a finite number in every field.'};
+      try{
+        const result=model.calculate({...inputs});
+        if(!result||result.valid===false)return result||{valid:false,error:'Check the experiment values.'};
+        if((result.values||[]).some(v=>typeof v.value==='number'&&!Number.isFinite(v.value)))return {valid:false,error:'These values exceed the model’s supported range.'};
+        return Object.assign({valid:true},result);
+      }catch(_){return {valid:false,error:'Check that the values are within the supported ranges.'};}
+    }
+    function buttonState(){playButton.textContent=running?'Pause':'Play simulator';playButton.setAttribute('aria-pressed',String(running));}
+    function render(updateResults){
+      if(destroyed)return;
+      const d=duration();elapsed=clamp(elapsed,0,d);const p=elapsed/d;
+      currentResult=evaluate();currentSample={};svg.replaceChildren();
+      if(currentResult.valid){
+        try{
+          currentSample=model.sample?model.sample({...inputs},currentResult,p)||{}:{};
+          if((currentSample.values||[]).some(v=>typeof v.value==='number'&&!Number.isFinite(v.value)))throw new Error('Non-finite sample');
+          model.draw(svg,{...inputs},currentResult,currentSample,p,h);
+        }catch(_){currentResult={valid:false,error:'This combination is outside the diagram’s supported range.'};}
+      }
+      if(!currentResult.valid){
+        pause();svg.replaceChildren();h.rect(0,0,720,360,'#f4f5fa',0);h.text(360,165,'Adjust the experiment values',22,'#6a7089','middle');h.text(360,198,'The simulation will resume when the values are valid.',14,'#70798a','middle');
+        readout.textContent='Paused. '+(currentResult.error||'Check the values.');
+      }else{
+        const values=(currentSample.values&&currentSample.values.length)?currentSample.values:currentResult.values||[];
+        readout.textContent=values.map(v=>v.label+': '+format(v.value)+(v.unit?' '+v.unit:'')).join(' · ');
+      }
+      if(updateResults){results.replaceChildren();if(currentResult.valid)for(const value of currentResult.values||[]){
+        const card=node('div',{'class':'ce-result'}),strong=node('strong',{},format(value.value));
+        if(value.unit)strong.append(node('span',{'class':'ce-result-unit'},' '+value.unit));
+        card.append(node('small',{},value.label),strong);results.append(card);
+      }}
+      error.textContent=currentResult.valid?'':currentResult.error||'Check the experiment values.';
+      playButton.disabled=!currentResult.valid;progress.disabled=!currentResult.valid;
+      progress.value=String(p*1000);clock.textContent=format(elapsed)+' / '+format(d)+' s';buttonState();
+    }
+    function pause(){running=false;if(raf)root.cancelAnimationFrame(raf);raf=0;last=0;if(!destroyed)buttonState();}
+    function frame(timestamp){
+      if(!running||destroyed)return;
+      if(last)elapsed+=Math.min(.1,Math.max(0,(timestamp-last)/1000))*rate;
+      last=timestamp;
+      if(elapsed>=duration()){elapsed=duration();pause();render(false);return;}
+      render(false);if(running)raf=root.requestAnimationFrame(frame);
+    }
+    function play(){if(destroyed)return;render(false);if(!currentResult.valid)return;if(elapsed>=duration())elapsed=0;if(running)return;running=true;last=0;buttonState();raf=root.requestAnimationFrame(frame);}
+    function reset(){if(destroyed)return;pause();elapsed=0;render(true);}
+    function seek(seconds){if(destroyed)return;pause();elapsed=clamp(Number(seconds)||0,0,duration());render(false);}
+    function updateInputs(){
+      pause();inputs=Object.fromEntries(model.fields.map(field=>{const input=controls.get(field.key);return [field.key,field.type==='select'?input.value:(input.value.trim()===''?NaN:Number(input.value))];}));
+      elapsed=0;render(true);
+    }
+    for(const input of controls.values()){input.addEventListener('input',updateInputs);input.addEventListener('change',updateInputs);}
+    playButton.addEventListener('click',()=>running?pause():play());resetButton.addEventListener('click',reset);
+    progress.addEventListener('input',()=>seek(Number(progress.value)/1000*duration()));
+    speed.addEventListener('change',()=>{rate=clamp(Number(speed.value)||1,.25,2);last=0;});
+    const visibility=()=>{if(document.hidden)pause();};document.addEventListener('visibilitychange',visibility);
+    render(true);
+    return {play,pause,reset,seek,redraw:()=>render(true),inspect:()=>({type,inputs:{...inputs},valid:currentResult.valid,result:currentResult,animation:{running,elapsed,duration:duration(),sample:currentSample}}),destroy(){if(destroyed)return;pause();destroyed=true;document.removeEventListener('visibilitychange',visibility);host.replaceChildren();}};
+  }
+  root.ChemistryExperiments=Object.freeze({supported:Object.freeze(Object.keys(root.ChemistryModels||{})),mount});
+})(window);
+
+</script>
+  <script>
+(function (global) {
+  'use strict';
+  const NS = 'http://www.w3.org/2000/svg';
+  const unitNames = {
+    1:'Atomic Structure & Properties', 2:'Molecular & Ionic Structure', 3:'Intermolecular Forces & Properties',
+    4:'Chemical Reactions', 5:'Kinetics', 6:'Thermodynamics', 7:'Equilibrium', 8:'Acids & Bases', 9:'Electrochemistry'
+  };
+  const palettes = {
+    1:['#eee8f6','#bba4d6','#7e669a','#ded0ed'], 2:['#e7edf5','#a6bfd9','#567e9f','#cfdfef'],
+    3:['#e4eee7','#9fc5ad','#5f9270','#cbe1d0'], 4:['#f5e7dc','#dfb28f','#a07852','#ecd0b8'],
+    5:['#f2e7e7','#d2a0a5','#a16e7a','#e8c8ca'], 6:['#f5ead6','#d6b678','#a3844e','#ead8b2'],
+    7:['#e5ebf5','#9baed5','#647da9','#cbd7ec'], 8:['#eee8f5','#c1a2d7','#8c699e','#e1cdec'],
+    9:['#e2eeed','#9bc3bf','#608f8d','#c9dfdd']
+  };
+  function element(tag, attrs, text) {
+    const el = document.createElement(tag);
+    Object.keys(attrs || {}).forEach(key => key === 'class' ? el.className = attrs[key] : el.setAttribute(key, String(attrs[key])));
+    if (text !== undefined) el.textContent = text;
+    return el;
+  }
+  function svgElement(tag, attrs, text) {
+    const el = document.createElementNS(NS,tag);
+    Object.keys(attrs || {}).forEach(key => el.setAttribute(key,String(attrs[key])));
+    if (text !== undefined) el.textContent = text;
+    return el;
+  }
+  function artwork(item,index) {
+    const c = palettes[Number(item.unit)] || palettes[1];
+    const art = element('div',{class:'card-art','aria-hidden':'true'});
+    art.style.setProperty('--art-bg',c[0]); art.style.setProperty('--art-ink',c[2]);
+    const svg = svgElement('svg',{viewBox:'0 0 360 170',focusable:'false'});
+    const add = (tag,attrs,text) => { const n=svgElement(tag,attrs,text);svg.append(n);return n; };
+    const line = (x1,y1,x2,y2,extra) => add('line',Object.assign({x1,y1,x2,y2,stroke:c[2],'stroke-width':1.7,'stroke-linecap':'round'},extra));
+    const circle = (cx,cy,r,fill) => add('circle',{cx,cy,r,fill:fill || c[1]});
+    const rect = (x,y,w,h,fill,rx) => add('rect',{x,y,width:w,height:h,rx:rx===undefined?4:rx,fill:fill || c[1]});
+    const path = (d,extra) => add('path',Object.assign({d,fill:'none',stroke:c[2],'stroke-width':1.7,'stroke-linecap':'round','stroke-linejoin':'round'},extra));
+    const atom = (x,y,r,fill,label) => {circle(x,y,r,fill);if(label)add('text',{x,y:y+4,'text-anchor':'middle','font-family':'system-ui,sans-serif','font-size':10,fill:c[2]},label);};
+    const arrow = (x,y,w) => {line(x,y,x+w,y);path('M'+(x+w-6)+' '+(y-5)+' L'+(x+w)+' '+y+' L'+(x+w-6)+' '+(y+5));};
+    const beaker = (x,y,w,h) => {path('M'+x+' '+y+' V'+(y+h-6)+' Q'+x+' '+(y+h)+' '+(x+6)+' '+(y+h)+' H'+(x+w-6)+' Q'+(x+w)+' '+(y+h)+' '+(x+w)+' '+(y+h-6)+' V'+y);line(x-4,y,x+w+4,y);};
+    for(let x=24;x<360;x+=28)for(let y=31;y<155;y+=26)circle(x,y,.55,c[3]);
+    switch(item.model) {
+      case 'moles':
+        line(93,123,266,123,{opacity:.4});line(179,50,179,119);line(125,62,233,62);line(130,62,114,101);line(130,62,146,101);path('M105 101 Q130 122 155 101Z',{fill:c[3]});line(227,62,211,101);line(227,62,243,101);path('M202 101 Q227 122 252 101Z',{fill:c[3]});
+        [0,1,2].forEach(i=>circle(122+i*7,98,4,c[1]));rect(215,83,24,17,c[1]);break;
+      case 'isotopes':
+      case 'pes':
+        line(90,127,276,127,{opacity:.6});line(90,127,90,50,{opacity:.6});
+        [116,166,221,257].forEach((x,i)=>{line(x,127,x,[89,57,100,76][i],{'stroke-width':7,stroke:i%2?c[2]:c[1]});circle(x,[83,51,94,70][i],2,c[2]);});
+        if(item.model==='pes'){path('M69 64L57 70L70 75L58 81L70 86',{opacity:.5});circle(52,55,5,c[1]);}else{circle(281,57,9,c[1]);circle(288,52,3,c[3]);}break;
+      case 'electrons':
+        add('ellipse',{cx:179,cy:90,rx:68,ry:27,fill:'none',stroke:c[1],'stroke-width':1.4,transform:'rotate(-32 179 90)'});add('ellipse',{cx:179,cy:90,rx:68,ry:27,fill:'none',stroke:c[1],'stroke-width':1.4,transform:'rotate(32 179 90)'});add('ellipse',{cx:179,cy:90,rx:68,ry:27,fill:'none',stroke:c[1],'stroke-width':1.4,transform:'rotate(90 179 90)'});circle(179,90,15,c[2]);circle(130,54,5,c[1]);circle(227,125,5,c[2]);circle(178,24,5,c[1]);break;
+      case 'trends':
+        for(let row=0;row<3;row++)for(let col=0;col<8;col++){if(row===0&&col>0&&col<7)continue;rect(87+col*24,57+row*24,19,19,col>4?c[1]:c[3],3);}
+        arrow(119,143,102);path('M254 119V78M249 84L254 77L259 84',{opacity:.5});break;
+      case 'geometry':
+        line(179,88,129,56,{'stroke-width':5});line(179,88,235,58,{'stroke-width':5});line(179,88,179,139,{'stroke-width':5});line(179,88,192,47,{'stroke-width':3,'stroke-dasharray':'4 6'});atom(179,88,23,c[1]);atom(129,56,14,c[3]);atom(235,58,14,c[2]);atom(179,139,14,c[3]);atom(192,47,12,c[3]);break;
+      case 'lattice':
+        for(let row=0;row<3;row++)for(let col=0;col<5;col++)atom(117+col*32,57+row*32,10,(row+col)%2?c[1]:c[3],(row+col)%2?'−':'+');break;
+      case 'gas':
+        rect(104,49,151,84,'#ffffff50',0);path('M103 48V135H257V48');rect(100,54,161,8,c[1],2);line(180,29,180,52,{'stroke-width':6});
+        [[122,81],[165,108],[218,78],[238,119],[194,94],[134,120]].forEach((p,i)=>{circle(p[0],p[1],5,i%2?c[2]:c[1]);line(p[0]-10,p[1]+6,p[0]-5,p[1]+3,{opacity:.5});});break;
+      case 'imf':
+        [[119,67],[221,67],[169,113]].forEach((p,i)=>{line(p[0],p[1],p[0]+18,p[1]+13,{'stroke-width':4});atom(p[0],p[1],12,c[1]);atom(p[0]+18,p[1]+13,9,c[3]);});line(143,75,207,69,{'stroke-dasharray':'3 6',opacity:.6});line(183,108,215,82,{'stroke-dasharray':'3 6',opacity:.6});break;
+      case 'solution':
+      case 'vapor':
+        rect(128,82,105,55,c[3],3);beaker(126,53,109,86);path('M128 84Q149 78 166 84T202 84T233 84',{stroke:c[1]});
+        [[143,100],[169,119],[194,97],[217,121],[158,88],[197,127]].forEach((p,i)=>circle(p[0],p[1],3.5,i%2?c[1]:c[2]));
+        if(item.model==='vapor'){[[147,60],[185,42],[212,65]].forEach(p=>{circle(p[0],p[1],3,c[1]);line(p[0],p[1]-6,p[0],p[1]-13,{opacity:.5});});}else{rect(151,127,10,10,c[1],1);rect(163,129,10,8,c[2],1);}break;
+      case 'stoichiometry':
+        [[99,74],[116,86],[99,112],[116,124]].forEach(p=>circle(p[0],p[1],8,c[1]));circle(159,88,12,c[2]);circle(178,103,12,c[2]);arrow(205,96,34);[[273,78],[272,117]].forEach(p=>{line(p[0],p[1],p[0]-13,p[1]+12,{'stroke-width':3});line(p[0],p[1],p[0]+13,p[1]+12,{'stroke-width':3});circle(p[0],p[1],11,c[2]);circle(p[0]-13,p[1]+12,7,c[1]);circle(p[0]+13,p[1]+12,7,c[1]);});break;
+      case 'titration':
+        path('M172 34V83H188V34');rect(174,42,12,37,c[1],1);line(180,83,180,99);line(172,91,191,91);path('M180 105Q174 112 180 114Q186 112 180 105',{fill:c[1],stroke:'none'});path('M155 115V138H205V115');rect(157,125,46,11,c[3],1);line(135,142,226,142,{opacity:.4});break;
+      case 'kinetics':
+        line(90,130,279,130,{opacity:.6});line(90,130,90,49,{opacity:.6});path('M98 58C134 67 127 99 174 113S238 124 275 126',{'stroke-width':3});[[109,65],[139,94],[175,113],[222,123],[263,126]].forEach(p=>{circle(p[0],p[1],4,c[1]);circle(p[0],p[1],1.4,c[2]);});break;
+      case 'arrhenius':
+        line(80,132,281,132,{opacity:.5});path('M86 111C128 111 134 42 176 42S221 111 273 111',{'stroke-width':3});line(177,54,177,106,{'stroke-dasharray':'3 5',opacity:.6});atom(123,100,8,c[1]);atom(134,80,6,c[2]);atom(227,101,8,c[1]);break;
+      case 'calorimetry':
+        path('M104 57V133H233V57');rect(106,86,125,44,c[3],2);line(247,43,247,112,{'stroke-width':8,stroke:c[1]});circle(247,122,13,c[1]);line(247,76,247,116,{'stroke-width':3});circle(247,122,6,c[2]);[[126,107],[165,117],[201,98]].forEach(p=>circle(p[0],p[1],3,c[1]));path('M151 61L145 52L151 43M175 64L169 55L175 46',{opacity:.5});break;
+      case 'gibbs':
+        line(94,130,271,130,{opacity:.5});rect(108,65,34,65,c[3]);rect(166,87,34,43,c[1]);rect(224,105,34,25,c[2]);line(128,52,240,91,{opacity:.5,'stroke-dasharray':'4 5'});break;
+      case 'equilibrium':
+      case 'gasEquilibrium':
+        atom(119,87,21,c[1],item.model==='equilibrium'?'A':'N₂O₄');atom(253,72,15,c[2],item.model==='equilibrium'?'B':'NO₂');atom(253,111,15,c[2],item.model==='equilibrium'?'B':'NO₂');arrow(154,77,61);line(154,106,215,106);path('M160 101L154 106L160 111');break;
+      case 'acidbase':
+        [c[2],'#a79ac7','#b8b5c9','#c4c8ba','#b0c7a6','#8eb5b4','#789ca9'].forEach((fill,i)=>rect(85+i*28,87,25,22,fill,3));line(180,61,180,79);path('M174 72L180 80L186 72');add('text',{x:90,y:130,'font-family':'system-ui,sans-serif','font-size':9,fill:c[2]},'ACID');add('text',{x:271,y:130,'font-family':'system-ui,sans-serif','font-size':9,fill:c[2],'text-anchor':'end'},'BASE');break;
+      case 'buffer':
+        rect(119,79,122,58,c[3],3);beaker(117,53,126,86);[[139,94],[171,118],[214,101]].forEach(p=>atom(p[0],p[1],7,c[1]));[[156,104],[194,88],[225,123]].forEach(p=>atom(p[0],p[1],7,c[2]));path('M254 60Q270 52 285 60V81Q272 100 254 81Z',{fill:c[3]});path('M262 72L269 78L279 66');break;
+      case 'galvanic':
+      case 'electrolysis':
+        rect(93,88,75,48,c[3],2);rect(198,88,75,48,c[3],2);beaker(91,66,79,72);beaker(196,66,79,72);rect(116,68,12,56,c[2],1);rect(236,68,12,56,c[1],1);path('M122 68V43H242V68');rect(169,33,28,20,c[0],4);add('text',{x:183,y:47,'text-anchor':'middle','font-size':10,'font-family':'system-ui,sans-serif',fill:c[2]},item.model==='galvanic'?'V':'+ −');path('M155 103V78H211V103',{'stroke-width':5,stroke:c[1]});circle(148,43,3,c[2]);circle(217,43,3,c[2]);break;
+      default:
+        [[139,72],[193,54],[225,107],[166,124]].forEach((p,i)=>{line(180,89,p[0],p[1],{'stroke-width':3});atom(p[0],p[1],12,i%2?c[1]:c[3]);});atom(180,89,19,c[2]);
+    }
+    art.append(svg,element('span',{class:'card-unit'},'UNIT '+item.unit),element('span',{class:'card-index'},String(index+1).padStart(2,'0')),element('span',{class:'art-caption'},item.formula || ''));
+    return art;
+  }
+
+  function mount(root) {
+    const doc = root && root.querySelector ? root : document;
+    const byId = id => doc.querySelector('#'+id);
+    const supported = global.ChemistryExperiments && global.ChemistryExperiments.supported || [];
+    const catalog = Array.from(global.ChemistryCatalog || []).filter(item=>supported.includes(item.model));
+    let unit='all', search='', view='gallery', selectedId=null, widget=null, suppressHash=false;
+    const grid=byId('chemistryGrid'),filters=byId('chemistryFilters');
+    if(!grid||!filters)return null;
+    byId('heroSimulatorCount').textContent=String(catalog.length);
+    byId('heroUnitCount').textContent=String(new Set(catalog.map(x=>Number(x.unit))).size);
+    function makeCard(item,index) {
+      const c=palettes[Number(item.unit)] || palettes[1];
+      const card=element('article',{class:'simulator-card','data-simulator':item.id});
+      card.style.setProperty('--art-ink',c[2]);card.append(artwork(item,index));
+      const body=element('div',{class:'card-content'});
+      body.append(element('p',{class:'card-category'},item.category || unitNames[item.unit] || 'Chemistry'),element('h3',null,item.title),element('p',{class:'card-summary'},item.summary));
+      const play=element('button',{type:'button',class:'play-card-button','data-play-simulator':item.id,'aria-label':'Play simulator: '+item.title});
+      play.append(element('span',null,'Play simulator'),element('span',{class:'play-icon','aria-hidden':'true'}));
+      play.addEventListener('click',()=>openSimulator(item.id,true));body.append(play);card.append(body);return card;
+    }
+    function renderLibrary() {
+      const needle=search.trim().toLowerCase();
+      const shown=catalog.filter(item=>(unit==='all'||String(item.unit)===unit)&&(!needle||[item.title,item.summary,item.category,unitNames[item.unit]].join(' ').toLowerCase().includes(needle)));
+      grid.replaceChildren(...shown.map(item=>makeCard(item,catalog.indexOf(item))));
+      byId('chemistryEmpty').hidden=shown.length!==0;
+      byId('chemistryCount').textContent=shown.length+' simulator'+(shown.length===1?'':'s')+(unit==='all'&&!needle?' to explore':' found');
+      byId('chemistryUnitName').textContent=unit==='all'?'Nine units. Endless discoveries.':unitNames[unit] || 'Chemistry';
+      filters.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.unit===unit)));
+    }
+    ['all','1','2','3','4','5','6','7','8','9'].forEach(key=>{
+      const count=key==='all'?catalog.length:catalog.filter(item=>String(item.unit)===key).length;
+      if(key!=='all'&&count===0)return;
+      const button=element('button',{class:'unit-button',type:'button','data-unit':key,'aria-pressed':String(key==='all'),'aria-label':key==='all'?'All chemistry simulators':'Unit '+key+': '+unitNames[key],title:key==='all'?'Explore every unit':unitNames[key]});
+      button.append(element('span',null,key==='all'?'All simulators':'Unit '+key),element('span',{class:'unit-count'},String(count)));
+      button.addEventListener('click',()=>{unit=key;renderLibrary();});filters.append(button);
+    });
+    function stopWidget(){if(widget){widget.destroy();widget=null;}}
+    function setHash(value){
+      if(global.location.hash===value)return;
+      suppressHash=true;
+      try{global.history.replaceState(null,'',value);suppressHash=false;}
+      catch(_){global.location.hash=value;}
+    }
+    function openSimulator(id,autoplay){
+      const item=catalog.find(x=>x.id===id);if(!item)return showLibrary(false);
+      stopWidget();selectedId=id;view='player';
+      byId('chemistryGallery').hidden=true;byId('chemistryView').hidden=false;
+      byId('chemistryCategory').textContent='UNIT '+item.unit+' · '+(unitNames[item.unit] || item.category || 'Chemistry');
+      byId('chemistryTitle').textContent=item.title;byId('chemistryDescription').textContent=item.summary;byId('chemistryFormula').textContent=item.formula || '';
+      const index=catalog.indexOf(item);byId('chemistryPosition').textContent=(index+1)+' of '+catalog.length;
+      byId('previousSimulator').disabled=index===0;byId('nextSimulator').disabled=index===catalog.length-1;
+      widget=global.ChemistryExperiments.mount(byId('chemistryPlayer'),item.model);
+      setHash('#simulator/'+encodeURIComponent(id));byId('chemistryTitle').focus({preventScroll:true});global.scrollTo({top:0,behavior:'instant'});
+      if(autoplay&&widget&&typeof widget.play==='function')widget.play();return widget;
+    }
+    function showLibrary(focus){
+      const previous=selectedId;stopWidget();selectedId=null;view='gallery';
+      byId('chemistryGallery').hidden=false;byId('chemistryView').hidden=true;setHash('#library');
+      if(focus!==false){
+        const card=Array.from(grid.querySelectorAll('[data-play-simulator]')).find(node=>node.dataset.playSimulator===previous);
+        if(card){card.focus({preventScroll:true});card.scrollIntoView({block:'center',behavior:'instant'});}
+        else{byId('chemistrySearch').focus({preventScroll:true});global.scrollTo({top:Math.max(0,filters.getBoundingClientRect().top+global.scrollY-20),behavior:'instant'});}
+      }
+    }
+    function route(){
+      if(suppressHash){suppressHash=false;return;}
+      const match=global.location.hash.match(/^#simulator\/(.+)$/);let id=null;
+      if(match){try{id=decodeURIComponent(match[1]);}catch(_){}}
+      if(id&&catalog.some(x=>x.id===id))openSimulator(id,false);else showLibrary(false);
+    }
+    byId('chemistrySearch').addEventListener('input',event=>{search=event.target.value;renderLibrary();});
+    byId('chemistryClearFilters').addEventListener('click',()=>{unit='all';search='';byId('chemistrySearch').value='';renderLibrary();byId('chemistrySearch').focus();});
+    byId('backToChemistry').addEventListener('click',()=>showLibrary(true));
+    ['chemistryHome','chemistryLibrary','chemistryFooterHome'].forEach(id=>byId(id).addEventListener('click',event=>{event.preventDefault();showLibrary(false);global.scrollTo({top:0,behavior:'instant'});}));
+    byId('previousSimulator').addEventListener('click',()=>{const index=catalog.findIndex(item=>item.id===selectedId);if(index>0)openSimulator(catalog[index-1].id,false);});
+    byId('nextSimulator').addEventListener('click',()=>{const index=catalog.findIndex(item=>item.id===selectedId);if(index>=0&&index<catalog.length-1)openSimulator(catalog[index+1].id,false);});
+    const pause=()=>{if(widget)widget.pause();};
+    document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});global.addEventListener('pagehide',pause);global.addEventListener('hashchange',route);
+    renderLibrary();route();
+    return {openSimulator,showLibrary,pause,inspect:()=>({view,selectedId,unit,search,simulatorCount:catalog.length,simulatorIds:catalog.map(item=>item.id),experiment:widget?widget.inspect():null})};
+  }
+  global.ChemistryApp={mount};
+})(window);
+
+</script>
+  <script>
+(function () {
+  'use strict';
+  function start() { window.OrbitChemistry = window.ChemistryApp.mount(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, {once:true});
+  else start();
+})();
+
+</script>
+</body>
+</html>

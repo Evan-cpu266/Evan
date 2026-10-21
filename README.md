@@ -18,3 +18,15 @@ and graph labs remain at the homepage.
 
 The simulator is a standalone offline HTML file with no external assets or backend.
 `orbit-simulators.html` and `orbit-lessons.html` are aliases for the same collection.
+
+## Orbit Chemistry
+
+Open [the AP Chemistry simulator collection](https://evan-cpu266.github.io/Evan/chemistry/).
+This separate website contains 23 interactive simulators across all nine AP Chemistry
+units, with Play/Pause, Reset, playback speed and timeline controls. Every included
+topic has a simulator, and no practice questions or assessments are included.
+Model assumptions and approximations appear beside each experiment.
+
+The site is a self-contained HTML file with no backend or external assets.
+`chemistry-simulators.html` is an alias for the same chemistry collection.
+The existing Orbit physics and Arabic websites remain unchanged.
