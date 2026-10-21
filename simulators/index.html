@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#142b32">
+  <meta name="description" content="Explore forces, energy and momentum with interactive physics simulators.">
+  <title>Orbit — Physics Simulators</title>
+  <style>
+:root{color-scheme:light;--ink:#142b32;--muted:#617077;--mint:#d9f391;--mint-dark:#aecb65;--paper:#f7f8f2;--line:#dce2dc;--white:#fff;--violet:#e7dff5;--peach:#f3dfc6;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-synthesis:none}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}button,input,select{font:inherit}button,a,input,select{-webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #3e8257;outline-offset:4px}button:disabled{cursor:not-allowed;opacity:.5}[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip-link{position:fixed;left:16px;top:-70px;padding:12px 18px;background:var(--mint);z-index:100;border-radius:8px}.skip-link:focus{top:12px}.site-header{height:100px;max-width:1400px;margin:auto;padding:0 54px;display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px;font-size:36px;font-weight:800;letter-spacing:-2px}.brand-dot{color:#617e31}.brand-mark{width:35px;height:35px;position:relative;display:grid;place-items:center;border:1.5px solid var(--ink);border-radius:50%;transform:rotate(-30deg)}.brand-mark:before{content:"";position:absolute;width:45px;height:14px;border:1.5px solid var(--ink);border-radius:50%}.brand-mark span{width:11px;height:11px;border-radius:50%;background:var(--ink)}.header-caption{font-size:10px;font-weight:750;letter-spacing:2.3px;color:var(--muted)}.library-link{display:flex;align-items:center;gap:20px;font-size:13px;font-weight:650}.library-link span{font-size:23px;font-weight:400}.outgoing-arrow{width:13px;height:13px;position:relative;display:inline-block}.outgoing-arrow:before{content:"";position:absolute;top:2px;right:0;width:8px;height:8px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor}.outgoing-arrow:after{content:"";position:absolute;top:7px;right:-1px;width:15px;height:1.5px;background:currentColor;transform:rotate(-45deg)}main{max-width:1400px;margin:auto;padding:0 54px}.hero{min-height:444px;display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center;padding:58px 0 55px}.eyebrow{font-size:10px;line-height:1.5;letter-spacing:1.8px;font-weight:750;display:flex;align-items:center;gap:9px;margin:0 0 18px}.live-dot{display:inline-block;width:7px;height:7px;flex-shrink:0;background:#6e9634;border-radius:50%}.hero h1{font-size:clamp(54px,5.6vw,78px);font-weight:650;letter-spacing:-4px;line-height:1.05;margin:0 0 22px}.hero h1>span{font-family:Georgia,serif;font-style:italic;font-weight:400;position:relative;z-index:0}.hero h1>span:after{position:absolute;content:"";height:13px;background:var(--mint);bottom:8px;left:-5px;right:-6px;z-index:-1;transform:rotate(-3deg)}.hero-copy>p{font-size:15px;line-height:1.8;color:var(--muted);max-width:390px;margin:0 0 25px}.hero-facts{display:flex;gap:19px;flex-wrap:wrap;font-size:10px;color:var(--muted)}.hero-facts span{padding-right:19px;border-right:1px solid #cbd3c8}.hero-facts span:last-child{border:0;padding-right:0}.hero-facts strong{font-weight:750;color:var(--ink);margin-right:4px}.hero-art{position:relative;height:328px;width:100%;overflow:hidden;border:1px solid #e1e6dc;border-radius:26px;background:#eef2e8}.art-grid{position:absolute;inset:0;background-image:linear-gradient(#dbe3d580 1px,transparent 1px),linear-gradient(90deg,#dbe3d580 1px,transparent 1px);background-size:36px 36px;mask-image:radial-gradient(ellipse,black,transparent 80%)}.art-orbit{position:absolute;border:1px solid #a4b39e;left:50%;top:50%;border-radius:50%}.orbit-one{width:300px;height:124px;transform:translate(-50%,-50%) rotate(-28deg)}.orbit-two{width:270px;height:180px;transform:translate(-50%,-50%) rotate(42deg)}.art-planet{position:absolute;width:126px;height:126px;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at 30% 25%,#e6f7bb 3%,#c5df8a 35%,#94b267 65%,#5a7b4a 100%);box-shadow:14px 16px 25px #496e4018;z-index:2}.art-planet:after{content:"";position:absolute;inset:10px;border:1px solid #eff7da66;border-radius:50%;transform:rotate(-30deg)}.art-small-planet{position:absolute;width:32px;height:32px;border-radius:50%;top:22%;left:70%;background:radial-gradient(circle at 35% 30%,#fcf8ec,#ccbd9e 80%);z-index:3;box-shadow:4px 4px 10px #11281e14}.floating-equation{position:absolute;background:#ffffffda;border:1px solid #d7e0d4;border-radius:10px;padding:9px 13px;font:italic 18px Georgia,serif;box-shadow:0 5px 16px #1c3f2110;z-index:4}.eq-one{left:8%;top:22%;transform:rotate(-7deg)}.eq-two{right:8%;top:56%;transform:rotate(7deg)}.eq-three{left:15%;bottom:17%;font-size:15px;transform:rotate(-3deg)}.art-label{position:absolute;bottom:18px;right:20px;display:flex;gap:7px;align-items:center;font-size:8px;letter-spacing:1.4px;font-weight:700}.art-label .live-dot{width:5px;height:5px}.art-cross{position:absolute;font-size:21px;font-weight:300;color:#8c9e83}.cross-one{left:18%;top:50%}.cross-two{right:25%;top:12%}.library-heading{border-top:1px solid var(--line);padding:36px 0 25px;display:flex;gap:20px;justify-content:space-between;align-items:flex-end}.library-heading .eyebrow{margin-bottom:8px;color:var(--muted)}h2{font-size:29px;letter-spacing:-1px;font-weight:650;margin:0}.library-heading>p{font-size:12px;color:var(--muted);margin:0 0 4px}.library-controls{display:flex;justify-content:space-between;gap:20px;align-items:center}.filter-group{display:flex;flex-wrap:wrap;gap:6px}.filter-button{border:1px solid transparent;background:transparent;padding:10px 13px;border-radius:100px;color:var(--muted);font-size:11px;font-weight:600;display:flex;align-items:center;gap:8px}.filter-button:hover{background:#e9eee3}.filter-button[aria-pressed=true]{background:var(--ink);color:white;border-color:var(--ink)}.filter-button .filter-count{font-size:9px;opacity:.7}.search-box{border:1px solid var(--line);border-radius:9px;display:flex;align-items:center;gap:10px;min-width:208px;background:#ffffff80;padding:0 13px}.search-box input{min-width:0;width:100%;background:transparent;border:0;outline:none;padding:11px 0;font-size:11px;color:var(--ink)}.search-box:focus-within{outline:2px solid #729646;outline-offset:2px}.search-icon{width:12px;height:12px;border:1.5px solid var(--muted);border-radius:50%;position:relative;flex-shrink:0}.search-icon:after{content:"";width:5px;height:1.5px;background:var(--muted);position:absolute;right:-4px;bottom:-2px;transform:rotate(45deg)}.result-count{font-size:10px;color:var(--muted);margin:17px 0}.simulator-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:21px;padding-bottom:60px}.simulator-card{background:var(--white);border:1px solid #dde3db;border-radius:15px;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;display:flex;flex-direction:column;min-width:0}.simulator-card:hover{transform:translateY(-3px);border-color:#adbfa4;box-shadow:0 8px 22px #203e2c0b}.card-art{height:157px;position:relative;overflow:hidden;background:#eaf0df;display:flex;align-items:center;justify-content:center}.card-art.energy{background:#eee9f3}.card-art.momentum{background:#f3e9dd}.card-art svg{width:100%;height:100%;display:block}.card-number{position:absolute;left:15px;top:13px;font-size:9px;font-weight:600;letter-spacing:1px;color:#445b4f99}.art-symbol{position:absolute;right:14px;bottom:12px;font:italic 14px Georgia,serif;color:#304a3e88}.card-content{padding:20px 20px 18px;display:flex;flex-direction:column;flex:1}.card-category{font-size:8px;letter-spacing:1.3px;font-weight:750;text-transform:uppercase;color:#697b62;margin:0 0 9px}.simulator-card.energy .card-category{color:#85709a}.simulator-card.momentum .card-category{color:#93764e}.card-content h3{font-weight:650;font-size:17px;line-height:1.3;letter-spacing:-.4px;margin:0 0 10px}.card-summary{font-size:11px;line-height:1.75;color:var(--muted);margin:0 0 22px;flex:1}.play-card-button{width:100%;padding:11px 13px;display:flex;justify-content:space-between;align-items:center;border:1px solid #d8e1d1;border-radius:8px;background:#f3f7eb;color:var(--ink);font-size:11px;font-weight:700;transition:background .15s}.play-card-button:hover{background:var(--mint);border-color:#c6dd99}.play-glyph{display:grid;place-items:center;background:var(--ink);color:var(--mint);width:21px;height:21px;border-radius:50%;font-size:8px;padding-left:1px}.play-glyph:before{content:"";width:0;height:0;border-top:3px solid transparent;border-bottom:3px solid transparent;border-left:5px solid var(--mint)}.site-footer{width:calc(100% - 108px);max-width:1292px;margin:0 auto;padding:25px 0 32px;display:flex;align-items:center;gap:30px;border-top:1px solid var(--line);font-size:10px;color:var(--muted)}.footer-brand{font-size:25px;font-weight:750;letter-spacing:-1.4px;color:var(--ink)}.site-footer p{margin:0}.site-footer>span{margin-left:auto;font-size:8px;letter-spacing:1.5px}.empty-state{text-align:center;padding:55px 20px 75px;border:1px dashed #cad5c3;border-radius:14px;margin:0 0 50px}.empty-state>span{font-size:38px;color:#7c9766}.empty-state h3{font-size:21px;font-weight:650;margin:12px 0}.empty-state p{color:var(--muted);font-size:13px}.primary-button,.secondary-button{border:1px solid #d0dcc7;border-radius:9px;padding:12px 17px;background:var(--mint);font-size:12px;font-weight:650;color:var(--ink)}.secondary-button{background:#fff}.primary-button:hover,.secondary-button:hover{background:#e3f1cd}.player-view{padding:27px 0 55px}.player-topline{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:36px}.back-button{border:0;background:transparent;padding:7px 0;display:flex;gap:10px;color:var(--muted);font-size:12px;align-items:center}.back-button span{font-size:22px}.player-badge{display:flex;align-items:center;gap:7px;font-size:8px;letter-spacing:1.2px;font-weight:650;color:var(--muted)}.player-badge .live-dot{width:5px;height:5px}.player-intro{display:flex;justify-content:space-between;align-items:center;gap:28px;margin-bottom:25px}.player-intro .eyebrow{color:#69884e;margin-bottom:10px}.player-intro h1{font-size:clamp(28px,3.6vw,43px);font-weight:650;letter-spacing:-1.6px;line-height:1.15;margin:0 0 13px}.player-intro h1:focus{outline:none}.player-intro>div>p:last-child{font-size:13px;line-height:1.7;color:var(--muted);margin:0;max-width:600px}.formula-card{flex-shrink:0;background:#eaf0df;border:1px solid #d6e2c7;min-width:195px;padding:17px 22px;border-radius:12px;text-align:center}.formula-card>span{font-size:8px;letter-spacing:1.7px;color:#64804c;font-weight:750}.formula-card>p#simulatorFormula{font:italic 23px Georgia,serif;margin:9px 0 0;color:var(--ink)}.experiment-tip{display:flex;align-items:center;gap:10px;background:#edf2e5;border:1px solid #e0e9d6;border-radius:9px;padding:13px 16px;margin-bottom:21px}.experiment-tip>span{color:#6c8e42;font-size:18px}.experiment-tip p{font-size:11px;line-height:1.65;color:#536548;margin:0}.simulator-player{min-width:0;scroll-margin-top:16px}.player-navigation{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:26px}.player-navigation>span{font-size:10px;color:var(--muted)}.noscript{margin:20px;padding:25px;background:var(--mint);border-radius:12px}.simulator-player svg{max-width:100%}.simulator-player input,.simulator-player select{max-width:100%}@media(min-width:1440px){.site-footer{max-width:1292px}}@media(max-width:1000px){.site-header{padding:0 32px;height:86px}main{padding:0 32px}.site-footer{width:auto;margin:0 32px}.hero{gap:20px;min-height:400px;padding:43px 0}.hero h1{font-size:64px}.hero-art{height:300px}.header-caption{display:none}.hero-facts{gap:10px}.hero-facts span{padding-right:10px}.simulator-grid{gap:15px}.card-content{padding:17px}.card-content h3{font-size:16px}.filter-button{padding:10px}.library-controls{gap:12px}.search-box{min-width:180px;max-width:220px}.formula-card{min-width:165px;padding:15px}.formula-card>p#simulatorFormula{font-size:21px}}@media(max-width:760px){.hero{grid-template-columns:1fr 1fr;gap:12px}.hero h1{font-size:54px;letter-spacing:-3px}.hero-art{height:274px}.hero-copy>p{font-size:13px}.hero-facts{font-size:9px}.hero-facts span:last-child{display:none}.eyebrow{font-size:8px;letter-spacing:1.2px}.orbit-one{width:245px}.orbit-two{width:215px}.art-planet{width:104px;height:104px}.art-small-planet{width:25px;height:25px}.floating-equation{font-size:14px;padding:7px 9px}.eq-one{left:4%}.eq-two{right:4%}.eq-three{font-size:13px;left:8%}.simulator-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.library-controls{align-items:flex-start;flex-direction:column}.search-box{width:100%;max-width:none}.library-heading>p{display:none}.player-intro{align-items:flex-start}.formula-card{min-width:145px}.formula-card>p#simulatorFormula{font-size:19px}.site-footer>span{display:none}}@media(max-width:540px){.site-header{padding:0 21px;height:76px}.brand{font-size:31px;gap:10px}.brand-mark{width:30px;height:30px}.brand-mark:before{width:39px;height:12px}.brand-mark span{width:9px;height:9px}.library-link{font-size:10px;gap:10px}.library-link span{font-size:19px}main{padding:0 21px}.hero{grid-template-columns:1fr;padding:34px 0;gap:29px}.hero h1{font-size:62px;line-height:1;letter-spacing:-3.7px}.hero h1 br{display:none}.hero h1>span{white-space:nowrap}.hero .eyebrow{font-size:8px;margin-bottom:18px}.hero-copy>p{font-size:13px;margin-bottom:19px;max-width:370px}.hero-facts{font-size:9px;gap:15px}.hero-facts span{padding-right:15px}.hero-facts span:last-child{display:block}.hero-art{height:215px;border-radius:17px}.art-planet{width:98px;height:98px}.orbit-one{width:255px;height:105px}.orbit-two{width:220px;height:150px}.eq-one{left:14%;top:17%}.eq-two{right:13%;top:57%}.eq-three{left:19%;bottom:11%}.art-label{font-size:6px;right:12px;bottom:13px}.art-cross{font-size:17px}.cross-one{left:14%}.cross-two{right:23%;top:10%}.library-heading{padding:27px 0 20px}h2{font-size:25px}.filter-group{gap:4px;width:100%;justify-content:space-between}.filter-button{font-size:9px;padding:9px 10px;gap:5px}.filter-button .filter-count{font-size:8px}.simulator-grid{gap:17px;grid-template-columns:1fr;padding-bottom:35px}.card-art{height:157px}.card-content{padding:20px}.card-content h3{font-size:19px}.card-summary{font-size:12px;margin-bottom:20px}.play-card-button{font-size:12px;padding:11px 14px}.result-count{margin:15px 0}.site-footer{margin:0 21px;padding:22px 0;gap:17px}.site-footer p{font-size:9px}.footer-brand{font-size:23px}.player-view{padding-top:18px}.player-topline{margin-bottom:22px}.player-badge{font-size:6px;letter-spacing:.7px}.back-button{font-size:10px;gap:7px}.player-intro{flex-direction:column;gap:18px;margin-bottom:17px}.player-intro h1{font-size:33px;letter-spacing:-1.2px}.player-intro>div>p:last-child{font-size:12px}.formula-card{width:100%;padding:13px;display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left}.formula-card>p#simulatorFormula{margin:0;font-size:21px}.formula-card>span{font-size:7px;letter-spacing:1.3px}.experiment-tip{padding:11px 12px;gap:9px}.experiment-tip p{font-size:10px}.player-navigation{gap:7px;flex-wrap:wrap}.player-navigation>span{order:3;width:100%;text-align:center;font-size:9px;margin-top:5px}.player-navigation button{font-size:10px;padding:11px 12px}.empty-state{padding:35px 12px 45px}.empty-state h3{font-size:19px}.empty-state p{font-size:11px}}@media(max-width:360px){main,.site-header{padding-left:16px;padding-right:16px}.site-footer{margin-left:16px;margin-right:16px}.hero h1{font-size:54px}.hero-facts{font-size:8px;gap:9px}.hero-facts span{padding-right:9px}.filter-button{padding:8px 7px;font-size:8px}.filter-button .filter-count{font-size:7px}.library-link{font-size:9px}.player-badge{font-size:5.5px}.player-navigation button{font-size:9px;padding:10px}.formula-card>p#simulatorFormula{font-size:19px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to simulators</a>
+  <div id="simulatorApp">
+    <header class="site-header">
+      <a class="brand" id="simulatorHome" href="#library" aria-label="Orbit simulator library">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span>orbit<span class="brand-dot">.</span></span>
+      </a>
+      <div class="header-caption">THE PHYSICS PLAYGROUND</div>
+      <a class="library-link" id="simulatorLibrary" href="#library">Simulator library <span class="outgoing-arrow" aria-hidden="true"></span></a>
+    </header>
+    <main id="mainContent" tabindex="-1">
+      <section id="simulatorGallery" aria-labelledby="galleryTitle">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="live-dot" aria-hidden="true"></span> EXPERIMENT. OBSERVE. DISCOVER.</div>
+            <h1 id="galleryTitle">Physics you<br>can <span>play.</span></h1>
+            <p>Turn the big ideas into small experiments. Change the variables, press play, and see the science happen.</p>
+            <div class="hero-facts"><span><strong>13</strong> interactive topics</span><span><strong>8</strong> physics models</span><span>Yours to explore</span></div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="art-grid"></div><span class="art-orbit orbit-one"></span><span class="art-orbit orbit-two"></span><span class="art-planet"></span><span class="art-small-planet"></span>
+            <span class="floating-equation eq-one">F = ma</span><span class="floating-equation eq-two">p = mv</span><span class="floating-equation eq-three">E = mgh</span>
+            <span class="art-label"><span class="live-dot"></span> IDEAS IN ACTION</span>
+            <span class="art-cross cross-one">+</span><span class="art-cross cross-two">+</span>
+          </div>
+        </div>
+        <div class="library-heading"><div><p class="eyebrow">THE COLLECTION</p><h2>Pick an experiment.</h2></div><p>Start curious. Find something surprising.</p></div>
+        <div class="library-controls">
+          <div id="simulatorFilters" class="filter-group" role="group" aria-label="Filter simulators by topic"></div>
+          <label class="search-box"><span class="search-icon" aria-hidden="true"></span><span class="sr-only">Search simulators</span><input id="simulatorSearch" type="search" placeholder="Find a simulator…" autocomplete="off"></label>
+        </div>
+        <p id="simulatorCount" class="result-count" aria-live="polite"></p>
+        <div id="simulatorGrid" class="simulator-grid"></div>
+        <div id="simulatorEmpty" class="empty-state" hidden><span aria-hidden="true">⌕</span><h3>No simulators found</h3><p>Try another name or explore the whole collection.</p><button id="simulatorClearFilters" class="primary-button" type="button">Show all simulators</button></div>
+      </section>
+      <section id="simulatorView" class="player-view" aria-labelledby="simulatorTitle" hidden>
+        <div class="player-topline"><button id="backToSimulators" class="back-button" type="button"><span aria-hidden="true">←</span> All simulators</button><span class="player-badge"><span class="live-dot" aria-hidden="true"></span> INTERACTIVE EXPERIMENT</span></div>
+        <div class="player-intro"><div><p class="eyebrow" id="simulatorFamily"></p><h1 id="simulatorTitle" tabindex="-1"></h1><p id="simulatorDescription"></p></div><div class="formula-card"><span>THE BIG IDEA</span><p id="simulatorFormula"></p></div></div>
+        <div class="experiment-tip"><span aria-hidden="true">✦</span><p id="simulatorGoal"></p></div>
+        <div id="simulatorPlayer" class="simulator-player"></div>
+        <nav class="player-navigation" aria-label="Browse simulators"><button id="previousSimulator" class="secondary-button" type="button">← Previous simulator</button><span id="simulatorPosition"></span><button id="nextSimulator" class="secondary-button" type="button">Next simulator →</button></nav>
+      </section>
+    </main>
+    <footer class="site-footer"><a class="footer-brand" href="#library">orbit.</a><p>A little curiosity goes a long way.</p><span>BUILT FOR EXPLORATION</span></footer>
+  </div>
+  <noscript><p class="noscript">Please enable JavaScript to run the physics simulators.</p></noscript>
+  <script>
+(function (root) {
+  'use strict';
+  const catalog = [
+    {id:'q3-newton-laws',title:"Newton’s Laws",quarter:3,family:'forces',experiment:'forces',summary:'Push a cart and explore the relationship between net force, mass and acceleration.',formula:'Fₙₑₜ = ma',goal:'Change the mass or force, then watch how the cart responds.'},
+    {id:'q3-applying-newton',title:"Applying Newton’s Laws",quarter:3,family:'forces',experiment:'forces',summary:'Build a force experiment and compare how different loads respond to the same push.',formula:'a = Fₙₑₜ / m',goal:'Double the mass while keeping the net force fixed. Compare the result.'},
+    {id:'q3-friction',title:'Friction',quarter:3,family:'forces',experiment:'friction',summary:'Find the force needed to overcome friction and set a block in motion.',formula:'f = μmg',goal:'Increase the applied force until it exceeds the friction limit. This model uses one coefficient for static and sliding friction.'},
+    {id:'q3-work',title:'Work',quarter:3,family:'energy',experiment:'work',summary:'Pull a block through a distance and explore how the force angle changes the work.',formula:'W = Fd cos θ',goal:'Compare pulls at 0°, 90° and 180°. The traversal illustrates distance; it does not model the net force.'},
+    {id:'q3-work-energy',title:'Work & Energy',quarter:3,family:'energy',experiment:'energy',summary:'Release a falling object and follow the transfer from gravitational potential to kinetic energy.',formula:'PE = mgh · KE = ½mv²',goal:'Watch potential energy become kinetic energy during a fall without air resistance.'},
+    {id:'q4-energy-reinforcement',title:'Energy in Action',quarter:4,family:'energy',experiment:'energy',summary:'Experiment with mass, height and gravity in an energy conversion model.',formula:'E = PE + KE',goal:'Change the mass and compare the energy bars and landing speed.'},
+    {id:'q4-energy-conservation',title:'Conservation of Energy',quarter:4,family:'energy',experiment:'energy',summary:'Track the constant total mechanical energy of an object falling without drag.',formula:'mgh + ½mv² = constant',goal:'Pause halfway through a fall and compare potential, kinetic and total energy.'},
+    {id:'q4-power',title:'Power',quarter:4,family:'energy',experiment:'power',summary:'Transfer energy over a chosen time and compare the average power.',formula:'P = W / Δt',goal:'Keep the work fixed and halve the time. The model transfers energy at a constant rate.'},
+    {id:'q4-momentum',title:'Momentum',quarter:4,family:'momentum',experiment:'momentum',summary:'Set a cart’s mass and velocity and watch its signed momentum.',formula:'p = mv',goal:'Reverse the velocity to reverse the direction of momentum.'},
+    {id:'q4-impulse',title:'Impulse',quarter:4,family:'momentum',experiment:'impulse',summary:'Apply a force over time to change a cart’s velocity and momentum.',formula:'J = FΔt = Δp',goal:'Try a force opposite to the initial velocity and watch the cart slow down or reverse.'},
+    {id:'q4-momentum-conservation',title:'Conservation of Momentum',quarter:4,family:'momentum',experiment:'collision',summary:'Collide two carts and compare the system’s momentum before and after contact.',formula:'m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂',goal:'Change either cart’s mass. With no external impulse, total momentum is conserved.'},
+    {id:'q4-collisions',title:'Collisions',quarter:4,family:'momentum',experiment:'collision',summary:'Explore elastic and inelastic collisions by adjusting the restitution.',formula:'e = (v₂ − v₁) / (u₁ − u₂)',goal:'Use e = 1 for an elastic collision or e = 0 for carts that stick together.'},
+    {id:'q4-momentum-lab',title:'Momentum Laboratory',quarter:4,family:'momentum',experiment:'collision',summary:'Run your own two-cart experiments and compare predictions with the simulated outcomes.',formula:'Σp before = Σp after',goal:'Vary the masses and incoming velocities, then compare the momentum and energy readings.'}
+  ];
+  root.OrbitSimulatorCatalog = Object.freeze(catalog.map(record => Object.freeze(record)));
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+  <script>
+/* Orbit simulator engine. Self contained: no requests, storage, or third-party scripts. */
+(function (root) {
+  'use strict';
+  const TYPES = Object.freeze(['forces','friction','work','energy','power','momentum','impulse','collision']);
+  const clamp = (n,a,b) => Math.max(a,Math.min(b,n));
+  const number = (o,k) => typeof o[k] === 'number' && Number.isFinite(o[k]) && Math.abs(o[k]) <= 1e12 && (o[k] === 0 || Math.abs(o[k]) >= 1e-9);
+  function check(o,keys,conditions) {
+    if (!o || keys.some(k => !number(o,k))) return 'Enter finite numbers in every field. Extremely large or tiny values are not supported.';
+    for (const pair of conditions || []) if (!pair[0]) return pair[1];
+    return '';
+  }
+  const invalid = error => ({valid:false,error});
+  const good = result => Object.values(result).some(v=>typeof v==='number'&&!Number.isFinite(v))?invalid('These values exceed the supported numerical range.'):Object.assign({valid:true},result);
+  const physics = {
+    forces(o) {
+      const err=check(o,['mass','force'],[[o && o.mass>0,'Mass must be greater than zero.']]);
+      if(err) return invalid(err);
+      return good({mass:o.mass,force:o.force,netForce:o.force,acceleration:o.force/o.mass});
+    },
+    friction(o) {
+      const err=check(o,['mass','force','mu'],[[o && o.mass>0,'Mass must be greater than zero.'],[o && o.mu>=0,'The friction coefficient cannot be negative.']]);
+      if(err) return invalid(err);
+      const limit=o.mu*o.mass*9.81,staticFriction=Math.abs(o.force)<=limit;
+      const frictionForce=staticFriction ? -o.force : -Math.sign(o.force)*limit;
+      const netForce=o.force+frictionForce;
+      return good({mass:o.mass,force:o.force,frictionLimit:limit,frictionForce,netForce,acceleration:netForce/o.mass,staticFriction});
+    },
+    work(o) {
+      const err=check(o,['force','distance','angle'],[[o && o.distance>=0,'Distance cannot be negative.']]);
+      if(err) return invalid(err);
+      const parallelForce=o.force*Math.cos(o.angle*Math.PI/180);
+      return good({work:parallelForce*o.distance,parallelForce,distance:o.distance});
+    },
+    energy(o) {
+      const err=check(o,['mass','height','gravity'],[[o && o.mass>0,'Mass must be greater than zero.'],[o && o.height>=0,'Height cannot be negative.'],[o && o.gravity>0,'Gravity must be greater than zero.']]);
+      if(err) return invalid(err);
+      return good({totalEnergy:o.mass*o.gravity*o.height,finalSpeed:Math.sqrt(2*o.gravity*o.height),fallTime:Math.sqrt(2*o.height/o.gravity)});
+    },
+    power(o) {
+      const err=check(o,['work','time'],[[o && o.time>0,'Transfer time must be greater than zero.']]);
+      if(err) return invalid(err);
+      return good({power:o.work/o.time,work:o.work,time:o.time});
+    },
+    momentum(o) {
+      const err=check(o,['mass','velocity'],[[o && o.mass>0,'Mass must be greater than zero.']]);
+      if(err) return invalid(err);
+      return good({momentum:o.mass*o.velocity,velocity:o.velocity});
+    },
+    impulse(o) {
+      const err=check(o,['mass','velocity','force','time'],[[o && o.mass>0,'Mass must be greater than zero.'],[o && o.time>0,'Contact time must be greater than zero.']]);
+      if(err) return invalid(err);
+      const impulse=o.force*o.time,finalVelocity=o.velocity+impulse/o.mass;
+      return good({impulse,initialMomentum:o.mass*o.velocity,finalMomentum:o.mass*finalVelocity,finalVelocity,acceleration:o.force/o.mass});
+    },
+    collision(o) {
+      const err=check(o,['mass1','mass2','velocity1','velocity2','restitution'],[[o && o.mass1>0 && o.mass2>0,'Both masses must be greater than zero.'],[o && o.restitution>=0 && o.restitution<=1,'Restitution must be between 0 and 1.'],[o && o.velocity1>=o.velocity2,'Cart 1 must be catching cart 2: use v₁ ≥ v₂.']]);
+      if(err) return invalid(err);
+      const m1=o.mass1,m2=o.mass2,u1=o.velocity1,u2=o.velocity2,e=o.restitution,total=m1+m2;
+      const finalVelocity1=((m1-e*m2)*u1+(1+e)*m2*u2)/total;
+      const finalVelocity2=((m2-e*m1)*u2+(1+e)*m1*u1)/total;
+      const initialMomentum=m1*u1+m2*u2,finalMomentum=m1*finalVelocity1+m2*finalVelocity2;
+      const initialKineticEnergy=.5*m1*u1*u1+.5*m2*u2*u2,finalKineticEnergy=.5*m1*finalVelocity1*finalVelocity1+.5*m2*finalVelocity2*finalVelocity2;
+      return good({finalVelocity1,finalVelocity2,initialMomentum,finalMomentum,initialKineticEnergy,finalKineticEnergy,energyLost:Math.max(0,initialKineticEnergy-finalKineticEnergy),collisionTime:u1>u2?1.5:null});
+    }
+  };
+  physics.duration=function(type,o){
+    const r=physics[type]&&physics[type](o); if(!r || !r.valid) return 0;
+    if(type==='energy') return r.fallTime || 1;
+    if(type==='power'||type==='impulse') return o.time;
+    return 6;
+  };
+  physics.sample=function(type,o,time){
+    const r=physics[type]&&physics[type](o); if(!r || !r.valid) return r || invalid('Unknown simulator.');
+    const duration=physics.duration(type,o),t=clamp(Number.isFinite(time)?time:0,0,duration),fraction=duration?t/duration:0;
+    const s=Object.assign({},r,{time:t,duration,fraction});
+    if(type==='forces'||type==='friction'){s.position=.5*r.acceleration*t*t;s.velocity=r.acceleration*t;}
+    if(type==='momentum'){s.position=o.velocity*t;s.velocity=o.velocity;}
+    if(type==='impulse'){s.position=o.velocity*t+.5*r.acceleration*t*t;s.velocity=o.velocity+r.acceleration*t;s.momentum=o.mass*s.velocity;s.deliveredImpulse=o.force*t;}
+    if(type==='work'){s.position=o.distance*fraction;s.accumulatedWork=r.work*fraction;}
+    if(type==='energy'){
+      s.fallen=Math.min(o.height,.5*o.gravity*t*t);s.height=Math.max(0,o.height-s.fallen);
+      s.velocity=Math.sqrt(2*o.gravity*s.fallen);s.potentialEnergy=o.mass*o.gravity*s.height;s.kineticEnergy=o.mass*o.gravity*s.fallen;
+    }
+    if(type==='power'){s.transferredWork=o.work*fraction;s.energyFraction=o.work===0?0:fraction;}
+    if(type==='collision'){
+      if(r.collisionTime===null){s.position1=o.velocity1*t-1;s.position2=o.velocity2*t+1;s.velocity1=o.velocity1;s.velocity2=o.velocity2;s.collided=false;}
+      else{const before=t<r.collisionTime;s.collided=!before;s.velocity1=before?o.velocity1:r.finalVelocity1;s.velocity2=before?o.velocity2:r.finalVelocity2;s.position1=s.velocity1*(t-r.collisionTime);s.position2=s.velocity2*(t-r.collisionTime);}
+      s.momentum1=o.mass1*s.velocity1;s.momentum2=o.mass2*s.velocity2;
+    }
+    return s;
+  };
+  Object.freeze(physics);
+  if(typeof module==='object'&&module.exports) module.exports=physics;
+  if(!root) return;
+  root.OrbitCoursePhysics=physics;
+  if(!root.document) return;
+
+  const configs={
+    forces:{title:'Force and acceleration',formula:'Fₙₑₜ = ma',note:'An ideal cart starts at rest on a frictionless track. A signed force changes its velocity.',fields:[['mass','Mass','kg',2,.01,100,0.1],['force','Net force','N',6,-200,200,1]]},
+    friction:{title:'Friction track',formula:'Fₙₑₜ = F + f;  |f| ≤ μmg',note:'The cart starts at rest. This simplified model uses the same coefficient for limiting static and kinetic friction.',fields:[['mass','Mass','kg',3,.01,100,.1],['force','Applied force','N',15,-200,200,1],['mu','Friction coefficient','',.3,0,2,.01]]},
+    work:{title:'Work by a force',formula:'W = Fd cos θ',note:'The cart traverses the selected distance in an illustrative six seconds. The animation shows work accumulating, not a prediction of acceleration.',fields:[['force','Force','N',20,-200,200,1],['distance','Distance','m',8,0,100,.1],['angle','Force angle','°',30,-180,180,1]]},
+    energy:{title:'Potential to kinetic energy',formula:'E = mgh + ½mv²',note:'A block falls from rest without air resistance. Its potential energy becomes kinetic energy; the total stays constant.',fields:[['mass','Mass','kg',2,.01,100,.1],['height','Starting height','m',8,0,100,.1],['gravity','Gravitational field','m/s²',9.81,.01,100,.01]]},
+    power:{title:'Energy transfer and power',formula:'P = W / Δt',note:'A constant rate of work transfers energy. Positive work adds energy; negative work removes it.',fields:[['work','Work transferred','J',600,-10000,10000,10],['time','Transfer time','s',6,.1,60,.1]]},
+    momentum:{title:'Momentum on a track',formula:'p = mv',note:'An ideal cart keeps a constant velocity. A negative value points left. Momentum has the same direction as velocity.',fields:[['mass','Mass','kg',3,.01,100,.1],['velocity','Velocity','m/s',4,-30,30,.1]]},
+    impulse:{title:'Impulse and momentum change',formula:'J = FΔt = Δp',note:'A constant signed force acts for the selected contact time. Watch the cart speed up, slow down, or reverse direction.',fields:[['mass','Mass','kg',2,.01,100,.1],['velocity','Initial velocity','m/s',-3,-30,30,.1],['force','Force','N',4,-100,100,.1],['time','Contact time','s',4,.1,30,.1]]},
+    collision:{title:'Collision laboratory',formula:'m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂',note:'Cart 1 starts behind cart 2. Restitution e = 1 is elastic; e = 0 makes the carts move together. External forces are neglected.',fields:[['mass1','Cart 1 mass','kg',2,.01,100,.1],['mass2','Cart 2 mass','kg',2,.01,100,.1],['velocity1','Cart 1 initial velocity','m/s',4,-30,30,.1],['velocity2','Cart 2 initial velocity','m/s',0,-30,30,.1],['restitution','Restitution e','',1,0,1,.05]]}
+  };
+  const f=n=>{if(!Number.isFinite(n))return '—';if(Math.abs(n)<1e-9)return '0';if(Math.abs(n)>=1e5||Math.abs(n)<.001)return n.toExponential(2);return Number(n.toFixed(3)).toLocaleString('en-US');};
+  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const NS='http://www.w3.org/2000/svg';
+  function svgNode(name,attrs,content){const n=document.createElementNS(NS,name);for(const k of Object.keys(attrs||{}))n.setAttribute(k,String(attrs[k]));if(content!==undefined)n.textContent=content;return n;}
+  function mount(host,type){
+    if(!host||!configs[type])throw new Error('Choose a supported simulator.');
+    const c=configs[type];let inputs=Object.fromEntries(c.fields.map(a=>[a[0],a[3]])),elapsed=0,running=false,raf=0,last=0,rate=1,destroyed=false,trials=[];
+    function element(tag,attrs,children){const n=document.createElement(tag);for(const [k,v]of Object.entries(attrs||{})){if(k==='class')n.className=v;else if(k==='text')n.textContent=v;else n.setAttribute(k,String(v));}for(const child of children||[]){if(child!==null&&child!==undefined)n.appendChild(typeof child==='string'?document.createTextNode(child):child);}return n;}
+    const style=element('style',{text:".orbit-experiment{color:var(--ink,#17283a);font-family:inherit}.orbit-experiment *{box-sizing:border-box}.orbit-experiment .exp-top{padding:18px 20px;background:var(--soft,#eef4f3);border-radius:18px;margin-bottom:16px}.orbit-experiment .exp-formula{font-size:22px;font-weight:750;letter-spacing:-.02em}.orbit-experiment .exp-note{font-size:13px;line-height:1.6;margin:8px 0 0;color:var(--muted,#536673)}.orbit-experiment .exp-layout{display:grid;grid-template-columns:minmax(200px,260px) minmax(0,1fr);gap:20px;align-items:start}.orbit-experiment .exp-fields{display:grid;gap:13px}.orbit-experiment .exp-field{display:grid;gap:6px;font-size:12px;font-weight:650}.orbit-experiment .exp-input-wrap{display:flex;align-items:center;background:var(--surface,#fff);border:1px solid var(--line,#d3dedc);border-radius:10px;overflow:hidden}.orbit-experiment input[type=number]{min-width:0;width:100%;border:0;padding:11px 12px;background:transparent;color:inherit;font:inherit;font-size:15px;outline-offset:-3px}.orbit-experiment .exp-unit{padding:0 12px 0 3px;color:var(--muted,#536673);font-size:12px;white-space:nowrap}.orbit-experiment .exp-stage{min-width:0;border:1px solid var(--line,#d3dedc);border-radius:18px;overflow:hidden;background:#f5f9f8}.orbit-experiment svg{display:block;width:100%;height:auto;max-height:380px}.orbit-experiment .exp-readout{padding:13px 16px;border-top:1px solid #dce6e4;display:block;font-size:13px;font-variant-numeric:tabular-nums;line-height:1.7;min-height:62px}.orbit-experiment .exp-controls{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-top:17px}.orbit-experiment button,.orbit-experiment select{font:inherit;border-radius:10px;padding:10px 14px;background:var(--surface,#fff);border:1px solid var(--line,#cbd8d5);color:inherit;cursor:pointer}.orbit-experiment button:focus-visible,.orbit-experiment select:focus-visible,.orbit-experiment input:focus-visible{outline:3px solid #35a985;outline-offset:3px}.orbit-experiment #coursePlaySimulation{background:#163c35;color:white;border-color:#163c35;font-weight:700;min-width:132px}.orbit-experiment button:disabled{opacity:.45;cursor:not-allowed}.orbit-experiment .exp-speed{margin-left:auto;font-size:12px;display:flex;gap:7px;align-items:center}.orbit-experiment select{padding:9px 8px}.orbit-experiment .exp-timeline{display:flex;align-items:center;gap:13px;margin:15px 0}.orbit-experiment input[type=range]{width:100%;min-width:0;accent-color:#1b7861}.orbit-experiment #courseSimulationTime{white-space:nowrap;font-size:12px;color:var(--muted,#536673);min-width:94px;text-align:right}.orbit-experiment .exp-error{color:#b42832;margin:12px 0;font-size:13px;min-height:20px}.orbit-experiment .exp-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:9px;margin-top:16px}.orbit-experiment .exp-result{background:var(--soft,#eef4f3);border-radius:12px;padding:13px}.orbit-experiment .exp-result small{display:block;font-size:11px;color:var(--muted,#536673);margin-bottom:6px}.orbit-experiment .exp-result strong{font-size:17px;font-variant-numeric:tabular-nums}.orbit-experiment .exp-trials{margin-top:24px;padding-top:20px;border-top:1px solid var(--line,#d3dedc)}.orbit-experiment .exp-trial-actions{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}.orbit-experiment .exp-table-wrap{overflow-x:auto}.orbit-experiment table{width:100%;border-collapse:collapse;font-size:12px;white-space:nowrap}.orbit-experiment th,.orbit-experiment td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line,#d3dedc)}.orbit-experiment textarea{width:100%;height:95px;margin-top:12px;font:12px monospace;background:white;border:1px solid #cbd8d5;border-radius:10px;padding:10px;color:#17283a}.orbit-experiment .exp-status{font-size:12px;color:var(--muted,#536673);line-height:1.5}.orbit-experiment .exp-svg-label{font:12px system-ui,sans-serif;fill:#536673}.orbit-experiment .exp-svg-heading{font:600 14px system-ui,sans-serif;fill:#203c3a}@media(max-width:700px){.orbit-experiment .exp-layout{grid-template-columns:1fr}.orbit-experiment .exp-fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.orbit-experiment .exp-top{padding:15px}.orbit-experiment .exp-formula{font-size:19px}.orbit-experiment .exp-stage svg{min-height:180px}.orbit-experiment .exp-speed{margin-left:0}.orbit-experiment .exp-controls{gap:8px}.orbit-experiment button{padding:10px 12px}.orbit-experiment .exp-readout{padding:10px 12px}}@media(prefers-reduced-motion:reduce){.orbit-experiment *{scroll-behavior:auto}}"});
+    const fields=element('div',{class:'exp-fields'});
+    for(const a of c.fields){fields.appendChild(element('label',{class:'exp-field',for:'courseInput-'+a[0]},[a[1],element('span',{class:'exp-input-wrap'},[element('input',{type:'number',id:'courseInput-'+a[0],'data-input':a[0],value:a[3],min:a[4],max:a[5],step:a[6],inputmode:'decimal'}),element('span',{class:'exp-unit',text:a[2]})])]));}
+    const svg=svgNode('svg',{id:'courseSimulationScene',viewBox:'0 0 640 300',role:'img','aria-label':'Animated '+c.title.toLowerCase()});
+    const section=element('section',{class:'orbit-experiment','aria-label':c.title},[
+      style,
+      element('div',{class:'exp-top'},[element('div',{class:'exp-formula',text:c.formula}),element('p',{class:'exp-note',text:c.note})]),
+      element('div',{class:'exp-layout'},[fields,element('div',{class:'exp-stage'},[svg,element('output',{id:'courseSimulationMeasurements',class:'exp-readout','aria-live':'off'})])]),
+      element('div',{class:'exp-controls'},[element('button',{id:'coursePlaySimulation',type:'button','aria-pressed':'false',text:'Play simulator'}),element('button',{id:'courseResetSimulation',type:'button',text:'Reset'}),element('label',{class:'exp-speed',for:'courseSimulationRate'},['Speed ',element('select',{id:'courseSimulationRate'},[element('option',{value:'.25',text:'0.25×'}),element('option',{value:'.5',text:'0.5×'}),element('option',{value:'1',selected:'',text:'1×'}),element('option',{value:'2',text:'2×'})])])]),
+      element('div',{class:'exp-timeline'},[element('label',{for:'courseSimulationProgress',style:'font-size:12px',text:'Timeline'}),element('input',{id:'courseSimulationProgress',type:'range',min:'0',max:'1000',value:'0',step:'1','aria-label':'Simulation timeline'}),element('output',{id:'courseSimulationTime',text:'0 / 6 s'})]),
+      element('div',{class:'exp-error',role:'status',id:'courseSimulationError'}),element('div',{class:'exp-results',id:'courseSimulationResults'})
+    ]);
+    if(type==='collision'){
+      const header=element('tr');for(const name of ['Trial','m₁ (kg)','m₂ (kg)','u₁ (m/s)','u₂ (m/s)','e','p before (kg·m/s)','p after (kg·m/s)'])header.appendChild(element('th',{text:name}));
+      section.appendChild(element('section',{class:'exp-trials','aria-label':'Recorded collision trials'},[
+        element('div',{class:'exp-trial-actions'},[element('button',{id:'courseRecordTrial',type:'button',text:'Record trial'}),element('button',{id:'courseExportTrials',type:'button',disabled:'',text:'Export CSV'}),element('button',{id:'courseClearTrials',type:'button',disabled:'',text:'Clear trials'})]),
+        element('p',{class:'exp-status',id:'courseTrialStatus',text:'Record up to 20 parameter sets to compare momentum before and after.'}),
+        element('div',{class:'exp-table-wrap'},[element('table',{id:'courseTrialTable'},[element('thead',{},[header]),element('tbody')])]),
+        element('textarea',{id:'courseTrialCSV',readonly:'',hidden:'','aria-label':'Recorded trials as CSV'})
+      ]));
+    }
+    host.replaceChildren(section);
+    const q=s=>host.querySelector(s),scene=q('#courseSimulationScene'),readout=q('#courseSimulationMeasurements'),playButton=q('#coursePlaySimulation'),progress=q('#courseSimulationProgress'),clock=q('#courseSimulationTime'),error=q('#courseSimulationError'),results=q('#courseSimulationResults');
+    function getResult(){return physics[type](inputs);}
+    function drawText(x,y,text,size,fill,anchor){scene.appendChild(svgNode('text',{x,y,'font-family':'system-ui,sans-serif','font-size':size||13,fill:fill||'#536673','text-anchor':anchor||'start'},text));}
+    function line(x1,y1,x2,y2,stroke,width){scene.appendChild(svgNode('line',{x1,y1,x2,y2,stroke:stroke||'#b4c9c2','stroke-width':width||2,'stroke-linecap':'round'}));}
+    function rect(x,y,w,h,fill,r){scene.appendChild(svgNode('rect',{x,y,width:Math.max(0,w),height:Math.max(0,h),rx:r===undefined?8:r,fill}));}
+    function circle(cx,cy,r,fill){scene.appendChild(svgNode('circle',{cx,cy,r,fill}));}
+    function arrow(x,y,amount,color,label){const length=clamp(amount,-110,110);if(Math.abs(length)<.01)return;const end=x+length;line(x,y,end,y,color,4);const dir=Math.sign(length);scene.appendChild(svgNode('path',{d:`M${end-dir*9},${y-6}L${end},${y}L${end-dir*9},${y+6}`,fill:'none',stroke:color,'stroke-width':3,'stroke-linecap':'round','stroke-linejoin':'round'}));if(label)drawText((x+end)/2,y-13,label,12,color,'middle');}
+    function cart(x,y,color,label){rect(x-25,y-40,50,32,color,8);circle(x-15,y-5,7,'#263f3c');circle(x+15,y-5,7,'#263f3c');drawText(x,y-19,label,13,'#ffffff','middle');}
+    function track(){rect(0,0,640,300,'#f5f9f8',0);for(let x=40;x<=600;x+=56)line(x,224,x,230,'#d0ded9',1);line(28,220,612,220,'#b4c9c2',3);drawText(30,267,'← negative direction',12);drawText(610,267,'positive direction →',12,undefined,'end');}
+    function positionExtent(){const d=physics.duration(type,inputs);let low=0,high=0;for(let j=0;j<=40;j++){const s=physics.sample(type,inputs,d*j/40);const vals=type==='collision'?[s.position1,s.position2]:[s.position];for(const v of vals)if(Number.isFinite(v)){low=Math.min(low,v);high=Math.max(high,v);}}if(high-low<.1){low-=1;high+=1;}return {low,high};}
+    function draw(s){
+      scene.replaceChildren();if(!s.valid){track();drawText(320,135,'Adjust the fields to start',20,'#536673','middle');readout.textContent='The simulation is paused until all values are valid.';return;}
+      if(type==='energy'){
+        rect(0,0,640,300,'#f5f9f8',0);line(35,250,605,250,'#b4c9c2',3);const ground=250,travel=180,y=ground-40-(inputs.height>0?s.height/inputs.height*travel:0);rect(110,y,46,40,'#247b65',8);line(133,y+40,133,250,'#d4e5df',1);drawText(133,y-13,f(s.height)+' m',14,'#247b65','middle');drawText(134,280,'Falling block',12,undefined,'middle');
+        const total=s.totalEnergy,scale=total>0?160/total:0;rect(305,70,60,180,'#e2ebe7',6);rect(405,70,60,180,'#e2ebe7',6);rect(505,70,60,180,'#e2ebe7',6);rect(305,250-s.potentialEnergy*scale,60,s.potentialEnergy*scale,'#4f7ea0',5);rect(405,250-s.kineticEnergy*scale,60,s.kineticEnergy*scale,'#e7ac5c',5);rect(505,250-total*scale,60,total*scale,'#247b65',5);drawText(335,275,'Potential',12,undefined,'middle');drawText(435,275,'Kinetic',12,undefined,'middle');drawText(535,275,'Total',12,undefined,'middle');drawText(335,53,f(s.potentialEnergy)+' J',13,'#4f7ea0','middle');drawText(435,53,f(s.kineticEnergy)+' J',13,'#af7228','middle');drawText(535,53,f(total)+' J',13,'#247b65','middle');readout.textContent=`Height ${f(s.height)} m · Speed ${f(s.velocity)} m/s · Potential ${f(s.potentialEnergy)} J + kinetic ${f(s.kineticEnergy)} J = ${f(total)} J`;
+      }else if(type==='power'){
+        rect(0,0,640,300,'#f5f9f8',0);drawText(320,58,inputs.work<0?'Energy removed':inputs.work>0?'Energy supplied':'No energy transferred',18,'#203c3a','middle');rect(80,105,480,65,'#e2ebe7',13);const fraction=inputs.work<0?1-s.energyFraction:s.energyFraction;const fill=inputs.work===0?0:480*fraction;rect(80,105,fill,65,inputs.work<0?'#d89379':'#51a58a',13);drawText(320,145,Math.round(s.energyFraction*100)+'% transferred',17,'#203c3a','middle');drawText(320,216,f(s.power)+' watts',26,'#247b65','middle');drawText(320,249,'Constant transfer rate',13,undefined,'middle');readout.textContent=`Time ${f(s.time)} s · Work transferred ${f(s.transferredWork)} J · Power ${f(s.power)} W`;
+      }else{
+        track();const extent=positionExtent(),xpos=v=>80+(v-extent.low)/(extent.high-extent.low)*480;
+        if(type==='collision'){
+          const x1=clamp(xpos(s.position1)-25,40,546),x2=clamp(xpos(s.position2)+25,94,600);cart(x1,220,'#247b65','1');cart(x2,220,'#bd795d','2');arrow(clamp(x1,140,500),140,Math.sign(s.velocity1)*Math.min(100,Math.abs(s.velocity1)*12),'#247b65','v₁ '+f(s.velocity1));arrow(clamp(x2,140,500),90,Math.sign(s.velocity2)*Math.min(100,Math.abs(s.velocity2)*12),'#bd795d','v₂ '+f(s.velocity2));drawText(320,36,s.collisionTime===null?'Equal speeds · no collision':s.collided?(inputs.restitution===0?'Moving together':'After collision'):'Approaching contact',15,'#203c3a','middle');readout.textContent=`v₁ ${f(s.velocity1)} m/s · v₂ ${f(s.velocity2)} m/s · Total momentum ${f(s.momentum1+s.momentum2)} kg·m/s`;
+        }else{
+          const x=clamp(xpos(s.position),70,570);cart(x,220,'#247b65',type==='work'?'W':'m');line(xpos(0),227,xpos(0),240,'#668f82',2);drawText(xpos(0),255,'0',11,'#668f82','middle');
+          if(type==='work'){const px=clamp(inputs.force*Math.cos(inputs.angle*Math.PI/180)*2,-110,110),py=clamp(-inputs.force*Math.sin(inputs.angle*Math.PI/180)*2,-65,65),startX=clamp(x,125,515),startY=155;line(startX,startY,startX+px,startY+py,'#bd795d',4);const angle=Math.atan2(py,px);if(Math.hypot(px,py)>.01){line(startX+px,startY+py,startX+px-10*Math.cos(angle-.5),startY+py-10*Math.sin(angle-.5),'#bd795d',3);line(startX+px,startY+py,startX+px-10*Math.cos(angle+.5),startY+py-10*Math.sin(angle+.5),'#bd795d',3);}drawText(320,42,'Illustrative traversal · work accumulates with distance',14,'#536673','middle');readout.textContent=`Distance ${f(s.position)} m · Work so far ${f(s.accumulatedWork)} J · Total work ${f(s.work)} J`;}
+          else{
+            const velocity=s.velocity||0;arrow(clamp(x,140,500),108,Math.sign(velocity)*Math.min(105,Math.abs(velocity)*10),'#247b65','v = '+f(velocity)+' m/s');
+            if(type==='forces'||type==='friction'||type==='impulse')arrow(clamp(x,140,500),156,Math.sign(s.force===undefined?inputs.force:s.force)*Math.min(100,Math.abs(inputs.force)*3),'#bd795d','F = '+f(inputs.force)+' N');
+            if(type==='friction')drawText(320,38,s.staticFriction?'Static friction balances the force':'Sliding · friction opposes motion',14,'#203c3a','middle');
+            readout.textContent=type==='momentum'?`Position ${f(s.position)} m · Velocity ${f(velocity)} m/s · Momentum ${f(s.momentum)} kg·m/s`:type==='impulse'?`Position ${f(s.position)} m · Velocity ${f(velocity)} m/s · Impulse so far ${f(s.deliveredImpulse)} N·s · Momentum ${f(s.momentum)} kg·m/s`:`Position ${f(s.position)} m · Velocity ${f(velocity)} m/s · Acceleration ${f(s.acceleration)} m/s²`;
+          }
+        }
+        drawText(32,291,'Track fitted to the complete run; direction and measurements are physical.',10,'#72857e');
+      }
+    }
+    function resultValues(r){if(!r.valid)return [];
+      if(type==='forces')return [['Net force',r.netForce,'N'],['Acceleration',r.acceleration,'m/s²']];
+      if(type==='friction')return [['Friction force',r.frictionForce,'N'],['Net force',r.netForce,'N'],['Acceleration',r.acceleration,'m/s²']];
+      if(type==='work')return [['Parallel force',r.parallelForce,'N'],['Total work',r.work,'J']];
+      if(type==='energy')return [['Total energy',r.totalEnergy,'J'],['Impact speed',r.finalSpeed,'m/s'],['Fall time',r.fallTime,'s']];
+      if(type==='power')return [['Constant power',r.power,'W'],['Work transferred',r.work,'J']];
+      if(type==='momentum')return [['Momentum',r.momentum,'kg·m/s'],['Velocity',r.velocity,'m/s']];
+      if(type==='impulse')return [['Total impulse',r.impulse,'N·s'],['Final velocity',r.finalVelocity,'m/s'],['Final momentum',r.finalMomentum,'kg·m/s']];
+      return [['Final cart 1 velocity',r.finalVelocity1,'m/s'],['Final cart 2 velocity',r.finalVelocity2,'m/s'],['Momentum before',r.initialMomentum,'kg·m/s'],['Momentum after',r.finalMomentum,'kg·m/s'],['Kinetic energy lost',r.energyLost,'J']];
+    }
+    function updateButtons(){playButton.textContent=running?'Pause':'Play simulator';playButton.setAttribute('aria-pressed',String(running));}
+    function render(all){if(destroyed)return;const r=getResult(),d=physics.duration(type,inputs);elapsed=clamp(elapsed,0,d||0);const s=physics.sample(type,inputs,elapsed);draw(s);progress.value=d?String(elapsed/d*1000):'0';progress.disabled=!r.valid;clock.textContent=f(elapsed)+' / '+f(d)+' s';playButton.disabled=!r.valid;error.textContent=r.valid?'':r.error;if(all){results.replaceChildren();for(const [label,val,unit]of resultValues(r)){const el=document.createElement('div');el.className='exp-result';const sm=document.createElement('small');sm.textContent=label;const st=document.createElement('strong');st.textContent=f(val)+' '+unit;el.append(sm,st);results.appendChild(el);}if(type==='collision'){q('#courseRecordTrial').disabled=!r.valid||trials.length>=20;}}updateButtons();}
+    function pause(){if(destroyed)return;running=false;if(raf)root.cancelAnimationFrame(raf);raf=0;last=0;updateButtons();}
+    function frame(timestamp){if(!running||destroyed)return;if(last){elapsed+=Math.min(.1,(timestamp-last)/1000)*rate;}last=timestamp;const d=physics.duration(type,inputs);if(elapsed>=d){elapsed=d;pause();render(false);return;}render(false);raf=root.requestAnimationFrame(frame);}
+    function play(){if(destroyed||!getResult().valid)return;if(elapsed>=physics.duration(type,inputs))elapsed=0;if(running)return;running=true;last=0;updateButtons();raf=root.requestAnimationFrame(frame);}
+    function reset(){pause();elapsed=0;render(false);}
+    function seek(seconds){pause();elapsed=clamp(Number(seconds)||0,0,physics.duration(type,inputs));render(false);}
+    function refreshInputs(){pause();inputs=Object.fromEntries(c.fields.map(a=>{const input=q('[data-input="'+a[0]+'"]');return [a[0],input.value.trim()===''?NaN:Number(input.value)];}));elapsed=0;render(true);}
+    host.querySelectorAll('[data-input]').forEach(el=>el.addEventListener('input',refreshInputs));
+    playButton.addEventListener('click',()=>running?pause():play());q('#courseResetSimulation').addEventListener('click',reset);q('#courseSimulationRate').addEventListener('change',e=>{rate=Number(e.target.value)||1;last=0;});progress.addEventListener('input',()=>seek(Number(progress.value)/1000*physics.duration(type,inputs)));
+    const hidden=()=>{if(document.hidden)pause();};document.addEventListener('visibilitychange',hidden);
+    function csv(){return ['trial,mass1_kg,mass2_kg,initial_velocity1_mps,initial_velocity2_mps,restitution,initial_momentum_kgmps,final_momentum_kgmps',...trials.map((t,i)=>[i+1,t.inputs.mass1,t.inputs.mass2,t.inputs.velocity1,t.inputs.velocity2,t.inputs.restitution,t.result.initialMomentum,t.result.finalMomentum].join(','))].join('\n');}
+    function drawTrials(){if(type!=='collision')return;const tbody=q('#courseTrialTable tbody');tbody.replaceChildren();for(let i=0;i<trials.length;i++){const t=trials[i],tr=document.createElement('tr');for(const value of [i+1,t.inputs.mass1,t.inputs.mass2,t.inputs.velocity1,t.inputs.velocity2,t.inputs.restitution,t.result.initialMomentum,t.result.finalMomentum]){const td=document.createElement('td');td.textContent=f(value);tr.appendChild(td);}tbody.appendChild(tr);}q('#courseExportTrials').disabled=!trials.length;q('#courseClearTrials').disabled=!trials.length;q('#courseRecordTrial').disabled=!getResult().valid||trials.length>=20;q('#courseTrialStatus').textContent=trials.length?trials.length+' of 20 trials recorded. Export CSV to keep this session.':'Record up to 20 parameter sets to compare momentum before and after.';q('#courseTrialCSV').hidden=true;}
+    if(type==='collision'){
+      q('#courseRecordTrial').addEventListener('click',()=>{const r=getResult();if(!r.valid||trials.length>=20)return;trials.push({inputs:{...inputs},result:{...r}});drawTrials();});
+      q('#courseClearTrials').addEventListener('click',()=>{trials=[];drawTrials();});
+      q('#courseExportTrials').addEventListener('click',()=>{if(!trials.length)return;const content=csv(),ta=q('#courseTrialCSV');ta.value=content;ta.hidden=false;q('#courseTrialStatus').textContent='CSV is shown below. Your browser may also download orbit-collision-trials.csv.';try{const url=URL.createObjectURL(new Blob([content],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download='orbit-collision-trials.csv';a.click();root.setTimeout(()=>URL.revokeObjectURL(url),1000);}catch(_){q('#courseTrialStatus').textContent='Copy the CSV below to save your recorded trials.';}});
+    }
+    render(true);
+    return {play,pause,reset,seek,redraw:()=>render(true),inspect:()=>({type,inputs:{...inputs},valid:getResult().valid,result:getResult(),trials:trials.map(t=>({inputs:{...t.inputs},result:{...t.result}})),animation:{running,elapsed,duration:physics.duration(type,inputs),sample:physics.sample(type,inputs,elapsed)}}),destroy(){if(destroyed)return;pause();destroyed=true;document.removeEventListener('visibilitychange',hidden);host.replaceChildren();}};
+  }
+  root.OrbitCourseExperiments=Object.freeze({supported:TYPES,mount});
+})(typeof window==='object'?window:null);
+
+</script>
+  <script>
+(function (global) {
+  'use strict';
+  const categories = { forces: 'Forces', energy: 'Work & energy', momentum: 'Momentum' };
+  const colors = { forces: ['#486845','#accb77','#d4e7b0'], energy: ['#74618d','#b5a0cd','#e0d4ed'], momentum: ['#8a704b','#c6a475','#ebd4b4'] };
+  const NS = 'http://www.w3.org/2000/svg';
+  function element(tag, attrs, text) { const el = document.createElement(tag); if (attrs) Object.keys(attrs).forEach(k => { if (k === 'class') el.className = attrs[k]; else el.setAttribute(k, attrs[k]); }); if (text !== undefined) el.textContent = text; return el; }
+  function svgElement(tag, attrs, text) { const el = document.createElementNS(NS, tag); Object.keys(attrs || {}).forEach(k => el.setAttribute(k, attrs[k])); if (text !== undefined) el.textContent = text; return el; }
+  function artwork(item, index) {
+    const c = colors[item.family] || colors.forces;
+    const art = element('div', { class: 'card-art ' + item.family, 'aria-hidden': 'true' });
+    art.append(element('span', { class: 'card-number' }, String(index + 1).padStart(2, '0')));
+    const svg = svgElement('svg', { viewBox: '0 0 360 157', focusable: 'false' });
+    const add = (tag, attrs, text) => { const x = svgElement(tag, attrs, text); svg.append(x); return x; };
+    for (let x = 30; x < 360; x += 30) for (let y = 25; y < 150; y += 27) add('circle', { cx:x, cy:y, r:.6, fill:c[0], opacity:.12 });
+    const line = (x1,y1,x2,y2,extra) => add('line', Object.assign({x1,y1,x2,y2,stroke:c[0],'stroke-width':1.5,'stroke-linecap':'round'},extra));
+    const rect = (x,y,w,h,fill,rx) => add('rect',{x,y,width:w,height:h,rx:rx||3,fill});
+    if (item.experiment === 'forces' || item.experiment === 'friction') {
+      line(61,118,299,118,{opacity:.5}); rect(121,66,76,47,c[1],7); rect(128,72,62,3,c[2],1);
+      line(204,88,266,88,{'stroke-width':2.5}); add('path',{d:'M256 80 L267 88 L256 96',fill:'none',stroke:c[0],'stroke-width':2.5});
+      add('text',{x:229,y:73,fill:c[0],'font-size':12,'font-family':'Georgia,serif','font-style':'italic'},'F');
+      if (item.experiment === 'friction') {line(113,97,78,97,{'stroke-width':2}); add('path',{d:'M88 90 L77 97 L88 104',fill:'none',stroke:c[0],'stroke-width':2}); for(let x=65;x<300;x+=12)line(x,119,x-6,126,{opacity:.35});}
+      else {line(159,59,159,29,{opacity:.5});line(159,116,159,138,{opacity:.5});}
+    } else if (item.experiment === 'work') {
+      line(52,120,307,120,{opacity:.5}); rect(91,76,53,40,c[1],6); rect(215,76,53,40,c[2],6); line(155,95,199,95,{'stroke-dasharray':'4 5',opacity:.6}); add('path',{d:'M192 89 L201 95 L192 101',fill:'none',stroke:c[0]}); line(115,135,241,135,{opacity:.5}); line(115,131,115,139,{opacity:.5});line(241,131,241,139,{opacity:.5});
+    } else if (item.experiment === 'energy') {
+      line(84,125,279,125,{opacity:.4}); rect(104,62,29,63,c[2],4); rect(141,83,29,42,c[1],4); rect(178,102,29,23,c[0],4); add('circle',{cx:245,cy:48,r:16,fill:c[1]});line(245,74,245,101,{'stroke-dasharray':'3 4'});add('path',{d:'M239 95 L245 104 L251 95',fill:'none',stroke:c[0],'stroke-width':1.5});
+    } else if (item.experiment === 'power') {
+      add('circle',{cx:180,cy:81,r:47,fill:'none',stroke:c[1],'stroke-width':11});add('path',{d:'M180 34 A47 47 0 0 1 225 95',fill:'none',stroke:c[0],'stroke-width':11,'stroke-linecap':'round'});add('path',{d:'M186 53 L165 85 H181 L174 108 L196 75 H180 Z',fill:c[0]});
+    } else if (item.experiment === 'momentum' || item.experiment === 'impulse') {
+      line(55,119,308,119,{opacity:.45});rect(142,74,80,34,c[1],6);add('circle',{cx:159,cy:111,r:7,fill:c[0]});add('circle',{cx:206,cy:111,r:7,fill:c[0]});for(let j=0;j<3;j++)line(89-j*13,83+j*11,127,83+j*11,{opacity:.45});line(233,91,279,91,{'stroke-width':2});add('path',{d:'M270 84 L280 91 L270 98',fill:'none',stroke:c[0],'stroke-width':2});
+      if(item.experiment==='impulse')add('path',{d:'M132 52 L143 58 L134 64 L145 70',fill:'none',stroke:c[0],'stroke-width':1.5});
+    } else {
+      line(50,120,310,120,{opacity:.45});rect(88,75,62,34,c[1],6);rect(208,75,62,34,c[2],6);[102,136,222,256].forEach(cx=>add('circle',{cx,cy:112,r:6,fill:c[0]}));line(156,91,173,91,{'stroke-width':2});add('path',{d:'M167 86 L174 91 L167 96',fill:'none',stroke:c[0]});line(200,91,184,91,{'stroke-width':2});add('path',{d:'M190 86 L183 91 L190 96',fill:'none',stroke:c[0]});line(178,61,178,69);line(169,64,172,70);line(187,64,184,70);
+    }
+    art.append(svg, element('span', { class:'art-symbol' }, item.formula));
+    return art;
+  }
+  function mount(root) {
+    const doc = root && root.querySelector ? root : document;
+    const byId = id => doc.querySelector('#' + id);
+    const catalog = Array.from(global.OrbitSimulatorCatalog || []).filter(item => global.OrbitCourseExperiments && global.OrbitCourseExperiments.supported.includes(item.experiment));
+    let family = 'all', search = '', selectedId = null, widget = null, view = 'gallery';
+    let suppressHash = false;
+    const grid = byId('simulatorGrid'), filterHost = byId('simulatorFilters');
+    if (!grid || !filterHost) return null;
+    function card(item, index) {
+      const el = element('article', { class:'simulator-card ' + item.family, 'data-simulator':item.id });
+      el.append(artwork(item, index));
+      const content = element('div', { class:'card-content' });
+      content.append(element('p', { class:'card-category' }, categories[item.family] || 'Physics'), element('h3', null, item.title), element('p', { class:'card-summary' }, item.summary));
+      const play = element('button', { class:'play-card-button', type:'button', 'data-play-simulator':item.id, 'aria-label':'Play simulator: ' + item.title });
+      play.append(element('span', null, 'Play simulator'), element('span', { class:'play-glyph', 'aria-hidden':'true' }));
+      play.addEventListener('click', () => openSimulator(item.id, true)); content.append(play); el.append(content); return el;
+    }
+    function renderLibrary() {
+      const needle = search.trim().toLowerCase();
+      const shown = catalog.filter(item => (family === 'all' || item.family === family) && (!needle || [item.title,item.summary,categories[item.family]].join(' ').toLowerCase().includes(needle)));
+      grid.replaceChildren(...shown.map(item => card(item,catalog.indexOf(item))));
+      byId('simulatorEmpty').hidden = shown.length !== 0;
+      byId('simulatorCount').textContent = shown.length + ' simulator' + (shown.length === 1 ? '' : 's') + (family === 'all' && !needle ? ' to explore' : ' found');
+      filterHost.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.simulatorFilter === family)));
+    }
+    ['all','forces','energy','momentum'].forEach(key => {
+      const count = key === 'all' ? catalog.length : catalog.filter(item => item.family === key).length;
+      const button = element('button', { type:'button', class:'filter-button', 'data-simulator-filter':key, 'aria-pressed':String(key === 'all') });
+      button.append(element('span', null, key === 'all' ? 'All simulators' : categories[key]), element('span', { class:'filter-count' }, String(count)));
+      button.addEventListener('click', () => { family = key; renderLibrary(); }); filterHost.append(button);
+    });
+    function stopWidget() { if (widget) { widget.destroy(); widget = null; } }
+    function setHash(value) {
+      if (global.location.hash === value) return;
+      suppressHash = true;
+      try { global.history.replaceState(null,'',value); suppressHash = false; }
+      catch (_) { global.location.hash = value; }
+    }
+    function openSimulator(id, autoplay) {
+      const item = catalog.find(x => x.id === id);
+      if (!item) return showLibrary(false);
+      stopWidget(); selectedId = id; view = 'player';
+      byId('simulatorGallery').hidden = true; byId('simulatorView').hidden = false;
+      byId('simulatorFamily').textContent = categories[item.family] || 'Physics'; byId('simulatorTitle').textContent = item.title; byId('simulatorDescription').textContent = item.summary; byId('simulatorFormula').textContent = item.formula; byId('simulatorGoal').textContent = item.goal;
+      const index = catalog.indexOf(item); byId('simulatorPosition').textContent = String(index + 1) + ' of ' + catalog.length;
+      byId('previousSimulator').disabled = index === 0; byId('nextSimulator').disabled = index === catalog.length - 1;
+      widget = global.OrbitCourseExperiments.mount(byId('simulatorPlayer'),item.experiment);
+      setHash('#simulator/' + encodeURIComponent(id));
+      byId('simulatorTitle').focus({preventScroll:true});
+      global.scrollTo({top:0,behavior:'instant'});
+      if (autoplay && widget && typeof widget.play === 'function') widget.play();
+      return widget;
+    }
+    function showLibrary(focus) {
+      stopWidget(); view = 'gallery'; selectedId = null;
+      byId('simulatorGallery').hidden = false; byId('simulatorView').hidden = true; setHash('#library');
+      if (focus !== false) { byId('simulatorSearch').focus({preventScroll:true}); global.scrollTo({top:Math.max(0,byId('simulatorFilters').getBoundingClientRect().top + global.scrollY - 20),behavior:'instant'}); }
+    }
+    function route() {
+      if (suppressHash) { suppressHash = false; return; }
+      const match = global.location.hash.match(/^#(?:simulator|course|lesson)\/(.+)$/);
+      let id = null;
+      if (match) { try { id = decodeURIComponent(match[1]); } catch (_) {} }
+      if (id && catalog.some(item => item.id === id)) openSimulator(id,false); else showLibrary(false);
+    }
+    byId('simulatorSearch').addEventListener('input',event => { search = event.target.value; renderLibrary(); });
+    byId('simulatorClearFilters').addEventListener('click',() => { family='all';search='';byId('simulatorSearch').value='';renderLibrary();byId('simulatorSearch').focus(); });
+    byId('backToSimulators').addEventListener('click',() => showLibrary(true));
+    ['simulatorHome','simulatorLibrary'].forEach(id => byId(id).addEventListener('click',event => { event.preventDefault();showLibrary(false);global.scrollTo({top:0,behavior:'instant'}); }));
+    const footerLink = doc.querySelector('.footer-brand'); if (footerLink) footerLink.addEventListener('click',event => {event.preventDefault();showLibrary(false);global.scrollTo({top:0,behavior:'instant'});});
+    byId('previousSimulator').addEventListener('click',() => { const index=catalog.findIndex(item=>item.id===selectedId);if(index>0)openSimulator(catalog[index-1].id,false); });
+    byId('nextSimulator').addEventListener('click',() => { const index=catalog.findIndex(item=>item.id===selectedId);if(index>=0&&index<catalog.length-1)openSimulator(catalog[index+1].id,false); });
+    const pause = () => { if(widget)widget.pause(); };
+    document.addEventListener('visibilitychange',() => { if(document.hidden)pause(); });global.addEventListener('pagehide',pause);global.addEventListener('hashchange',route);
+    renderLibrary();route();
+    return {openSimulator,showLibrary,pause,inspect:() => ({view,selectedId,family,search,simulatorCount:catalog.length,simulatorIds:catalog.map(item=>item.id),experiment:widget?widget.inspect():null})};
+  }
+  global.OrbitSimulatorApp = {mount};
+})(window);
+
+</script>
+  <script>
+(function () {
+  'use strict';
+  function start() { window.OrbitSimulators = window.OrbitSimulatorApp.mount(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',start,{once:true}); else start();
+})();
+
+</script>
+</body>
+</html>
