@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#122b47">
+  <meta name="description" content="Discover chemistry and physics through interactive simulations. Change a variable, press play, and see the science happen with Orbit Science.">
+  <title>Orbit Science — Big ideas. Real discoveries.</title>
+  <style>{{CSS}}</style>
+</head>
+<body>
+  <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 4 12 8-12 8Z"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4Z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.5 4.8a5.5 5.5 0 0 0-7.8 0l-.7.7-.7-.7a5.5 5.5 0 0 0-7.8 7.8L12 21l8.5-8.4a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-filters" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="10" cy="18" r="2"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 5h12M9 12h12M9 19h12M3 5h1M3 12h1M3 19h1"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M20 12H4m6-6-6 6 6 6"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V3m-5 5 5-5 5 5M5 12v9h14v-9"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5Q7 2 2 4v15q5-2 10 1 5-3 10-1V4q-5-2-10 1ZM12 5v15"/></symbol><symbol id="i-flask" viewBox="0 0 24 24"><path d="M8 3h8m-6 0v7L4 19q-1 2 2 2h12q3 0 2-2l-6-9V3M7 15h10"/></symbol><symbol id="i-atom" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1"/></symbol>
+  </defs></svg>
+  <a class="skip-link" href="#catalogSection">Skip to simulations</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a id="homeLink" class="brand" href="#" aria-label="Orbit Science home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 42 42"><ellipse cx="21" cy="21" rx="18" ry="8" transform="rotate(-35 21 21)"/><ellipse cx="21" cy="21" rx="18" ry="8" transform="rotate(35 21 21)"/><circle cx="21" cy="21" r="4"/><circle cx="34.5" cy="9.5" r="2.5"/></svg></span><span>orbit<span class="brand-dot">.</span><small>SCIENCE IN YOUR HANDS</small></span></a>
+      <nav class="header-nav" aria-label="Main navigation"><a class="header-link is-active" href="#catalogSection">Simulations</a><button id="aboutButton" class="header-link" type="button">How it works</button></nav>
+      <div class="header-actions"><button id="lessonsButton" class="lessons-button" type="button"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg><span>Go to lesson</span></button><button id="savedToggle" class="saved-toggle" type="button" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-save"></use></svg><span>Saved</span><span id="savedCount" class="saved-count">0</span></button><button id="downloadWebsite" class="download-button" type="button"><svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg><span>Get the collection</span></button></div>
+    </div>
+  </header>
+  <main>
+    <div id="storageWarning" class="storage-warning" role="status" hidden></div>
+    <section id="gallerySection">
+      <section class="discovery-hero" aria-labelledby="heroTitle">
+        <div class="hero-inner">
+          <div class="hero-copy"><p class="eyebrow"><span class="yellow-spark" aria-hidden="true">✦</span> A LITTLE CURIOSITY GOES A LONG WAY</p><h1 id="heroTitle">Big ideas.<br>Real <em>discoveries.</em></h1><p class="hero-description">What if you could see the invisible? Explore chemistry and physics with simulations that put you in control.</p><div class="hero-details"><span><i class="live-dot" aria-hidden="true"></i> Real interactive experiments</span><span>No sign-up. Just curiosity.</span></div></div>
+          <div class="hero-art" aria-hidden="true">
+            <span class="art-label art-label-top">THINK. TINKER. DISCOVER.</span>
+            <svg viewBox="0 0 510 290" focusable="false">
+              <defs><linearGradient id="heroFluid" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#70c9f7"/><stop offset="1" stop-color="#298bd5"/></linearGradient><linearGradient id="heroBall" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8cc68"/><stop offset="1" stop-color="#ed9c3a"/></linearGradient><pattern id="heroDots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#b0c6d8"/></pattern></defs>
+              <rect x="20" y="18" width="470" height="250" fill="url(#heroDots)" opacity=".6"/>
+              <ellipse cx="256" cy="251" rx="170" ry="10" fill="#bccddc" opacity=".2"/>
+              <g transform="translate(43 15)"><path d="M128 52H190M140 53V124L90 216Q84 227 99 227H220Q234 227 228 216L179 124V53" fill="#fff" fill-opacity=".75" stroke="#22486b" stroke-width="2.5"/><path d="M122 165L97 216Q95 220 102 220H217Q224 220 221 216L197 165Q176 158 159 165T122 165Z" fill="url(#heroFluid)"/><path d="M147 57V127L105 206" stroke="#fff" stroke-width="4" opacity=".9" fill="none"/><g fill="#d8f2ff"><circle cx="132" cy="191" r="5"/><circle cx="180" cy="193" r="8"/><circle cx="164" cy="177" r="3"/><circle cx="204" cy="211" r="3"/></g><path d="M151 112q-7-9 0-17m16-18q-7-9 0-17" fill="none" stroke="#83afcc" stroke-width="2"/><circle cx="162" cy="35" r="5" fill="none" stroke="#83afcc" stroke-width="1.5"/></g>
+              <g transform="translate(317 90)"><path d="M-4 105V-16H134V105" fill="none" stroke="#6988a3" stroke-width="2"/><path d="M16-16 66 66" stroke="#22486b" stroke-width="2.5"/><circle cx="68" cy="69" r="25" fill="url(#heroBall)"/><circle cx="62" cy="62" r="7" fill="#ffe8a7" opacity=".7"/><path d="M17 27Q47 39 67 48" fill="none" stroke="#7fa4bd" stroke-dasharray="4 5"/><circle cx="16" cy="-16" r="4" fill="#244d6e"/><path d="M-25 112H152" stroke="#244d6e" stroke-width="3" stroke-linecap="round"/></g>
+              <g fill="none" stroke="#7ea9c7" stroke-width="1.5"><path d="M291 51h15m-7-7v15M103 100h13m-6-6v13"/><circle cx="455" cy="63" r="4"/><circle cx="272" cy="214" r="3"/><path d="M287 110q-17 10-14 27" stroke-dasharray="3 5"/></g>
+              <g transform="translate(266 142)"><circle cx="0" cy="0" r="12" fill="#799bd9"/><circle cx="30" cy="-18" r="8" fill="#b2c9ec"/><circle cx="26" cy="24" r="9" fill="#b2c9ec"/><path d="m8-5 15-9m-14 22 11 10" stroke="#557fa9" stroke-width="5"/></g>
+            </svg>
+            <span class="art-formula formula-chem">CHEMISTRY <b>+</b> PHYSICS</span><span class="art-label art-label-bottom">MAKE THE “WHAT IF” HAPPEN.</span>
+          </div>
+        </div>
+      </section>
+      <section id="catalogSection" class="catalog-section" aria-labelledby="catalogTitle">
+        <div class="catalog-topline"><div><p class="eyebrow">EXPLORE. EXPERIMENT. UNDERSTAND.</p><h2 id="catalogTitle">Find your next discovery</h2></div><p class="collection-note"><span class="tiny-atom" aria-hidden="true">✧</span> Built for hands-on minds.</p></div>
+        <div class="discovery-toolbar"><div id="subjectTabs" class="subject-tabs" role="group" aria-label="Choose a science subject"></div><label class="search-box" for="searchInput"><svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg><input id="searchInput" type="search" placeholder="Search a simulation or topic" autocomplete="off" aria-label="Search simulations"><button id="clearSearch" class="clear-search" type="button" aria-label="Clear search" hidden><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button></label></div>
+
+        <div class="catalog-layout">
+          <aside id="filterPanel" class="filter-panel" aria-label="Filter simulations"><div class="filter-panel-heading"><h3><svg class="icon" aria-hidden="true"><use href="#i-filters"></use></svg> Filter by</h3><button id="closeFilters" class="icon-button mobile-only" type="button" aria-label="Close filters"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button><button id="resetFilters" class="text-button" type="button">Reset all</button></div><div class="filter-group topic-filter-group"><div id="topicFilters" class="filter-options"></div></div><div class="filter-group"><h4 class="filter-heading">LEVEL</h4><div id="levelFilters" class="filter-options"></div></div><div class="filter-footnote"><svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg><p>Every simulation runs right here. Change a variable and see what happens.</p></div></aside>
+          <div class="results-panel"><div class="results-toolbar"><div class="results-heading"><button id="openFilters" class="filter-open-button" type="button" aria-expanded="false" aria-controls="filterPanel"><svg class="icon" aria-hidden="true"><use href="#i-filters"></use></svg> Filters <span id="filterCount" class="filter-count">0</span></button><p id="resultsCount" aria-live="polite">Finding your next discovery…</p></div><div class="results-options"><label class="sort-control" for="sortSelect"><span>Sort by</span><select id="sortSelect"><option value="featured">Featured</option><option value="az">Name A–Z</option><option value="za">Name Z–A</option></select></label><div class="view-switch" role="group" aria-label="Simulation layout"><button id="gridView" class="icon-button" type="button" title="Grid view" aria-label="Grid view" aria-pressed="true"><svg class="icon" aria-hidden="true"><use href="#i-grid"></use></svg></button><button id="listView" class="icon-button" type="button" title="List view" aria-label="List view" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-list"></use></svg></button></div></div></div><div id="activeFilters" class="active-filters" aria-label="Active filters"></div><div id="simGrid" class="sim-grid"></div><div id="emptyState" class="empty-state" hidden><span class="empty-mark" aria-hidden="true"><svg class="icon"><use href="#i-search"></use></svg></span><h3>No discoveries here yet</h3><p>Try another search or clear a filter to explore more science.</p><button id="clearEmptyFilters" class="button primary" type="button">Show all simulations</button></div><div class="collection-end"><span class="end-line"></span><span>Curiosity has no finish line.</span><span class="end-line"></span></div></div>
+        </div>
+      </section>
+    </section>
+    <section id="playerSection" class="player-section" aria-labelledby="simTitle" hidden>
+      <div class="player-breadcrumb"><button id="backToGallery" class="back-link" type="button"><svg class="icon" aria-hidden="true"><use href="#i-back"></use></svg> All simulations</button><span class="player-live-badge"><i class="live-dot" aria-hidden="true"></i> YOUR INTERACTIVE LAB</span></div>
+      <div class="simulation-intro"><div class="simulation-title-block"><p id="simSubject" class="eyebrow"></p><h1 id="simTitle" tabindex="-1"></h1><p id="simDescription"></p></div><div class="formula-card"><span>THE BIG IDEA</span><p id="simFormula"></p></div></div>
+      <div class="simulation-toolbar"><p><svg class="icon" aria-hidden="true"><use href="#i-filters"></use></svg> Change a variable. Follow your curiosity.</p><div><button id="saveSimulator" class="button secondary" type="button" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-save"></use></svg> Save</button><button id="shareSimulator" class="icon-button" type="button" aria-label="Copy simulation link" title="Copy simulation link"><svg class="icon" aria-hidden="true"><use href="#i-share"></use></svg></button><button id="fullscreenSimulator" class="icon-button" type="button" aria-label="Expand simulation" title="Expand simulation"><svg class="icon" aria-hidden="true"><use href="#i-expand"></use></svg></button></div></div>
+      <details id="lessonGuide" class="lesson-guide"><summary>Lesson guide <span>Start with an idea. Test it for yourself.</span></summary><div id="lessonGuideContent"></div></details><div id="simHost" class="simulation-host"></div>
+      <nav class="player-navigation" aria-label="Browse simulations"><button id="previousSimulator" class="button secondary" type="button"><svg class="icon" aria-hidden="true"><use href="#i-back"></use></svg> Previous</button><span id="simPosition"></span><button id="nextSimulator" class="button secondary" type="button">Next simulation <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button></nav>
+      <div class="related-heading"><p class="eyebrow">KEEP THE CURIOSITY GOING</p><h2>A little more to explore</h2></div><div id="relatedGrid" class="sim-grid related-grid"></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><div><span class="footer-brand">orbit<span>.</span><small>SCIENCE</small></span><p>Small experiments. Bigger understanding.</p></div><p class="footer-note">An independent collection of original chemistry and physics simulations.<br>Made to explore. Free to discover.</p><span class="footer-stamp"><svg class="icon" aria-hidden="true"><use href="#i-atom"></use></svg> STAY CURIOUS.</span></div></footer>
+  <div id="filterBackdrop" class="filter-backdrop" hidden></div>
+  <div id="modalOverlay" class="modal-overlay" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-heading"><h2 id="modalTitle"></h2><button id="modalClose" class="icon-button" type="button" aria-label="Close dialog"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button></div><div id="modalBody" class="modal-body"></div></section></div>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <noscript><p class="noscript">Enable JavaScript to use the interactive science simulations.</p></noscript>
+  <script>{{CHEM_CATALOG}}</script><script>{{CHEM_STRUCTURE}}</script><script>{{CHEM_REACTIONS}}</script><script>{{CHEM_EQUILIBRIUM}}</script><script>{{PHYSICS_EXTRA}}</script><script>{{CHEM_ENGINE}}</script><script>{{PHYSICS_ENGINE}}</script><script>{{CATALOG}}</script><script>{{ART}}</script><script>{{APP}}</script>
+</body>
+</html>
