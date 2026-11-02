@@ -87,8 +87,16 @@ def scientific_values(identifier, experiment):
     elif identifier == 'physics-waves':
         check(math.isclose(result['speed'], inputs['frequency'] * inputs['wavelength'], rel_tol=1e-10), 'Traveling wave speed')
     elif identifier == 'physics-pendulum':
-        expected = 2 * math.pi * math.sqrt(inputs['length'] / inputs['gravity'])
-        check(math.isclose(result['period'], expected, rel_tol=1e-10), 'Small-angle pendulum period')
+        # Independently integrate K(k) using Simpson quadrature; the model uses AGM.
+        k = math.sin(abs(math.radians(inputs['angle'])) / 2)
+        intervals = 2048
+        step = (math.pi / 2) / intervals
+        integrand = lambda x: 1 / math.sqrt(1 - k * k * math.sin(x) ** 2)
+        integral_sum = integrand(0) + integrand(math.pi / 2)
+        for index in range(1, intervals):
+            integral_sum += (4 if index % 2 else 2) * integrand(index * step)
+        expected = 4 * math.sqrt(inputs['length'] / inputs['gravity']) * integral_sum * step / 3
+        check(math.isclose(result['period'], expected, rel_tol=1e-10), 'Nonlinear pendulum period')
     elif identifier == 'physics-circuit':
         check(math.isclose(result['current'], inputs['voltage'] / inputs['resistance'], rel_tol=1e-10), 'Ohm law current')
         check(math.isclose(result['power'], inputs['voltage'] ** 2 / inputs['resistance'], rel_tol=1e-10), 'Resistive power')

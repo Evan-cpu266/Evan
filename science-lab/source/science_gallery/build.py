@@ -14,6 +14,7 @@ FILES={
     'PHYSICS_EXTRA':'science_gallery/physics-extra.js',
     'CHEM_ENGINE':'chemistry_lab/experiments.js',
     'PHYSICS_ENGINE':'orbit_course/experiments.js',
+    'PENDULUM_PLAYER':'science_gallery/pendulum-player.js',
     'CATALOG':'science_gallery/catalog.js',
     'ART':'science_gallery/art.js',
     'APP':'science_gallery/app.js',

@@ -808,35 +808,92 @@ main>.storage-warning{width:calc(100% - 32px);max-width:1320px;margin:16px auto;
     }
   };
 
-  models['physics-pendulum'] = {
-    title:'Pendulum Lab',duration:6,
-    note:'Small-angle model (initial angle from 0° to 15°): θ(t) = θ₀ cos(√(g/L)t), released from rest. The bob is a point mass on a massless rigid string; drag and friction are ignored. Pendulum length is labelled and the drawing automatically scales to fit.',
-    fields:[field('length','Pendulum length L','m',1,.1,3,.1),field('gravity','Gravity g','m/s²',9.81,.1,30,.01),field('angle','Initial angle θ₀','°',12,0,15,1)],
-    calculate(o) {
-      const error=check(o,[['length',.1,3],['gravity',.1,30],['angle',0,15]]);if(error)return invalid(error);
-      const angularFrequency=Math.sqrt(o.gravity/o.length),period=2*PI/angularFrequency,frequency=1/period;
-      return good({angularFrequency,period,frequency},[val('Small-angle period',period,'s'),val('Frequency',frequency,'Hz'),val('Initial angular displacement',o.angle,'°')]);
-    },
-    sample(o,r,p) {
-      const time=6*p,theta=o.angle*PI/180*Math.cos(r.angularFrequency*time),angularVelocity=-o.angle*PI/180*r.angularFrequency*Math.sin(r.angularFrequency*time),x=o.length*Math.sin(theta),drop=o.length*(1-Math.cos(theta));
-      return {time,theta,angle:theta*180/PI,angularVelocity,x,drop,values:[val('Model time',time,'s'),val('Angular displacement',theta*180/PI,'°'),val('Angular velocity',angularVelocity,'rad/s')]};
-    },
-    draw(svg,o,r,s,p,h) {
-      title(h,'What changes a pendulum’s period?','T ≈ 2π√(L/g)     ·     small angles only');
-      const cx=222,cy=91,length=172,bx=cx+length*Math.sin(s.theta),by=cy+length*Math.cos(s.theta);
-      h.rect(190,77,64,10,C.ink,3);h.line(cx,cy,cx,cy+length+10,C.line,1);
-      for(const sign of [-1,1]){const a=sign*o.angle*PI/180;h.line(cx,cy,cx+length*Math.sin(a),cy+length*Math.cos(a),C.line,1);}
-      h.line(cx,cy,bx,by,C.blue,3);h.circle(cx,cy,5,C.ink);h.circle(bx,by,17,C.orange);
-      h.text(128,188,'L = '+fmt(o.length)+' m',13,C.muted,'middle');h.text(222,314,'θ = '+fmt(s.angle)+'°',17,C.ink,'middle');
-      const gx=394,gy=266,w=278,gh=152,limit=Math.max(1,o.angle),plotY=a=>gy-gh/2-a/limit*gh/2;
-      h.line(gx,98,gx,gy,C.line,2);h.line(gx,plotY(0),gx+w,plotY(0),C.line,1);h.line(gx,gy,gx+w,gy,C.line,2);
-      let d='';for(let j=0;j<=150;j++){const t=6*j/150,a=o.angle*Math.cos(r.angularFrequency*t);d+=(j?' L':'M')+(gx+w*j/150)+' '+plotY(a);}
-      h.path(d,{stroke:C.blue,'stroke-width':2.5});h.line(gx+w*p,105,gx+w*p,gy,C.orange,1);h.circle(gx+w*p,plotY(s.angle),5,C.orange);
-      h.text(gx-10,117,'+'+fmt(limit)+'°',10,C.muted,'end');h.text(gx-10,gy,'−'+fmt(limit)+'°',10,C.muted,'end');
-      h.text(gx,286,'0 s',11,C.muted);h.text(gx+w,286,'6 s',11,C.muted,'end');h.text(gx+w/2,82,'Angle versus physical time',13,C.ink,'middle');
-      h.text(360,348,'t = '+fmt(s.time)+' s   ·   T = '+fmt(r.period)+' s   ·   no damping',12,C.ink,'middle');
+  models['physics-pendulum'] = (()=>{
+    const geometry=Object.freeze({pivotX:185,pivotY:105,lengthPixels:120,maxAngle:90});
+    const trajectories=new Map();
+    const duration=6;
+    // The exact period uses the arithmetic-geometric mean for the complete
+    // elliptic integral K(sin(|theta0|/2)), including its zero-angle limit.
+    function periodFor(length,gravity,angle) {
+      let a=1,b=Math.cos(Math.abs(angle)*PI/360);
+      for(let i=0;i<20&&Math.abs(a-b)>2e-16;i++) {
+        const mean=(a+b)/2;b=Math.sqrt(a*b);a=mean;
+      }
+      return 2*PI*Math.sqrt(length/gravity)/a;
     }
-  };
+    function trajectory(o,r) {
+      const key=o.length+'|'+o.gravity+'|'+o.angle;
+      if(trajectories.has(key)) {const cached=trajectories.get(key);trajectories.delete(key);trajectories.set(key,cached);return cached;}
+      const steps=Math.ceil(duration/Math.min(.002,r.period/1024)),dt=duration/steps;
+      const theta=new Float64Array(steps+1),velocity=new Float64Array(steps+1),q=o.gravity/o.length;
+      theta[0]=o.angle*PI/180;
+      for(let i=0;i<steps;i++) {
+        const a=theta[i],v=velocity[i];
+        const k1a=v,k1v=-q*Math.sin(a);
+        const k2a=v+dt*k1v/2,k2v=-q*Math.sin(a+dt*k1a/2);
+        const k3a=v+dt*k2v/2,k3v=-q*Math.sin(a+dt*k2a/2);
+        const k4a=v+dt*k3v,k4v=-q*Math.sin(a+dt*k3a);
+        theta[i+1]=a+dt*(k1a+2*k2a+2*k3a+k4a)/6;
+        velocity[i+1]=v+dt*(k1v+2*k2v+2*k3v+k4v)/6;
+      }
+      const table={theta,velocity,dt,steps};trajectories.set(key,table);
+      while(trajectories.size>4)trajectories.delete(trajectories.keys().next().value);
+      return table;
+    }
+    function atTime(o,r,time) {
+      if(o.angle===0)return {theta:0,angularVelocity:0};
+      const table=trajectory(o,r),position=Math.max(0,Math.min(duration,time))/table.dt;
+      const i=Math.min(table.steps-1,Math.floor(position)),u=Math.min(1,position-i),u2=u*u,u3=u2*u;
+      const a=table.theta[i],b=table.theta[i+1],v=table.velocity[i],w=table.velocity[i+1],dt=table.dt;
+      // Cubic Hermite interpolation keeps angle and angular velocity mutually
+      // consistent between accurate RK4 integration points.
+      const theta=(2*u3-3*u2+1)*a+(u3-2*u2+u)*dt*v+(-2*u3+3*u2)*b+(u3-u2)*dt*w;
+      const angularVelocity=((6*u2-6*u)*a+(3*u2-4*u+1)*dt*v+(-6*u2+6*u)*b+(3*u2-2*u)*dt*w)/dt;
+      return {theta,angularVelocity};
+    }
+    return {
+      title:'Pendulum Lab',duration,interaction:geometry,
+      note:'Drag the bob to either side, then release it to swing from rest. Initial angles from −90° to +90° are measured from the downward vertical. Motion uses the nonlinear equation θ″ = −(g/L) sinθ, so large-angle periods are accurate. The ideal pendulum has a point mass, a massless rigid rod and no damping. Playback shows six physical seconds; the drawing is scaled to fit.',
+      fields:[field('length','Pendulum length L','m',1,.1,3,.1),field('gravity','Gravity g','m/s²',9.81,.1,30,.01),field('angle','Initial angle θ₀','°',12,-90,90,.1)],
+      calculate(o) {
+        const error=check(o,[['length',.1,3],['gravity',.1,30],['angle',-90,90]]);if(error)return invalid(error);
+        const naturalFrequency=Math.sqrt(o.gravity/o.length),smallAnglePeriod=2*PI/naturalFrequency,period=periodFor(o.length,o.gravity,o.angle),frequency=1/period;
+        const maxAngularSpeed=2*naturalFrequency*Math.sin(Math.abs(o.angle)*PI/360);
+        return good({naturalFrequency,smallAnglePeriod,angularFrequency:2*PI/period,period,frequency,maxAngularSpeed},[val('Period at this release angle',period,'s'),val('Frequency',frequency,'Hz'),val('Initial angular displacement',o.angle,'°'),val('Maximum bob speed',o.length*maxAngularSpeed,'m/s')]);
+      },
+      sample(o,r,p) {
+        const time=duration*Math.max(0,Math.min(1,Number.isFinite(p)?p:0)),state=atTime(o,r,time),theta=state.theta;
+        const angle=theta*180/PI,x=o.length*Math.sin(theta),drop=o.length*(1-Math.cos(theta));
+        return {time,theta,angle,angularVelocity:state.angularVelocity,x,drop,values:[val('Model time',time,'s'),val('Live angle θ',angle,'°'),val('Angular velocity',state.angularVelocity,'rad/s')]};
+      },
+      draw(svg,o,r,s,p,h) {
+        title(h,'Drag. Hold. Release.','θ″ = −(g/L) sinθ     ·     release up to 90° from the vertical');
+        const cx=geometry.pivotX,cy=geometry.pivotY,length=geometry.lengthPixels,bx=cx+length*Math.sin(s.theta),by=cy+length*Math.cos(s.theta);
+        h.rect(48,73,276,238,C.pale,13);
+        h.rect(cx-29,cy-20,58,10,C.ink,3);
+        h.path('M'+cx+' '+cy+' L'+cx+' '+(cy+length+12),{stroke:C.line,'stroke-width':1.4,'stroke-dasharray':'4 5'});
+        const release=o.angle*PI/180;
+        h.path('M'+cx+' '+cy+' L'+(cx+length*Math.sin(release))+' '+(cy+length*Math.cos(release)),{stroke:C.line,'stroke-width':1.2,'stroke-dasharray':'3 4'});
+        const arcRadius=42;
+        if(Math.abs(s.theta)>1e-7)h.path('M'+cx+' '+(cy+arcRadius)+' A'+arcRadius+' '+arcRadius+' 0 0 '+(s.theta>0?0:1)+' '+(cx+arcRadius*Math.sin(s.theta))+' '+(cy+arcRadius*Math.cos(s.theta)),{stroke:C.green,'stroke-width':2});
+        h.text(cx+68*Math.sin(s.theta/2),cy+68*Math.cos(s.theta/2),fmt(s.angle)+'°',11,C.green,'middle');
+        h.el('line',{'data-pendulum-string':'',x1:cx,y1:cy,x2:bx,y2:by,stroke:C.blue,'stroke-width':3,'stroke-linecap':'round'});h.circle(cx,cy,5,C.ink);
+        const bob=h.el('g',{'data-pendulum-bob':'','class':'pendulum-bob','role':'button',tabindex:'0',style:'touch-action:none;cursor:grab','aria-label':'Pendulum bob. Drag to set angle and release to swing. Arrow keys adjust; Enter releases.'});
+        h.el('circle',{cx:bx,cy:by,r:29,fill:'transparent','pointer-events':'all',cursor:'grab',style:'touch-action:none'},undefined,bob);
+        h.el('circle',{cx:bx,cy:by,r:17,fill:C.orange,stroke:'#fff0ca','stroke-width':2,'pointer-events':'none'},undefined,bob);
+        h.el('circle',{cx:bx-5,cy:by-5,r:4,fill:'#ffe3a0',opacity:.7,'pointer-events':'none'},undefined,bob);
+        h.text(185,265,'θ = '+fmt(s.angle)+'°',20,C.ink,'middle');
+        h.text(185,287,'L = '+fmt(o.length)+' m · drag the bob',12,C.muted,'middle');
+        const gx=394,gy=266,w=278,gh=152,limit=Math.max(1,Math.abs(o.angle)),plotY=a=>gy-gh/2-a/limit*gh/2;
+        h.line(gx,98,gx,gy,C.line,2);h.line(gx,plotY(0),gx+w,plotY(0),C.line,1);h.line(gx,gy,gx+w,gy,C.line,2);
+        let d='';for(let j=0;j<=150;j++){const a=atTime(o,r,duration*j/150).theta*180/PI;d+=(j?' L':'M')+(gx+w*j/150)+' '+plotY(a);}
+        h.path(d,{stroke:C.blue,'stroke-width':2.5});h.line(gx+w*p,105,gx+w*p,gy,C.orange,1);h.circle(gx+w*p,plotY(s.angle),5,C.orange);
+        h.text(gx-10,117,'+'+fmt(limit)+'°',10,C.muted,'end');h.text(gx-10,gy,'−'+fmt(limit)+'°',10,C.muted,'end');
+        h.text(gx,286,'0 s',11,C.muted);h.text(gx+w,286,'6 s',11,C.muted,'end');h.text(gx+w/2,82,'Live angle versus physical time',13,C.ink,'middle');
+        h.text(360,340,'t = '+fmt(s.time)+' s   ·   T = '+fmt(r.period)+' s   ·   released from rest, no damping',12,C.ink,'middle');
+      }
+    };
+  })();
 
   models['physics-circuit'] = {
     title:'Ohm’s Law Circuit',duration:6,
@@ -1238,6 +1295,143 @@ main>.storage-warning{width:calc(100% - 32px);max-width:1320px;margin:16px auto;
   }
   root.OrbitCourseExperiments=Object.freeze({supported:TYPES,mount});
 })(typeof window==='object'?window:null);
+</script><script>/* Pointer and keyboard controls for Orbit Science's pendulum only. */
+(function(root){
+  'use strict';
+  const original=root.ChemistryExperiments;
+  const TYPE='physics-pendulum';
+  const clamp=value=>Math.max(-90,Math.min(90,value));
+  function mount(host,type){
+    const player=original.mount(host,type);
+    if(type!==TYPE)return player;
+    const model=root.ChemistryModels[TYPE],geometry=model.interaction;
+    const svg=host.querySelector('#courseSimulationScene');
+    const angleInput=host.querySelector('[data-input="angle"]');
+    const measurements=host.querySelector('#courseSimulationMeasurements');
+    let dragging=false,pointerId=null,offset={x:0,y:0},destroyed=false,writingAngle=false,cancelled=false;
+    const style=document.createElement('style');
+    style.textContent='.pendulum-interactive #courseSimulationScene{touch-action:none;user-select:none;-webkit-user-select:none}.pendulum-interactive [data-pendulum-bob]{cursor:grab;outline:none}.pendulum-interactive [data-pendulum-bob]:focus-visible circle{stroke:#125db7;stroke-width:4}.pendulum-interactive[data-dragging="true"] #courseSimulationScene,.pendulum-interactive[data-dragging="true"] [data-pendulum-bob]{cursor:grabbing}.pendulum-drag-status{display:grid;grid-template-columns:minmax(0,1fr) 112px;align-items:center;gap:12px;min-height:72px;padding:13px 16px;background:#eef5ff;border-bottom:1px solid #dce5f1;font-size:12px;line-height:1.6;color:#3d546d}.pendulum-drag-status>span{min-height:40px;display:flex;align-items:center}.pendulum-drag-status strong{text-align:right;color:#173b64;font-variant-numeric:tabular-nums;white-space:nowrap;font-size:16px}.pendulum-interactive[data-dragging="true"] .pendulum-drag-status{background:#fff3db}.pendulum-interactive[data-dragging="true"] #pendulumLiveAngle{color:#845000}@media(max-width:760px){.pendulum-drag-status{grid-template-columns:1fr;gap:4px;min-height:100px}.pendulum-drag-status strong{text-align:left}}';
+    host.prepend(style);host.classList.add('pendulum-interactive');
+    const status=document.createElement('div');status.className='pendulum-drag-status';
+    const hint=document.createElement('span');hint.id='pendulumDragHint';hint.setAttribute('role','status');
+    const live=document.createElement('strong');live.id='pendulumLiveAngle';live.setAttribute('aria-label','Live angle from downward vertical');
+    status.append(hint,live);svg.before(status);
+    function currentAngle(){const state=player.inspect();return dragging?state.inputs.angle:Number.isFinite(state.animation.sample?.angle)?state.animation.sample.angle:state.inputs.angle;}
+    function updateStatus(){
+      if(destroyed)return;
+      const state=player.inspect(),angle=currentAngle();
+      live.textContent=Number.isFinite(angle)?'θ = '+(Object.is(angle,-0)?0:angle).toFixed(1)+'°':'θ = —';
+      hint.textContent=dragging?'Release the bob to start from this angle.':cancelled?'Drag cancelled. Press Play or drag again.':state.animation.running?'Drag the bob to choose a new release angle.':'Drag the bob, or enter an angle and press Play.';
+      host.dataset.dragging=String(dragging);
+    }
+    function localPoint(event){
+      const matrix=svg.getScreenCTM();if(!matrix)return null;
+      try{const point=svg.createSVGPoint();point.x=event.clientX;point.y=event.clientY;const result=point.matrixTransform(matrix.inverse());return Number.isFinite(result.x)&&Number.isFinite(result.y)?result:null;}catch(_){return null;}
+    }
+    function bobPoint(){const angle=currentAngle()*Math.PI/180;return {x:geometry.pivotX+geometry.lengthPixels*Math.sin(angle),y:geometry.pivotY+geometry.lengthPixels*Math.cos(angle)};}
+    function onBob(event){
+      if(event.target?.closest?.('[data-pendulum-bob]'))return true;
+      const point=bobPoint(),matrix=svg.getScreenCTM();if(!matrix)return false;
+      const p=svg.createSVGPoint();p.x=point.x;p.y=point.y;const screen=p.matrixTransform(matrix);
+      return Math.hypot(event.clientX-screen.x,event.clientY-screen.y)<=24;
+    }
+    function setAngle(angle){
+      if(!Number.isFinite(angle))return;
+      const rounded=Math.round(clamp(angle)*10)/10;
+      writingAngle=true;
+      try{angleInput.value=String(Object.is(rounded,-0)?0:rounded);angleInput.dispatchEvent(new Event('input',{bubbles:true}));}
+      finally{writingAngle=false;}
+      updateStatus();
+    }
+    function applyPointer(event){const point=localPoint(event);if(!point)return;const dx=point.x-offset.x-geometry.pivotX,dy=point.y-offset.y-geometry.pivotY;setAngle(Math.atan2(dx,dy)*180/Math.PI);}
+    function releaseCapture(id){if(id===null)return;try{if(svg.hasPointerCapture?.(id))svg.releasePointerCapture(id);}catch(_){} }
+    function cancelDrag(showMessage=true){
+      if(!dragging)return;
+      const id=pointerId;dragging=false;pointerId=null;cancelled=showMessage;
+      player.pause();releaseCapture(id);updateStatus();
+    }
+    function down(event){
+      if(destroyed||dragging||event.isPrimary===false||event.button!==0||!player.inspect().valid||!onBob(event))return;
+      const point=localPoint(event);if(!point)return;
+      event.preventDefault();
+      const center=bobPoint(),angle=currentAngle();offset={x:point.x-center.x,y:point.y-center.y};
+      // Finish any native field edit before dragging changes its value. Leaving
+      // the angle field focused would commit a delayed change when Pause is
+      // clicked, resetting the player just before the button's click handler.
+      if(host.contains(document.activeElement)&&document.activeElement?.matches('input,select,textarea'))document.activeElement.blur();
+      player.pause();dragging=true;pointerId=event.pointerId;cancelled=false;setAngle(angle);
+      try{svg.setPointerCapture(event.pointerId);}catch(_){}
+      updateStatus();
+    }
+    function move(event){if(!dragging||event.pointerId!==pointerId)return;event.preventDefault();applyPointer(event);}
+    function up(event){
+      if(!dragging||event.pointerId!==pointerId)return;
+      event.preventDefault();applyPointer(event);
+      const id=pointerId;dragging=false;pointerId=null;cancelled=false;releaseCapture(id);
+      player.play();updateStatus();
+    }
+    function pointerCancel(event){if(dragging&&event.pointerId===pointerId)cancelDrag();}
+    function lostCapture(event){if(dragging&&event.pointerId===pointerId)cancelDrag();}
+    function captureInput(){if(!writingAngle&&dragging)cancelDrag(false);}
+    function captureChange(event){
+      const control=event.target,key=control?.dataset?.input;
+      if(key){
+        const value=control.tagName==='SELECT'?control.value:control.value.trim()===''?NaN:Number(control.value);
+        const current=player.inspect().inputs[key];
+        // Number fields already update on input. Their later native change
+        // must not redraw and remove the bob as keyboard focus moves to it.
+        if(Object.is(value,current)){
+          event.stopPropagation();updateStatus();return;
+        }
+      }
+      captureInput();
+    }
+    function input(){if(!writingAngle){cancelled=false;updateStatus();}}
+    function captureClick(event){if(event.target?.closest?.('button')&&dragging)cancelDrag(false);}
+    function click(){cancelled=false;updateStatus();}
+    function key(event){
+      if(event.key==='Escape'&&dragging){event.preventDefault();cancelDrag();return;}
+      if(!event.target?.closest?.('[data-pendulum-bob]'))return;
+      const change={ArrowLeft:-1,ArrowDown:-1,ArrowRight:1,ArrowUp:1}[event.key];
+      if(change){event.preventDefault();cancelled=false;const value=currentAngle();player.pause();setAngle(value+change*(event.shiftKey?10:1));svg.querySelector('[data-pendulum-bob]')?.focus({preventScroll:true});}
+      else if(event.key==='Enter'||event.code==='Space'){event.preventDefault();cancelDrag(false);cancelled=false;player.play();updateStatus();}
+    }
+    function escape(event){if(event.key==='Escape'&&dragging){event.preventDefault();cancelDrag();}}
+    function hidden(){if(document.hidden){cancelDrag(false);player.pause();updateStatus();}}
+    function blur(){cancelDrag();}
+    svg.addEventListener('pointerdown',down);
+    svg.addEventListener('lostpointercapture',lostCapture);
+    svg.addEventListener('keydown',key);
+    root.addEventListener('pointermove',move,{passive:false});
+    root.addEventListener('pointerup',up,{passive:false});
+    root.addEventListener('pointercancel',pointerCancel);
+    root.addEventListener('blur',blur);
+    root.addEventListener('keydown',escape);
+    document.addEventListener('visibilitychange',hidden);
+    host.addEventListener('input',captureInput,true);host.addEventListener('input',input);
+    host.addEventListener('change',captureChange,true);host.addEventListener('change',input);
+    host.addEventListener('click',captureClick,true);host.addEventListener('click',click);
+    const observer=new MutationObserver(updateStatus);observer.observe(measurements,{childList:true,characterData:true,subtree:true});
+    updateStatus();
+    return {
+      play(){cancelDrag(false);cancelled=false;player.play();updateStatus();},
+      pause(){cancelDrag(false);player.pause();updateStatus();},
+      reset(){cancelDrag(false);cancelled=false;player.reset();updateStatus();},
+      seek(time){cancelDrag(false);cancelled=false;player.seek(time);updateStatus();},
+      redraw(){player.redraw();updateStatus();},
+      inspect(){return {...player.inspect(),interaction:{dragging,angle:currentAngle(),pointerId}};},
+      destroy(){
+        if(destroyed)return;cancelDrag(false);destroyed=true;observer.disconnect();
+        svg.removeEventListener('pointerdown',down);svg.removeEventListener('lostpointercapture',lostCapture);svg.removeEventListener('keydown',key);
+        root.removeEventListener('pointermove',move);root.removeEventListener('pointerup',up);root.removeEventListener('pointercancel',pointerCancel);root.removeEventListener('blur',blur);root.removeEventListener('keydown',escape);
+        document.removeEventListener('visibilitychange',hidden);
+        host.removeEventListener('input',captureInput,true);host.removeEventListener('input',input);host.removeEventListener('change',captureChange,true);host.removeEventListener('change',input);host.removeEventListener('click',captureClick,true);host.removeEventListener('click',click);
+        host.classList.remove('pendulum-interactive');delete host.dataset.dragging;player.destroy();
+      }
+    };
+  }
+  root.ChemistryExperiments=Object.freeze({...original,mount});
+})(window);
 </script><script>(function (root, factory) {
   'use strict';
   if (typeof module === 'object' && module.exports) {
@@ -1301,7 +1495,7 @@ main>.storage-warning{width:calc(100% - 32px);max-width:1320px;margin:16px auto;
     ['physics-projectile','Projectile Motion','Launch a projectile and explore its flight, maximum height and range.','R = v₀² sin(2θ) / g','motion',['Choose launch speed, angle and gravitational acceleration.','Compare complementary launch angles at the same speed.','The ideal projectile lands at its launch height and experiences no air resistance.']],
     ['physics-acceleration','Motion & Acceleration Graphs','Watch a moving cart while position, velocity and acceleration graphs develop.','x = x₀ + v₀t + ½at²','motion',['Choose an initial position, velocity and constant acceleration.','Switch between position, velocity and acceleration graphs.','Compare the graph slope with the motion you observe.']],
     ['physics-waves','Wave Lab','Explore a traveling wave and connect frequency, wavelength and wave speed.','v = fλ','waves',['Change frequency, wavelength and amplitude.','Compare one wavelength with one full oscillation.','The wave travels through the diagram while the medium oscillates in place.']],
-    ['physics-pendulum','Pendulum Lab','Change length and gravity to explore the small-angle pendulum period.','T = 2π√(L / g)','motion',['Choose a length, gravity and a small release angle.','Compare periods for two different lengths.','The model assumes a point mass, no damping and a release angle no greater than 15°.']],
+    ['physics-pendulum','Pendulum Lab','Drag and release a pendulum through angles up to 90°, and explore how amplitude changes its period.','T = 4√(L/g) K(sin(|θ₀|/2))','motion',['Choose a length, gravity and an initial angle from −90° to +90°.','Drag the bob, watch the live angle, then release it to start swinging from rest.','Angles are measured from downward vertical. The nonlinear model assumes an ideal point mass, a massless rod and no damping.']],
     ['physics-circuit','Ohm’s Law Circuit','Connect a source and resistor and investigate current, voltage and power.','V = IR · P = VI','electricity',['Choose the source voltage and resistance.','Keep voltage fixed and double the resistance.','This is an ideal direct-current circuit; the moving charges are illustrative.']],
     ['physics-vectors','Vector Addition','Add two vectors and explore the resultant’s components, magnitude and direction.','R⃗ = A⃗ + B⃗','vectors',['Set the horizontal and vertical components of each vector.','Compare the head-to-tail diagram with the resultant arrow.','The direction is measured from the positive horizontal axis.']]
   ];
@@ -1452,7 +1646,7 @@ main>.storage-warning{width:calc(100% - 32px);max-width:1320px;margin:16px auto;
         line(52,143,429,143,colors.muted,1.5);let d='';for(let x=55;x<=425;x+=3)d+=(x===55?'M':'L')+x+' '+(143-54*Math.sin((x-55)/170*2*Math.PI));path(d,colors.blue,4);line(97,59,267,59,colors.yellow,2);line(97,53,97,66,colors.yellow,2);line(267,53,267,66,colors.yellow,2);text(181,45,'λ',25,colors.yellow,'middle');arrow(366,214,420,214,colors.mint,2);text(290,220,'v = fλ',22,colors.white,'middle');break;
       }
       case 'physics-pendulum': {
-        line(154,48,319,48,colors.muted,4);circle(238,54,4,colors.yellow);line(238,54,238,205,colors.muted,1.5,{'stroke-dasharray':'4 6',opacity:.6});line(238,54,277,199,colors.white,3);circle(277,199,20,colors.blue);path('M218 204Q249 216 280 202',colors.mint,2);path('M238 101A47 47 0 0 1 250 100',colors.yellow,2);text(271,111,'≤15°',15,colors.yellow);text(179,140,'L',23,colors.white);text(240,245,'T = 2π√(L / g)',20,colors.white,'middle');break;
+        line(154,48,319,48,colors.muted,4);circle(238,54,4,colors.yellow);line(238,54,238,205,colors.muted,1.5,{'stroke-dasharray':'4 6',opacity:.6});line(238,54,277,199,colors.white,3);circle(277,199,20,colors.blue);path('M218 204Q249 216 280 202',colors.mint,2);path('M238 101A47 47 0 0 1 250 100',colors.yellow,2);text(271,111,'±90°',15,colors.yellow);text(179,140,'L',23,colors.white);text(240,245,'DRAG · RELEASE · EXPLORE',20,colors.white,'middle');break;
       }
       case 'physics-circuit': {
         path('M123 111V73H354V190H123V150',colors.muted,4);line(103,123,144,123,colors.yellow,3);line(112,140,135,140,colors.yellow,5);path('M220 73L228 60L240 86L252 60L264 86L276 60L284 73',colors.coral,3);arrow(319,107,319,149,colors.mint,3);text(165,144,'9 V',20,colors.yellow);text(251,117,'3 Ω',20,colors.coral,'middle');text(240,231,'I = V / R = 3 A',21,colors.white,'middle');break;

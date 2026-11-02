@@ -8,6 +8,11 @@ Choose **Chemistry** or **Physics**, or use **Go to lesson** to choose a subject
 and topic directly. Search, topic and level filters, favorite simulations,
 lesson guides and phone layouts are included. No quizzes or sign-in.
 
+**Pendulum Lab:** set a release angle up to 90° on either side, drag the bob
+with a mouse or touch, watch its live angle and let go to start swinging.
+Large-angle motion uses the nonlinear pendulum equation. Arrow keys adjust
+the focused bob; Enter or Space releases it.
+
 ## Build from source
 
 ```sh

@@ -5,6 +5,15 @@ let checks=0;
 const test=(name,fn)=>{fn();checks++;process.stdout.write('✓ '+name+'\n');};
 const near=(a,b,epsilon=1e-9)=>assert.ok(Math.abs(a-b)<=epsilon*Math.max(1,Math.abs(b)),`${a} differs from ${b}`);
 const defaults=model=>Object.fromEntries(model.fields.map(f=>[f.key,f.value]));
+// Independent composite-Simpson integral, not the model's AGM implementation.
+function pendulumPeriod(length,gravity,angle){
+  const k=Math.sin(Math.abs(angle)*Math.PI/360),n=2048,step=(Math.PI/2)/n;
+  const f=x=>1/Math.sqrt(1-k*k*Math.sin(x)**2);
+  let sum=f(0)+f(Math.PI/2);
+  for(let i=1;i<n;i++)sum+=(i%2?4:2)*f(i*step);
+  return 4*Math.sqrt(length/gravity)*sum*step/3;
+}
+
 const projectile=models['physics-projectile'],acc=models['physics-acceleration'],wave=models['physics-waves'],pendulum=models['physics-pendulum'],circuit=models['physics-circuit'],vectors=models['physics-vectors'];
 
 test('six independent physics descriptors with usable valid defaults',()=>{
@@ -42,16 +51,25 @@ test('wave marker stays at one medium x-coordinate and within amplitude',()=>{
 test('zero amplitude gives a valid flat wave',()=>{
   const o={frequency:1,wavelength:1,amplitude:0},r=wave.calculate(o);assert.ok(r.valid);near(wave.sample(o,r,.21).markerDisplacement,0);
 });
-test('pendulum period for 1 m and known gravity equals 2π/√g',()=>{
-  const o={length:1,gravity:9.81,angle:12},r=pendulum.calculate(o);near(r.period,2*Math.PI/Math.sqrt(9.81));near(r.frequency,1/r.period);
-  const release=pendulum.sample(o,r,0);near(release.angle,12);near(release.angularVelocity,0);
-  const quarter=pendulum.sample(o,r,r.period/24);near(quarter.angle,0);assert.ok(quarter.angularVelocity<0);
-  near(pendulum.sample(o,r,r.period/6).angle,12);
+test('pendulum zero-angle period approaches the small-angle limit',()=>{
+  const r=pendulum.calculate({length:1,gravity:9.81,angle:0});
+  near(r.period,2*Math.PI/Math.sqrt(9.81));near(r.frequency,1/r.period);
+});
+test('pendulum 90-degree period and trajectory agree with independent nonlinear values',()=>{
+  const o={length:1,gravity:9.81,angle:90},r=pendulum.calculate(o);assert.ok(r.valid);
+  near(r.period,pendulumPeriod(o.length,o.gravity,o.angle),1e-10);
+  assert.ok(r.period>2*Math.PI/Math.sqrt(9.81));near(r.frequency,1/r.period);
+  const release=pendulum.sample(o,r,0);near(release.angle,90);near(release.angularVelocity,0);
+  const quarter=pendulum.sample(o,r,r.period/24);near(quarter.angle,0,1e-6);assert.ok(quarter.angularVelocity<0);
+  near(pendulum.sample(o,r,r.period/6).angle,90,1e-6);
 });
 test('pendulum four times the length doubles period',()=>{
   const a=pendulum.calculate({length:.5,gravity:9.81,angle:10}),b=pendulum.calculate({length:2,gravity:9.81,angle:10});near(b.period,2*a.period);
 });
-test('pendulum rejects beyond the stated small-angle range',()=>assert.equal(pendulum.calculate({length:1,gravity:9.81,angle:16}).valid,false));
+test('pendulum accepts both 90-degree directions and rejects angles outside that range',()=>{
+  for(const angle of[-90,90])assert.ok(pendulum.calculate({length:1,gravity:9.81,angle}).valid);
+  for(const angle of[-91,91])assert.equal(pendulum.calculate({length:1,gravity:9.81,angle}).valid,false);
+});
 test('circuit uses I=V/R and P=VI, allowing zero voltage',()=>{
   const r=circuit.calculate({voltage:12,resistance:100});near(r.current,.12);near(r.power,1.44);
   const zero=circuit.calculate({voltage:0,resistance:100});assert.ok(zero.valid);near(zero.current,0);near(zero.power,0);

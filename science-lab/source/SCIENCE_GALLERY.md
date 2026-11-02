@@ -37,12 +37,17 @@ power, momentum, impulse and two-cart collisions. Additional models cover:
 - Projectile motion on level ground with uniform gravity and no air resistance.
 - Constant acceleration with position, velocity and acceleration graphs.
 - Traveling sinusoidal waves with `v = fλ`.
-- Undamped, small-angle pendulums with release angles up to 15°.
+- Undamped, nonlinear pendulums with signed release angles from −90° to +90°.
+  Drag the bob to choose an angle measured from downward vertical; the live
+  angle updates while dragging, and release starts the swing from rest. Periods
+  use the complete elliptic integral rather than the small-angle approximation.
 - An ideal DC series circuit with one resistor and an ideal source.
 - Component and head-to-tail addition of two plane vectors.
 
 Animation playback is presentation time unless a model explicitly identifies it
-as physical time. Read the model note and labeled readouts. Collision trials are
+as physical time. The Pendulum Lab uses six seconds of physical model time.
+Its ideal point mass and massless rod have no damping or friction. Read the
+model note and labeled readouts. Collision trials are
 temporary and have their own CSV export. This gallery introduces no new personal
 data requirements and leaves previous Orbit websites unchanged.
 

@@ -19,6 +19,8 @@ Explore 37 working simulations: 23 chemistry and 14 physics.
 Choose a subject, search, filter topics and level, or use Go to lesson.
 Every lesson has a short guide and an interactive simulation with controls,
 measurements, playback, pause, reset, speed and a timeline. No quizzes.
+Pendulum Lab supports -90 to +90 degrees: drag the bob, read its live angle,
+and release to swing. Arrow keys adjust the bob; Enter or Space releases it.
 
 No account, installation, API key, external fonts or network is required.
 The site is an independent Orbit project, not affiliated with PhET or the
@@ -36,13 +38,13 @@ This package includes no personal records, uploaded files or login credentials.
 '''
 SOURCES=['science_gallery/index.html',*FILES.values(),'science_gallery/build.py',
          'science_gallery/package.py','SCIENCE_GALLERY.md','CHEMISTRY_SIMULATORS.md','ORBIT_COURSE.md',
-         'tests/science_catalog_test.cjs','tests/science_physics_test.cjs',
+         'tests/science_catalog_test.cjs','tests/science_physics_test.cjs','tests/science_pendulum_test.cjs','tests/science_pendulum_browser.py',
          'tests/science_browser_smoke.py','tests/chem_structure_test.cjs','tests/chem_reactions_test.cjs','tests/chem_equilibrium_test.cjs','tests/orbit_course_experiments_test.cjs','orbit-science.html']
 
 def write_zip(path,entries):
     with zipfile.ZipFile(path,'w',zipfile.ZIP_DEFLATED) as archive:
         for name,data in entries:
-            info=zipfile.ZipInfo(name,(2026,11,1,0,0,0))
+            info=zipfile.ZipInfo(name,(2026,11,2,0,0,0))
             info.compress_type=zipfile.ZIP_DEFLATED
             info.external_attr=0o644<<16
             archive.writestr(info,data)
