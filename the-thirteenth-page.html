@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="en" data-theme="midnight" data-motion="on">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#15121b">
+<meta name="description" content="Enter The Thirteenth Page: an animated mystery through English, Calculus, Physics, and AP Chemistry. Read the evidence, solve the rooms, and find the missing page.">
+<title>The Thirteenth Page · A Mystery Between Subjects</title>
+<style>:root{color-scheme:dark;--night:#15121b;--night-deep:#100e15;--surface:#211b29;--surface-2:#2b2332;--paper:#eee7d8;--text:#c4bbca;--muted:#958a9e;--brass:#d4b57b;--brass-bright:#f0d4a0;--line:#403547;--line-soft:#302836;--green:#a9c6b2;--green-dark:#24362e;--rose:#e4a7ae;--rose-dark:#432c37;--radius:13px;--shadow:0 22px 70px #0004;--serif:Georgia,"Times New Roman",serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Consolas,monospace;font-family:var(--sans);background:var(--night);color:var(--text);font-size:14px}
+*{box-sizing:border-box}body{margin:0;min-width:300px;background:radial-gradient(ellipse at 72% 1%,#41304438,transparent 49%),var(--night);color:var(--text)}body:before{content:"";position:fixed;pointer-events:none;inset:0;z-index:90;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.55' filter='url(%23n)'/%3E%3C/svg%3E")}button,input,select,textarea{font:inherit}button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}button{cursor:pointer;color:inherit}button:disabled{cursor:not-allowed;opacity:.5}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--brass-bright);outline-offset:4px}button,input,textarea,select{max-width:100%}[hidden]{display:none!important}h1,h2,h3,h4,p{margin-top:0}h1,h2,h3,h4{font-family:var(--serif);font-weight:400;color:var(--paper)}p{line-height:1.85}a{color:var(--brass);text-underline-offset:4px}svg{max-width:100%}.icon{width:19px;height:19px;flex:0 0 auto;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.skip-link{position:fixed;z-index:200;top:9px;left:12px;background:var(--paper);color:var(--night);padding:13px 18px;border-radius:5px;transform:translateY(-150%)}.skip-link:focus{transform:translateY(0)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.muted{color:var(--muted)}.small{font-size:12px}.eyebrow,.chapter-number,.subject-tag,.clue-number,.clue-skill,.room-caption,.case-progress,.archive-footer,.seal,.cover-meta,.evidence-label{font-family:var(--mono)}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--brass);line-height:1.8;margin-bottom:19px}.section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin:40px 0 20px}.section-heading h2,.section-heading h3{font-size:32px;line-height:1.2;letter-spacing:-.6px;margin:0}.section-heading p{font-size:12px;color:var(--muted);margin:0;max-width:420px}.archive-shell{position:relative;z-index:1}.archive-header{display:flex;align-items:center;justify-content:space-between;gap:25px;max-width:1480px;margin:0 auto;padding:29px 44px;border-bottom:1px solid var(--line-soft)}.archive-brand{display:flex;align-items:center;gap:12px;padding:0;border:0;background:none;text-align:left;flex:0 1 auto}.brand-seal{width:44px;height:44px;display:block;flex:0 0 44px;color:var(--brass)}.brand-seal svg{width:100%;height:100%;stroke:currentColor;stroke-width:1}.brand-copy{display:flex;flex-direction:column;gap:7px;min-width:0}.brand-copy strong{font:14px var(--serif);letter-spacing:1.5px;color:var(--paper);line-height:1.2}.brand-copy small{font:7px var(--mono);letter-spacing:1.8px;color:var(--muted);line-height:1.5}.archive-tools{display:flex;align-items:center;gap:9px;min-width:0}.case-progress{font-size:10px;color:var(--brass);white-space:nowrap;margin-right:11px}.icon-button{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid transparent;border-radius:7px;background:transparent;color:var(--muted);flex:0 0 44px}.icon-button:hover{border-color:var(--line);background:var(--surface);color:var(--brass)}.button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;border:1px solid var(--line);border-radius:6px;background:var(--surface-2);color:var(--paper);font-size:12px;line-height:1.5;padding:12px 19px;text-decoration:none;transition:background .2s,border-color .2s,transform .2s;text-align:center}.button:hover:not(:disabled){border-color:#947c61;background:#39303d}.button.primary{background:var(--brass);border-color:var(--brass);color:#241c25;font-weight:600}.button.primary:hover:not(:disabled){background:var(--brass-bright);border-color:var(--brass-bright);transform:translateY(-1px)}.button.secondary{background:transparent;border-color:#6a576a;color:var(--paper)}.button.ghost{background:transparent;border-color:transparent;color:var(--muted)}.button.ghost:hover:not(:disabled){border-color:var(--line);background:var(--surface);color:var(--brass)}.button .icon{width:16px;height:16px}.archive-tools .button{font-size:11px;padding:10px 13px;min-height:44px}.archive-main{max-width:1392px;margin:0 auto;padding:45px 44px 42px;min-height:calc(100vh - 220px);outline:none}.archive-footer{max-width:1392px;margin:0 auto;padding:25px 44px 33px;border-top:1px solid var(--line-soft);display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:8px;letter-spacing:.5px;line-height:1.7;color:var(--muted)}.archive-footer>span:nth-child(2){color:var(--brass);letter-spacing:1.3px;font-size:7px}.archive-footer i{font-style:normal;margin:0 6px;color:var(--line)}
+/* A quiet cover, with movement at its edges. */
+.cover{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(240px,.85fr);gap:35px;align-items:center;min-height:535px;padding:35px 30px 40px;border-bottom:1px solid var(--line);overflow:hidden}.cover:before{content:"";position:absolute;z-index:-1;right:3%;top:4%;width:44%;height:87%;border:1px solid #d4b57b1a;border-radius:50% 50% 5px 5px;background:radial-gradient(ellipse at 50% 40%,#77526819,transparent 68%)}.cover:after{content:"";position:absolute;width:1px;height:85px;background:linear-gradient(transparent,var(--brass),transparent);right:45%;top:0;opacity:.4}.cover-title{font-size:clamp(58px,6.6vw,97px);line-height:.98;letter-spacing:-3.8px;margin:0 0 26px;max-width:760px}.cover-title em,.cover-title .accent{font-style:italic;font-weight:400;color:var(--brass)}.cover-lede{font-size:14px;color:#bfb4c5;line-height:1.95;max-width:535px;margin-bottom:29px}.cover-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.cover-actions .button{min-height:48px;padding:13px 21px}.cover-meta{display:flex;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:8px;line-height:1.8;letter-spacing:.5px;margin-top:26px}.cover-meta strong{font-weight:400;color:var(--brass)}.book-emblem{display:block;width:100%;max-width:430px;margin:0 auto;filter:drop-shadow(0 25px 35px #0006);animation:bookFloat 7s ease-in-out infinite;transform-origin:center}.book-emblem svg{display:block;width:100%;height:auto;overflow:visible}.book-emblem>svg{min-height:240px}.cover .book-emblem{aspect-ratio:1;display:flex;align-items:center;justify-content:center}.chapter-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px;margin:23px 0 30px}.chapter-card{position:relative;min-width:0;padding:28px 25px 25px;border:1px solid var(--line);background:linear-gradient(145deg,#2b2230aa,var(--surface));border-radius:var(--radius);display:flex;flex-direction:column;gap:12px;overflow:hidden;box-shadow:0 7px 20px #0001;animation:fadeUp .7s both}.chapter-card:nth-child(2){animation-delay:.1s}.chapter-card:nth-child(3){animation-delay:.2s}.chapter-card:after{content:"";position:absolute;width:53px;height:3px;background:var(--brass);top:0;left:25px;opacity:.7}.chapter-number{font-size:9px;letter-spacing:1.2px;color:var(--muted);margin:0}.subject-tag{display:inline-flex;width:max-content;max-width:100%;font-size:8px;line-height:1.5;letter-spacing:.8px;text-transform:uppercase;border:1px solid #685239;color:var(--brass);background:#3b3028;padding:5px 8px;border-radius:3px;white-space:normal}.chapter-card h2,.chapter-card h3{font-size:31px;line-height:1.16;letter-spacing:-.6px;margin:4px 0}.chapter-card p{color:var(--muted);font-size:12px;line-height:1.85;margin:0}.chapter-card .button{align-self:flex-start;margin-top:auto}.chapter-card .progress-track{margin:8px 0 4px}.chapter-card.is-complete{border-color:#6b78614d}.chapter-card.is-complete:after{background:var(--green)}.chapter-card.locked{filter:saturate(.6)}.progress-track{width:100%;height:3px;border-radius:5px;background:#453849;overflow:hidden}.progress-track>i,.progress-track>span{height:100%;display:block;background:var(--brass);border-radius:5px;transition:width .6s}.panel,.empty-state,.evidence-panel{border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);padding:26px;min-width:0}.panel h2,.panel h3,.evidence-panel h2,.evidence-panel h3{font-size:27px;margin:0 0 15px;line-height:1.2}.panel p,.evidence-panel p{font-size:12px;color:var(--text)}.panel+.panel{margin-top:18px}.panel p:last-child{margin-bottom:0}.empty-state{text-align:center;padding:38px 24px;border-style:dashed}.empty-state h2,.empty-state h3{font-size:27px}.empty-state p{max-width:470px;margin:0 auto 19px;font-size:13px;color:var(--muted)}
+/* The room itself, and its readable list of objects. */
+.room-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:25px}.room-heading h1{font-size:clamp(35px,4vw,54px);line-height:1.1;letter-spacing:-1.4px;margin:0 0 13px}.room-heading p{max-width:750px;font-size:13px;color:var(--muted);line-height:1.9;margin-bottom:0}.room-heading .eyebrow{margin-bottom:11px}.room-layout{display:grid;grid-template-columns:minmax(0,1fr) 307px;gap:20px;align-items:start;margin:25px 0}.room-stage{position:relative;min-width:0;background:#100e17;border:1px solid #685047;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}.room-stage canvas,#roomCanvas{width:100%;height:470px;min-height:300px;display:block;touch-action:manipulation;background:#12101c}.room-stage:after{position:absolute;content:"";pointer-events:none;inset:7px;border:1px solid #d4b57b16;border-radius:7px}.room-caption{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:16px 19px;border-top:1px solid #403342;background:#1c1723;font-size:9px;line-height:1.8;color:#b5a3b7;letter-spacing:.35px}.room-caption strong{color:var(--brass);font-weight:400}.evidence-panel{padding:23px}.evidence-panel>p{font-size:12px;line-height:1.8;color:var(--muted)}.object-list{display:grid;gap:10px;margin:18px 0}.object-button{display:flex;align-items:center;justify-content:flex-start;gap:12px;width:100%;min-height:74px;padding:14px 12px;border:1px solid var(--line);border-radius:8px;background:#2b2231;text-align:left;color:var(--paper);font-size:12px;line-height:1.7;transition:background .2s,border-color .2s,transform .2s}.object-button>span{min-width:0}.object-button strong{display:block;font-size:12px;font-weight:500;line-height:1.6}.object-button small{display:block;color:var(--muted);font-size:9px;line-height:1.7;margin-top:4px}.object-button .clue-number{color:var(--brass);font-size:10px;flex:0 0 24px;min-width:24px}.object-button:hover{border-color:#94765f;background:#362a3a;transform:translateX(-2px)}.object-button.solved,.object-button.is-solved{border-color:#53654d;color:var(--green);background:#28332d}.object-button.solved .clue-number,.object-button.is-solved .clue-number{color:var(--green)}.object-button.solved small,.object-button.is-solved small{color:#a5b7aa}.seal-strip{display:flex;gap:15px;align-items:center;justify-content:center;flex-wrap:wrap;margin:27px 0}.seal{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;min-width:114px;min-height:83px;padding:17px 20px;color:var(--muted);border:1px solid var(--line);outline:1px solid #40354744;outline-offset:-6px;background:#211b29;font-size:14px;letter-spacing:2px;text-align:center;border-radius:4px}.seal small{font-size:7px;letter-spacing:1.4px;line-height:1.7;color:var(--muted)}.seal.unlocked,.seal.is-unlocked,.seal.complete{color:var(--brass);border-color:#92734b;background:linear-gradient(135deg,#48382944,#29212e);box-shadow:0 0 35px #d4b57b09}.seal.unlocked:before,.seal.is-unlocked:before,.seal.complete:before{content:"";position:absolute;inset:5px;border:1px solid #d4b57b2b;pointer-events:none}.seal.reveal{animation:sealReveal 1s both}.room-reveal{border-left:2px solid var(--brass);padding:17px 21px;background:#352a30;color:var(--brass-bright);font:17px/1.8 var(--serif);border-radius:0 7px 7px 0;margin-top:20px}.room-actions,.action-row{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin:19px 0}
+/* Clue sheets are meant to be read, not rushed. */
+.clue-number,.clue-skill{font-size:9px;letter-spacing:1px;color:var(--brass);text-transform:uppercase;line-height:1.7}.clue-skill{color:var(--muted);margin:0 0 19px}.clue-passage{position:relative;white-space:pre-wrap;overflow-wrap:anywhere;font:18px/1.9 var(--serif);color:#e1d7e4;background:#29212f;border-left:2px solid var(--brass);border-radius:0 8px 8px 0;padding:23px 25px;margin:17px 0 23px;letter-spacing:.03px}.clue-passage p{font:inherit;color:inherit;margin:0}.clue-prompt{font-size:15px;line-height:1.9;color:var(--paper);font-weight:500;margin:20px 0 17px}.choice-list{display:grid;gap:11px;margin:15px 0 22px}.choice-button{position:relative;display:flex;align-items:center;gap:13px;width:100%;min-height:58px;text-align:left;padding:15px 17px;border:1px solid var(--line);border-radius:8px;background:#211b29;color:var(--text);font-size:13px;line-height:1.75;white-space:normal;overflow-wrap:anywhere;transition:background .15s,border-color .15s}.choice-button>span:first-child{flex:0 0 auto}.choice-button .choice-letter,.choice-button .letter{display:inline-flex;align-items:center;justify-content:center;width:25px;height:25px;border:1px solid var(--line);border-radius:50%;font:10px var(--mono);color:var(--muted)}.choice-button:hover:not(:disabled){border-color:#8a7188;background:#302537}.choice-button.selected,.choice-button[aria-pressed=true]{border-color:var(--brass);background:#3b302d;color:var(--paper)}.choice-button.correct{border-color:#789d7c;background:var(--green-dark);color:#d2e7d6;opacity:1}.choice-button.incorrect{border-color:#a76878;background:var(--rose-dark);color:#f0c4cc;opacity:1}.choice-button:disabled:not(.correct):not(.incorrect){opacity:.65}.puzzle-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:19px 0}.feedback{font-size:13px;line-height:1.85;color:var(--text);padding:12px 0;overflow-wrap:anywhere}.feedback.success,.feedback.correct{color:var(--green)}.feedback.error,.feedback.incorrect{color:var(--rose)}.hint-box{padding:15px 18px;border:1px dashed #7b644b;border-radius:8px;background:#493a282f;color:var(--brass-bright);font-size:12px;line-height:1.9;margin:14px 0;animation:fadeUp .35s both}.hint-box strong{font-weight:500}.explanation{padding:20px 22px;border:1px solid #536c58;border-radius:9px;background:#25372d66;color:#c2d2c3;font-size:13px;line-height:1.9;margin:18px 0;animation:fadeUp .4s both}.explanation strong{color:#d9ead7;font-weight:500}.explanation h3{font:22px var(--serif);color:#d9ead7;margin:0 0 11px}.evidence-card{padding:20px;border:1px solid var(--line);border-radius:8px;background:var(--surface);min-width:0;position:relative;overflow:hidden}.evidence-card:before{content:"";position:absolute;top:0;left:20px;width:26px;height:2px;background:var(--brass)}.evidence-card h3{font-size:22px;margin:0 0 10px}.evidence-card p{font-size:12px;line-height:1.9;color:var(--muted);margin:0}.evidence-card .subject-tag{margin-bottom:13px}.evidence-card .clue-skill{display:block;margin:0 0 9px}.clue-visual{border:1px solid var(--line);border-radius:9px;background:#181420;margin:19px 0;padding:15px;max-width:100%;overflow:auto}.clue-visual svg{display:block;margin:0 auto;width:100%;height:auto;min-width:250px;max-height:360px}.clue-visual figcaption{font-size:11px;line-height:1.8;color:var(--muted);text-align:center;margin-top:12px}.clue-visual table{border-collapse:collapse;width:100%;font-size:12px}.clue-visual th,.clue-visual td{padding:10px;text-align:left;border-bottom:1px solid var(--line)}.clue-visual th{color:var(--brass);font-weight:500}.clue-visual code{font-family:var(--mono);font-size:12px}.formula{font:15px/1.8 var(--mono);color:var(--brass-bright);padding:15px 18px;border:1px solid var(--line);border-radius:7px;background:var(--night-deep);white-space:pre-wrap;overflow-wrap:anywhere}
+/* A personal casebook and the final threshold. */
+.notebook-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:22px;align-items:start;margin:22px 0}.notebook-grid .panel+.panel{margin-top:0}.evidence-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:22px 0}.field{display:flex;flex-direction:column;gap:9px;min-width:0;margin-bottom:19px}.field>label,.field>span{font-size:12px;color:var(--text);line-height:1.8}.field small{font-size:11px;line-height:1.8;color:var(--muted)}input,select,textarea{width:100%;max-width:100%;min-width:0;background:#16121e;border:1px solid #5c495f;border-radius:6px;padding:12px 13px;line-height:1.8;color:var(--paper);min-height:45px;font-size:13px}textarea{display:block;resize:vertical;min-height:125px}input::placeholder,textarea::placeholder{color:#8f7e97}input[type=checkbox]{width:19px;min-width:19px;min-height:19px;height:19px;accent-color:var(--brass)}.check-field{display:flex;gap:12px;align-items:center;font-size:13px;line-height:1.8}.check-field input{flex:0 0 19px}.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.settings-grid .field{margin-bottom:0}.glossary-list{margin:20px 0;display:grid;grid-template-columns:1fr 1fr;gap:15px}.glossary-list>div,.glossary-entry{padding:17px 19px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}.glossary-list dt,.glossary-entry h3{font:19px var(--serif);color:var(--paper);margin-bottom:8px}.glossary-list dd{font-size:12px;line-height:1.85;color:var(--muted);margin:0}.glossary-list dd+dd{margin-top:9px;color:var(--brass)}.finale{position:relative;isolation:isolate;text-align:center;border:1px solid #9a774b;background:radial-gradient(ellipse at 50% 10%,#62422d36,transparent 65%),var(--surface);padding:39px 34px;border-radius:var(--radius);margin:30px 0;overflow:hidden}.finale:before,.finale:after{content:"";position:absolute;inset:7px;border:1px solid #d4b57b22;border-radius:7px;pointer-events:none;z-index:-1}.finale:after{inset:13px;border-color:#d4b57b0d}.finale h2{font-size:42px;letter-spacing:-.8px;line-height:1.1;margin:13px 0 18px}.finale p{max-width:680px;margin-inline:auto;color:var(--text);font-size:13px;line-height:1.95}.finale .seal-strip{margin:21px 0}.finale .button{margin-top:7px}.finale.solved{animation:sealReveal 1.2s both}.ending-story{white-space:pre-wrap;font:20px/1.9 var(--serif);color:var(--paper);margin:28px auto;max-width:720px}.ending-mark{font:70px var(--serif);line-height:1.2;color:var(--brass);margin:18px 0}.certificate{background:#e9e0cb;color:#3c2d39;border:1px solid #c5b38b;outline:1px solid #b39a6e;outline-offset:-10px;border-radius:3px;padding:35px;max-width:760px;margin:28px auto;text-align:center}.certificate h2,.certificate h3{color:#362834}.certificate p{color:#685b64}.certificate .eyebrow{color:#8b6737}.certificate .name{font:32px var(--serif);padding:17px 0;color:#362834}.notes-count{font:9px var(--mono);color:var(--muted);text-align:right;margin-top:-9px}
+/* Dialog and ambient motion. */
+.modal-overlay{position:fixed;z-index:100;inset:0;display:flex;align-items:center;justify-content:center;background:#07050bcb;backdrop-filter:blur(9px);padding:25px}.modal{width:min(780px,100%);max-height:calc(100dvh - 50px);overflow:auto;background:var(--surface);border:1px solid #725a69;border-radius:13px;box-shadow:0 25px 100px #0008;animation:modalIn .28s both}.modal-header{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;padding:21px 25px;border-bottom:1px solid var(--line);background:var(--surface)}.modal-ornament{font-size:18px;color:var(--brass)}.modal-header h2{font:27px/1.25 var(--serif);margin:0;letter-spacing:-.4px;flex:1;min-width:0}.modal-header .icon-button{margin-right:-7px}.modal-body{padding:25px 29px 29px;font-size:13px;line-height:1.85}.modal-body>p:last-child{margin-bottom:0}.modal-body ul,.modal-body ol{padding-left:21px}.modal-body li+li{margin-top:7px}.modal-body pre{font:11px/1.8 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere;background:var(--night-deep);padding:17px;border:1px solid var(--line);border-radius:7px}.modal-body .field:first-child{margin-top:0}.toast{position:fixed;z-index:160;left:50%;bottom:23px;transform:translateX(-50%);max-width:calc(100vw - 32px);width:max-content;border:1px solid #dbbf8e;border-radius:7px;padding:15px 20px;background:#e7d9bd;color:#342937;font-size:12px;line-height:1.8;box-shadow:0 10px 35px #0005;text-align:center}.noscript{position:fixed;inset:auto 15px 15px;z-index:200;padding:20px;background:#e7d9bd;color:#342937;border:1px solid #dbbf8e;border-radius:7px;text-align:center}.archive-air{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}.loose-page{position:absolute;width:22px;height:30px;border:1px solid #d4b57b12;background:#d4b57b05;left:10%;top:-10%;animation:pageFall 28s linear infinite;transform:rotate(22deg)}.loose-page:after{content:"";position:absolute;inset:7px 4px;background:repeating-linear-gradient(transparent 0,transparent 3px,#d4b57b14 3px,#d4b57b14 4px)}.loose-page:nth-child(2){left:85%;width:15px;height:23px;animation-duration:36s;animation-delay:-17s}.loose-page:nth-child(3){left:53%;width:12px;height:18px;animation-duration:42s;animation-delay:-28s}.archive-air>i{position:absolute;width:2px;height:2px;background:#d4b57b66;border-radius:50%;box-shadow:0 0 8px #d4b57b44;left:9%;top:20%;animation:dustDrift 14s ease-in-out infinite}.archive-air>i:nth-last-child(2){left:94%;top:57%;animation-delay:-7s}.archive-air>i:nth-last-child(3){left:67%;top:79%;animation-delay:-5s}.archive-air>i:nth-last-child(4){left:21%;top:83%;animation-delay:-10s}html[data-motion=off] *,html[data-motion=off] *:before,html[data-motion=off] *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}html[data-motion=off] .loose-page{display:none}.archive-main>*{animation:fadeUp .45s both}.archive-main>.cover{animation:fadeUp .7s both}html[data-reading=large]{font-size:16px}html[data-reading=large] .clue-passage{font-size:21px}html[data-reading=large] .clue-prompt{font-size:17px}html[data-reading=large] .choice-button{font-size:15px}html[data-reading=large] .panel p,html[data-reading=large] .room-heading p,html[data-reading=large] .evidence-panel>p{font-size:14px}
+@keyframes bookFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-10px) rotate(.5deg)}}@keyframes fadeUp{from{opacity:0;transform:translateY(11px)}to{opacity:1;transform:translateY(0)}}@keyframes modalIn{from{opacity:0;transform:translateY(15px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes sealReveal{0%{box-shadow:0 0 0 #d4b57b00;filter:brightness(.7)}45%{box-shadow:0 0 70px #d4b57b33;filter:brightness(1.3)}100%{box-shadow:0 0 35px #d4b57b09;filter:brightness(1)}}@keyframes pageFall{0%{top:-10%;transform:translateX(0) rotate(15deg);opacity:0}10%{opacity:.7}85%{opacity:.5}100%{top:110%;transform:translateX(100px) rotate(180deg);opacity:0}}@keyframes dustDrift{0%,100%{transform:translate(0,0);opacity:.25}50%{transform:translate(15px,-35px);opacity:.8}}
+/* Paper changes reading surfaces; the illustrated rooms keep their night light. */
+html[data-theme=paper]{color-scheme:light;--night:#f0ece3;--night-deep:#e9e2d6;--surface:#faf7ef;--surface-2:#e9e0d4;--paper:#342938;--text:#594d5c;--muted:#776775;--brass:#8a6332;--brass-bright:#724b21;--line:#cec1c9;--line-soft:#ddd2d5;--green:#3b6748;--green-dark:#e3eddf;--rose:#964359;--rose-dark:#f6e5e6;--shadow:0 22px 70px #4a324014}html[data-theme=paper] body{background:radial-gradient(ellipse at 72% 1%,#c3a67c12,transparent 49%),var(--night)}html[data-theme=paper] .cover-lede{color:var(--text)}html[data-theme=paper] .cover:before{border-color:#8a633226;background:radial-gradient(ellipse at 50% 40%,#b19b7a1a,transparent 68%)}html[data-theme=paper] .chapter-card{background:linear-gradient(145deg,#fefbf2,var(--surface))}html[data-theme=paper] .subject-tag{background:#ede2cc;border-color:#b49463}html[data-theme=paper] .button.primary{color:#fff7e9;background:#805a2a;border-color:#805a2a}html[data-theme=paper] .button.primary:hover{background:#6c461e;border-color:#6c461e}html[data-theme=paper] .button:hover:not(:disabled){background:#e7dccb}html[data-theme=paper] .button.ghost:hover{color:var(--brass);background:#e9e0d4}html[data-theme=paper] .object-button{background:#f0e8df}html[data-theme=paper] .object-button:hover{background:#e8decf}html[data-theme=paper] .object-button.solved,html[data-theme=paper] .object-button.is-solved{background:#e3eddf;border-color:#7b9472}html[data-theme=paper] .object-button.solved small,html[data-theme=paper] .object-button.is-solved small{color:#476c4c}html[data-theme=paper] .seal{background:#e9e2d6}html[data-theme=paper] .seal.unlocked,html[data-theme=paper] .seal.is-unlocked,html[data-theme=paper] .seal.complete{background:#ece0c7;border-color:#a77e43}html[data-theme=paper] .clue-passage{background:#eee7de;color:#433345}html[data-theme=paper] .choice-button{background:#f7f2e8}html[data-theme=paper] .choice-button:hover:not(:disabled){background:#eae0d2}html[data-theme=paper] .choice-button.selected{background:#ede0c8}html[data-theme=paper] .choice-button.correct{background:#e3eddf;color:#35583a}html[data-theme=paper] .choice-button.incorrect{background:#f6e5e6;color:#8c3b51}html[data-theme=paper] .hint-box{background:#f0e5d1;color:#795728}html[data-theme=paper] .explanation{background:#e8efe2;color:#456049}html[data-theme=paper] .explanation strong,html[data-theme=paper] .explanation h3{color:#35563b}html[data-theme=paper] input,html[data-theme=paper] select,html[data-theme=paper] textarea{background:#fffdf7;border-color:#bcabb8;color:#342938}html[data-theme=paper] .clue-visual{background:#f1ebe1}html[data-theme=paper] .room-reveal{background:#ede1cd;color:#795728}html[data-theme=paper] .progress-track{background:#d7c9cc}html[data-theme=paper] .modal{box-shadow:0 25px 100px #24152c55}html[data-theme=paper] .loose-page{border-color:#8a63321a;background:#8a633207}html[data-theme=paper] .archive-air>i{background:#8a633266}
+@media(min-width:1450px){.cover-title{font-size:102px}.room-stage canvas,#roomCanvas{height:510px}.archive-main{padding-top:55px}}
+@media(max-width:1150px){.archive-header{padding-inline:30px}.archive-main{padding-inline:30px}.archive-footer{padding-inline:30px}.cover{gap:20px;padding-inline:15px;min-height:490px;grid-template-columns:1.12fr .88fr}.cover-title{font-size:75px;letter-spacing:-3px}.cover-lede{font-size:13px}.chapter-card{padding:25px 21px}.chapter-card h2,.chapter-card h3{font-size:29px}.room-layout{grid-template-columns:minmax(0,1fr) 270px}.room-stage canvas,#roomCanvas{height:450px}.evidence-panel{padding:21px}.object-button{padding:12px 10px}.archive-footer>span:nth-child(2){display:none}}
+@media(max-width:900px){.archive-header{padding:23px 25px;gap:17px}.brand-copy strong{font-size:12px;letter-spacing:1px}.brand-copy small{font-size:6px;letter-spacing:1.4px}.brand-seal{width:39px;height:39px;flex-basis:39px}.archive-main{padding:30px 25px 34px}.archive-footer{padding-inline:25px}.case-progress{font-size:9px;margin-right:1px}.archive-tools{gap:4px}.archive-tools .button{padding:10px 9px;font-size:10px;gap:6px}.cover{min-height:440px;gap:13px;padding:25px 0 35px;grid-template-columns:minmax(0,1.1fr) minmax(220px,.9fr)}.cover-title{font-size:65px;letter-spacing:-2.7px}.cover-lede{font-size:12px}.cover .eyebrow{font-size:8px;letter-spacing:1.6px;margin-bottom:16px}.cover-actions{gap:8px}.cover-actions .button{padding:11px 14px;font-size:11px;min-height:45px}.cover-meta{font-size:7px;gap:10px 14px;margin-top:22px}.chapter-grid{gap:13px}.chapter-card{padding:23px 17px;gap:10px}.chapter-card h2,.chapter-card h3{font-size:25px}.chapter-card p{font-size:11px}.chapter-card .button{font-size:11px;padding:10px 12px}.chapter-card:after{left:17px}.subject-tag{font-size:7px}.room-layout{grid-template-columns:minmax(0,1fr)}.room-stage canvas,#roomCanvas{height:450px}.evidence-panel{display:block;padding:23px}.object-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.object-button{min-height:75px;padding:13px}.evidence-panel>p{max-width:660px}.evidence-panel h2,.evidence-panel h3{font-size:26px}.notebook-grid{grid-template-columns:minmax(0,1fr)}.evidence-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-heading h2,.section-heading h3{font-size:29px}}
+@media(max-width:650px){.archive-header{display:grid;grid-template-columns:1fr;gap:17px;padding:21px 20px 13px}.archive-brand{gap:10px;width:max-content;max-width:100%}.brand-copy strong{font-size:13px;letter-spacing:1.5px}.brand-copy small{font-size:6.5px;letter-spacing:1.7px}.brand-seal{width:40px;height:40px;flex-basis:40px}.archive-tools{width:100%;justify-content:flex-end;gap:5px;border-top:1px solid var(--line-soft);padding-top:9px}.case-progress{margin-right:auto;margin-left:1px;font-size:9px}.archive-tools .button{font-size:11px;padding:10px 12px;gap:8px}.archive-tools .icon-button{width:44px;height:44px;flex-basis:44px}.archive-main{padding:24px 20px 30px}.archive-footer{padding:22px 20px 28px;display:block;font-size:8px}.archive-footer>span{display:block;margin-top:9px}.archive-footer>span:first-child{margin-top:0}.archive-footer>span:nth-child(2){display:block;font-size:7px;margin-top:13px}.cover{grid-template-columns:minmax(0,1fr);gap:20px;padding:14px 3px 27px;min-height:0;text-align:left}.cover-title{font-size:clamp(57px,13vw,79px);line-height:1.01;letter-spacing:-2.6px;max-width:530px;margin-bottom:23px}.cover-lede{font-size:13px;line-height:1.9;max-width:510px;margin-bottom:23px}.cover .eyebrow{font-size:8px;letter-spacing:1.7px;margin-bottom:18px}.cover:before{right:4%;top:auto;bottom:21px;width:70%;height:315px;left:15%}.cover:after{display:none}.cover .book-emblem{width:min(83%,360px);min-width:220px;max-height:340px;margin:2px auto 0}.cover-actions .button{min-height:46px;padding:12px 17px;font-size:12px}.cover-meta{font-size:7px;gap:10px 18px;line-height:1.8;margin-top:21px}.chapter-grid{grid-template-columns:minmax(0,1fr);gap:15px;margin-top:21px}.chapter-card{padding:25px;gap:11px}.chapter-card:after{left:25px}.chapter-card h2,.chapter-card h3{font-size:33px;margin:2px 0}.chapter-card p{font-size:12px}.chapter-card .button{font-size:12px;padding:11px 16px}.chapter-number{font-size:9px}.subject-tag{font-size:8px}.section-heading{align-items:flex-start;gap:14px;margin:31px 0 17px}.section-heading h2,.section-heading h3{font-size:28px;letter-spacing:-.5px}.section-heading p{font-size:10px;max-width:150px;text-align:right;line-height:1.8}.room-heading{display:block;margin-bottom:21px}.room-heading h1{font-size:38px;line-height:1.1;letter-spacing:-1px}.room-heading p{font-size:12px;line-height:1.9}.room-heading>.button{margin-top:16px}.room-layout{gap:17px;margin:21px 0}.room-stage canvas,#roomCanvas{height:350px;min-height:300px}.room-caption{padding:13px 14px;font-size:8px;line-height:1.8;gap:10px;flex-wrap:wrap}.evidence-panel{padding:21px}.object-list{gap:10px}.object-button{padding:12px 10px;gap:7px;min-height:86px}.object-button .clue-number{font-size:9px;flex-basis:19px;min-width:19px}.object-button strong{font-size:11px}.object-button small{font-size:8px}.panel,.empty-state{padding:22px}.panel h2,.panel h3{font-size:26px}.panel p{font-size:12px}.seal-strip{gap:10px;margin:23px 0}.seal{min-width:92px;min-height:77px;padding:15px 13px;font-size:12px;letter-spacing:1.4px}.seal small{font-size:6px;letter-spacing:1px}.notebook-grid{gap:17px}.evidence-grid{grid-template-columns:minmax(0,1fr);gap:13px}.settings-grid{grid-template-columns:minmax(0,1fr);gap:17px}.glossary-list{grid-template-columns:minmax(0,1fr);gap:12px}.finale{padding:30px 22px;margin:24px 0}.finale h2{font-size:36px;letter-spacing:-.6px}.finale p{font-size:12px}.ending-story{font-size:18px;line-height:1.9}.certificate{padding:28px 24px}.certificate .name{font-size:28px}.modal-overlay{padding:15px}.modal{max-height:calc(100dvh - 30px);border-radius:10px}.modal-header{padding:17px 19px;gap:9px}.modal-header h2{font-size:24px;letter-spacing:-.4px}.modal-ornament{font-size:15px}.modal-header .icon-button{margin-right:-5px}.modal-body{padding:21px;font-size:13px}.clue-passage{font-size:17px;line-height:1.85;padding:19px 20px;margin:15px 0 21px}.clue-prompt{font-size:14px;line-height:1.85}.clue-skill{font-size:8px;letter-spacing:.8px}.choice-button{font-size:12px;padding:14px;line-height:1.8;min-height:58px;gap:10px}.choice-button .choice-letter,.choice-button .letter{width:23px;height:23px;font-size:9px}.puzzle-actions{gap:8px}.puzzle-actions>.button{flex:1 1 125px;font-size:11px;padding:11px 12px}.hint-box{font-size:12px;padding:14px 16px}.explanation{font-size:12px;padding:18px}.clue-visual{padding:12px}.clue-visual svg{min-width:230px}.toast{bottom:15px;font-size:11px;padding:13px 16px}.book-emblem>svg{min-height:220px}.room-reveal{font-size:16px;padding:15px 18px}html[data-reading=large] .clue-passage{font-size:20px}html[data-reading=large] .choice-button{font-size:14px}}
+@media(max-width:360px){.archive-header{padding-inline:15px}.archive-main{padding-inline:15px}.archive-footer{padding-inline:15px}.archive-tools .button{padding-inline:9px;gap:5px;font-size:10px}.case-progress{font-size:8px}.brand-copy strong{font-size:12px;letter-spacing:1.15px}.brand-copy small{font-size:6px;letter-spacing:1.4px}.cover-title{font-size:56px;letter-spacing:-2.2px}.cover-lede{font-size:12px}.cover-actions{gap:8px}.cover-actions .button{padding:11px 12px;font-size:11px;flex:1 1 120px}.cover .book-emblem{width:90%;min-width:200px;max-height:290px}.chapter-card{padding:23px}.chapter-card h2,.chapter-card h3{font-size:31px}.room-heading h1{font-size:35px}.room-stage canvas,#roomCanvas{height:325px;min-height:290px}.object-list{grid-template-columns:minmax(0,1fr)}.object-button{min-height:70px;padding:14px 12px;gap:12px}.object-button strong{font-size:12px}.object-button small{font-size:9px}.evidence-panel,.panel{padding:20px}.section-heading{display:block}.section-heading p{max-width:none;text-align:left;margin-top:10px}.seal{min-width:82px;font-size:11px;padding:15px 10px}.seal-strip{gap:8px}.modal-overlay{padding:10px}.modal{max-height:calc(100dvh - 20px)}.modal-header{padding:15px}.modal-header h2{font-size:22px}.modal-body{padding:18px}.clue-passage{padding:17px 16px;font-size:17px}.choice-button{padding:13px 12px;font-size:12px}.finale{padding:27px 19px}.finale h2{font-size:32px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.loose-page{display:none}}
+@page{size:A4;margin:16mm}@media print{:root{color-scheme:light;--night:#fff;--surface:#fff;--surface-2:#f3efe7;--paper:#302537;--text:#514558;--muted:#76677b;--brass:#845d2b;--line:#d3c9d7;--line-soft:#ded5e0;background:#fff}.archive-air,.archive-header,.archive-footer,.skip-link,.modal-overlay,.toast,.button,.object-list,.cover-actions,.puzzle-actions{display:none!important}body{background:#fff;font-size:11pt}body:before{display:none}.archive-main{max-width:none;padding:0;min-height:0}.cover,.room-layout,.notebook-grid,.chapter-grid,.evidence-grid{display:block}.cover{border:0;padding:0;min-height:0}.cover-title{font-size:38pt;letter-spacing:-1pt}.cover-lede{color:#514558}.book-emblem{max-width:200px;animation:none}.panel,.evidence-panel,.evidence-card,.chapter-card{background:#fff;border-color:#d3c9d7;margin:0 0 18px;box-shadow:none;break-inside:avoid}.evidence-card p,.chapter-card p{color:#76677b}.clue-passage{background:#f3efe7;color:#514558}.seal{background:#f3efe7;color:#845d2b;border-color:#bea27b}.room-stage{max-width:650px;box-shadow:none}.room-stage canvas,#roomCanvas{height:auto;min-height:0;max-height:85mm}.room-caption{background:#f3efe7;color:#76677b}.field textarea,.field input{background:#fff;color:#302537;border-color:#d3c9d7;min-height:65px;resize:none}.finale{background:#fff;border-color:#bea27b;padding:20px;break-inside:avoid}.finale p{color:#514558}.ending-story{font-size:13pt;color:#514558}.clue-visual{background:#fff}.chapter-card:after{display:none}h1,h2,h3{break-after:avoid}.certificate{break-inside:avoid}.subject-tag{background:#f3efe7;color:#845d2b;border-color:#bea27b}.glossary-list{display:block}.glossary-list>div{background:#fff;margin-bottom:13px;break-inside:avoid}}
+
+/* Four doors and a living cover illustration. */
+.chapter-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.chapter-card:nth-child(4){animation-delay:.3s}.cover-art{position:relative;width:100%;max-width:600px;min-width:0;border:1px solid #80694b65;border-radius:180px 180px 12px 12px;overflow:hidden;background:#120f19;box-shadow:0 25px 60px #0004;isolation:isolate}.cover-art:after{position:absolute;inset:8px;content:"";border:1px solid #d4b57b24;border-radius:172px 172px 6px 6px;pointer-events:none;z-index:2}.cover-art canvas,#coverCanvas{display:block;width:100%;height:420px;min-width:0;background:#120f19}.stamp,small.stamp{display:inline-block;width:max-content;max-width:100%;font:8px/1.6 var(--mono);letter-spacing:1px;color:var(--brass);border:1px solid #80694b;padding:6px 8px;text-transform:uppercase;transform:rotate(-3deg);border-radius:2px}.chapter-meta{font:8px/1.8 var(--mono);color:var(--muted);display:flex;align-items:center;justify-content:space-between;gap:10px;margin:3px 0 5px}.case-counter{font:10px/1.8 var(--mono);color:var(--brass);letter-spacing:.5px}.story-reveal{white-space:pre-wrap;font:19px/1.95 var(--serif);color:var(--paper);border-left:2px solid var(--brass);padding:18px 23px;background:var(--surface-2);border-radius:0 8px 8px 0;margin:21px 0;animation:fadeUp .55s both}.room-caption>span{min-width:0}.cover>.cover-art{justify-self:center}.seal-strip .seal{flex:0 1 145px}
+@media(max-width:1150px){.chapter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.chapter-card{padding:26px 25px}.chapter-card h2,.chapter-card h3{font-size:32px}.chapter-card p{font-size:12px}.chapter-card:after{left:25px}.cover-art canvas,#coverCanvas{height:390px}.cover-title{font-size:72px}.archive-footer>span:last-child{font-size:7px}}
+@media(max-width:900px){.cover-art canvas,#coverCanvas{height:370px}.chapter-grid{gap:16px}.chapter-card{padding:25px 23px}.chapter-card:after{left:23px}.chapter-card h2,.chapter-card h3{font-size:30px}.chapter-card p{font-size:12px}.chapter-card .button{font-size:12px;padding:11px 15px}.cover-title{font-size:63px}}
+@media(max-width:650px){.chapter-grid{grid-template-columns:minmax(0,1fr)}.chapter-card{padding:25px}.chapter-card:after{left:25px}.chapter-card h2,.chapter-card h3{font-size:33px}.cover-title{font-size:clamp(57px,13vw,79px)}.cover-art{max-width:450px;width:100%;border-radius:170px 170px 10px 10px;margin-top:9px}.cover-art canvas,#coverCanvas{height:320px}.cover-art:after{border-radius:162px 162px 5px 5px}.seal-strip{display:grid;grid-template-columns:repeat(2,minmax(0,130px));gap:12px;justify-content:center}.seal-strip .seal{min-width:0;width:100%;min-height:77px}.story-reveal{font-size:18px;padding:17px 20px}.chapter-meta{font-size:8px}.archive-footer>span:last-child{font-size:7px;line-height:2}}
+@media(max-width:360px){.cover-title{font-size:56px}.cover-art canvas,#coverCanvas{height:300px}.chapter-card{padding:23px}.chapter-card:after{left:23px}.chapter-card h2,.chapter-card h3{font-size:31px}.seal-strip{grid-template-columns:repeat(2,minmax(0,112px));gap:10px}.story-reveal{font-size:17px;padding:16px 18px}}
+@media print{.cover-art{max-width:320px;margin:15px auto;box-shadow:none}.cover-art canvas,#coverCanvas{height:240px}.chapter-grid{display:block}.story-reveal{background:#f3efe7;color:#514558}.seal-strip{display:flex}.archive-main>*{animation:none}}
+
+/* Integrated clue visuals and journal typography. */
+.room-heading,.notebook-heading{display:block;margin:0 0 26px}.room-heading h1,.notebook-heading h1{font:400 clamp(37px,4vw,55px)/1.12 var(--serif);letter-spacing:-1.25px;color:var(--paper);margin:0 0 15px;max-width:950px}.room-heading p,.notebook-heading p{max-width:880px;font-size:13px;line-height:1.9;color:var(--muted);margin-bottom:0}.room-heading .eyebrow,.notebook-heading .eyebrow{font-size:9px;color:var(--brass);letter-spacing:1.8px;margin:0 0 13px}.cover-intro{font-size:12px;line-height:1.95;max-width:570px;color:var(--muted);margin:0 0 25px}.case-counter{display:flex;align-items:center;flex-wrap:wrap;gap:9px 19px;font-size:8px;letter-spacing:.6px;margin-top:23px;color:var(--muted)}.case-counter>span{position:relative}.case-counter>span+span:before{content:"·";position:absolute;left:-12px;color:var(--brass)}.room-nav{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:7px;margin:20px 0 26px}.room-nav .button{min-height:44px;font-size:11px}.seal.collected{color:var(--brass);border-color:#92734b;background:linear-gradient(135deg,#48382944,#29212e);box-shadow:0 0 35px #d4b57b09}.seal.collected:before{content:"";position:absolute;inset:5px;border:1px solid #d4b57b2b;pointer-events:none}.seal strong{display:block;font-size:15px;font-weight:500;line-height:1.5;letter-spacing:1.8px}.seal>span{font-size:7px;letter-spacing:.8px;line-height:1.7;color:var(--muted)}.room-summary .stamp{margin-top:4px;margin-bottom:16px}.room-summary .story-reveal{font:16px/1.85 var(--serif);padding:16px;margin-bottom:0}.room-summary .story-reveal p{font:inherit;line-height:inherit;color:var(--paper);margin:0 0 13px}.room-seal{display:block;font:500 17px/1.5 var(--mono);letter-spacing:2px;color:var(--brass);text-align:center;padding:9px 0}.clue-passage{white-space:pre-line;margin-inline:0}.clue-prompt{font-family:var(--sans);font-size:15px;letter-spacing:0}.plot-grid{stroke:var(--line);stroke-width:1;opacity:.8}.plot-axis{stroke:var(--muted);stroke-width:1.2}.plot-line{stroke:var(--brass-bright);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}.plot-point{fill:var(--brass-bright);stroke:var(--surface);stroke-width:1.5}.plot-label{font:12px var(--sans);fill:var(--text)}.clue-visual svg{display:block;width:100%;height:auto;min-width:420px;max-height:none}.clue-visual{max-width:100%;overflow-x:auto;scrollbar-width:thin}.clue-visual figcaption{min-width:0;text-align:left;overflow-wrap:anywhere}.table-wrap{max-width:100%;width:100%;overflow-x:auto;scrollbar-width:thin;border:1px solid var(--line);border-radius:8px;margin:19px 0}.table-wrap table{min-width:350px;width:100%;border-collapse:collapse;text-align:left;font-size:12px;line-height:1.7}.table-wrap th,.table-wrap td{border-bottom:1px solid var(--line);padding:11px 13px;vertical-align:top}.table-wrap th{font-weight:500;color:var(--brass);background:var(--night-deep)}.table-wrap td{color:var(--text)}.table-wrap tbody tr:last-child td{border-bottom:0}.particle-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.particle-groups>div{border:1px solid var(--line);border-radius:8px;padding:17px;background:var(--surface)}.particle-groups>div>strong{display:block;font:17px/1.5 var(--serif);color:var(--paper);margin-bottom:15px}.particle-groups>div>span{display:block;font:10px/1.8 var(--mono);color:var(--muted);margin-top:13px}.particle-set{display:flex;align-items:center;justify-content:flex-start;gap:15px 17px;flex-wrap:wrap;min-height:60px;padding:5px 0}.molecule{position:relative;display:inline-flex;align-items:center;justify-content:center;flex:0 0 42px;min-width:42px;width:42px;height:29px}.molecule i{display:block;width:24px;height:24px;border-radius:50%;border:1px solid #acbde1;background:radial-gradient(circle at 30% 25%,#e7edf7,#9db7d6 60%,#647a9c);box-shadow:inset -2px -2px 4px #24395244;flex:0 0 24px}.molecule i+i{margin-left:-6px}.molecule.oxygen i{border-color:#ba8495;background:radial-gradient(circle at 30% 25%,#f4cad0,#cd8499 60%,#94576e)}.molecule.hydrogen i{border-color:#8cbbcf;background:radial-gradient(circle at 30% 25%,#e3f3f2,#8bbfc7 60%,#527f96)}.circuit-diagram{padding:22px 25px}.circuit-diagram>strong{display:block;font:12px var(--mono);color:var(--brass);text-align:center;margin-bottom:18px}.circuit-branches{display:grid;grid-template-columns:minmax(0,1fr);gap:0;position:relative;border-left:2px solid var(--brass);border-right:2px solid var(--brass);max-width:360px;margin:0 auto 19px;padding:9px 10px}.circuit-branches:before,.circuit-branches:after{content:"";position:absolute;width:15px;height:2px;background:var(--brass);top:50%}.circuit-branches:before{left:-15px}.circuit-branches:after{right:-15px}.circuit-branches>span{display:block;font:17px/2.5 var(--mono);color:var(--paper);text-align:center;white-space:nowrap}.circuit-diagram p{font-size:11px;text-align:center;line-height:1.8;margin-bottom:0}.journal-room{margin-bottom:21px}.journal-room .evidence-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-bottom:12px}.journal-room .evidence-card .stamp{font-size:7px;letter-spacing:.5px;margin:17px 0 10px;color:var(--brass);padding:5px 7px}.journal-room .evidence-card .button{font-size:11px;margin-top:9px}.journal-room .evidence-card h3{font-size:23px}.journal-room p.empty-state{padding:22px;text-align:left;font-size:12px;border-radius:7px;margin:20px 0}.glossary-list details{min-width:0;border:1px solid var(--line);border-radius:7px;padding:15px 17px;background:var(--surface)}.glossary-list summary{font:18px/1.6 var(--serif);color:var(--paper);cursor:pointer}.glossary-list details p{font-size:12px;line-height:1.85;margin:12px 0 0}.setting-toggle{display:flex;align-items:flex-start;gap:12px;min-width:0;font-size:13px;line-height:1.8;padding-top:9px}.setting-toggle input{margin-top:3px;flex:0 0 19px}.setting-toggle span{min-width:0}.modal-body .story-reveal.finale{text-align:left;padding:24px;white-space:pre-line}.modal-body .story-reveal.finale h3{font-size:30px;margin:0 0 17px}.modal-body .story-reveal.finale p{font:17px/1.95 var(--serif);color:var(--paper)}
+html[data-theme=paper] .seal.collected{background:#ece0c7;border-color:#a77e43}html[data-theme=paper] .molecule{filter:saturate(1.15)}html[data-theme=paper] .particle-groups>div{background:#fffaf1}html[data-theme=paper] .room-summary .story-reveal p{color:var(--paper)}
+@media(max-width:900px){.cover-intro{font-size:11px}.case-counter{font-size:7px;gap:8px 15px}.case-counter>span+span:before{left:-10px}.room-heading h1,.notebook-heading h1{font-size:43px}.journal-room .evidence-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.room-heading h1,.notebook-heading h1{font-size:37px;letter-spacing:-.8px}.room-heading p,.notebook-heading p{font-size:12px;line-height:1.9}.room-heading .eyebrow,.notebook-heading .eyebrow{font-size:8px}.cover-intro{font-size:12px;line-height:1.9;margin-bottom:22px}.case-counter{font-size:7px;gap:7px 16px;margin-top:19px}.room-nav{justify-content:flex-start;gap:7px;margin-top:15px}.room-nav .button{font-size:10px;padding:11px 12px;flex:1 1 135px}.seal strong{font-size:13px;letter-spacing:1.5px}.seal>span{font-size:6px;letter-spacing:.6px}.journal-room .evidence-grid{grid-template-columns:minmax(0,1fr);gap:13px}.clue-visual svg{min-width:390px}.clue-visual{padding:12px}.particle-groups{gap:12px}.particle-groups>div{padding:13px 12px}.particle-groups>div>strong{font-size:16px;margin-bottom:10px}.particle-groups>div>span{font-size:9px}.particle-set{gap:13px 10px}.molecule{flex-basis:36px;min-width:36px;width:36px;height:26px}.molecule i{width:21px;height:21px;flex-basis:21px}.molecule i+i{margin-left:-6px}.circuit-diagram{padding:19px 23px}.circuit-branches>span{font-size:15px}.table-wrap th,.table-wrap td{padding:10px 11px;font-size:11px}.glossary-list summary{font-size:18px}.modal-body .story-reveal.finale{padding:21px}.modal-body .story-reveal.finale h3{font-size:27px}.modal-body .story-reveal.finale p{font-size:16px}}
+@media(max-width:360px){.room-heading h1,.notebook-heading h1{font-size:34px}.room-heading,.notebook-heading{margin-bottom:22px}.particle-groups{grid-template-columns:minmax(0,1fr)}.particle-set{gap:13px 16px;min-height:36px}.particle-groups>div{padding:15px}.circuit-branches>span{font-size:14px}.case-counter{font-size:7px;gap:7px 15px}}
+@media print{.room-heading h1,.notebook-heading h1{font-size:27pt}.room-nav{display:none}.plot-grid{stroke:#d9cfdc}.plot-axis{stroke:#76677b}.plot-line{stroke:#845d2b}.plot-point{fill:#845d2b;stroke:#fff}.plot-label{fill:#514558}.table-wrap{overflow:visible}.table-wrap table{min-width:0}.clue-visual svg{min-width:0}.particle-groups>div{background:#fff}.seal.collected{background:#f3efe7;color:#845d2b;border-color:#bea27b}.journal-room .evidence-grid{display:block}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#appMain">Skip to the mystery</a>
+<div class="archive-air" aria-hidden="true"><span class="loose-page"></span><span class="loose-page"></span><span class="loose-page"></span><i></i><i></i><i></i><i></i></div>
+<div class="archive-shell">
+  <header class="archive-header">
+    <button id="homeButton" class="archive-brand" type="button" aria-label="The Thirteenth Page home">
+      <span class="brand-seal" aria-hidden="true"><svg viewBox="0 0 42 42" fill="none"><circle cx="21" cy="21" r="19"/><circle cx="21" cy="21" r="15.5" stroke-dasharray="1 4"/><path d="M11 14c4-1 7 0 10 2 3-2 6-3 10-2v13c-4-1-7 0-10 2-3-2-6-3-10-2V14Zm10 2v13M15 18l3 1m-3 3 3 1m6-4 3-1m-3 5 3-1"/></svg></span>
+      <span class="brand-copy"><strong>THE THIRTEENTH PAGE</strong><small>A MYSTERY BETWEEN SUBJECTS</small></span>
+    </button>
+    <nav class="archive-tools" aria-label="Your investigation">
+      <span id="caseProgress" class="case-progress" role="status">0 / 16 clues</span>
+      <button id="notebookButton" class="button ghost" type="button"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 3h14v18H5zM3 7h4m-4 5h4m-4 5h4m4-9h5m-5 4h5m-5 4h3"/></svg><span>Casebook</span></button>
+      <button id="settingsButton" class="icon-button" type="button" aria-label="Appearance and motion settings" title="Appearance and motion settings"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 3v18m7-18v18m7-18v18M2 8h6m1 8h6m1-10h6"/><circle cx="5" cy="8" r="2"/><circle cx="12" cy="16" r="2"/><circle cx="19" cy="6" r="2"/></svg></button>
+      <button id="downloadButton" class="icon-button download-button" type="button" aria-label="Download the complete mystery" title="Download the complete mystery"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M4 15v6h16v-6"/></svg></button>
+    </nav>
+  </header>
+  <main id="appMain" class="archive-main" tabindex="-1" aria-label="The mystery"></main>
+  <footer class="archive-footer"><span>An original mystery in four subjects.</span><span>READ CLOSELY. QUESTION EVERYTHING.</span><span>ENGLISH <i>·</i> CALCULUS <i>·</i> PHYSICS <i>·</i> AP CHEMISTRY</span></footer>
+</div>
+<div id="modalOverlay" class="modal-overlay" hidden>
+  <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <header class="modal-header"><span class="modal-ornament" aria-hidden="true">✦</span><h2 id="modalTitle"></h2><button id="modalClose" class="icon-button" type="button" aria-label="Close dialog"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></header>
+    <div id="modalBody" class="modal-body"></div>
+  </section>
+</div>
+<div id="toast" class="toast" role="status" hidden></div>
+<noscript><p class="noscript">Enable JavaScript to enter the mystery and interact with its animated rooms.</p></noscript>
+<script id="mystery-state" type="application/json">null</script>
+<script>/* Original procedural scenery for The Thirteenth Page. No assets or network calls. */
+(function (root) {
+  'use strict';
+  const TAU = Math.PI * 2;
+  const palettes = {
+    reading: {top:'#17101f',bottom:'#302039',wall:'#39273e',edge:'#765362',wood:'#46313a',book:['#77544b','#4c6863','#6b455b','#958362','#514767'],glow:'#f6c578',ink:'#e6cfab',sky:'#22243c',accent:'#d8ab70',subject:'ENGLISH / THE READING ROOM'},
+    gallery: {top:'#0d1429',bottom:'#203544',wall:'#223548',edge:'#4a6275',wood:'#323c45',book:['#4e647f','#547970','#716184','#9a815e','#3f5c72'],glow:'#a4dbe0',ink:'#e0dbc4',sky:'#111c38',accent:'#9dcfd0',subject:'CALCULUS / THE OBSERVATORY'},
+    study: {top:'#0d1d25',bottom:'#23403e',wall:'#29413e',edge:'#58766b',wood:'#3c453c',book:['#607f6b','#7f6248','#466b73','#8a815b','#5b6b76'],glow:'#d9e09a',ink:'#e2d9b9',sky:'#153438',accent:'#c2d18f',subject:'AP CHEMISTRY / THE GLASSHOUSE'},
+    physics: {top:'#101827',bottom:'#343843',wall:'#343d49',edge:'#8a7960',wood:'#51483f',book:['#506777','#88724f','#6a6775','#7b614c','#547274'],glow:'#f0cd8c',ink:'#e4d6b9',sky:'#172a43',accent:'#dab77f',subject:'PHYSICS / THE CLOCKTOWER'}
+  };
+  const labels = {book:'The marked book',letter:'The sealed letter',window:'The window inscription',clock:'The stopped clock'};
+  function create(canvas, callbacks = {}) {
+    if (!canvas || typeof canvas.getContext !== 'function') throw new TypeError('A canvas is required.');
+    const c = canvas.getContext('2d');
+    if (!c) throw new Error('Canvas 2D is unavailable.');
+    let W = 1000, H = 560, ratio = 1, currentRoom = 'reading', current = {}, hotspots = [], hovered = null, down = null, disposed = false;
+    const mix = (a,b,t) => a+(b-a)*t;
+    function round(x,y,w,h,r=5) { const k=Math.max(0,Math.min(r,w/2,h/2));c.beginPath();c.moveTo(x+k,y);c.arcTo(x+w,y,x+w,y+h,k);c.arcTo(x+w,y+h,x,y+h,k);c.arcTo(x,y+h,x,y,k);c.arcTo(x,y,x+w,y,k);c.closePath(); }
+    function box(x,y,w,h,color,r=0) {c.fillStyle=color;if(r){round(x,y,w,h,r);c.fill();}else c.fillRect(x,y,w,h);}
+    function line(x1,y1,x2,y2,color,width=1) {c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.strokeStyle=color;c.lineWidth=width;c.stroke();}
+    function circle(x,y,r,fill,stroke,width=1) {if(r<=0)return;c.beginPath();c.arc(x,y,r,0,TAU);if(fill){c.fillStyle=fill;c.fill();}if(stroke){c.lineWidth=width;c.strokeStyle=stroke;c.stroke();}}
+    function glow(x,y,r,color) {const g=c.createRadialGradient(x,y,0,x,y,Math.max(1,r));g.addColorStop(0,color);g.addColorStop(1,'#00000000');c.fillStyle=g;c.fillRect(x-r,y-r,r*2,r*2);}
+    function text(value,x,y,size,color,align='left',font='Georgia') {c.font=size+'px '+font;c.textAlign=align;c.textBaseline='middle';c.fillStyle=color;c.fillText(value,x,y);}
+    function arch(x,y,w,h) {const r=w/2;c.beginPath();c.moveTo(x,y+h);c.lineTo(x,y+r);c.bezierCurveTo(x,y+r*.1,x+w*.2,y,x+r,y);c.bezierCurveTo(x+w*.8,y,x+w,y+r*.1,x+w,y+r);c.lineTo(x+w,y+h);c.closePath();}
+    function gear(x,y,r,teeth,rotation,color) {
+      c.save();c.translate(x,y);c.rotate(rotation);c.beginPath();
+      for(let i=0;i<teeth*4;i++){const a=i*TAU/(teeth*4),rr=r*(i%4===0||i%4===3?.83:1);const px=Math.cos(a)*rr,py=Math.sin(a)*rr;if(i===0)c.moveTo(px,py);else c.lineTo(px,py);}
+      c.closePath();c.fillStyle=color;c.fill();circle(0,0,r*.61,'#17202b','#b59a6466',1);
+      for(let i=0;i<6;i++){const a=i*TAU/6;line(Math.cos(a)*r*.14,Math.sin(a)*r*.14,Math.cos(a)*r*.58,Math.sin(a)*r*.58,color,Math.max(2,r*.10));}
+      circle(0,0,r*.15,'#b39968','#e0c58c55',1);c.restore();
+    }
+    function shelf(x,y,w,h,p,side) {
+      const g=c.createLinearGradient(x,y,x+w,y);g.addColorStop(0,'#100e16');g.addColorStop(.6,p.wall);g.addColorStop(1,'#17131d');box(x,y,w,h,g,2);
+      const rows=4, sh=h/rows;
+      for(let row=0;row<rows;row++) {
+        box(x+8,y+row*sh+8,w-16,sh-11,'#100f1a');
+        let bx=x+12, n=0;
+        while(bx<x+w-16){const bw=Math.max(5,w*(.042+((n*7+row*11+side)%5)*.008)),bh=sh*(.52+((n*3+row*5)%8)*.035);const by=y+(row+1)*sh-9-bh;
+          c.save();if((n+row)%8===0){c.translate(bx,by+bh);c.rotate(-.08);box(0,-bh,bw,bh,p.book[(n+row)%p.book.length],1);line(2,-bh+5,bw-2,-bh+5,'#d2b08a55');line(2,-9,bw-2,-9,'#d2b08a66');}else{box(bx,by,bw,bh,p.book[(n+row)%p.book.length],1);line(bx+2,by+5,bx+bw-2,by+5,'#d2b08a66');line(bx+2,by+bh-8,bx+bw-2,by+bh-8,'#d2b08a55');if(bw>8)line(bx+bw*.5,by+11,bx+bw*.5,by+bh*.6,'#1a122b33');}c.restore();bx+=bw+2;n++;
+        }
+        box(x-3,y+(row+1)*sh-8,w+6,7,p.wood,1);line(x,y+(row+1)*sh-8,x+w,y+(row+1)*sh-8,p.edge,1);
+      }
+      box(x-7,y-10,w+14,11,p.wood,2);box(x-3,y,w*.035,h,p.edge);box(x+w-3,y,w*.035,h,p.wood);box(x-10,y+h,w+20,13,p.wood,2);
+    }
+    function background(p,t) {
+      const wall=c.createLinearGradient(0,0,0,H);wall.addColorStop(0,p.top);wall.addColorStop(.68,p.bottom);wall.addColorStop(1,'#0d101b');box(0,0,W,H,wall);
+      // Architectural paneling, cornices and a vanishing-point parquet floor.
+      for(let i=0;i<9;i++){const x=W*i/8;line(x,0,x,H*.76,p.edge+'22');line(x+4,0,x+4,H*.76,'#00000022');}
+      line(0,H*.077,W,H*.077,p.edge+'55',2);line(0,H*.085,W,H*.085,'#00000077',4);
+      const floor=c.createLinearGradient(0,H*.75,0,H);floor.addColorStop(0,'#15131f');floor.addColorStop(1,p.wood);box(0,H*.75,W,H*.25,floor);
+      for(let i=-4;i<=12;i++){const x=W*i/8;line(W*.53,H*.7,x,H,'#b3947333');}
+      for(let i=0;i<7;i++){const y=H*(.76+.24*(i/6)**1.8);line(0,y,W,y,'#16131d99',1);}
+      // Patches of reflected moonlight on the floor.
+      c.save();c.globalAlpha=.07;c.fillStyle=p.glow;c.beginPath();c.moveTo(W*.46,H*.6);c.lineTo(W*.58,H*.6);c.lineTo(W*.89,H);c.lineTo(W*.37,H);c.closePath();c.fill();c.restore();
+      const shelfW=W*.245;shelf(W*.045,H*.18,shelfW,H*.5,p,1);
+      if(W>550)shelf(W*.755,H*.42,W*.2,H*.28,p,2);else{box(W*.76,H*.46,W*.20,H*.22,p.wood,3);for(let i=0;i<6;i++)box(W*(.775+i*.026),H*.49,W*.018,H*(.15-(i%3)*.016),p.book[i%5],1);}
+      // Brass plaques remain texture rather than puzzle answers.
+      box(W*.082,H*.711,W*.164,H*.035,'#ad875448',2);line(W*.096,H*.728,W*.231,H*.728,'#c7a87144');
+      for(let i=0;i<50;i++){
+        const x=(i*137.23+Math.sin(t*.19+i)*15)%W, y=(i*73.17-t*(4+i%3)+H*20)%(H*.72);
+        const a=.12+.18*(Math.sin(t*.9+i*2)+1)/2;circle(x,y,.6+(i%3)*.25,p.glow+Math.round(a*255).toString(16).padStart(2,'0'));
+      }
+    }
+    function windowScene(p,t,room) {
+      const x=W*.395,y=H*.11,w=W*.265,h=H*.5;arch(x-9,y-8,w+18,h+17);c.fillStyle=p.edge;c.fill();arch(x-4,y-3,w+8,h+7);c.fillStyle='#100f1b';c.fill();
+      c.save();arch(x,y,w,h);c.clip();const sky=c.createLinearGradient(x,y,x+w,y+h);sky.addColorStop(0,p.sky);sky.addColorStop(1,'#070e21');box(x,y,w,h,sky);
+      const moonX=x+w*.71,moonY=y+h*.25;glow(moonX,moonY,w*.36,p.glow+'20');circle(moonX,moonY,w*.135,'#d9dec9');circle(moonX+w*.052,moonY-w*.022,w*.13,p.sky);
+      for(let i=0;i<31;i++){const sx=x+(i*53.2%w),sy=y+(i*31.8%(h*.7));const f=.35+.5*(.5+.5*Math.sin(t*.4+i));circle(sx,sy,.6+(i%2)*.4,'#d8e4e7'+Math.round(f*255).toString(16).padStart(2,'0'));}
+      if(room==='gallery') {
+        // The observatory's armillary tracks turn continuously, without giving an answer.
+        c.save();c.translate(x+w*.49,y+h*.48);c.rotate(t*.045);c.strokeStyle='#b9d3d037';c.lineWidth=1;
+        for(let k=0;k<3;k++){c.beginPath();c.ellipse(0,0,w*(.24+k*.065),h*(.13+k*.026),k*.6,0,TAU);c.stroke();}
+        const a=t*.23;circle(Math.cos(a)*w*.29,Math.sin(a)*h*.16,3,'#eac582');c.restore();
+      }
+      // Rain is individually animated inside the clipped window.
+      for(let i=0;i<46;i++){const rx=x+(i*37.7%w),ry=y+(i*71.3+t*(36+i%7*8))%h;line(rx,ry,rx-3,ry+Math.min(18,H*.035),'#b7d3ed'+(i%3===0?'60':'2c'),.7);}
+      if(room==='study') {
+        const base=y+h*.97;c.strokeStyle='#75a28677';c.lineWidth=2;
+        for(let i=0;i<7;i++){const px=x+w*(.08+i*.14),ph=h*(.16+(i%3)*.06);c.beginPath();c.moveTo(px,base);c.quadraticCurveTo(px+Math.sin(t*.5+i)*3,base-ph*.5,px+(i%2?8:-8),base-ph);c.stroke();for(let j=0;j<3;j++){c.save();c.translate(px,base-ph*(.25+j*.22));c.rotate((j%2?-1:1)*.6);c.fillStyle='#46705e';c.beginPath();c.ellipse(j%2?-6:6,0,8,3.5,0,0,TAU);c.fill();c.restore();}}
+      } else {
+        // A distant, invented skyline places the mystery in a storybook city.
+        for(let i=0;i<11;i++){const bw=w*.13,bh=h*(.13+(i%4)*.04);box(x+i*w*.10,y+h-bh,bw,bh,'#0c1525');if(i%3===0){c.beginPath();c.moveTo(x+i*w*.1-2,y+h-bh);c.lineTo(x+i*w*.1+bw/2,y+h-bh-17);c.lineTo(x+i*w*.1+bw+2,y+h-bh);c.fillStyle='#0c1525';c.fill();}}
+      }
+      c.restore();line(x+w/2,y+8,x+w/2,y+h,'#a7a19688',3);line(x,y+h*.57,x+w,y+h*.57,'#a7a19688',3);line(x,y+h*.79,x+w,y+h*.79,'#a7a19666',2);box(x-15,y+h,w+30,9,p.edge,2);
+      // Folded velvet drapery framing the arch.
+      c.fillStyle=room==='study'?'#243e37':room==='gallery'?'#263346':'#4d2b42';c.beginPath();c.moveTo(x-27,y-12);c.bezierCurveTo(x+w*.24,y-5,x-5,y+h*.52,x-28,y+h*.86);c.lineTo(x-42,y+h*.86);c.closePath();c.fill();c.beginPath();c.moveTo(x+w+27,y-12);c.bezierCurveTo(x+w*.78,y-5,x+w+5,y+h*.52,x+w+28,y+h*.86);c.lineTo(x+w+42,y+h*.86);c.closePath();c.fill();
+      return {x:x+w*.5,y:y+h*.43,r:Math.max(29,Math.min(w*.35,h*.22))};
+    }
+    function clock(p,t) {
+      const x=W*.838,y=H*.248,r=Math.max(21,Math.min(W*.057,H*.105));
+      if(currentRoom==='physics'){
+        // Brass tower gears turn in opposing directions behind the clock face.
+        gear(x-r*.95,y+r*.74,r*.65,12,t*.23,'#8c7550');
+        gear(x+r*.69,y+r*.93,r*.47,10,-t*.30,'#a38b5b');
+      }
+      glow(x,y,r*1.55,p.glow+'15');circle(x,y,r+7,'#17151f',p.edge,3);circle(x,y,r+2,'#b2925f','#5f4939',2);const face=c.createRadialGradient(x-r*.3,y-r*.4,r*.1,x,y,r);face.addColorStop(0,'#e5d4b0');face.addColorStop(1,'#a3947c');circle(x,y,r-3,face);
+      for(let i=0;i<12;i++){const a=i*TAU/12;line(x+Math.sin(a)*r*.77,y-Math.cos(a)*r*.77,x+Math.sin(a)*r*.85,y-Math.cos(a)*r*.85,'#514438',1);}
+      const a=-.64+Math.sin(t*.12)*.07,b=1.72+t*.035;line(x,y,x+Math.sin(a)*r*.48,y-Math.cos(a)*r*.48,'#3b3435',2.5);line(x,y,x+Math.sin(b)*r*.67,y-Math.cos(b)*r*.67,'#3b3435',1.6);circle(x,y,3,'#6c5440');
+      const px=x+Math.sin(t*.9)*r*.14, py=y+r*1.92;line(x,y+r,px,py,'#ac9161',2);circle(px,py,r*.21,'#a48c58','#d2bd86',1);
+      return {x,y,r:r+10};
+    }
+    function lantern(p,t) {
+      const x=W*.335,y=H*.17,s=Math.max(10,Math.min(W*.020,H*.040));
+      c.save();c.translate(x,0);c.rotate(Math.sin(t*1.25)*.028);line(0,0,0,y-s,'#9b826288',1);glow(0,y,s*4.5,p.glow+'33');box(-s*.50,y-s*.8,s,s*1.6,'#2d251e',2);box(-s*.36,y-s*.6,s*.72,s*1.15,'#ffd381a0',1);
+      c.fillStyle='#8e724b';c.beginPath();c.moveTo(-s*.8,y-s*.85);c.lineTo(0,y-s*1.35);c.lineTo(s*.8,y-s*.85);c.closePath();c.fill();box(-s*.7,y+s*.78,s*1.4,s*.16,'#ad8c59',1);
+      const flicker=1+.07*Math.sin(t*11)+.04*Math.sin(t*17);c.save();c.translate(0,y+s*.2);c.scale(1,flicker);c.fillStyle='#fff0b3';c.beginPath();c.moveTo(0,-s*.7);c.bezierCurveTo(s*.36,-s*.15,s*.22,s*.35,0,s*.34);c.bezierCurveTo(-s*.24,s*.3,-s*.30,-s*.15,0,-s*.7);c.fill();c.restore();c.restore();
+    }
+    function desk(p,t,room) {
+      const x=W*.19,y=H*.704,w=W*.65,h=H*.12;
+      // A broad desk makes the book and letter legible at phone widths.
+      c.save();c.shadowColor='#0009';c.shadowBlur=20;c.shadowOffsetY=12;c.beginPath();c.moveTo(x+W*.04,y);c.lineTo(x+w-W*.03,y);c.lineTo(x+w,y+h);c.lineTo(x,y+h);c.closePath();const top=c.createLinearGradient(x,y,x,y+h);top.addColorStop(0,p.wood);top.addColorStop(1,'#655047');c.fillStyle=top;c.fill();c.restore();
+      box(x,y+h,w,H*.036,'#2f242a',3);line(x,y+h,x+w,y+h,'#a28b6777',2);box(x+W*.035,y+h+H*.03,W*.027,H*.16,'#332931');box(x+w-W*.068,y+h+H*.03,W*.027,H*.16,'#332931');
+      for(let i=0;i<5;i++)line(x+W*.04,y+h*(.16+i*.14),x+w-W*.03,y+h*(.16+i*.14),'#ad92722c');
+      const bx=W*.335,by=H*.738,bw=Math.max(51,W*.158),bh=H*.074;
+      c.save();c.translate(bx,by);c.rotate(-.09);c.shadowColor='#0008';c.shadowBlur=8;box(-bw*.5,-bh*.5,bw,bh,'#b39a77',3);box(-bw*.5-3,-bh*.5-5,bw+6,bh,'#605076',3);c.shadowBlur=0;box(-bw*.5+6,-bh*.5,bw-12,bh-7,'#d1c3a3',2);line(0,-bh*.45,0,bh*.35,'#8a765d');
+      for(let i=0;i<5;i++){const ly=-bh*.25+i*bh*.10;line(-bw*.41,ly,-bw*.08,ly,'#74665566',.8);line(bw*.08,ly,bw*.41,ly,'#74665566',.8);}box(bw*.25,-bh*.52,bw*.06,bh*1.02,'#9e6364');c.restore();
+      const lx=W*.62,ly=H*.785,lw=Math.max(47,W*.125),lh=H*.070;
+      c.save();c.translate(lx,ly);c.rotate(.1);c.shadowColor='#0006';c.shadowBlur=6;box(-lw/2,-lh/2,lw,lh,'#d6c5a4',2);c.shadowBlur=0;line(-lw/2,-lh/2,0,lh*.08,'#a58e6d');line(lw/2,-lh/2,0,lh*.08,'#a58e6d');circle(0,lh*.08,Math.max(5,Math.min(9,W*.01)),'#8a464a','#b57569');c.restore();
+      // Quill and an actively floating loose sheet.
+      const qx=W*.745,qy=H*.72;box(qx-5,qy,10,H*.034,'#111a24',2);c.save();c.translate(qx,qy);c.rotate(-.4);line(0,0,0,-H*.087,'#c4c1a0',1);c.fillStyle='#ccc6a8';c.beginPath();c.moveTo(0,-H*.026);c.quadraticCurveTo(-16,-H*.065,0,-H*.10);c.quadraticCurveTo(13,-H*.066,0,-H*.026);c.fill();c.restore();
+      if(room==='reading'){
+        c.save();c.translate(W*.53+Math.sin(t*.55)*W*.012,H*.576+Math.sin(t*.9)*H*.016);c.rotate(-.20+Math.sin(t*.65)*.08);box(-W*.034,-H*.033,W*.068,H*.067,'#c9bd9bd9',1);for(let i=0;i<4;i++)line(-W*.024,-H*.018+i*H*.009,W*.022,-H*.018+i*H*.009,'#74664d77',.7);c.restore();
+      }else if(room==='gallery'){
+        const ox=W*.52,oy=H*.66,rr=Math.max(15,Math.min(W*.057,H*.078));line(ox,oy,ox,oy+rr*1.2,'#a18e68',3);box(ox-rr*.5,oy+rr*1.1,rr,5,'#aa9163',2);circle(ox,oy,rr*.48,'#284559','#a3b8ad',1);c.save();c.translate(ox,oy);c.rotate(t*.16-.4);c.strokeStyle='#c4ab76';c.lineWidth=2;c.beginPath();c.ellipse(0,0,rr,rr*.36,.5,0,TAU);c.stroke();c.beginPath();c.ellipse(0,0,rr*.55,rr,-.3,0,TAU);c.stroke();circle(Math.cos(t*.35)*rr,Math.sin(t*.35)*rr*.36,3,'#d9c88e');c.restore();
+      }else if(room==='study'){
+        const fx=W*.52,fy=H*.70,fw=Math.max(20,Math.min(W*.042,H*.055));
+        glow(fx,fy-fw*.6,fw*2.6,'#b6db7620');c.beginPath();c.moveTo(fx-fw*.20,fy-fw*2);c.lineTo(fx-fw*.20,fy-fw*1.3);c.lineTo(fx-fw,fy+fw*.1);c.quadraticCurveTo(fx-fw*1.05,fy+fw*.4,fx-fw*.75,fy+fw*.4);c.lineTo(fx+fw*.75,fy+fw*.4);c.quadraticCurveTo(fx+fw*1.05,fy+fw*.4,fx+fw,fy+fw*.1);c.lineTo(fx+fw*.20,fy-fw*1.3);c.lineTo(fx+fw*.20,fy-fw*2);c.closePath();c.fillStyle='#adc7bc16';c.fill();c.strokeStyle='#aacfc29c';c.lineWidth=1.4;c.stroke();
+        c.beginPath();c.moveTo(fx-fw*.67,fy-fw*.35);c.quadraticCurveTo(fx,fy-fw*.23+Math.sin(t*1.5)*2,fx+fw*.67,fy-fw*.35);c.lineTo(fx+fw*.84,fy+fw*.22);c.lineTo(fx-fw*.84,fy+fw*.22);c.closePath();c.fillStyle='#9ebc718c';c.fill();for(let i=0;i<5;i++){const phase=(i*.213+t*.21)%1;circle(fx+Math.sin(i*2)*fw*.32,fy+fw*.14-phase*fw*.45,1.3+phase*.6,'#c8e396a0');}
+      }else if(room==='physics'){
+        const px=W*.525,py=H*.542,len=H*.138,angle=Math.sin(t*1.65)*.35;
+        // A purpose-built clockmaker's pendulum and a glowing circuit are scenery, not supplied puzzle answers.
+        const baseW=Math.max(42,W*.10),postX=px-baseW*.55;
+        box(postX-3,py-5,6,H*.174,'#8f805f',2);box(postX-7,py-10,baseW*.8,7,'#baa16d',2);box(postX-baseW*.16,py+H*.16,baseW,H*.012,'#8a7958',2);
+        const bx=px+Math.sin(angle)*len,by=py+Math.cos(angle)*len;
+        line(px,py,bx,by,'#d1b474',1.7);circle(px,py,3,'#d9bd81');glow(bx,by,Math.max(13,len*.28),'#e4bd6f22');circle(bx,by,Math.max(5,Math.min(10,W*.012)),'#bca274','#e8ce94',1.2);
+        const cx=W*.68,cy=H*.745,cw=Math.max(27,W*.06),ch=H*.025;
+        box(cx-cw*.5,cy-ch*.5,cw,ch,'#202f34',2);line(cx-cw*.35,cy,cx-cw*.08,cy,'#8dc9b3',1.5);line(cx+cw*.08,cy,cx+cw*.35,cy,'#8dc9b3',1.5);box(cx-cw*.07,cy-ch*.6,cw*.14,ch*1.2,'#a78e59',1);
+        const phase=(t*.55)%1,sx=cx-cw*.4+phase*cw*.8;glow(sx,cy,8,'#a7e6cb44');circle(sx,cy,1.7,'#c4f5da');
+      }
+      return {book:{x:bx,y:by,r:Math.max(29,bw*.34)},letter:{x:lx,y:ly,r:Math.max(25,lw*.34)}};
+    }
+    function markers(p,t) {
+      const solved=new Set(Array.isArray(current.solved)?current.solved:[]);
+      for(const spot of hotspots){
+        const selected=hovered===spot.id||current.active===spot.id,done=solved.has(spot.id),r=Math.max(18,Math.min(26,spot.r*.5));
+        const pulse=current.motion===false?0:Math.sin(t*2+spot.x)*2;
+        if(selected){glow(spot.x,spot.y,r*2,p.glow+'45');circle(spot.x,spot.y,r+8+pulse,null,p.accent+'99',1);}
+        const markerX=Math.min(W-15,spot.x+Math.min(spot.r*.65,26)), markerY=Math.max(16,spot.y-Math.min(spot.r*.7,24));
+        circle(markerX,markerY,8,done?'#455a43':'#211c2b',done?'#b4cc94':p.accent,1);
+        if(done){line(markerX-3,markerY,markerX-1,markerY+2,'#d3e5ae',1.3);line(markerX-1,markerY+2,markerX+3,markerY-3,'#d3e5ae',1.3);}else{text('+',markerX,markerY-.5,12,p.ink,'center','Arial');}
+        if(selected){const label=labels[spot.id],font=11;c.font=font+'px Arial';const tw=c.measureText(label).width,lx=Math.max(tw/2+10,Math.min(W-tw/2-10,spot.x));const ly=spot.y+spot.r+18>H-35?spot.y-spot.r-19:spot.y+spot.r+18;box(lx-tw/2-9,ly-12,tw+18,24,'#100e1ee8',4);text(label,lx,ly,font,p.ink,'center','Arial');}
+      }
+    }
+    function render(room=currentRoom,options=current) {
+      if(disposed)return;
+      currentRoom=palettes[room]?room:'reading';current=options||{};
+      const p=palettes[currentRoom],t=current.motion===false?0:Math.max(0,Number.isFinite(current.time)?current.time:0);
+      c.setTransform(ratio,0,0,ratio,0,0);c.clearRect(0,0,W,H);
+      background(p,t);const win=windowScene(p,t,currentRoom),clk=clock(p,t);lantern(p,t);const deskSpots=desk(p,t,currentRoom);
+      hotspots=[{id:'book',...deskSpots.book,label:labels.book},{id:'letter',...deskSpots.letter,label:labels.letter},{id:'window',...win,label:labels.window},{id:'clock',...clk,label:labels.clock}];
+      // A subtle vignette and film grain give the illustrated room depth.
+      const vignette=c.createRadialGradient(W*.52,H*.43,Math.min(W,H)*.15,W*.50,H*.5,Math.max(W,H)*.66);vignette.addColorStop(0,'#00000000');vignette.addColorStop(1,'#04040e9c');box(0,0,W,H,vignette);
+      markers(p,t);
+      text(p.subject,16,22,Math.max(8,Math.min(10,W*.023)),p.ink+'bf','left','Arial');
+      text('SELECT AN OBJECT TO INVESTIGATE',W/2,H-15,Math.max(8,Math.min(10,W*.023)),p.ink+'a6','center','Arial');
+      if(W>640){line(W*.24,H-15,W*.32,H-15,p.edge+'66');line(W*.68,H-15,W*.76,H-15,p.edge+'66');}
+    }
+    function resize(){if(disposed)return;const rect=canvas.getBoundingClientRect();W=Math.max(1,rect.width||canvas.clientWidth||1000);H=Math.max(1,rect.height||canvas.clientHeight||560);ratio=Math.min(2,Math.max(1,root.devicePixelRatio||1));const w=Math.round(W*ratio),h=Math.round(H*ratio);if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}render();}
+    function location(event){const rect=canvas.getBoundingClientRect();return{x:(event.clientX-rect.left)*W/Math.max(1,rect.width),y:(event.clientY-rect.top)*H/Math.max(1,rect.height)};}
+    function hit(point){return hotspots.slice().reverse().find(s=>Math.hypot(point.x-s.x,point.y-s.y)<=s.r);}
+    const events={
+      pointermove(event){const spot=hit(location(event));const id=spot?.id||null;if(id!==hovered){hovered=id;canvas.style.cursor=id?'pointer':'default';render();}},
+      pointerleave(){hovered=null;canvas.style.cursor='default';render();},
+      pointerdown(event){if(event.button!==0&&event.pointerType!=='touch')return;const point=location(event),spot=hit(point);down=spot?{id:spot.id,...point,pointerId:event.pointerId}:null;if(down){canvas.setPointerCapture?.(event.pointerId);event.preventDefault();}},
+      pointerup(event){if(!down||event.pointerId!==down.pointerId)return;const point=location(event),spot=hit(point),pressed=down;down=null;if(canvas.hasPointerCapture?.(event.pointerId))canvas.releasePointerCapture(event.pointerId);if(spot?.id===pressed.id&&Math.hypot(point.x-pressed.x,point.y-pressed.y)<14){callbacks.onSelect?.(spot.id);render();}},
+      pointercancel(){down=null;}
+    };
+    for(const [name,handler] of Object.entries(events))canvas.addEventListener(name,handler);
+    const observer=typeof ResizeObserver==='function'?new ResizeObserver(resize):null;observer?.observe(canvas);if(!observer)root.addEventListener('resize',resize);resize();
+    return Object.freeze({render,resize,getHotspots:()=>hotspots.map(s=>({...s})),toDataURL:()=>canvas.toDataURL('image/png'),dispose(){if(disposed)return;disposed=true;observer?.disconnect();if(!observer)root.removeEventListener('resize',resize);for(const[name,handler]of Object.entries(events))canvas.removeEventListener(name,handler);canvas.style.cursor='';down=null;}});
+  }
+  root.ThirteenthScene=Object.freeze({create,version:1});
+})(typeof globalThis!=='undefined'?globalThis:window);
+</script>
+<script>/* Original classroom mysteries. No real chemical experiments are performed. */
+(function (root, factory) {
+  'use strict';
+  const rooms = factory();
+  if (typeof module === 'object' && module.exports) module.exports = rooms;
+  else root.MysterySubjects = rooms;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+  return [
+    {
+      id: 'gallery',
+      title: 'The Observatory',
+      subtitle: 'CALCULUS · FOLLOW WHAT CHANGES',
+      description: 'Above the library, a mechanical sky turns behind violet glass. Iris has left four measurements beside a telescope. The secret is not in the numbers alone; it is in how they change.',
+      reveal: 'The telescope folds its brass wings. On its mirror, four separate marks line up to spell BETWEEN. Iris was looking for relationships, not isolated answers.',
+      seal: 'BETWEEN',
+      clues: [
+        {
+          id: 'g1', object: 'book',
+          title: 'The Moving Mirror',
+          skill: 'Derivative · slope of a position graph',
+          passage: 'A telescope mirror moves along a straight track. Its position x, in centimetres, is plotted against time t, in seconds. The graph joins (0, 1), (2, 5), (4, 5), and (6, 1) with straight line segments. A note says: “Read my velocity at t = 1 s. The position is a distraction.”',
+          prompt: 'What is the mirror’s instantaneous velocity at t = 1 s?',
+          choices: ['+4 cm/s', '0 cm/s', '+2 cm/s', '−2 cm/s'],
+          answer: 2,
+          hints: [
+            'Velocity is the derivative of position. On a straight part of a position–time graph, it is that segment’s slope.',
+            'At t = 1 s, use the segment from (0 s, 1 cm) to (2 s, 5 cm). Calculate (5 − 1) ÷ (2 − 0).'
+          ],
+          explanation: 'The graph is straight around t = 1 s, so x′(1) = Δx/Δt = (5 − 1)/(2 − 0) = +2 cm/s. Its position there is 3 cm; position and velocity are different quantities. The derivative is not defined at the sharp corners t = 2 s and t = 4 s, but neither corner is the point being tested.',
+          evidence: 'The first brass mark reads: “A value tells you where. A derivative tells you how it changes.”',
+          visual: 'derivative',
+          graph: {
+            type: 'line', points: [[0, 1], [2, 5], [4, 5], [6, 1]],
+            xLabel: 'Time, t (s)', yLabel: 'Position, x (cm)',
+            xDomain: [0, 6], yDomain: [0, 6],
+            description: 'A piecewise linear position graph rises from 1 cm to 5 cm during the first 2 seconds, stays at 5 cm for 2 seconds, then returns to 1 cm at 6 seconds.'
+          }
+        },
+        {
+          id: 'g2', object: 'letter',
+          title: 'The Water Clock',
+          skill: 'Definite integral · signed accumulation',
+          passage: 'The observatory’s water clock contains 7 L at t = 0 min. Its net inflow rate r(t), in L/min, joins (0, 2), (2, 2), (4, −2), and (6, −2) with straight line segments. Positive rates add water; negative rates remove it. The tank never empties or overflows during these six minutes.',
+          prompt: 'How much water is in the clock at t = 6 min?',
+          choices: ['7 L', '15 L', '3 L', '0 L'],
+          answer: 0,
+          hints: [
+            'Final amount = initial amount + the signed area under the rate graph. Area below the time axis subtracts water.',
+            'The first two minutes add 4 L. The middle segment has equal positive and negative triangular areas. The final two minutes remove 4 L.'
+          ],
+          explanation: 'The net change is ∫₀⁶ r(t) dt = 4 + 0 − 4 = 0 L. Therefore the final volume is 7 + 0 = 7 L. The clock still exchanged water: its total absolute flow was 10 L. Net accumulation and total amount moved are not the same.',
+          evidence: 'The second brass mark reads: “Opposite changes can leave no change at all.”',
+          visual: 'integral',
+          graph: {
+            type: 'line', points: [[0, 2], [2, 2], [4, -2], [6, -2]],
+            xLabel: 'Time, t (min)', yLabel: 'Net inflow, r(t) (L/min)',
+            xDomain: [0, 6], yDomain: [-3, 3],
+            description: 'Net inflow is +2 L/min for two minutes, decreases linearly to −2 L/min over the next two minutes, then remains −2 L/min for the final two minutes.'
+          }
+        },
+        {
+          id: 'g3', object: 'window',
+          title: 'The Largest Patch of Starlight',
+          skill: 'Optimization · critical point and maximum',
+          passage: 'Iris has 24 m of brass edging for a rectangular skylight. All four sides must be edged, with no material left over. If one side is x metres, the adjacent side is (12 − x) metres, so the area is A(x) = x(12 − x), for 0 < x < 12. The mechanism asks for the value of x that captures the greatest area of starlight.',
+          prompt: 'Which value of x maximizes the skylight’s area?',
+          choices: ['3 m', '12 m', '24 m', '6 m'],
+          answer: 3,
+          hints: [
+            'Differentiate A(x) = 12x − x², then find where the derivative is zero.',
+            'A′(x) = 12 − 2x. Solve 12 − 2x = 0. Since A″(x) = −2, the critical point is a maximum.'
+          ],
+          explanation: 'A′(x) = 12 − 2x = 0 gives x = 6 m. The other side is also 6 m, the perimeter is 24 m, and the maximum area is 36 m². The negative second derivative confirms a maximum. The values 12 m and 24 m do not give a valid positive-area rectangle within the stated domain.',
+          evidence: 'The third brass mark reads: “The greatest opening comes from a balanced boundary.”'
+        },
+        {
+          id: 'g4', object: 'clock',
+          title: 'The Missing Tick',
+          skill: 'Limit · removable discontinuity',
+          passage: 'One tick is missing from the star clock. Its signal is f(t) = (t² − 9)/(t − 3) when t ≠ 3, while f(3) = k. Iris writes: “Do not divide by zero. Ask what the signal approaches.” The clock will restart only if f is continuous at t = 3.',
+          prompt: 'Which value of k repairs the signal’s gap?',
+          choices: ['0', '6', '3', 'No value can make f continuous there'],
+          answer: 1,
+          hints: [
+            'For continuity at t = 3, f(3) must equal the two-sided limit as t approaches 3.',
+            'For t ≠ 3, factor t² − 9 = (t − 3)(t + 3), then cancel the common factor. What does t + 3 approach?'
+          ],
+          explanation: 'For t ≠ 3, f(t) = t + 3. Therefore limₜ→₃ f(t) = 6. Setting k = f(3) = 6 makes the function continuous at 3. This does not make the original fraction defined at t = 3; it supplies a separate value that fills a removable discontinuity.',
+          evidence: 'The final brass mark reads: “A missing point need not break the whole pattern.”'
+        }
+      ],
+      glossary: [
+        {term: 'Derivative', definition: 'The instantaneous rate of change of a function; geometrically, the slope of its tangent.', example: 'For x(t) = 1 + 2t, x′(t) = 2.'},
+        {term: 'Definite integral', definition: 'Signed accumulation over an interval. For a rate, it gives the net change in the corresponding quantity.', example: 'A constant +2 L/min for 2 min adds ∫₀² 2 dt = 4 L.'},
+        {term: 'Continuity', definition: 'At a point, the function value exists, the two-sided limit exists, and they are equal.', example: 'A removable hole in y = t + 3 at t = 3 can be filled by defining f(3) = 6.'}
+      ]
+    },
+    {
+      id: 'physics',
+      title: 'The Clocktower',
+      subtitle: 'PHYSICS · TEST WHAT MUST BE TRUE',
+      description: 'The tower above the archive has stopped one tick before midnight. A counterweight, a moving pointer, and a silent circuit guard its next word. Iris has left the conditions of each model beside the mechanism: follow the evidence, and keep the units.',
+      reveal: 'Four brass mechanisms turn together. A tiny printing wheel presses THE onto Iris’s ribbon. The tower was never asking you to guess its password; it was asking you to test its rules.',
+      seal: 'THE',
+      clues: [
+        {
+          id: 'p1', object: 'book',
+          title: 'The Stubborn Book Chest',
+          skill: 'Newton’s second law · net force and direction',
+          passage: 'An 8.0 kg book chest is already sliding horizontally to the right. A cable pulls it with a constant 24 N force to the right, while friction exerts 8.0 N to the left. These are its only horizontal forces. Take right as the positive direction; the vertical forces balance.',
+          prompt: 'What is the chest’s horizontal acceleration?',
+          choices: ['+3.0 m/s²', '+2.0 m/s²', '+4.0 m/s²', '−2.0 m/s²'],
+          answer: 1,
+          hints: [
+            'Newton’s second law uses the net force, not just the cable’s force. Combine forces using their directions.',
+            'Fnet = +24 N − 8.0 N = +16 N. Divide by the mass, 8.0 kg.'
+          ],
+          explanation: 'The net horizontal force is +16 N. From ΣF = ma, a = 16/8.0 = +2.0 m/s², to the right. Adding the two force magnitudes would ignore their opposite directions. The balanced vertical forces produce no vertical acceleration.',
+          evidence: 'The chest yields a brass card: “What matters is what remains after opposites are accounted for.”'
+        },
+        {
+          id: 'p2', object: 'letter',
+          title: 'The Falling Counterweight',
+          skill: 'Energy conservation · potential to kinetic energy',
+          passage: 'In the tower’s idealized model, a 2.0 kg counterweight is released from rest 5.0 m above the floor. It falls freely with g = 10 m/s², with no air resistance and no connection to other moving parts. Set gravitational potential energy to zero at the floor. Read its energy immediately before it reaches the floor, before any impact occurs.',
+          prompt: 'What is the counterweight’s kinetic energy immediately before contact?',
+          choices: ['10 J', '50 J', '100 J', '200 J'],
+          answer: 2,
+          hints: [
+            'With no dissipative forces, the decrease in gravitational potential energy becomes kinetic energy.',
+            'It starts from rest, so Kfinal = mgh = (2.0 kg)(10 m/s²)(5.0 m).'
+          ],
+          explanation: 'The initial gravitational potential energy is mgh = 100 J and the initial kinetic energy is zero. Immediately before floor contact, the potential energy relative to the floor is approximately zero, so the kinetic energy is 100 J. The model stops before impact; it makes no claim about a bounce or impact losses.',
+          evidence: 'A hidden line in the counterweight’s letter reads: “An energy transfer is not an energy disappearance.”'
+        },
+        {
+          id: 'p3', object: 'window',
+          title: 'The Wandering Pointer',
+          skill: 'Motion graph · displacement and distance',
+          passage: 'A pointer travels east and west along a straight track. Its velocity v, in m/s, joins (0, 0), (2, 4), (4, 4), (6, 0), and (8, −4) with straight line segments, where time is in seconds. East is positive. Iris’s note asks where the pointer ends relative to where it started, rather than how far it travelled altogether.',
+          prompt: 'What is the pointer’s displacement from t = 0 s to t = 8 s?',
+          choices: ['+12 m (east)', '+20 m (east)', '−4 m (west)', '+16 m (east)'],
+          answer: 0,
+          hints: [
+            'Displacement is the signed area under a velocity–time graph. The section below the time axis contributes a negative area.',
+            'The four two-second intervals contribute +4 m, +8 m, +4 m, and −4 m. Add them with their signs.'
+          ],
+          explanation: 'The signed areas are ½(2)(4) + (2)(4) + ½(2)(4) − ½(2)(4) = +12 m. The pointer ends 12 m east of its starting position. Its total distance is 4 + 8 + 4 + 4 = 20 m, because distance counts both directions positively.',
+          evidence: 'The window’s tracing reveals: “A return changes your destination without erasing your journey.”',
+          visual: 'integral',
+          graph: {
+            type: 'line', points: [[0, 0], [2, 4], [4, 4], [6, 0], [8, -4]],
+            xLabel: 'Time, t (s)', yLabel: 'Velocity, v (m/s)',
+            xDomain: [0, 8], yDomain: [-5, 5],
+            description: 'Velocity rises linearly from 0 to +4 m/s in two seconds, stays at +4 m/s for two seconds, decreases to zero by six seconds, then reaches −4 m/s at eight seconds. The final interval is westward.'
+          }
+        },
+        {
+          id: 'p4', object: 'clock',
+          title: 'The Two Lanterns',
+          skill: 'Electric circuits · parallel branches and Ohm’s law',
+          passage: 'An ideal 12 V battery is connected across two resistors, 6.0 Ω and 3.0 Ω, in parallel. Both resistors are directly across the same battery terminals. Treat wires as having zero resistance and neglect the battery’s internal resistance. A virtual ammeter at the battery measures the total current supplied to both branches.',
+          prompt: 'What total current does the battery supply?',
+          choices: ['1.33 A', '2.0 A', '4.0 A', '6.0 A'],
+          answer: 3,
+          hints: [
+            'Parallel branches have the same voltage across them. Use I = V/R for each branch, then add the branch currents.',
+            'The 6.0 Ω branch draws 12/6.0 = 2.0 A; the 3.0 Ω branch draws 12/3.0 = 4.0 A.'
+          ],
+          explanation: 'The total current is 2.0 + 4.0 = 6.0 A. Equivalently, 1/Req = 1/6.0 + 1/3.0 gives Req = 2.0 Ω, so Itotal = 12/2.0 = 6.0 A. Adding 6.0 Ω and 3.0 Ω would describe a series connection, not the parallel circuit specified here.',
+          evidence: 'As both lanterns brighten, the clock prints one word: THE.',
+          circuit: {voltage: 12, resistors: [6, 3], connection: 'parallel'}
+        }
+      ],
+      glossary: [
+        {term: 'Net force', definition: 'The vector sum of all forces acting on an object.', example: 'A 24 N rightward pull and 8 N leftward friction give a net force of 16 N to the right.'},
+        {term: 'Kinetic energy', definition: 'Energy associated with motion; K = ½mv².', example: 'An ideal 2 kg mass falling 5 m from rest at g = 10 m/s² gains 100 J of kinetic energy.'},
+        {term: 'Displacement', definition: 'The change in position, including direction. It is the signed area under a velocity–time graph.', example: 'Going 16 m east and then 4 m west gives a displacement of 12 m east and a distance of 20 m.'},
+        {term: 'Parallel circuit', definition: 'A circuit with branches connected across the same two nodes; each branch has the same voltage.', example: 'Across 12 V, parallel 6 Ω and 3 Ω branches draw 2 A and 4 A, for a total of 6 A.'}
+      ]
+    },
+    {
+      id: 'study',
+      title: 'The Glasshouse',
+      subtitle: 'AP CHEMISTRY · READ THE EVIDENCE',
+      description: 'The archive’s botanical glasshouse glows with amber instruments and sealed virtual samples. Iris’s last notes are precise: count what reacts, compare what changes, and never mistake a guess for evidence.',
+      reveal: 'The last vial projects LINES across the ceiling. Iris’s note says: “One word is a fragment. Four words, read in the archive’s order, become an instruction.”',
+      seal: 'LINES',
+      clues: [
+        {
+          id: 's1', object: 'book',
+          title: 'The Particle Ledger',
+          skill: 'Stoichiometry · limiting reactant',
+          passage: 'A virtual particle ledger begins with 6 H₂ molecules and 2 O₂ molecules. The model lets them react completely according to 2 H₂ + O₂ → 2 H₂O, with no other reactions. Each symbol represents a whole molecule; this is a counting puzzle, not a laboratory procedure.',
+          prompt: 'Which final particle inventory follows the balanced equation?',
+          choices: [
+            '6 H₂O molecules, with no reactants left',
+            '2 H₂O molecules and 4 H₂ molecules left',
+            '4 H₂O molecules and 2 O₂ molecules left',
+            '4 H₂O molecules and 2 H₂ molecules left'
+          ],
+          answer: 3,
+          hints: [
+            'One O₂ molecule needs two H₂ molecules and produces two H₂O molecules. Which reactant runs out first?',
+            'Two O₂ molecules consume four of the six H₂ molecules. Count both the water produced and the hydrogen left over.'
+          ],
+          explanation: 'O₂ is the limiting reactant. Two O₂ molecules react with four H₂ molecules to form four H₂O molecules, leaving two H₂ molecules. The final inventory conserves all 12 hydrogen atoms and all 4 oxygen atoms. A balanced equation gives a ratio, not permission to use every reactant completely.',
+          evidence: 'A tiny label unfolds: “The scarce ingredient sets the limit; the excess still counts.”',
+          visual: 'particles',
+          particles: {
+            reactants: [{label: 'H₂', count: 6}, {label: 'O₂', count: 2}],
+            productsLabel: 'H₂O',
+            description: 'The initial inventory contains six hydrogen molecules and two oxygen molecules. The balanced reaction uses two hydrogen molecules per oxygen molecule.'
+          }
+        },
+        {
+          id: 's2', object: 'letter',
+          title: 'The Brown Glass',
+          skill: 'Equilibrium · reaction quotient',
+          passage: 'A virtual viewing chamber represents N₂O₄(g) ⇌ 2 NO₂(g) at a fixed temperature. For this temperature, Kc = 0.20. At the instant the sample is observed, [NO₂] = 0.10 M and [N₂O₄] = 0.10 M. Use Qc = [NO₂]²/[N₂O₄], with the concentrations entered in mol/L. N₂O₄ is colorless; NO₂ is brown.',
+          prompt: 'Which prediction correctly uses the reaction quotient?',
+          choices: [
+            'Reverse shift: Qc = 1.0 > Kc, so the sample becomes paler',
+            'Forward shift: Qc = 0.10 < Kc, so more brown NO₂ forms',
+            'No net shift: Qc = 0.20, so the sample is already at equilibrium',
+            'No net shift is possible at a constant temperature'
+          ],
+          answer: 1,
+          hints: [
+            'The coefficient 2 becomes an exponent in Qc. Square the NO₂ concentration before dividing.',
+            'Qc = (0.10)²/0.10 = 0.10. When Qc < Kc, the forward reaction is favored until the quotient reaches Kc.'
+          ],
+          explanation: 'Qc = 0.10, which is smaller than Kc = 0.20. The system shifts toward products: some N₂O₄ dissociates to form more NO₂, so the brown color deepens. Constant temperature keeps Kc fixed; it does not prevent a mixture away from equilibrium from changing. A catalyst would change how quickly equilibrium is reached, not Kc.',
+          evidence: 'Behind the colored pane: “Compare what is present with what equilibrium requires.”'
+        },
+        {
+          id: 's3', object: 'window',
+          title: 'The Halfway Hue',
+          skill: 'Acids and bases · half-equivalence point',
+          passage: 'A simulated titration at 25 °C begins with 25.0 mL of 0.100 M monoprotic weak acid HA, with Ka = 1.0 × 10⁻⁵. It is titrated with 0.100 M NaOH: HA + OH⁻ → A⁻ + H₂O. The equivalence volume is 25.0 mL. The window’s color lock asks for the approximate pH after 12.5 mL of base has been added. Assume ideal dilute-solution behavior.',
+          prompt: 'Which pH belongs at this half-equivalence point?',
+          choices: ['1.00', '7.00', '5.00', '9.00'],
+          answer: 2,
+          hints: [
+            'At half-equivalence, half the original HA has become A⁻. The remaining HA and formed A⁻ have approximately equal concentrations.',
+            'Use pH = pKa + log([A⁻]/[HA]). The ratio is 1, log(1) = 0, and pKa = −log(1.0 × 10⁻⁵).'
+          ],
+          explanation: 'At 12.5 mL, the added OH⁻ has neutralized half of the initial 2.50 mmol of HA. Approximately equal amounts of HA and A⁻ remain, so the Henderson–Hasselbalch relation gives pH ≈ pKa = 5.00. The half-equivalence point is different from the equivalence point, whose solution is basic for a weak acid titrated by a strong base.',
+          evidence: 'A strip of violet glass reads: “Halfway, the partners reveal their constant.”',
+          visual: 'titration',
+          graph: {
+            type: 'line', points: [[0, 3.00], [5, 4.40], [10, 4.82], [12.5, 5.00], [15, 5.18], [20, 5.60], [24, 6.38], [25, 8.85], [26, 11.29], [30, 11.96]],
+            xLabel: 'NaOH added (mL)', yLabel: 'Approximate pH',
+            xDomain: [0, 30], yDomain: [0, 14],
+            description: 'An approximate weak-acid/strong-base titration curve passes through pH 5.00 at 12.5 mL and has its steep equivalence region near 25.0 mL. Sampled points are connected as a visual guide, not exact linear behavior between measurements.'
+          }
+        },
+        {
+          id: 's4', object: 'clock',
+          title: 'The Reaction Clock',
+          skill: 'Kinetics · method of initial rates',
+          passage: 'For the hypothetical reaction A(aq) + B(aq) → AB(aq), three initial-rate measurements are made at the same temperature. Trial 1: [A] = 0.10 M, [B] = 0.10 M, rate = 0.0020 M/s. Trial 2: [A] = 0.20 M, [B] = 0.10 M, rate = 0.0080 M/s. Trial 3: [A] = 0.10 M, [B] = 0.20 M, rate = 0.0040 M/s. Assume a rate law of the form rate = k[A]ᵐ[B]ⁿ.',
+          prompt: 'Which rate law is supported by these measurements?',
+          choices: ['rate = k[A]²[B]', 'rate = k[A][B]', 'rate = k[A]²', 'rate = k[B]²'],
+          answer: 0,
+          hints: [
+            'Compare trials that hold one concentration constant. How does doubling the other concentration change the rate?',
+            'From trial 1 to 2, doubling [A] quadruples the rate, so 2ᵐ = 4. From trial 1 to 3, doubling [B] doubles the rate, so 2ⁿ = 2.'
+          ],
+          explanation: 'The reaction is second order in A and first order in B, giving rate = k[A]²[B]. Its overall order is 3. Using trial 1 gives k = 0.0020/(0.10² × 0.10) = 2.0 M⁻² s⁻¹. Orders come from the measured rate changes; they cannot generally be read from the coefficients of an overall balanced equation.',
+          evidence: 'The clock finally ticks. Its note reads: “Keep one thing constant to see what the other truly does.”',
+          table: {
+            headers: ['Trial', '[A] (M)', '[B] (M)', 'Initial rate (M/s)'],
+            rows: [['1', '0.10', '0.10', '0.0020'], ['2', '0.20', '0.10', '0.0080'], ['3', '0.10', '0.20', '0.0040']]
+          }
+        }
+      ],
+      glossary: [
+        {term: 'Limiting reactant', definition: 'The reactant exhausted first, which limits how much product can form.', example: 'For 2 H₂ + O₂ → 2 H₂O, two O₂ molecules can form four H₂O molecules when enough H₂ is present.'},
+        {term: 'Reaction quotient, Q', definition: 'The equilibrium-expression value calculated from the mixture’s current composition.', example: 'If Q < K, a mixture shifts toward products to approach equilibrium.'},
+        {term: 'Half-equivalence point', definition: 'The point where half the initial weak acid or base has been neutralized; for a suitable buffer, pH ≈ pKa.', example: 'A weak acid with Ka = 10⁻⁵ has pH ≈ 5 at half-equivalence in a strong-base titration.'},
+        {term: 'Reaction order', definition: 'A concentration exponent in an experimentally determined rate law.', example: 'In rate = k[A]²[B], the order in A is 2 and the overall order is 3.'}
+      ]
+    }
+  ];
+});
+
+/* Original fiction and English investigations for The Thirteenth Page. */
+(function (root, factory) {
+  'use strict';
+  let subjects = root.MysterySubjects || [];
+  if (typeof module === 'object' && module.exports) {
+    try { subjects = require('./subjects.js'); }
+    catch (error) {
+      if (error.code !== 'MODULE_NOT_FOUND' || !error.message.includes("'./subjects.js'")) throw error;
+    }
+    module.exports = factory(Array.isArray(subjects) ? subjects : []);
+  } else root.ThirteenthStory = factory(Array.isArray(subjects) ? subjects : []);
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (subjects) {
+  'use strict';
+
+  const readingRoom = {
+    id: 'reading',
+    title: 'The Reading Room',
+    subtitle: 'English · What the words leave unsaid',
+    description: 'Rain traces the tall windows. A book lies open under a green lamp; a letter waits beside it. Somewhere beyond the shelves, a clock strikes once too often.',
+    reveal: 'The four pieces agree: Iris chose to stay, the language carries more than its literal meaning, and a confident witness can still be wrong. The letter gives your first instruction: LOOK.',
+    seal: 'LOOK',
+    clues: [
+      {
+        id: 'r1',
+        object: 'book',
+        title: 'A Place Kept Warm',
+        skill: 'Inference from evidence',
+        passage: 'The caretaker slid a card across the desk. “Iris signed herself into the archive at eleven. She left this message: Please keep my tea warm; I need a quiet hour.” Her coat was still on its usual peg. A fresh bookmark rested in a half-read chapter.',
+        prompt: 'Which inference is best supported by the details?',
+        choices: [
+          'Iris left the building for a long journey.',
+          'Iris probably intended to remain nearby and return soon.',
+          'The caretaker knows the exact room Iris entered.',
+          'The unfinished chapter proves Iris disliked the book.'
+        ],
+        answer: 1,
+        hints: [
+          'An inference combines details in the passage. It should not claim more than those details support.',
+          'Consider “keep my tea warm,” “a quiet hour,” and the coat left on its usual peg.'
+        ],
+        explanation: 'The request for warm tea and a quiet hour, together with the coat and unfinished reading, supports a short absence nearby. The passage does not identify her exact room or prove her opinion of the book. An inference is supported reasoning, rather than certainty.',
+        evidence: 'Iris requested quiet and expected to return. Her absence is not evidence of danger.'
+      },
+      {
+        id: 'r2',
+        object: 'window',
+        title: 'An Ocean Indoors',
+        skill: 'Metaphor and personification',
+        passage: 'The archive was an ocean after midnight. Rain tapped impatient fingers against the glass. On the windowsill, Iris had written: A sentence can show you something without naming it directly.',
+        prompt: 'Which explanation accurately identifies the two figures of speech?',
+        choices: [
+          '“The archive was an ocean” is personification; the rain is described literally.',
+          'Both sentences are similes because they compare one thing with another.',
+          'The archive is described through metaphor; the rain is given human qualities through personification.',
+          'Both sentences are literal descriptions of water entering the archive.'
+        ],
+        answer: 2,
+        hints: [
+          'A metaphor presents one thing as another. Personification gives a nonhuman thing human actions or qualities.',
+          'The archive is not literally a sea. Rain does not have fingers or feel impatience.'
+        ],
+        explanation: '“The archive was an ocean” is a metaphor suggesting vastness and exploration. The rain has “impatient fingers,” a human body part and feeling: personification. Neither comparison uses “like” or “as,” and the passage does not claim that the archive is flooding.',
+        evidence: 'The archive’s messages can carry figurative meaning. A literal reading may miss the invitation.'
+      },
+      {
+        id: 'r3',
+        object: 'clock',
+        title: 'The Certain Witness',
+        skill: 'Evaluating a narrator’s reliability',
+        passage: '“I watched the doorway every minute,” the clockkeeper announced. “Except when I slept from eleven until twelve. So I can promise you that Iris never passed this way.” He polished the clock face until it shone.',
+        prompt: 'What most directly weakens the clockkeeper’s conclusion?',
+        choices: [
+          'Polishing a clock always damages its accuracy.',
+          'The clockkeeper speaks in the first person.',
+          'The passage gives the time in words instead of numerals.',
+          'He claims certainty about an hour when he admits he was asleep.'
+        ],
+        answer: 3,
+        hints: [
+          'A witness’s confidence is not the same as complete evidence. Look for a gap in what this witness could observe.',
+          'Compare “every minute” and “never” with “I slept from eleven until twelve.”'
+        ],
+        explanation: 'His own account contains an observation gap. He cannot rule out someone passing during the hour he slept. First-person narration is not automatically unreliable, and polishing the clock tells us nothing definite about its accuracy. This witness is unreliable on this particular claim, not necessarily on everything he says.',
+        evidence: 'A confident claim can exceed the evidence behind it. Check what a witness actually observed.'
+      },
+      {
+        id: 'r4',
+        object: 'letter',
+        title: 'Where the Lines Begin',
+        skill: 'Acrostic and close reading',
+        passage: 'Lanterns keep the silent shelves awake.\nOld margins hold what titles cannot say.\nOpen every pause as though it were a door.\nKeep the words that begin the way.',
+        prompt: 'Iris underlined “begin.” Read the first letter of each line from top to bottom. What instruction appears?',
+        choices: [
+          'LOOK',
+          'LOCK',
+          'BOOK',
+          'LOST'
+        ],
+        answer: 0,
+        hints: [
+          'An acrostic hides a message in selected letters, often the first letters of consecutive lines.',
+          'The lines start with Lanterns, Old, Open, and Keep.'
+        ],
+        explanation: 'The first letters are L, O, O, K. Their order matters: the acrostic gives LOOK. The instruction to attend to beginnings is part of the evidence, rather than a reason to rearrange the letters until another word appears.',
+        evidence: 'The first seal reads LOOK. Preserve the order of the words you collect.'
+      }
+    ]
+  };
+
+  return Object.freeze({
+    title: 'The Thirteenth Page',
+    tagline: 'Some mysteries ask for an answer. This one asks you to notice.',
+    intro: 'At midnight, a letter arrives from the archive’s curator, Iris Vale: “I have not vanished. I have left a page where hurried readers never look.” Her desk is empty. Four rooms remain lit. Follow the evidence through language, change, motion, and reactions to find the room the catalogue forgot.',
+    rooms: [readingRoom, ...subjects],
+    finale: {
+      title: 'The Room Between',
+      prompt: 'Your four seals read LOOK / BETWEEN / THE / LINES. Iris’s final note says, “The answer is more than the marks on the page.” Which interpretation best fits the evidence you have collected?',
+      choices: [
+        'Measure the physical gaps between every floorboard in the archive.',
+        'Connect the clues and infer the meaning that the words leave unstated.',
+        'Change every numerical result until it becomes thirteen.',
+        'Accept the most confident witness without checking the claim.'
+      ],
+      answer: 1,
+      hints: [
+        '“Read between the lines” is an expression about finding implied meaning, rather than searching a physical gap.',
+        'The investigations reward interpreting evidence, checking a relationship, and explaining what follows. Which answer brings those habits together?'
+      ],
+      explanation: 'LOOK / BETWEEN / THE / LINES invites an inferential reading: combine what is stated with the evidence and context. The English clues warned against taking every phrase literally and confusing confidence with proof. Calculus, physics, and chemistry also required justified methods, rather than changing results to fit a preferred answer.',
+      story: 'A thin gold line appears along the bookcase. It opens into a small reading room, where Iris Vale sits beside a manuscript whose thirteenth page has always been missing from the catalogue. Your trail has crossed language, mathematical change, physical motion, and chemical reactions.\n\n“I never meant to disappear,” she says. “I wanted this page to meet someone willing to slow down. A pattern is useful only when you can explain why it belongs.”\n\nThe thirteenth page is blank except for a question: What did you notice that you almost missed? Iris slides it toward you. The last part of the mystery is yours to write.'
+    },
+    glossary: [
+      {term:'Inference', definition:'A conclusion supported by details and reasoning, even when it is not stated directly.', example:'A coat left behind and tea requested warm can suggest that someone expects to return soon.'},
+      {term:'Evidence', definition:'A detail or observation used to support a claim. Its relevance and limits matter.', example:'An eyewitness can report what happened while awake, but cannot rule out events during sleep.'},
+      {term:'Metaphor', definition:'A figure of speech that presents one thing as another to develop meaning.', example:'“The archive was an ocean” suggests vastness without claiming there is a literal sea indoors.'},
+      {term:'Personification', definition:'Giving a nonhuman thing human actions, feelings, or qualities.', example:'“Rain tapped impatient fingers” gives rain a human gesture and emotion.'},
+      {term:'Simile', definition:'An explicit comparison often signalled by “like” or “as.”', example:'“The shelves rose like cliffs” explicitly compares shelves with cliffs.'},
+      {term:'Unreliable narration', definition:'An account whose accuracy or interpretation should be questioned because of gaps, contradictions, bias, or other evidence.', example:'A witness claims to have watched continuously, then admits to sleeping for an hour.'},
+      {term:'Acrostic', definition:'A message formed by selected letters in consecutive lines or other ordered units.', example:'The first letters of Lanterns, Old, Open, and Keep form LOOK.'},
+      {term:'Literal and figurative meaning', definition:'Literal meaning is the direct sense of the words; figurative meaning uses language beyond that direct sense.', example:'“Read between the lines” usually asks for an inference, rather than an inspection of empty paper.'},
+      {term:'Close reading', definition:'Careful attention to a text’s exact wording, structure, patterns, and context.', example:'Checking where each line begins can uncover an acrostic that a quick reading misses.'}
+    ]
+  });
+});
+</script>
+<script>/* The Thirteenth Page: an original, local-first mystery across four subjects. */
+(function () {
+  'use strict';
+  const STORY=window.ThirteenthStory, ART=window.ThirteenthScene;
+  const pristine='<!doctype html>\n'+document.documentElement.outerHTML;
+  const $=id=>document.getElementById(id), allClues=STORY.rooms.flatMap(r=>r.clues);
+  const clueById=new Map(allClues.map(c=>[c.id,c]));
+  const uid=()=>crypto.randomUUID?.() || Date.now().toString(36)+Math.random().toString(36).slice(2);
+  const clone=x=>JSON.parse(JSON.stringify(x));
+  const escape=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const text=(x,n=6000)=>typeof x==='string'?x.slice(0,n):'';
+  function node(tag,attrs,...children){
+    const n=document.createElement(tag);
+    for(const[k,v]of Object.entries(attrs||{})){
+      if(v===undefined||v===null||v===false)continue;
+      if(k.startsWith('on')&&typeof v==='function')n.addEventListener(k.slice(2),v);
+      else if(k==='class')n.className=v;
+      else if(['value','disabled','checked','hidden'].includes(k))n[k]=v;
+      else n.setAttribute(k,v===true?'':v);
+    }
+    for(const c of children.flat(Infinity))if(c!==undefined&&c!==null&&c!==false)n.append(c instanceof Node?c:document.createTextNode(String(c)));
+    return n;
+  }
+  const p=(t,cls)=>node('p',{class:cls},t);
+  const button=(label,fn,cls='secondary',id)=>node('button',{type:'button',class:'button '+cls,id,onclick:fn},label);
+  function fresh(){const ids=[...allClues.map(c=>c.id),'finale'];return{version:1,student:{name:'',notes:''},solved:{},attempts:Object.fromEntries(ids.map(id=>[id,0])),hints:Object.fromEntries(ids.map(id=>[id,0])),exposed:{},finale:null,settings:{motion:!matchMedia('(prefers-reduced-motion: reduce)').matches,theme:'midnight'}};}
+  function clean(raw){
+    const d=fresh();if(!raw||raw.version!==1)return d;
+    d.student={name:text(raw.student?.name,80),notes:text(raw.student?.notes,8000)};
+    d.settings={motion:raw.settings?.motion!==false,theme:raw.settings?.theme==='paper'?'paper':'midnight'};
+    for(const c of allClues){
+      const r=raw.solved?.[c.id];
+      d.attempts[c.id]=Math.max(0,Math.min(999,Math.floor(Number(raw.attempts?.[c.id])||0)));
+      d.hints[c.id]=Math.max(0,Math.min(2,Math.floor(Number(raw.hints?.[c.id])||0)));
+      if(raw.exposed?.[c.id]===true)d.exposed[c.id]=true;
+      if(r&&r.choice===c.answer)d.solved[c.id]={choice:c.answer,attempts:Math.max(1,d.attempts[c.id]),hints:d.hints[c.id],assisted:r.assisted===true||!!d.exposed[c.id],at:Number.isFinite(r.at)?r.at:Date.now()};
+    }
+    d.attempts.finale=Math.max(0,Math.min(999,Math.floor(Number(raw.attempts?.finale)||0)));
+    d.hints.finale=Math.max(0,Math.min(2,Math.floor(Number(raw.hints?.finale)||0)));
+    if(raw.exposed?.finale===true)d.exposed.finale=true;
+    if(allClues.every(c=>d.solved[c.id])&&raw.finale?.choice===STORY.finale.answer)d.finale={choice:STORY.finale.answer,at:Number.isFinite(raw.finale.at)?raw.finale.at:Date.now()};
+    return d;
+  }
+  let seed=null;try{seed=JSON.parse($('mystery-state')?.textContent||'null');}catch(_){}
+  const scope=/^[a-zA-Z0-9-]{8,80}$/.test(seed?.snapshotId||'')?'.snapshot.'+seed.snapshotId:'';
+  const storageKey='thirteenth.page.v1'+scope;
+  let state,storageOK=true;try{state=clean(JSON.parse(localStorage.getItem(storageKey)||'null')||seed);}catch(_){state=clean(seed);storageOK=false;}
+  let view='cover',roomId='reading',scene=null,animationTime=0,lastFrame=null,toastTimer=null,lastFocus=null;
+  let currentClue=null,selected=null,wrong=false;
+  const subject=r=>r.id==='reading'?'English':r.id==='gallery'?'Calculus':r.id==='physics'?'Physics':'AP Chemistry';
+  function save(){try{localStorage.setItem(storageKey,JSON.stringify(state));storageOK=true;}catch(_){storageOK=false;}}
+  function progress(){const rooms={};for(const r of STORY.rooms)rooms[r.id]=r.clues.filter(c=>state.solved[c.id]).length;const solved=Object.keys(state.solved).length;return{solved,total:allClues.length,rooms,complete:solved===allClues.length,finale:!!state.finale};}
+  function updateHeader(){$('caseProgress').textContent=progress().solved+' / '+allClues.length+' clues';}
+  function applySettings(){document.documentElement.dataset.motion=state.settings.motion?'on':'off';document.documentElement.dataset.theme=state.settings.theme;}
+  function toast(t){$('toast').textContent=t;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,4200);}
+  function show(next,id){
+    scene?.dispose();scene=null;view=next;if(id)roomId=id;
+    $('appMain').replaceChildren();
+    if(view==='cover')cover();else if(view==='room')room();else notebook();
+    updateHeader();lastFrame=null;draw();
+  }
+  function seals(){const a=progress();return node('div',{class:'seal-strip','aria-label':'Collected word seals'},STORY.rooms.map((r,i)=>node('div',{class:'seal '+(a.rooms[r.id]===r.clues.length?'collected':'locked')},node('small',{},'SEAL '+String(i+1).padStart(2,'0')),node('strong',{},a.rooms[r.id]===r.clues.length?r.seal:'· · ·'),node('span',{},subject(r)))));}
+  function chapterCards(){const a=progress();return node('div',{class:'chapter-grid'},STORY.rooms.map((r,i)=>node('article',{class:'chapter-card'},node('span',{class:'chapter-number'},'CHAPTER '+['I','II','III','IV'][i]),node('span',{class:'subject-tag'},subject(r)),node('h3',{},r.title),p(r.subtitle),node('div',{class:'chapter-meta'},node('span',{},a.rooms[r.id]+' / '+r.clues.length+' clues found'),node('span',{},a.rooms[r.id]===r.clues.length?'Seal collected':'An open door')),button(a.rooms[r.id]?'Return to this room →':'Enter this room →',()=>show('room',r.id),'secondary'),node('div',{class:'progress-track'},node('i',{style:'width:'+(a.rooms[r.id]/r.clues.length*100)+'%'})))));}
+  function setupRoomButtons(container){container.querySelectorAll('.chapter-card').forEach((card,i)=>card.querySelector('button').dataset.room=STORY.rooms[i].id);}
+  function cover(){
+    const a=progress(),copy=node('div',{class:'cover-copy'},p('AN INTERACTIVE MYSTERY / FOUR SUBJECTS','eyebrow'),node('h1',{class:'cover-title'},'The Thirteenth ',node('em',{},'Page.')),p(STORY.tagline,'cover-lede'),p(STORY.intro,'cover-intro'),node('div',{class:'cover-actions'},button(a.solved?'Continue the investigation →':'Open the archive →',()=>show('room','reading'),'primary','beginButton'),button('Your evidence journal',()=>show('notebook'),'ghost')),node('div',{class:'case-counter'},node('span',{},'16 hidden clues'),node('span',{},'4 illuminated rooms'),node('span',{},'1 missing page')));
+    const canvas=node('canvas',{id:'coverCanvas',role:'img','aria-label':'Animated midnight archive: rain, glowing lamps and drifting pages'});
+    $('appMain').append(node('section',{class:'cover'},copy,node('div',{class:'cover-art'},canvas,node('div',{class:'room-caption'},node('span',{},'THE ARCHIVE / 00:13'),node('span',{},'The lights are still on.')))),node('div',{class:'section-heading'},node('div',{},p('FOLLOW YOUR CURIOSITY','eyebrow'),node('h2',{},'Every room keeps a different secret.')),p('Explore in any order. Take the hints you need.')));
+    const cards=chapterCards();setupRoomButtons(cards);$('appMain').append(cards,seals(),node('section',{class:'panel invitation'},node('h2',{},'You are the investigator.'),p('Read what a witness really says. Find a rate in a graph, follow a force through the clocktower, and count the particles in a reaction. Each correct explanation adds evidence to your journal; four clues restore a word seal.'),p('No timer, no lost lives. You can explore, ask for a hint, and revise your thinking. Everything runs in your browser.','muted'),a.complete?button(a.finale?'Revisit the thirteenth page →':'Open the final mystery →',openFinale,'primary','finaleButton'):button('How to investigate',help,'ghost')));
+    scene=ART.create(canvas,{onSelect:object=>{show('room','reading');openClue(STORY.rooms[0].clues.find(c=>c.object===object)?.id);}});
+  }
+  function room(){
+    const r=STORY.rooms.find(r=>r.id===roomId)||STORY.rooms[0],a=progress();
+    $('appMain').append(node('div',{class:'room-heading'},p(subject(r)+' / CHAPTER '+(STORY.rooms.indexOf(r)+1),'eyebrow'),node('h1',{},r.title),p(r.description)));
+    const canvas=node('canvas',{id:'roomCanvas',role:'img',tabindex:0,'aria-label':r.title+' animated scene. Use the four clue buttons beside the scene to investigate with a keyboard.'});
+    const stage=node('section',{class:'room-stage'},canvas,node('div',{class:'room-caption'},node('span',{},'SELECT A GLOWING OBJECT'),button(state.settings.motion?'Pause animation':'Play animation',()=>{state.settings.motion=!state.settings.motion;save();applySettings();$('pauseAnimation').textContent=state.settings.motion?'Pause animation':'Play animation';draw();},'ghost','pauseAnimation')));
+    const list=node('div',{class:'object-list'},r.clues.map((c,i)=>node('button',{id:'object-'+c.object,type:'button',class:'object-button '+(state.solved[c.id]?'solved':''),'data-clue':c.id,onclick:()=>openClue(c.id)},node('span',{class:'clue-number'},state.solved[c.id]?'✓':String(i+1).padStart(2,'0')),node('span',{},node('strong',{},c.title),node('small',{},c.skill)),node('span',{'aria-hidden':'true'},'→'))));
+    const aside=node('aside',{class:'evidence-panel'},p('OBJECTS OF INTEREST','eyebrow'),node('h2',{},'Look a little closer.'),p('Select a glowing object in the scene, or choose a clue below. The evidence is in the details.'),list,node('div',{class:'room-summary'},p(a.rooms[r.id]+' of '+r.clues.length+' clues understood','stamp'),a.rooms[r.id]===r.clues.length?node('div',{class:'story-reveal'},p(r.reveal),node('strong',{class:'room-seal'},r.seal)):p('Understand all four clues to uncover this room’s word seal.','muted')));
+    $('appMain').append(node('div',{class:'room-layout'},stage,aside),node('nav',{class:'room-nav','aria-label':'Move between rooms'},STORY.rooms.map(x=>button(x.title,()=>show('room',x.id),x.id===r.id?'primary':'ghost'))),seals());
+    if(a.complete)$('appMain').append(node('section',{class:'panel'},node('h2',{},'Four words. One final invitation.'),p('Your seals are ready. Bring them together and decide what Iris was asking you to notice.'),button(a.finale?'Revisit the thirteenth page →':'Solve the final mystery →',openFinale,'primary','finaleButton')));
+    scene=ART.create(canvas,{onSelect:object=>openClue(r.clues.find(c=>c.object===object)?.id)});
+  }
+  function graphVisual(graph){
+    if(!graph||!Array.isArray(graph.points)||graph.points.length<2)return null;
+    const points=graph.points.filter(p=>Array.isArray(p)&&p.length===2&&p.every(Number.isFinite));if(points.length<2)return null;
+    const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');
+    const xD=graph.xDomain||[Math.min(0,...points.map(p=>p[0])),Math.max(...points.map(p=>p[0]))],yD=graph.yDomain||[Math.min(0,...points.map(p=>p[1])),Math.max(1,...points.map(p=>p[1]))];
+    const x=v=>58+(v-xD[0])/(xD[1]-xD[0]||1)*478,y=v=>230-(v-yD[0])/(yD[1]-yD[0]||1)*195;
+    function s(tag,attrs,t){const n=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attrs))n.setAttribute(k,v);if(t!==undefined)n.textContent=t;return n;}
+    svg.setAttribute('viewBox','0 0 570 294');svg.setAttribute('role','img');svg.setAttribute('aria-label',(graph.yLabel||'y')+' plotted against '+(graph.xLabel||'x'));
+    svg.append(s('title',{},'Evidence graph'),s('desc',{},(graph.description||'Consecutive plotted coordinates joined by straight segments.')+' Coordinates: '+points.map(p=>'('+p[0]+', '+p[1]+')').join(', ')+'. '+(graph.xLabel||'x')+'; '+(graph.yLabel||'y')+'.'));
+    for(let i=0;i<=4;i++){const xv=xD[0]+(xD[1]-xD[0])*i/4,yv=yD[0]+(yD[1]-yD[0])*i/4;svg.append(s('line',{x1:x(xv),y1:35,x2:x(xv),y2:230,class:'plot-grid'}),s('line',{x1:58,y1:y(yv),x2:536,y2:y(yv),class:'plot-grid'}),s('text',{x:x(xv),y:249,'text-anchor':'middle',class:'plot-label'},Number(xv.toPrecision(3))),s('text',{x:48,y:y(yv)+4,'text-anchor':'end',class:'plot-label'},Number(yv.toPrecision(3))));}
+    svg.append(s('path',{d:'M58 35V230H536',class:'plot-axis',fill:'none'}));
+    if(yD[0]<0&&yD[1]>0)svg.append(s('line',{x1:58,y1:y(0),x2:536,y2:y(0),class:'plot-axis'}));
+    svg.append(s('polyline',{points:points.map(p=>x(p[0])+','+y(p[1])).join(' '),class:'plot-line',fill:'none'}));
+    for(const pt of points)svg.append(s('circle',{cx:x(pt[0]),cy:y(pt[1]),r:4,class:'plot-point'}));
+    svg.append(s('text',{x:295,y:280,'text-anchor':'middle',class:'plot-label'},graph.xLabel||'x'),s('text',{x:15,y:132,transform:'rotate(-90 15 132)','text-anchor':'middle',class:'plot-label'},graph.yLabel||'y'));
+    return node('figure',{class:'clue-visual'},svg,node('figcaption',{},(graph.description||'Consecutive points are joined by straight segments.')+' Coordinates: '+points.map(p=>'('+p.join(', ')+')').join(' · ')));
+  }
+  function particleVisual(particles){
+    if(!particles?.reactants)return null;
+    return node('figure',{class:'clue-visual particle-diagram'},node('div',{class:'particle-groups'},particles.reactants.map(r=>node('div',{},node('strong',{},r.label),node('div',{class:'particle-set'},Array.from({length:Math.min(12,r.count)},()=>node('span',{class:'molecule '+(r.label.includes('H')?'hydrogen':'oxygen'),'aria-label':r.label},node('i',{}),node('i',{})))),node('span',{},r.count+' molecules')))),node('figcaption',{},'Starting particle inventory. Each paired symbol represents one molecule; symbols are not to scale.'));
+  }
+  function dataTable(table){if(!table?.headers||!table?.rows)return null;return node('div',{class:'table-wrap'},node('table',{},node('thead',{},node('tr',{},table.headers.map(h=>node('th',{scope:'col'},h)))),node('tbody',{},table.rows.map(row=>node('tr',{},row.map(x=>node('td',{},x)))))));}
+  function circuitVisual(circuit){if(!circuit)return null;return node('div',{class:'clue-visual circuit-diagram'},node('strong',{},circuit.voltage+' V ideal battery'),node('div',{class:'circuit-branches'},circuit.resistors.map(r=>node('span',{},'── [ '+r+' Ω ] ──'))),p('Parallel branches share the same two battery terminals.','muted'));}
+  function openModal(title,children){lastFocus=document.activeElement;$('modalTitle').textContent=title;$('modalBody').replaceChildren(...children);$('modalOverlay').hidden=false;$('modalClose').focus();}
+  function closeModal(){const focusId=lastFocus?.id;$('modalOverlay').hidden=true;currentClue=null;show(view,roomId);if(focusId&&$(focusId))$(focusId).focus();else $('appMain').focus();}
+  function openClue(id){const c=clueById.get(id);if(!c)return;currentClue=c;selected=state.solved[id]?.choice??null;wrong=false;openModal(c.title,[]);renderPuzzle();}
+  function openFinale(){if(!progress().complete){toast('Collect every room’s word seal before opening the final mystery.');return;}currentClue={...STORY.finale,id:'finale',skill:'Synthesis · The final invitation'};selected=state.finale?.choice??null;wrong=false;openModal(STORY.finale.title,[]);renderPuzzle();}
+  function renderPuzzle(){
+    const c=currentClue;if(!c)return;const isFinal=c.id==='finale',solved=isFinal?!!state.finale:!!state.solved[c.id],hintCount=state.hints[c.id]||0;
+    const r=STORY.rooms.find(r=>r.clues.some(x=>x.id===c.id));
+    const choices=node('div',{class:'choice-list','aria-label':'Choose your answer'},c.choices.map((t,i)=>node('button',{id:'choice-'+i,type:'button',class:'choice-button '+(selected===i?'selected ':'')+(solved&&i===c.answer?'correct ':'')+(wrong&&selected===i?'incorrect':''),'aria-pressed':String(selected===i),disabled:solved,onclick:()=>{selected=i;wrong=false;renderPuzzle();$('choice-'+i)?.focus();}},node('span',{class:'choice-letter'},String.fromCharCode(65+i)),node('span',{},t))));
+    const body=[p((isFinal?'THE THIRTEENTH PAGE':subject(r))+' / '+c.skill,'clue-skill')];
+    if(c.passage)body.push(node('blockquote',{class:'clue-passage'},c.passage));
+    if(c.graph)body.push(graphVisual(c.graph));if(c.particles)body.push(particleVisual(c.particles));if(c.table)body.push(dataTable(c.table));if(c.circuit)body.push(circuitVisual(c.circuit));
+    body.push(node('h3',{class:'clue-prompt'},c.prompt),choices,node('div',{class:'puzzle-actions'},button(solved?'Evidence recorded':'Check my reasoning',checkAnswer,'primary','checkAnswer'),button(hintCount<2?'A little nudge ('+hintCount+'/2)':'Both hints revealed',()=>{if((state.hints[c.id]||0)<2){state.hints[c.id]=(state.hints[c.id]||0)+1;save();renderPuzzle();$('hintButton').focus();}},'ghost','hintButton')));
+    if(solved){body.at(-1).querySelector('#checkAnswer').disabled=true;body.at(-1).querySelector('#hintButton').disabled=true;}
+    if(wrong)body.push(p('That explanation does not fit all of the evidence yet. Revisit the details or try a hint.','feedback error'));
+    if(!solved&&!wrong&&(state.attempts[c.id]||0)>0)body.push(p('Choose the explanation that accounts for the supplied evidence.','feedback'));
+    for(let i=0;i<hintCount;i++)body.push(node('aside',{class:'hint-box',role:'status'},node('strong',{},'HINT '+(i+1)),p(c.hints[i])));
+    if(!solved&&(state.attempts[c.id]||0)>=3&&!state.exposed[c.id])body.push(button('Explain this clue',()=>{state.exposed[c.id]=true;save();renderPuzzle();},'ghost','solutionButton'));
+    if(solved||state.exposed[c.id])body.push(node('section',{class:'explanation'},p(solved?'EVIDENCE, UNDERSTOOD':'A WORKED EXPLANATION','eyebrow'),p(c.explanation),!solved?p('Use the explanation to choose an answer. Reading it alone does not mark this clue as solved.','muted'):null));
+    if(solved){
+      if(isFinal){body.push(node('section',{class:'story-reveal finale'},node('h3',{},'The door was never locked.'),p(STORY.finale.story)),button('Keep the final page in my journal →',()=>{closeModal();show('notebook');},'primary','nextClue'));}
+      else{body.push(node('aside',{class:'evidence-card'},p('ADDED TO YOUR JOURNAL','eyebrow'),p(c.evidence)));const next=r.clues.find(x=>!state.solved[x.id]);body.push(button(next?'Investigate the next object →':'Collect this room’s seal →',()=>{if(next)openClue(next.id);else{closeModal();show('room',r.id);toast('Word seal collected: '+r.seal);}},'primary','nextClue'));}
+    }
+    $('modalBody').replaceChildren(...body);updateHeader();
+  }
+  function checkAnswer(){
+    const c=currentClue;if(!c)return;if(selected===null){toast('Choose an explanation first.');return;}
+    state.attempts[c.id]=(state.attempts[c.id]||0)+1;
+    if(selected===c.answer){
+      if(c.id==='finale'){state.finale={choice:selected,at:Date.now()};toast('The thirteenth page is yours to write.');}
+      else{state.solved[c.id]={choice:selected,attempts:state.attempts[c.id],hints:state.hints[c.id]||0,assisted:!!state.exposed[c.id],at:Date.now()};toast('Evidence added to your journal.');}
+      wrong=false;
+    }else wrong=true;
+    save();renderPuzzle();
+    const feedback=$('modalBody').querySelector('.feedback,.explanation');if(feedback){feedback.setAttribute('tabindex','-1');feedback.focus({preventScroll:true});}
+  }
+  function notebook(){
+    const a=progress();
+    $('appMain').append(node('header',{class:'notebook-heading'},p('YOUR CASE / EVIDENCE JOURNAL','eyebrow'),node('h1',{},'The details you noticed.'),p('Keep the evidence separate from your interpretation. Your notes belong to you, and hints are part of learning.')),seals());
+    const name=node('input',{id:'studentName',type:'text',maxlength:80,value:state.student.name,oninput:ev=>{state.student.name=ev.target.value;save();}}),notes=node('textarea',{id:'caseNotes',rows:7,maxlength:8000,placeholder:'Which detail changed your mind? How did you test your first idea? What connects the four rooms?',oninput:ev=>{state.student.notes=ev.target.value;save();}});notes.value=state.student.notes;
+    const writing=node('section',{class:'panel'},node('h2',{},'Your interpretation'),node('div',{class:'field'},node('label',{for:'studentName'},'Investigator’s name'),name),node('div',{class:'field'},node('label',{for:'caseNotes'},'What did you notice that you almost missed?'),notes),p('Try a claim → evidence → reasoning paragraph. Refer to a specific clue, explain your method, and describe a limitation or an assumption.','muted'));
+    const toolkit=node('aside',{class:'panel'},p('CASE STATUS','eyebrow'),node('h2',{},a.solved+' / '+a.total+' clues'),p(a.finale?'Mystery resolved. Your final page is open.':a.complete?'Four seals collected. One final interpretation remains.':'The archive still has something to tell you.'),button(a.finale?'Revisit the final page':a.complete?'Solve the final mystery':'Final mystery · collect every seal',openFinale,'primary','finaleButton'),node('div',{class:'puzzle-actions'},button('Download case dossier',downloadReport,'secondary','downloadReport'),button('Backup / restore',backupDialog,'ghost','backupButton')),p(storageOK?'Your notes and evidence save automatically in this browser. Download the complete game to keep a portable copy.':'Browser storage is unavailable. Download a complete game or JSON backup to keep your notes.','muted'));
+    if(!a.complete)toolkit.querySelector('#finaleButton').disabled=true;
+    $('appMain').append(node('div',{class:'notebook-grid'},writing,toolkit));
+    for(const r of STORY.rooms){
+      const records=r.clues.filter(c=>state.solved[c.id]);
+      $('appMain').append(node('section',{class:'panel journal-room'},p(subject(r),'eyebrow'),node('h2',{},r.title),records.length?node('div',{class:'evidence-grid'},records.map(c=>node('article',{class:'evidence-card'},node('h3',{},c.title),p(c.skill,'clue-skill'),p(c.evidence),p('Checks: '+state.solved[c.id].attempts+' · Hints: '+state.solved[c.id].hints+(state.solved[c.id].assisted?' · Explanation reviewed':''),'stamp'),button('Review this clue',()=>openClue(c.id),'ghost')))):p('No evidence collected here yet.','empty-state'),button('Enter this room →',()=>show('room',r.id),'ghost')));
+    }
+    if(a.finale)$('appMain').append(node('section',{class:'panel story-reveal'},p('THE THIRTEENTH PAGE','eyebrow'),node('h2',{},'A question, left for you.'),p(STORY.finale.story)));
+    const glossary=[...STORY.glossary,...STORY.rooms.flatMap(r=>r.glossary||[])];
+    $('appMain').append(node('section',{class:'panel'},node('h2',{},'Field guide to the ideas'),p('A reference for revisiting the reasoning behind the clues.'),node('div',{class:'glossary-list'},glossary.map(item=>node('details',{},node('summary',{},item.term),p(item.definition),item.example?p(item.example,'muted'):null)))),node('section',{class:'panel'},node('h2',{},'Keep this chapter.'),p('The complete download includes all four rooms, animations, puzzles, and your current notebook. No account, model download, or API credits are needed.'),node('div',{class:'puzzle-actions'},button('Download complete mystery',downloadGame,'primary'),button('Start a new investigation',confirmRestart,'ghost','restartCase'))));
+  }
+  function help(){openModal('An invitation to investigate',[p('Iris Vale has left a trail through four rooms. Explore in any order. Select a glowing object, read the evidence, and choose the explanation that fits it.'),p('Four understood clues reveal each room’s word seal. Collect all four seals, then connect them in the final mystery. You can revisit every explanation in your journal.'),p('Hints are available immediately. After three unsuccessful checks, a worked explanation becomes available. Reading an explanation does not automatically solve a clue.'),p('Use the object buttons for keyboard navigation. In a clue, use Tab and Enter. Escape closes the dialog. You can pause animation and choose a paper reading theme in Settings.'),button('Begin the case →',()=>{closeModal();show('room','reading');},'primary')]);}
+  function download(name,content,type='text/html'){const url=URL.createObjectURL(new Blob([content],{type:type+';charset=utf-8'})),a=node('a',{href:url,download:name});document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);}
+  function downloadGame(){
+    const d={...clone(state),snapshotId:uid()},json=JSON.stringify(d).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');
+    const marker=/<script id="mystery-state" type="application\/json">[\s\S]*?<\/script>/;
+    download('The-Thirteenth-Page.html',pristine.replace(marker,()=>'<script id="mystery-state" type="application/json">'+json+'<\/script>'));toast('Complete mystery downloaded with your notes and evidence.');
+  }
+  function report(){
+    const a=progress(),breaks=t=>escape(t).replace(/\n/g,'<br>');
+    const rooms=STORY.rooms.map(r=>'<section><div class="eyebrow">'+escape(subject(r))+'</div><h2>'+escape(r.title)+'</h2>'+r.clues.filter(c=>state.solved[c.id]).map(c=>{const s=state.solved[c.id];return'<article><h3>'+escape(c.title)+'</h3><p class="skill">'+escape(c.skill)+'</p><p><strong>Evidence.</strong> '+escape(c.evidence)+'</p><p><strong>Reasoning.</strong> '+escape(c.explanation)+'</p><p class="small">Checks: '+s.attempts+' · Hints: '+s.hints+(s.assisted?' · Worked explanation reviewed':'')+'</p></article>';}).join('')+(a.rooms[r.id]===0?'<p class="muted">No evidence collected yet.</p>':'')+'</section>').join('');
+    return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Thirteenth Page · Case Dossier</title><style>*{box-sizing:border-box}body{margin:0;background:#e8e1d3;color:#302c37;font:15px/1.75 Georgia,serif}.sheet{max-width:920px;margin:30px auto;background:#fffdf6;padding:48px}header{border-bottom:2px solid #a78142;padding-bottom:25px;margin-bottom:30px}h1{font-size:42px;line-height:1.15;font-weight:400;margin:12px 0}h2{font-weight:400;font-size:27px}h3{font-size:19px;margin-bottom:5px}.eyebrow,.skill,.small,.muted{font-family:Arial,sans-serif;font-size:12px;color:#65536a}.eyebrow{text-transform:uppercase;letter-spacing:2px;color:#74511b}section{margin:32px 0}article{border-left:2px solid #ad8b50;padding:1px 0 1px 20px;margin:25px 0}.writing{white-space:normal;border:1px solid #d9ccb2;padding:22px;background:#f8f1e3;min-height:85px;overflow-wrap:anywhere}.seals{font-size:22px;letter-spacing:2px;color:#76511e}.actions{text-align:right}button{font:14px Arial,sans-serif;padding:12px 20px;border:0;border-radius:5px;background:#342742;color:white;cursor:pointer}footer{border-top:1px solid #d8cbb6;padding-top:20px;font:12px/1.7 Arial,sans-serif;color:#65536a}@media(max-width:600px){.sheet{margin:0;padding:26px 21px}h1{font-size:33px}}@page{size:A4;margin:16mm}@media print{body{background:white}.sheet{padding:0;margin:0;max-width:none}.actions{display:none}article,.writing{break-inside:avoid}h2,h3{break-after:avoid}}</style></head><body><main class="sheet"><div class="actions"><button id="printReport" type="button">Print / Save as PDF</button></div><header><div class="eyebrow">The Thirteenth Page / Evidence Journal</div><h1>Case Dossier</h1><p>Investigator: '+escape(state.student.name||'Name not entered')+'<br>Evidence understood: '+a.solved+' / '+a.total+'<br>Final mystery: '+(a.finale?'Resolved':'Not yet resolved')+'</p><p class="seals">'+STORY.rooms.map(r=>a.rooms[r.id]===r.clues.length?escape(r.seal):'· · ·').join(' / ')+'</p></header><section><h2>Your interpretation</h2><div class="writing">'+(state.student.notes.trim()?breaks(state.student.notes):'<span class="muted">Not written yet. No interpretation has been generated for the student.</span>')+'</div></section>'+rooms+(a.finale?'<section><h2>The final page</h2><p>'+escape(STORY.finale.explanation)+'</p><div class="writing">'+breaks(STORY.finale.story)+'</div></section>':'')+'<footer>An original fictional mystery connecting English, Calculus, Physics, and AP Chemistry. This dossier records completed game clues and supplied student writing. It is a practice record, not a validated assessment or an AP exam score. All calculations use the assumptions stated in their clue. No accounts, AI service or external resources are required.</footer></main><script>document.getElementById("printReport").addEventListener("click",function(){window.print();});<\/script></body></html>';
+  }
+  function downloadReport(){download('The-Thirteenth-Page-Dossier.html',report());toast('Case dossier downloaded. Open it in a browser to print or save as PDF.');}
+  function settings(){
+    currentClue=null;
+    const motion=node('input',{id:'motionSetting',type:'checkbox',checked:state.settings.motion,onchange:ev=>{state.settings.motion=ev.target.checked;applySettings();save();draw();}});
+    const theme=node('select',{id:'themeSetting',onchange:ev=>{state.settings.theme=ev.target.value;applySettings();save();}},['midnight','paper'].map(t=>{const option=node('option',{value:t},t==='paper'?'Paper · a lighter reading room':'Midnight · the original atmosphere');option.selected=state.settings.theme===t;return option;}));
+    openModal('Set the atmosphere',[p('Make the archive comfortable to explore. Turning animation off holds the scene still; every clue remains available.'),node('div',{class:'settings-grid'},node('label',{class:'setting-toggle'},motion,node('span',{},'Animate rain, pages, lamps and clockwork')),node('div',{class:'field'},node('label',{for:'themeSetting'},'Appearance'),theme)),p('Your device’s reduced-motion preference sets the initial animation choice. You can also use the Pause animation button in a room.'),p('The rooms are illustrated fiction. Decorative motion is not a scientific simulation; numerical puzzles use the data and assumptions stated in each clue.','muted'),button('How to investigate',help,'ghost'),button('Done',closeModal,'primary','settingsDone')]);
+  }
+  function backupDialog(){
+    currentClue=null;const area=node('textarea',{id:'backupText',rows:8,'aria-label':'Case backup JSON'});area.value=JSON.stringify(state,null,2);
+    const status=p('','feedback');status.setAttribute('role','status');
+    const file=node('input',{id:'importFile',type:'file',accept:'.json,application/json',onchange:async ev=>{const f=ev.target.files[0];if(!f)return;if(f.size>500000){status.textContent='Choose a backup smaller than 500 KB.';return;}try{area.value=await f.text();status.textContent='Backup loaded. Choose Restore case to use it.';}catch(_){status.textContent='This file could not be read.';}}});
+    const restore=()=>{try{if(area.value.length>500000)throw Error('The backup is too large.');const raw=JSON.parse(area.value);if(raw.version!==1)throw Error('Choose a Thirteenth Page version 1 backup.');state=clean(raw);save();applySettings();closeModal();show('notebook');toast('Case restored. Evidence records were checked against the clue answers.');}catch(error){status.textContent='Could not restore: '+error.message;}};
+    openModal('A case you can carry',[p('Download a JSON backup, or load a previous one. Restoring replaces the current notebook in this browser. Download your current backup first if you want to keep both.'),button('Download JSON backup',()=>download('Thirteenth-Page-Case.json',JSON.stringify(state,null,2),'application/json'),'secondary','exportBackup'),node('div',{class:'field'},node('label',{for:'importFile'},'Load a backup file'),file),area,node('div',{class:'puzzle-actions'},button('Select all text',()=>{area.focus();area.select();},'ghost'),button('Restore case',restore,'primary','restoreBackup')),status]);
+  }
+  function confirmRestart(){
+    currentClue=null;openModal('Begin a fresh investigation?',[p('This clears the current case’s clue records, hints, name and journal notes in this browser. Your appearance settings stay the same. Download a complete mystery or JSON backup first to keep your work.'),button('Keep investigating',closeModal,'secondary','cancelRestart'),button('Start a new case',()=>{const preferences=clone(state.settings);state=fresh();state.settings=preferences;save();closeModal();show('cover');toast('A fresh letter is waiting at the archive.');},'primary','confirmRestart')]);
+  }
+  function draw(){if(!scene)return;const id=view==='cover'?'reading':roomId,r=STORY.rooms.find(x=>x.id===id);scene.render(id,{time:animationTime,motion:state.settings.motion,solved:r.clues.filter(c=>state.solved[c.id]).map(c=>c.object)});}
+  function frame(now){
+    const animate=state.settings.motion&&!document.hidden&&$('modalOverlay').hidden;
+    if(lastFrame!==null&&animate)animationTime+=Math.min(.05,(now-lastFrame)/1000);
+    if(animate||lastFrame===null)draw();lastFrame=now;requestAnimationFrame(frame);
+  }
+  document.addEventListener('visibilitychange',()=>{lastFrame=null;});
+  $('homeButton').addEventListener('click',()=>show('cover'));$('notebookButton').addEventListener('click',()=>show('notebook'));$('settingsButton').addEventListener('click',settings);$('downloadButton').addEventListener('click',downloadGame);$('modalClose').addEventListener('click',closeModal);
+  $('modalOverlay').addEventListener('click',ev=>{if(ev.target===$('modalOverlay'))closeModal();});
+  document.addEventListener('keydown',ev=>{
+    if($('modalOverlay').hidden)return;
+    if(ev.key==='Escape'){ev.preventDefault();closeModal();return;}
+    if(ev.key==='Tab'){
+      const list=Array.from($('modalOverlay').querySelectorAll('button,input,select,textarea,[tabindex]')).filter(n=>!n.disabled&&!n.hidden&&n.getAttribute('tabindex')!=='-1'),first=list[0],last=list.at(-1);
+      if(ev.shiftKey&&document.activeElement===first){ev.preventDefault();last.focus();}else if(!ev.shiftKey&&document.activeElement===last){ev.preventDefault();first.focus();}
+    }
+  });
+  window.ThirteenthGame=Object.freeze({inspect:()=>({view,room:roomId,state:clone(state),settings:clone(state.settings),progress:progress(),hotspots:scene?.getHotspots()||[],animationTime,storage:{key:storageKey,available:storageOK},clue:currentClue?.id||null})});
+  applySettings();show('cover');requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
